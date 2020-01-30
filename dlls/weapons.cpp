@@ -339,6 +339,8 @@ void W_Precache(void)
 	UTIL_PrecacheOtherWeapon( "weapon_357" );
 	UTIL_PrecacheOther( "ammo_357" );
 #endif
+
+	UTIL_PrecacheOtherWeapon("weapon_eagle");
 	
 #if !defined( OEM_BUILD ) && !defined( HLDEMO_BUILD )
 	// gauss
@@ -1615,3 +1617,9 @@ TYPEDESCRIPTION	CSatchel::m_SaveData[] =
 };
 IMPLEMENT_SAVERESTORE( CSatchel, CBasePlayerWeapon );
 
+
+TYPEDESCRIPTION	CDesertEagle::m_SaveData[] =
+{
+    DEFINE_FIELD(CDesertEagle, m_fSpotActive, FIELD_INTEGER),
+};
+IMPLEMENT_SAVERESTORE(CDesertEagle, CBasePlayerWeapon);

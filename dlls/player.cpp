@@ -3549,6 +3549,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_tripmine" );
 #ifndef OEM_BUILD
 		GiveNamedItem( "weapon_357" );
+		GiveNamedItem("weapon_eagle");
 		GiveNamedItem( "ammo_357" );
 		GiveNamedItem( "weapon_crossbow" );
 		GiveNamedItem( "ammo_crossbow" );
