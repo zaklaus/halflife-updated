@@ -12,7 +12,7 @@
 typedef	enum
 {
 	BULLET_NONE = 0,
-	BULLET_PLAYER_9MM, // glock
+	BULLET_PLAYER_45ACP, // glock
 	BULLET_PLAYER_MP5, // mp5
 	BULLET_PLAYER_357, // python
 	BULLET_PLAYER_BUCKSHOT, // shotgun

@@ -1548,8 +1548,8 @@ Vector CBaseEntity::FireBulletsPlayer ( ULONG cShots, Vector vecSrc, Vector vecD
 			else switch(iBulletType)
 			{
 			default:
-			case BULLET_PLAYER_9MM:		
-				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmg9MM, vecDir, &tr, DMG_BULLET); 
+			case BULLET_PLAYER_45ACP:
+				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmg45Acp, vecDir, &tr, DMG_BULLET); 
 				break;
 
 			case BULLET_PLAYER_MP5:		

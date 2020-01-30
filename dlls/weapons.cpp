@@ -171,7 +171,7 @@ void DecalGunshot( TraceResult *pTrace, int iBulletType )
 
 		switch( iBulletType )
 		{
-		case BULLET_PLAYER_9MM:
+		case BULLET_PLAYER_45ACP:
 		case BULLET_MONSTER_9MM:
 		case BULLET_PLAYER_MP5:
 		case BULLET_MONSTER_MP5:

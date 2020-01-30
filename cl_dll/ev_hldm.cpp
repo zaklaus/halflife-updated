@@ -286,7 +286,7 @@ void EV_HLDM_DecalGunshot( pmtrace_t *pTrace, int iBulletType )
 	{
 		switch( iBulletType )
 		{
-		case BULLET_PLAYER_9MM:
+		case BULLET_PLAYER_45ACP:
 		case BULLET_MONSTER_9MM:
 		case BULLET_PLAYER_MP5:
 		case BULLET_MONSTER_MP5:
@@ -407,7 +407,7 @@ void EV_HLDM_FireBullets( int idx, float *forward, float *right, float *up, int 
 			switch(iBulletType)
 			{
 			default:
-			case BULLET_PLAYER_9MM:		
+			case BULLET_PLAYER_45ACP:
 				
 				EV_HLDM_PlayTextureSound( idx, &tr, vecSrc, vecEnd, iBulletType );
 				EV_HLDM_DecalGunshot( &tr, iBulletType );
@@ -485,7 +485,7 @@ void EV_FireGlock1( event_args_t *args )
 	
 	VectorCopy( forward, vecAiming );
 
-	EV_HLDM_FireBullets( idx, forward, right, up, 1, vecSrc, vecAiming, 8192, BULLET_PLAYER_9MM, 0, 0, args->fparam1, args->fparam2 );
+	EV_HLDM_FireBullets( idx, forward, right, up, 1, vecSrc, vecAiming, 8192, BULLET_PLAYER_45ACP, 0, 0, args->fparam1, args->fparam2 );
 }
 
 void EV_FireGlock2( event_args_t *args )
@@ -530,7 +530,7 @@ void EV_FireGlock2( event_args_t *args )
 	
 	VectorCopy( forward, vecAiming );
 
-	EV_HLDM_FireBullets( idx, forward, right, up, 1, vecSrc, vecAiming, 8192, BULLET_PLAYER_9MM, 0, &tracerCount[idx-1], args->fparam1, args->fparam2 );
+	EV_HLDM_FireBullets( idx, forward, right, up, 1, vecSrc, vecAiming, 8192, BULLET_PLAYER_45ACP, 0, &tracerCount[idx-1], args->fparam1, args->fparam2 );
 	
 }
 //======================
