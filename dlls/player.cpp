@@ -188,6 +188,7 @@ int gmsgTeamNames = 0;
 int gmsgStatusText = 0;
 int gmsgStatusValue = 0; 
 
+int gmsgSpriteOverlay = 0;
 
 
 void LinkUserMessages( void )
@@ -236,6 +237,7 @@ void LinkUserMessages( void )
 	gmsgStatusText = REG_USER_MSG("StatusText", -1);
 	gmsgStatusValue = REG_USER_MSG("StatusValue", 3); 
 
+	gmsgSpriteOverlay = REG_USER_MSG("SprOverlay", -1);
 }
 
 LINK_ENTITY_TO_CLASS( player, CBasePlayer );

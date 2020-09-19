@@ -2266,3 +2266,97 @@ void CItemSoda::CanTouch ( CBaseEntity *pOther )
 	SetThink ( &CItemSoda::SUB_Remove );
 	pev->nextthink = gpGlobals->time;
 }
+
+
+// Sprite overlay entity (only supports one sprite overlay at a time, and for a limited duration only)
+// Not re-triggerable. Kills itself after firing.
+class CSpriteOverlay : public CPointEntity
+{
+public:
+	void	Spawn(void);
+	void	Precache(void);
+	void	Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+	void	KeyValue(KeyValueData* pkvd);
+private:
+	short hAlign = 50;
+	short vAlign = 50;
+	short displaySeconds = -1;
+};
+
+LINK_ENTITY_TO_CLASS(env_sprite_overlay, CSpriteOverlay);
+
+extern int gmsgSpriteOverlay;
+
+void CSpriteOverlay::Spawn(void)
+{
+	Precache();
+}
+
+void CSpriteOverlay::Precache(void)
+{
+	PRECACHE_MODEL((char*)STRING(pev->model));
+}
+
+void CSpriteOverlay::KeyValue(KeyValueData* pkvd)
+{
+	if (FStrEq(pkvd->szKeyName, "model"))
+	{
+		pev->model = ALLOC_STRING(pkvd->szValue);
+		pkvd->fHandled = TRUE;
+	}
+	else if (FStrEq(pkvd->szKeyName, "framerate"))
+	{
+		pev->framerate = atoi(pkvd->szValue);
+		pkvd->fHandled = TRUE;
+	}
+	else if (FStrEq(pkvd->szKeyName, "time"))
+	{
+		displaySeconds = atoi(pkvd->szValue);
+		pkvd->fHandled = TRUE;
+	}
+	else if (FStrEq(pkvd->szKeyName, "halign"))
+	{
+		float a = atof(pkvd->szValue);
+		if (a >= -100 && a <= 200) hAlign = (short) a;
+		pkvd->fHandled = TRUE;
+	}
+	else if (FStrEq(pkvd->szKeyName, "valign"))
+	{
+		float a = atof(pkvd->szValue);
+		if (a >= -100 && a <= 200) vAlign = (short) a;
+		pkvd->fHandled = TRUE;
+	}
+	else
+	{
+		CPointEntity::KeyValue(pkvd);
+	}
+}
+
+void CSpriteOverlay::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+{
+	CBaseEntity* pPlayer = NULL;
+
+	if (pActivator && pActivator->IsPlayer())
+	{
+		pPlayer = pActivator;
+	}
+	else
+	{
+		pPlayer = CBaseEntity::Instance(g_engfuncs.pfnPEntityOfEntIndex(1));
+	}
+
+	if (pPlayer)
+	{
+		MESSAGE_BEGIN(MSG_ONE, gmsgSpriteOverlay, NULL, pPlayer->edict());
+		WRITE_SHORT(pev->framerate);
+		WRITE_SHORT(hAlign);
+		WRITE_SHORT(vAlign);
+		WRITE_SHORT(displaySeconds);
+		WRITE_STRING((char*)STRING(pev->model));
+		MESSAGE_END();
+	}
+
+	UTIL_Remove(this);
+
+	SUB_UseTargets(this, USE_TOGGLE, 0);
+}
