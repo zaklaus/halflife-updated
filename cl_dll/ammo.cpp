@@ -74,10 +74,9 @@ void WeaponsResource :: LoadWeaponSprites( WEAPON *pWeapon )
 {
 	int i, iRes;
 
-	if (ScreenWidth < 640)
-		iRes = 320;
-	else
-		iRes = 640;
+	if (ScreenWidth < 640) iRes = 320;
+	else if (ScreenWidth < 1920) iRes = 640;
+	else iRes = 1920;
 
 	char sz[256];
 
