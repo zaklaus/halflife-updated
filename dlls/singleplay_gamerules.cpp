@@ -165,6 +165,11 @@ int CHalfLifeRules :: IPointsForKill( CBasePlayer *pAttacker, CBasePlayer *pKill
 //=========================================================
 void CHalfLifeRules :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pInflictor )
 {
+	MESSAGE_BEGIN(MSG_ALL, gmsgDeathMsg);
+	    WRITE_BYTE(ENTINDEX(pVictim->edict()));						// the killer
+	    WRITE_BYTE(ENTINDEX(pVictim->edict()));		// the victim
+	    WRITE_STRING("Something");		// what they were killed by (should this be a string?)
+	MESSAGE_END();
 }
 
 //=========================================================
