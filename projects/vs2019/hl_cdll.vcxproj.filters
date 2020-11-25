@@ -43,37 +43,19 @@
     <Filter Include="Source Files\_hl">
       <UniqueIdentifier>{f033f23a-ab54-411c-bebf-72d10839418e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\_hl\dlls">
-      <UniqueIdentifier>{a2469e54-cb56-4161-b6b1-55c9d93676c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\_hl\dlls\wpn_shared">
-      <UniqueIdentifier>{a46a0ff1-e7ad-43c4-afb8-6c93e71803a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\_hl\cl_dll">
       <UniqueIdentifier>{5bff06ec-c232-4dd2-8642-4e2ce64f31ef}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\_hl\cl_dll\hl">
       <UniqueIdentifier>{bd9d5958-4e67-4bff-bbd8-6ba6dfcdb720}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\dlls/entities/weapons">
+      <UniqueIdentifier>{6e5b1d43-c860-4a8b-a4b3-23c4f743b30b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\dlls\crossbow.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\crowbar.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\egon.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\ev_hldm.cpp">
       <Filter>Source Files\_hl\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\gauss.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\handgrenade.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\hl\hl_weapons.cpp">
       <Filter>Source Files\_hl\cl_dll\hl</Filter>
@@ -86,33 +68,6 @@
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\hl\hl_objects.cpp">
       <Filter>Source Files\_hl\cl_dll\hl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\wpn_shared\hl_wpn_glock.cpp">
-      <Filter>Source Files\_hl\dlls\wpn_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\squeakgrenade.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\hornetgun.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\mp5.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\python.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\rpg.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\satchel.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\shotgun.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\tripmine.cpp">
-      <Filter>Source Files\_hl\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\death.cpp">
       <Filter>Source Files\cl_dll</Filter>
@@ -323,6 +278,51 @@
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\rain.cpp">
       <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\crossbow.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\crowbar.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\debugger.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\egon.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\gauss.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\glock.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\handgrenade.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\hornetgun.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\mp5.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\python.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\rpg.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\satchel.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\shotgun.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\squeakgrenade.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\weapons\tripmine.cpp">
+      <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
