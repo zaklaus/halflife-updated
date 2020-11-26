@@ -1,10 +1,10 @@
 /***
 *
-*	Copyright (c) 1996-2001, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
+*    Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+*    
+*    This product contains software technology licensed from Id 
+*    Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*    All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
 *   object code is restricted to non-commercial enhancements to products from
@@ -12,6 +12,7 @@
 *   without written permission from Valve LLC.
 *
 ****/
+#pragma once
 #ifndef EXTDLL_H
 #define EXTDLL_H
 
@@ -23,9 +24,9 @@
 #include "Platform.h"
 
 // Header file containing definition of globalvars_t and entvars_t
-typedef unsigned int func_t;					//
-typedef unsigned int string_t;				// from engine's pr_comp.h;
-typedef float vec_t;				// needed before including progdefs.h
+typedef unsigned int func_t;                    //
+typedef unsigned int string_t;                // from engine's pr_comp.h;
+typedef float vec_t;                // needed before including progdefs.h
 
 // Vector class
 #include "vector.h"

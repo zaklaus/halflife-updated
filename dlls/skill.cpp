@@ -1,10 +1,10 @@
 /***
 *
-*	Copyright (c) 1996-2001, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
+*    Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+*    
+*    This product contains software technology licensed from Id 
+*    Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*    All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
 *   object code is restricted to non-commercial enhancements to products from
@@ -15,12 +15,12 @@
 //=========================================================
 // skill.cpp - code for skill level concerns
 //=========================================================
-#include	"extdll.h"
-#include	"util.h"
-#include	"skill.h"
+#include    "extdll.h"
+#include    "util.h"
+#include    "skill.h"
 
 
-skilldata_t	gSkillData;
+skilldata_t    gSkillData;
 
 
 //=========================================================
@@ -29,19 +29,19 @@ skilldata_t	gSkillData;
 //=========================================================
 float GetSkillCvar( const char *pName )
 {
-	int		iCount;
-	float	flValue;
-	char	szBuffer[ 64 ];
-	
-	iCount = sprintf( szBuffer, "%s%d",pName, gSkillData.iSkillLevel );
+    int        iCount;
+    float    flValue;
+    char    szBuffer[ 64 ];
+    
+    iCount = sprintf( szBuffer, "%s%d",pName, gSkillData.iSkillLevel );
 
-	flValue = CVAR_GET_FLOAT ( szBuffer );
+    flValue = CVAR_GET_FLOAT ( szBuffer );
 
-	if ( flValue <= 0 )
-	{
-		ALERT ( at_debug, "\n\n** GetSkillCVar Got a zero for %s **\n\n", szBuffer );
-	}
+    if ( flValue <= 0 )
+    {
+        ALERT ( at_debug, "\n\n** GetSkillCVar Got a zero for %s **\n\n", szBuffer );
+    }
 
-	return flValue;
+    return flValue;
 }
 

@@ -1,10 +1,10 @@
 /***
 *
-*	Copyright (c) 1996-2001, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
+*    Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+*    
+*    This product contains software technology licensed from Id 
+*    Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*    All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
 *   object code is restricted to non-commercial enhancements to products from
@@ -44,20 +44,20 @@ BOOL WINAPI DllMain(
    DWORD fdwReason,
    LPVOID lpvReserved)
 {
-	if      (fdwReason == DLL_PROCESS_ATTACH)
+    if      (fdwReason == DLL_PROCESS_ATTACH)
     {
     }
-	else if (fdwReason == DLL_PROCESS_DETACH)
+    else if (fdwReason == DLL_PROCESS_DETACH)
     {
     }
-	return TRUE;
+    return TRUE;
 }
 #endif
 
-extern "C" void DLLEXPORT GiveFnptrsToDll(	enginefuncs_t* pengfuncsFromEngine, globalvars_t *pGlobals )
+extern "C" void DLLEXPORT GiveFnptrsToDll(    enginefuncs_t* pengfuncsFromEngine, globalvars_t *pGlobals )
 {
-	memcpy(&g_engfuncs, pengfuncsFromEngine, sizeof(enginefuncs_t));
-	gpGlobals = pGlobals;
+    memcpy(&g_engfuncs, pengfuncsFromEngine, sizeof(enginefuncs_t));
+    gpGlobals = pGlobals;
 }
 
 

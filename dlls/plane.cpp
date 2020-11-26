@@ -1,10 +1,10 @@
 /***
 *
-*	Copyright (c) 1996-2001, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
+*    Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+*    
+*    This product contains software technology licensed from Id 
+*    Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*    All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
 *   object code is restricted to non-commercial enhancements to products from
@@ -20,7 +20,7 @@
 //=========================================================
 CPlane :: CPlane ( void )
 {
-	m_fInitialized = FALSE;
+    m_fInitialized = FALSE;
 }
 
 //=========================================================
@@ -29,9 +29,9 @@ CPlane :: CPlane ( void )
 //=========================================================
 void CPlane :: InitializePlane ( const Vector &vecNormal, const Vector &vecPoint )
 {
-	m_vecNormal = vecNormal;
-	m_flDist = DotProduct ( m_vecNormal, vecPoint );
-	m_fInitialized = TRUE;
+    m_vecNormal = vecNormal;
+    m_flDist = DotProduct ( m_vecNormal, vecPoint );
+    m_fInitialized = TRUE;
 }
 
 
@@ -41,20 +41,20 @@ void CPlane :: InitializePlane ( const Vector &vecNormal, const Vector &vecPoint
 //=========================================================
 BOOL CPlane :: PointInFront ( const Vector &vecPoint )
 {
-	float flFace;
+    float flFace;
 
-	if ( !m_fInitialized )
-	{
-		return FALSE;
-	}
+    if ( !m_fInitialized )
+    {
+        return FALSE;
+    }
 
-	flFace = DotProduct ( m_vecNormal, vecPoint ) - m_flDist;
+    flFace = DotProduct ( m_vecNormal, vecPoint ) - m_flDist;
 
-	if ( flFace >= 0 )
-	{
-		return TRUE;
-	}
+    if ( flFace >= 0 )
+    {
+        return TRUE;
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
