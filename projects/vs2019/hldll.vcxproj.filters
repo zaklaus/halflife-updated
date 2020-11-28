@@ -70,6 +70,9 @@
     <Filter Include="Header Files\dlls\entities\effects">
       <UniqueIdentifier>{b4a3415f-678c-4016-a82d-42a0af87011b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls\entities\triggers">
+      <UniqueIdentifier>{510b5f87-6f2b-4f99-b5dc-7c20989f3e5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -257,9 +260,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\point\xen.cpp">
       <Filter>Source Files\dlls\entities\point</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\triggers\triggers.cpp">
-      <Filter>Source Files\dlls\entities\triggers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\crossbow.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
@@ -647,6 +647,135 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CWreckage.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CAutoTrigger.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CBaseTrigger.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CChangeLevel.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CEnvCustomize.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CFireAndDie.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CFrictionModifier.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CInOutRegister.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CLadder.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CMotionManager.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CMotionThread.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CRenderFxFader.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CRenderFxManager.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CStateWatcher.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTargetCDAudio.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTargetFMODAudio.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerBounce.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerCamera.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerCDAudio.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerChangeCVar.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerChangeTarget.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerChangeValue.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerCommand.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerCounter.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerEndSection.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerGravity.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerHevCharge.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerHurt.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerInOut.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerMonsterJump.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerMotion.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerMultiple.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerOnce.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerOnSight.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerPush.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerRelay.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerRotTest.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerSave.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerSetPatrol.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerTeleport.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CWatcherRatio.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CMultiManager.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CTriggerVolume.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\triggers\CWatcherCount.cpp">
+      <Filter>Source Files\dlls\entities\triggers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1075,6 +1204,135 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CWreckage.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CAutoTrigger.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CBaseTrigger.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CChangeLevel.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CEnvCustomize.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CFireAndDie.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CFrictionModifier.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CInOutRegister.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CLadder.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CMotionManager.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CMotionThread.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CRenderFxFader.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CRenderFxManager.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CStateWatcher.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTargetCDAudio.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTargetFMODAudio.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerBounce.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerCamera.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerCDAudio.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerChangeCVar.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerChangeTarget.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerChangeValue.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerCommand.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerCounter.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerEndSection.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerGravity.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerHevCharge.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerHurt.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerInOut.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerMonsterJump.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerMotion.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerMultiple.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerOnce.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerOnSight.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerPush.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerRelay.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerRotTest.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerSave.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerSetPatrol.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerTeleport.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CWatcherRatio.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CMultiManager.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CTriggerVolume.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\triggers\CWatcherCount.h">
+      <Filter>Header Files\dlls\entities\triggers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
