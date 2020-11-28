@@ -25,7 +25,7 @@
 #include    "schedule.h"
 #include    "flyingmonster.h"
 #include    "nodes.h"
-#include    "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 #include    "animation.h"
 #include "entities/effects/CBeam.h"
 #include    "weapons.h"

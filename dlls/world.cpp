@@ -24,7 +24,7 @@
 #include "util.h"
 #include "cbase.h"
 #include "nodes.h"
-#include "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 #include "client.h"
 #include "decals.h"
 #include "skill.h"

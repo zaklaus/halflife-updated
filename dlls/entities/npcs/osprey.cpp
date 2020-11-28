@@ -18,7 +18,7 @@
 #include "monsters.h"
 #include "weapons.h"
 #include "nodes.h"
-#include "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 #include "entities/effects/CBeam.h"
 #include "customentity.h"
 

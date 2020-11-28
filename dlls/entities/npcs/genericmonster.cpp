@@ -24,7 +24,7 @@
 #include    "talkmonster.h"
 #include "entities/effects/CBeam.h"
 #include "customentity.h"
-#include "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 
 // For holograms, make them not solid so the player can walk through them
 //LRC- this seems to interfere with SF_MONSTER_CLIP

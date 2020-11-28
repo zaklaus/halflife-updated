@@ -38,7 +38,7 @@
 #include    "squadmonster.h"
 #include    "weapons.h"
 #include    "talkmonster.h"
-#include    "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 #include "entities/effects/CBeam.h"
 #include    "customentity.h"
 #include    "scripted.h" //LRC

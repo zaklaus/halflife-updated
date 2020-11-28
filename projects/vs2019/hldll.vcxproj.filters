@@ -321,9 +321,6 @@
     <ClCompile Include="..\..\dlls\entities\base\defaultai.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\explode.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\flyingmonster.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
@@ -332,9 +329,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\npcs\ggrenade.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\h_cycler.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\npcs\hgrunt.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
@@ -352,9 +346,6 @@
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\sound.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\soundent.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\scripted.cpp">
@@ -600,6 +591,63 @@
     <ClCompile Include="..\..\dlls\entities\effects\CSprite.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CEnvExplosion.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CShower.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CEnvLight.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CLight.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CLightDynamic.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CLightFader.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CTriggerLightstyle.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CAmbientGeneric.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CEnvSound.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CSpeaker.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CTriggerSound.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CSoundEnt.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\CSound.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CCycler.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CCyclerProbe.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CCyclerSprite.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CGenericCycler.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CWeaponCycler.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CWreckage.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\doors.h">
@@ -705,9 +753,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\skill.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\soundent.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\spectator.h">
@@ -972,6 +1017,63 @@
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CSprite.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CEnvExplosion.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CShower.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CEnvLight.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CLight.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CLightDynamic.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CLightFader.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CTriggerLightstyle.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CAmbientGeneric.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CEnvSound.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CSpeaker.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CTriggerSound.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CSoundEnt.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\CSound.h">
+      <Filter>Header Files\dlls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CCycler.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CCyclerProbe.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CCyclerSprite.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CGenericCycler.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CWeaponCycler.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CWreckage.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
   </ItemGroup>

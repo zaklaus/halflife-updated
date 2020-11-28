@@ -27,7 +27,7 @@
 #include    "weapons.h"
 #include "entities/effects/CSprite.h"
 #include "entities/effects/CBeam.h"
-#include    "soundent.h"
+#include "entities/effects/CSoundEnt.h"
 #include    "decals.h"
 #include    "explode.h"
 #include "entities/brush/CBreakable.h"
