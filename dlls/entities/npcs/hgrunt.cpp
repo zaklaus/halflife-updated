@@ -40,6 +40,7 @@
 #include    "talkmonster.h"
 #include "entities/effects/CSoundEnt.h"
 #include "entities/effects/CBeam.h"
+#include "entities/weapons/CGrenade.h"
 #include    "customentity.h"
 #include    "scripted.h" //LRC
 

@@ -14,10 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "weapons.h"
+#include "entities/weapons/CBasePlayerWeapon.h"
 
 //Weapon Cycler
 class CWeaponCycler : public CBasePlayerWeapon

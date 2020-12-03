@@ -17,7 +17,8 @@
 #include "extdll.h"
 #include "util.h"
 #include "cbase.h"
-#include "weapons.h"
+#include "entities/weapons/CLaserSpot.h"
+
 class CFuncTankControls;
 class CTankSequence;
 

@@ -19,6 +19,7 @@
 #include "cbase.h"
 #include "monsters.h"
 #include "weapons.h"
+#include "entities/weapons/CGrenade.h"
 #include "nodes.h"
 #include "entities/effects/CBeam.h"
 

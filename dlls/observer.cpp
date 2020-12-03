@@ -19,7 +19,7 @@
 #include    "util.h"
 #include    "cbase.h"
 #include    "player.h"
-#include    "weapons.h"
+#include "entities/weapons/CBasePlayerItem.h"
 #include    "pm_shared.h"
 
 extern int gmsgCurWeapon;

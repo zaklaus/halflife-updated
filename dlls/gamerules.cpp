@@ -20,7 +20,7 @@
 #include    "util.h"
 #include    "cbase.h"
 #include    "player.h"
-#include    "weapons.h"
+#include "entities/weapons/CBasePlayerItem.h"
 #include    "gamerules.h"
 #include    "teamplay_gamerules.h"
 #include    "skill.h"

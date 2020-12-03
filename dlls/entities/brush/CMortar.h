@@ -17,7 +17,7 @@
 #include "extdll.h"
 #include "util.h"
 #include "cbase.h"
-#include "weapons.h"
+#include "entities/weapons/CGrenade.h"
 
 class CMortar : public CGrenade
 {

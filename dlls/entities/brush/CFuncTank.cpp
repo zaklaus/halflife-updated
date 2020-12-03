@@ -19,6 +19,7 @@
 #include "monsters.h"
 #include "movewith.h"
 #include "player.h"
+#include "weapons.h"
 
 TYPEDESCRIPTION CFuncTank::m_SaveData[] =
 {

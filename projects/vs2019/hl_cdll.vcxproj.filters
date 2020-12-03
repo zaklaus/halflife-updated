@@ -52,6 +52,9 @@
     <Filter Include="Source Files\dlls/entities/weapons">
       <UniqueIdentifier>{6e5b1d43-c860-4a8b-a4b3-23c4f743b30b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls/entities/weapons">
+      <UniqueIdentifier>{7b341be5-d7b2-41bc-8d0c-e19cb4e4741c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cl_dll\ev_hldm.cpp">
@@ -279,49 +282,49 @@
     <ClCompile Include="..\..\cl_dll\rain.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\crossbow.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CCrossbow.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\crowbar.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CCrowbar.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\debugger.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CEgon.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\egon.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CGauss.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\gauss.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CGlock.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\glock.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CHandGrenade.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\handgrenade.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CHgun.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\hornetgun.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CMP5.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\mp5.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CPython.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\python.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CRpg.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\rpg.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CSatchel.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\satchel.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CShotgun.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\shotgun.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CSqueak.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\squeakgrenade.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CTripmine.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\tripmine.cpp">
+    <ClCompile Include="..\..\dlls\entities\weapons\CSatchelCharge.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
     </ClCompile>
   </ItemGroup>
@@ -469,6 +472,66 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\glInclude.h">
       <Filter>Header Files\cl_dll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerItem.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CCrossbow.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CCrowbar.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CDebugger.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CEgon.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CGauss.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CGlock.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CGrenade.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CHandGrenade.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CHgun.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CMP5.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CPython.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CRpg.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CSatchel.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CShotgun.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CSqueak.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CTripmine.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h">
+      <Filter>Header Files\dlls/entities/weapons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

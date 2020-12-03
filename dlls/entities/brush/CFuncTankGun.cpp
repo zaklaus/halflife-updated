@@ -14,6 +14,7 @@
 ****/
 
 #include "CFuncTankGun.h"
+#include "weapons.h"
 
 LINK_ENTITY_TO_CLASS(func_tank, CFuncTankGun);
 

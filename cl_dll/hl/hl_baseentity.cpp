@@ -28,6 +28,10 @@ This file contains "stubs" of class member implementations so that we can predic
 #include	"weapons.h"
 #include	"nodes.h"
 #include "entities/effects/CSoundEnt.h"
+#include "entities/weapons/CBasePlayerItem.h"
+#include "entities/weapons/CBasePlayerWeapon.h"
+#include "entities/weapons/CBasePlayerAmmo.h"
+#include "entities/weapons/CGrenade.h"
 #include	"skill.h"
 
 // Globals used by game logic

@@ -16,7 +16,6 @@
 #include "util.h"
 #include "cbase.h"
 #include "monsters.h"
-#include "weapons.h"
 #include "nodes.h"
 #include "player.h"
 
@@ -30,6 +29,21 @@
 #include "../hud_iface.h"
 #include "../com_weapons.h"
 #include "../demo.h"
+
+#include "entities/weapons/CCrossbow.h"
+#include "entities/weapons/CCrowbar.h"
+#include "entities/weapons/CEgon.h"
+#include "entities/weapons/CGauss.h"
+#include "entities/weapons/CGlock.h"
+#include "entities/weapons/CHandGrenade.h"
+#include "entities/weapons/CHgun.h"
+#include "entities/weapons/CMP5.h"
+#include "entities/weapons/CPython.h"
+#include "entities/weapons/CRpg.h"
+#include "entities/weapons/CSatchel.h"
+#include "entities/weapons/CShotgun.h"
+#include "entities/weapons/CSqueak.h"
+#include "entities/weapons/CTripmine.h"
 
 extern globalvars_t *gpGlobals;
 extern int g_iUser1;

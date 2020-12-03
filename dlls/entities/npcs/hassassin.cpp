@@ -25,6 +25,7 @@
 #include    "schedule.h"
 #include    "squadmonster.h"
 #include    "weapons.h"
+#include "entities/weapons/CGrenade.h"
 #include "entities/effects/CSoundEnt.h"
 #include    "scripted.h"
 #include    "game.h"

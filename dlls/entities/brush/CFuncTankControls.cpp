@@ -15,9 +15,8 @@
 
 #include "CFuncTankControls.h"
 #include "CFuncTank.h"
-#include "weapons.h"
+#include "entities/weapons/CBasePlayerItem.h"
 #include "player.h"
-
 
 LINK_ENTITY_TO_CLASS(func_tankcontrols, CFuncTankControls);
 
