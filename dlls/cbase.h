@@ -874,60 +874,6 @@ extern BOOL g_startSuit;
 
 extern BOOL g_allowGJump; //AJH SP Gaussjump
 
-//LRC- moved here from alias.cpp so that util functions can use these defs.
-class CBaseMutableAlias : public CPointEntity
-{
-public:
-    BOOL IsMutableAlias( void ) { return TRUE; };
-    virtual CBaseEntity *FollowAlias( CBaseEntity *pFrom ) { return NULL; };
-    virtual void ChangeValue( int iszValue ) { ALERT(at_error, "%s entities cannot change value!", STRING(pev->classname)); }
-    virtual void ChangeValue( CBaseEntity *pValue ) { ChangeValue(pValue->pev->targetname); }
-    virtual void FlushChanges( void ) {};
-
-    virtual int        Save( CSave &save );
-    virtual int        Restore( CRestore &restore );
-    static    TYPEDESCRIPTION m_SaveData[];
-
-    CBaseMutableAlias *m_pNextAlias;
-};
-
-class CInfoGroup : public CPointEntity
-{
-public:
-    void KeyValue( KeyValueData *pkvd );
-    void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    int GetMember( const char* szMemberName );
-
-    virtual int        Save( CSave &save );
-    virtual int        Restore( CRestore &restore );
-
-    static    TYPEDESCRIPTION m_SaveData[];
-
-    int        m_cMembers;
-    int        m_iszMemberName    [ MAX_MULTI_TARGETS ];
-    int        m_iszMemberValue [ MAX_MULTI_TARGETS ];
-    int        m_iszDefaultMember;
-};
-
-class CMultiAlias : public CBaseMutableAlias
-{
-public:
-    void KeyValue( KeyValueData *pkvd );
-
-    virtual int        Save( CSave &save );
-    virtual int        Restore( CRestore &restore );
-
-    static    TYPEDESCRIPTION m_SaveData[];
-
-    CBaseEntity *FollowAlias( CBaseEntity *pFrom );
-
-    int        m_cTargets;
-    int        m_iszTargets    [ MAX_MULTI_TARGETS ];
-    int        m_iTotalValue;
-    int        m_iValues    [ MAX_MULTI_TARGETS ];
-    int        m_iMode;
-};
-
 
 // this moved here from world.cpp, to allow classes to be derived from it
 //=======================

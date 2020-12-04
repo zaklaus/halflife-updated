@@ -33,6 +33,9 @@
 #include "movewith.h"
 #include "locus.h"
 
+#include "entities/point/CBaseMutableAlias.h"
+#include "entities/point/CInfoGroup.h"
+
 float UTIL_WeaponTimeBase( void )
 {
 #if defined( CLIENT_WEAPONS )

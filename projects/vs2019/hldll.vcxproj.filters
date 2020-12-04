@@ -76,6 +76,9 @@
     <Filter Include="Header Files\dlls\entities\weapons">
       <UniqueIdentifier>{354bd4be-d063-4007-859f-33c5f30d90ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls\entities\point">
+      <UniqueIdentifier>{1a8739e4-0116-470d-9958-e0ec6cd91efd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -252,23 +255,8 @@
     <ClCompile Include="..\..\dlls\entities\npcs\zombie.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\locus.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\monstermaker.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\pathcorner.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\xen.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\items\airtank.cpp">
       <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\alias.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\animating.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
@@ -287,9 +275,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\npcs\hgrunt.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\point\maprules.cpp">
-      <Filter>Source Files\dlls\entities\point</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\lights.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
@@ -798,24 +783,6 @@
     <ClCompile Include="..\..\dlls\entities\weapons\CWpnGeneric.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code - Copy (7).cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code - Copy (8).cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code - Copy (9).cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code - Copy (10).cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code - Copy.cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\code.cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CCrossbowBolt.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
     </ClCompile>
@@ -830,6 +797,141 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CSqueakGrenade.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CLocusAlias.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CLocusBeam.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcAngles.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcFallback.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcFromCVar.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcNumFromEnt.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcNumFromNum.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcNumFromVec.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcPosition.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcSubVelocity.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcVelocityPath.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CCalcVelocityPolar.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CLocusVariable.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameCounter.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameCounterSet.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameEnd.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGamePlayerEquip.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGamePlayerHurt.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGamePlayerTeam.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGamePlayerZone.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameScore.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameTeamMaster.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameTeamSet.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CGameText.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CRuleBrushEntity.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CRuleEntity.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CRulePointEntity.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CMonsterMaker.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CPathCorner.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CActAnimating.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenHair.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenHull.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenPLight.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenSpore.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenSporeLarge.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenSporeMed.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenSporeSmall.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenTree.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CXenTreeTrigger.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CTriggerChangeAlias.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CBaseMutableAlias.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CInfoAlias.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CMultiAlias.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\point\CInfoGroup.cpp">
+      <Filter>Source Files\dlls\entities\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\locus.cpp">
+      <Filter>Source Files\dlls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1454,24 +1556,6 @@
     <ClInclude Include="..\..\dlls\entities\weapons\CWpnGeneric.h">
       <Filter>Header Files\dlls\entities\weapons</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header - Copy (7).h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header - Copy (8).h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header - Copy (9).h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header - Copy (10).h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header - Copy.h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\header.h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CCrossbowBolt.h">
       <Filter>Header Files\dlls\entities\weapons</Filter>
     </ClInclude>
@@ -1486,6 +1570,141 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CSqueakGrenade.h">
       <Filter>Header Files\dlls\entities\weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CMark.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CLocusAlias.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CLocusBeam.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcAngles.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcFallback.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcFromCVar.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcNumFromEnt.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcNumFromNum.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcNumFromVec.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcPosition.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcSubVelocity.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcVelocityPath.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CCalcVelocityPolar.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CLocusVariable.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameCounter.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameCounterSet.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameEnd.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGamePlayerEquip.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGamePlayerHurt.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGamePlayerTeam.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGamePlayerZone.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameScore.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameTeamMaster.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameTeamSet.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CGameText.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CRuleBrushEntity.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CRuleEntity.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CRulePointEntity.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CMonsterMaker.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CPathCorner.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CActAnimating.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenHair.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenHull.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenPLight.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenSpore.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenSporeLarge.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenSporeMed.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenSporeSmall.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenTree.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CXenTreeTrigger.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CTriggerChangeAlias.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CBaseMutableAlias.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CInfoAlias.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CInfoGroup.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\point\CMultiAlias.h">
+      <Filter>Header Files\dlls\entities\point</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
