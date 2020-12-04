@@ -107,8 +107,11 @@ EXIT /B 0</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp" />
+    <ClCompile Include="..\..\dlls\bmodels.cpp" />
+    <ClCompile Include="..\..\dlls\buttons.cpp" />
     <ClCompile Include="..\..\dlls\client.cpp" />
     <ClCompile Include="..\..\dlls\CSound.cpp" />
+    <ClCompile Include="..\..\dlls\doors.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\animating.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\cbase.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\combat.cpp" />
@@ -165,9 +168,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\brush\CFuncRotating.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncWallToggle.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncWall.cpp" />
-    <ClCompile Include="..\..\dlls\entities\brush\bmodels.cpp" />
-    <ClCompile Include="..\..\dlls\entities\brush\buttons.cpp" />
-    <ClCompile Include="..\..\dlls\entities\brush\doors.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CAmbientGeneric.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CBeam.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CBlood.cpp" />
@@ -221,11 +221,20 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\effects\CTripBeam.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CWeaponCycler.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CWreckage.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\lights.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\sound.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\airtank.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\healthkit.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\items.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CAirtank.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CHealthKit.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItem.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemAntidote.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemAntiRad.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemBattery.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemCamera.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemFlare.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemLongJump.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemMedicalKit.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemSecurity.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CItemSuit.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CWallHealth.cpp" />
+    <ClCompile Include="..\..\dlls\entities\items\CWorldItem.cpp" />
     <ClCompile Include="..\..\dlls\entities\npcs\aflock.cpp" />
     <ClCompile Include="..\..\dlls\entities\npcs\agrunt.cpp" />
     <ClCompile Include="..\..\dlls\entities\npcs\apache.cpp" />
@@ -373,6 +382,7 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\globals.cpp" />
     <ClCompile Include="..\..\dlls\h_ai.cpp" />
     <ClCompile Include="..\..\dlls\h_export.cpp" />
+    <ClCompile Include="..\..\dlls\lights.cpp" />
     <ClCompile Include="..\..\dlls\locus.cpp" />
     <ClCompile Include="..\..\dlls\movewith.cpp" />
     <ClCompile Include="..\..\dlls\multiplay_gamerules.cpp" />
@@ -382,6 +392,7 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\player.cpp" />
     <ClCompile Include="..\..\dlls\singleplay_gamerules.cpp" />
     <ClCompile Include="..\..\dlls\skill.cpp" />
+    <ClCompile Include="..\..\dlls\sound.cpp" />
     <ClCompile Include="..\..\dlls\spectator.cpp" />
     <ClCompile Include="..\..\dlls\teamplay_gamerules.cpp" />
     <ClCompile Include="..\..\dlls\util.cpp" />
@@ -501,6 +512,20 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\effects\CTripBeam.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CWeaponCycler.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CWreckage.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CAirtank.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CHealthKit.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItem.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemAntidote.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemAntiRad.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemBattery.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemCamera.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemFlare.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemLongJump.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemMedicalKit.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemSecurity.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CItemSuit.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CWallHealth.h" />
+    <ClInclude Include="..\..\dlls\entities\items\CWorldItem.h" />
     <ClInclude Include="..\..\dlls\entities\point\CActAnimating.h" />
     <ClInclude Include="..\..\dlls\entities\point\CCalcAngles.h" />
     <ClInclude Include="..\..\dlls\entities\point\CGameCounter.h" />
@@ -621,7 +646,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\flyingmonster.h" />
     <ClInclude Include="..\..\dlls\gamerules.h" />
     <ClInclude Include="..\..\dlls\hornet.h" />
-    <ClInclude Include="..\..\dlls\items.h" />
     <ClInclude Include="..\..\dlls\locus.h" />
     <ClInclude Include="..\..\dlls\monsterevent.h" />
     <ClInclude Include="..\..\dlls\monsters.h" />

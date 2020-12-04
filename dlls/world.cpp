@@ -44,7 +44,21 @@ CGlobalState                    gGlobalState;
 extern DLL_GLOBAL    int            gDisplayTitle;
 
 extern void W_Precache(void); //weapon precache - weapons.cpp
-extern void I_Precache(void); //item precache - items.cpp
+
+void I_Precache(void)
+{
+    // common world objects (moved from W_Precache - weapons.cpp)
+    UTIL_PrecacheOther("item_suit");
+    UTIL_PrecacheOther("item_battery");
+    UTIL_PrecacheOther("item_antidote");
+    UTIL_PrecacheOther("item_security");
+    UTIL_PrecacheOther("item_longjump");
+    UTIL_PrecacheOther("item_healthkit");
+    UTIL_PrecacheOther("item_camera");
+    UTIL_PrecacheOther("item_flare");
+    UTIL_PrecacheOther("item_antirad");
+    UTIL_PrecacheOther("item_medicalkit");
+}
 
 //
 // This must match the list in util.h

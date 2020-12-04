@@ -23,7 +23,7 @@
 #include "entities/weapons/CBasePlayerAmmo.h"
 #include    "gamerules.h"
 #include    "skill.h"
-#include    "items.h"
+#include "entities/items/CItem.h"
 
 extern DLL_GLOBAL CGameRules    *g_pGameRules;
 extern DLL_GLOBAL BOOL    g_fGameOver;

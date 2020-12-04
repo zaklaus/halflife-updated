@@ -79,6 +79,9 @@
     <Filter Include="Header Files\dlls\entities\point">
       <UniqueIdentifier>{1a8739e4-0116-470d-9958-e0ec6cd91efd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls\entities\items">
+      <UniqueIdentifier>{f527b101-9fe1-4013-b246-bc810b7668cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -162,21 +165,6 @@
     <ClCompile Include="..\..\dlls\entities\base\talkmonster.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\brush\bmodels.cpp">
-      <Filter>Source Files\dlls\entities\brush</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\brush\buttons.cpp">
-      <Filter>Source Files\dlls\entities\brush</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\brush\doors.cpp">
-      <Filter>Source Files\dlls\entities\brush</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\healthkit.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\items.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\npcs\aflock.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
@@ -255,9 +243,6 @@
     <ClCompile Include="..\..\dlls\entities\npcs\zombie.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\airtank.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\animating.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
@@ -276,17 +261,11 @@
     <ClCompile Include="..\..\dlls\entities\npcs\hgrunt.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\lights.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\monsterstate.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\schedule.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\sound.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\scripted.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
@@ -933,6 +912,63 @@
     <ClCompile Include="..\..\dlls\locus.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\bmodels.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\buttons.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\doors.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\lights.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\sound.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CAirtank.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CHealthKit.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemBattery.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemLongJump.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemSecurity.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemSuit.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CWallHealth.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CWorldItem.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItem.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemAntidote.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemAntiRad.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemCamera.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemFlare.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\items\CItemMedicalKit.cpp">
+      <Filter>Source Files\dlls\entities\items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\doors.h">
@@ -987,9 +1023,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\player.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\items.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\monsterevent.h">
@@ -1705,6 +1738,48 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\point\CMultiAlias.h">
       <Filter>Header Files\dlls\entities\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CAirtank.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CHealthKit.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemBattery.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemLongJump.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemSecurity.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemSuit.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CWallHealth.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CWorldItem.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItem.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemAntidote.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemAntiRad.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemCamera.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemFlare.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\items\CItemMedicalKit.h">
+      <Filter>Header Files\dlls\entities\items</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

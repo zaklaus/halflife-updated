@@ -41,7 +41,8 @@
 #include "game.h"
 #include "entities/effects/CRainModify.h"
 #include "entities/effects/CRainSettings.h"
-#include "items.h" //AJH Inventory system
+#include "entities/items/CItem.h"
+#include "entities/items/CItemCamera.h"
 #include "locus.h" //LRC 1.8
 #include "pm_shared.h"
 #include "hltv.h"
