@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 //#define PATH_SPARKLE_DEBUG        1    // This makes a particle effect around path_track entities for debugging
 class CPathTrack : public CPointEntity

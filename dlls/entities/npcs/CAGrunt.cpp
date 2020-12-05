@@ -14,9 +14,8 @@
 ****/
 
 #include "CAGrunt.h"
-#include "CSound.h"
+#include "entities/base/CCineMonster.h"
 #include "weapons.h"
-#include "scripted.h"
 
 
 //=========================================================

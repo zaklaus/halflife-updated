@@ -14,9 +14,8 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
+#include "entities/base/CPointEntity.h"
 #include "entities/weapons/CLaserSpot.h"
 
 class CFuncTankControls;

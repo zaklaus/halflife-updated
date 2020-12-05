@@ -12,13 +12,6 @@
 *   without written permission from Valve LLC.
 *
 ****/
-/*
-
-===== weapons.cpp ========================================================
-
-  functions governing the selection/use of weapons for players
-
-*/
 
 #include "extdll.h"
 #include "util.h"
@@ -29,30 +22,23 @@
 #include "gamerules.h"
 #include "entities/weapons/CBasePlayerItem.h"
 
-//extern CGraph    WorldGraph;
 extern int gEvilImpulse101;
-
 
 #define NOT_USED 255
 
-DLL_GLOBAL    short        g_sModelIndexLaser;// holds the index for the laser beam
-DLL_GLOBAL      const char     *g_pModelNameLaser = "sprites/laserbeam.spr";
-DLL_GLOBAL    short            g_sModelIndexLaserDot;// holds the index for the laser beam dot
-DLL_GLOBAL    short            g_sModelIndexFireball;// holds the index for the fireball
-DLL_GLOBAL    short            g_sModelIndexSmoke;// holds the index for the smoke cloud
-DLL_GLOBAL    short            g_sModelIndexWExplosion;// holds the index for the underwater explosion
-DLL_GLOBAL    short        g_sModelIndexBubbles;// holds the index for the bubbles model
-DLL_GLOBAL    short        g_sModelIndexBloodDrop;// holds the sprite index for the initial blood
-DLL_GLOBAL    short        g_sModelIndexBloodSpray;// holds the sprite index for splattered blood
-
+DLL_GLOBAL  short        g_sModelIndexLaser;            // holds the index for the laser beam
+DLL_GLOBAL  const char  *g_pModelNameLaser = "sprites/laserbeam.spr";
+DLL_GLOBAL  short        g_sModelIndexLaserDot;         // holds the index for the laser beam dot
+DLL_GLOBAL  short        g_sModelIndexFireball;         // holds the index for the fireball
+DLL_GLOBAL  short        g_sModelIndexSmoke;            // holds the index for the smoke cloud
+DLL_GLOBAL  short        g_sModelIndexWExplosion;       // holds the index for the underwater explosion
+DLL_GLOBAL  short        g_sModelIndexBubbles;          // holds the index for the bubbles model
+DLL_GLOBAL  short        g_sModelIndexBloodDrop;        // holds the sprite index for the initial blood
+DLL_GLOBAL  short        g_sModelIndexBloodSpray;       // holds the sprite index for splattered blood
 
 extern int gmsgCurWeapon;
 
 MULTIDAMAGE gMultiDamage;
-
-#define TRACER_FREQ        4            // Tracers fire every fourth bullet
-
-
     
 /*
 ==============================================================================
@@ -74,7 +60,6 @@ void ClearMultiDamage(void)
     gMultiDamage.type = 0;
 }
 
-
 //
 // ApplyMultiDamage - inflicts contents of global multi damage register on gMultiDamage.pEntity
 //
@@ -92,7 +77,6 @@ void ApplyMultiDamage(entvars_t *pevInflictor, entvars_t *pevAttacker )
 
     gMultiDamage.pEntity->TakeDamage(pevInflictor, pevAttacker, gMultiDamage.amount, gMultiDamage.type );
 }
-
 
 // GLOBALS USED:
 //        gMultiDamage
@@ -123,7 +107,6 @@ void SpawnBlood(Vector vecSpot, int bloodColor, float flDamage)
 {
     UTIL_BloodDrips( vecSpot, g_vecAttackDir, bloodColor, (int)flDamage );
 }
-
 
 int DamageDecal( CBaseEntity *pEntity, int bitsDamageType )
 {
@@ -170,8 +153,6 @@ void DecalGunshot( TraceResult *pTrace, int iBulletType )
     }
 }
 
-
-
 //
 // EjectBrass - tosses a brass shell from passed origin at passed velocity
 //
@@ -193,25 +174,6 @@ void EjectBrass ( const Vector &vecOrigin, const Vector &vecVelocity, float rota
         WRITE_BYTE ( 25 );// 2.5 seconds
     MESSAGE_END();
 }
-
-
-#if 0
-// UNDONE: This is no longer used?
-void ExplodeModel( const Vector &vecOrigin, float speed, int model, int count )
-{
-    MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, vecOrigin );
-        WRITE_BYTE ( TE_EXPLODEMODEL );
-        WRITE_COORD( vecOrigin.x );
-        WRITE_COORD( vecOrigin.y );
-        WRITE_COORD( vecOrigin.z );
-        WRITE_COORD( speed );
-        WRITE_SHORT( model );
-        WRITE_SHORT( count );
-        WRITE_BYTE ( 15 );// 1.5 seconds
-    MESSAGE_END();
-}
-#endif
-
 
 int giAmmoIndex = 0;
 
@@ -237,7 +199,6 @@ void AddAmmoNameToAmmoRegistry( const char *szAmmoname )
     CBasePlayerItem::AmmoInfoArray[giAmmoIndex].pszName = szAmmoname;
     CBasePlayerItem::AmmoInfoArray[giAmmoIndex].iId = giAmmoIndex;   // yes, this info is redundant
 }
-
 
 // Precaches the weapon and queues the weapon info for sending to clients
 void UTIL_PrecacheOtherWeapon( const char *szClassname )

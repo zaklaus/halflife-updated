@@ -23,6 +23,7 @@
 #include    "cbase.h"
 #include    "monsters.h"
 #include    "spectator.h"
+#include "entities/CBaseEntity.h"
 
 /*
 ===========

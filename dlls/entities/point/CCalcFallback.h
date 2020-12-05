@@ -14,10 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "locus.h"
+#include "entities/base/CPointEntity.h"
 
 //LRC 1.8 - entity that deals with our new concept of "failure" in a calc entity
 class CCalcFallback : public CPointEntity

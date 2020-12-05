@@ -18,9 +18,7 @@
 //LRC- a simple entity, just maintains a state
 //==================================================
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_ENVSTATE_START_ON 1
 #define SF_ENVSTATE_DEBUG    2

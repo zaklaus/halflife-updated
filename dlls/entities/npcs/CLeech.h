@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseMonster.h"
 
 #define DEBUG_BEAMS 0
 

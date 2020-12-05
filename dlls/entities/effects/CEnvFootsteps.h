@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_FOOTSTEPS_SET   1
 #define SF_FOOTSTEPS_ONCE  2

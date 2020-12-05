@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_CAMERA_PLAYER_POSITION    1
 #define SF_CAMERA_PLAYER_TARGET        2

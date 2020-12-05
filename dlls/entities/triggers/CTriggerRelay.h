@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_RELAY_FIREONCE  0x00000001
 #define SF_RELAY_DEBUG     0x00000002

@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_GIBSHOOTER_REPEATABLE  1 // allows a gibshooter to be refired
 #define SF_GIBSHOOTER_DEBUG       4 //LRC

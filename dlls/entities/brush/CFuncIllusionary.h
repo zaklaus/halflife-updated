@@ -14,8 +14,7 @@
 ****/
 #pragma once
 
-#include "cbase.h"
-#include "extdll.h"
+#include "entities/CBaseToggle.h"
 
 /*QUAKED func_illusionary (0 .5 .8) ?
 A simple entity that looks solid but lets you walk through it.

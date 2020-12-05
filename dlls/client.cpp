@@ -41,6 +41,7 @@
 #include "netadr.h"
 #include "pm_shared.h"
 #include "movewith.h"
+#include "entities/base/CWorld.h"
 #include "entities/items/CItemCamera.h"
 #include "entities/items/CItemAntiRad.h"
 #include "entities/items/CItemMedicalKit.h"

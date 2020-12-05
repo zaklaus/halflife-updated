@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_BLOOD_RANDOM        0x0001
 #define SF_BLOOD_STREAM        0x0002

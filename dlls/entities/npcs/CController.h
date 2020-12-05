@@ -14,12 +14,10 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "monsters.h"
-#include "squadmonster.h"
+#include "entities/CBaseMonster.h"
+#include "entities/base/CSquadMonster.h"
 #include "entities/effects/CSprite.h"
+#include "monsters.h"
 
 class CController : public CSquadMonster
 {

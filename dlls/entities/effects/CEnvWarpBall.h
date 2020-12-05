@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 //==================================================================
 //LRC- Xen monsters' warp-in effect, for those too lazy to build it. :)

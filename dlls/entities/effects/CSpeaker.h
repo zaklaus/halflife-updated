@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define ANNOUNCE_MINUTES_MIN  0.25
 #define ANNOUNCE_MINUTES_MAX  2.25

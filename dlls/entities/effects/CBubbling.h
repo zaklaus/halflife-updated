@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_BUBBLES_STARTOFF  0x0001
 

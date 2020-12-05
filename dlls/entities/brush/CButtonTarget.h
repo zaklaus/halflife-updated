@@ -14,7 +14,7 @@
 ****/
 #pragma once
 
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_BTARGET_USE       0x0001
 #define SF_BTARGET_ON        0x0002

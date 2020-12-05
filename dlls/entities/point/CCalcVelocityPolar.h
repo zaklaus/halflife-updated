@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_CALCVELPOLAR_NORMALIZE 1
 #define SF_CALCVELPOLAR_DEBUG     2

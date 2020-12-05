@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseMonster.h"
 #include "entities/effects/CSprite.h"
 
 #define TURRET_SHOTS             2

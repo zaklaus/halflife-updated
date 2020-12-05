@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 // AJH Inventory items, some of which can be manually used, others automatically
 // and are here just so the player knows they have it/them.

@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseToggle.h"
 
 #define SF_PLAT_TOGGLE        0x0001
 

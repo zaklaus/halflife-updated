@@ -14,10 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "talkmonster.h"
+#include "entities/base/CTalkMonster.h"
 
 #define NUM_SCIENTIST_HEADS  4 // four heads available for scientist model
 

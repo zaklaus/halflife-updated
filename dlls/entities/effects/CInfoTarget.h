@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 //LRC - make info_target an entity class in its own right
 class CInfoTarget : public CPointEntity

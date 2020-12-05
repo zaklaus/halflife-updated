@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_LIGHTDYNAMIC_START_OFF    1
 #define SF_LIGHTDYNAMIC_FLARE        2

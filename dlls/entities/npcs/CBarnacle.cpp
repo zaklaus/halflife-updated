@@ -14,6 +14,7 @@
 ****/
 
 #include "CBarnacle.h"
+#include "CGib.h"
 #include "monsters.h"
 
 #define BARNACLE_BODY_HEIGHT         44 // how 'tall' the barnacle's model is.

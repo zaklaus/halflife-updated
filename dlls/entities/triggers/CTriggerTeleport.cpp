@@ -17,9 +17,6 @@
 
 LINK_ENTITY_TO_CLASS(trigger_teleport, CTriggerTeleport);
 
-// This has to go somewhere
-LINK_ENTITY_TO_CLASS(info_teleport_destination, CPointEntity);
-
 void CTriggerTeleport::Spawn(void)
 {
     InitTrigger();

@@ -14,6 +14,7 @@
 ****/
 
 #include "CGargantua.h"
+#include "CGib.h"
 #include "CSpiral.h"
 #include "CStomp.h"
 #include "entities/effects/CSoundEnt.h"
@@ -24,7 +25,7 @@
 #include "weapons.h"
 #include "decals.h"
 #include "explode.h"
-#include "scripted.h"
+#include "entities/base/CCineMonster.h"
 
 int gStompSprite = 0, gGargGibModel = 0;
 

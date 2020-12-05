@@ -46,6 +46,7 @@
 #include "locus.h" //LRC 1.8
 #include "pm_shared.h"
 #include "hltv.h"
+#include "entities/npcs/CGib.h"
 
 // #define DUCKFIX
 

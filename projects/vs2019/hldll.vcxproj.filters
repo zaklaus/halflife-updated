@@ -85,6 +85,9 @@
     <Filter Include="Header Files\dlls\entities\npcs">
       <UniqueIdentifier>{0c36e8e5-cbde-4b05-b5e0-af15ef00de19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls\entities\base">
+      <UniqueIdentifier>{d719cefd-c8f6-40a2-abc7-ffd2d7c09acc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -157,42 +160,6 @@
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\cbase.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\monsters.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\squadmonster.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\talkmonster.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\animating.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\combat.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\defaultai.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\flyingmonster.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\monsterstate.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\schedule.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\scripted.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\subs.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\weapons.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\brush\CFuncWall.cpp">
@@ -1038,6 +1005,81 @@
     <ClCompile Include="..\..\dlls\entities\npcs\CHornet.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CBaseDMStart.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CFurniture.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CInfoMoveWith.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CMonsterTarget.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CNullEntity.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CPointEntity.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CScriptedSentence.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CWorld.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CCineMonster.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CSquadMonster.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CTalkMonster.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseEntity.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseAnimating.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseDelay.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster_schedule.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster_scripted.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseToggle.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\base\CFlyingMonster.cpp">
+      <Filter>Source Files\dlls\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CGib.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster_DefaultAI.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster_Combat.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\CBaseMonster_State.cpp">
+      <Filter>Source Files\dlls\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\subs.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\weapons.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\doors.h">
@@ -1050,9 +1092,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\animation.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\basemonster.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\cbase.h">
@@ -1080,9 +1119,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\extdll.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\flyingmonster.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\gamerules.h">
@@ -1140,12 +1176,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\spectator.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\squadmonster.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\talkmonster.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\teamplay_gamerules.h">
@@ -1995,6 +2025,60 @@
       <Filter>Header Files\dlls\entities\npcs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\npcs\CHornet.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CBaseDMStart.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CFurniture.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CInfoMoveWith.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CScriptedSentence.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CCineMonster.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\CBaseEntity.h">
+      <Filter>Header Files\dlls\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CSquadMonster.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CTalkMonster.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CPointEntity.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CWorld.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CMonsterTarget.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CNullEntity.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\CBaseAnimating.h">
+      <Filter>Header Files\dlls\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\CBaseDelay.h">
+      <Filter>Header Files\dlls\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\CBaseMonster.h">
+      <Filter>Header Files\dlls\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\CBaseToggle.h">
+      <Filter>Header Files\dlls\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\base\CFlyingMonster.h">
+      <Filter>Header Files\dlls\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CGib.h">
       <Filter>Header Files\dlls\entities\npcs</Filter>
     </ClInclude>
   </ItemGroup>

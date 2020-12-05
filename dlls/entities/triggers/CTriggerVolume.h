@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 // Derive from point entity so this doesn't move across levels
 class CTriggerVolume : public CPointEntity

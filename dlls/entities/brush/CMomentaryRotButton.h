@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseToggle.h"
 
 // Make this button behave like a door (HACKHACK)
 // This will disable use and make the button solid

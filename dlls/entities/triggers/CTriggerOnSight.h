@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_ONSIGHT_NOLOS       0x00001
 #define SF_ONSIGHT_NOGLASS     0x00002

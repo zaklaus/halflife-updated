@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_BEAM_STARTON            0x0001
 #define SF_BEAM_TOGGLE            0x0002

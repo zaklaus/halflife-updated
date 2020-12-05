@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_CALCVELOCITY_NORMALIZE  1
 #define SF_CALCVELOCITY_SWAPZ      2 // MJB this should more correctly be called 'invertZ', but never mind.

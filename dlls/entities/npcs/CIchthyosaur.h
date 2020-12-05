@@ -14,12 +14,9 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "monsters.h"
-#include "flyingmonster.h"
+#include "entities/base/CFlyingMonster.h"
 #include "entities/effects/CBeam.h"
+#include "monsters.h"
 
 //=========================================================
 // icthyosaur - evin, satan fish monster

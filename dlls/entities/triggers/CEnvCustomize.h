@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_CUSTOM_AFFECTDEAD    1
 #define SF_CUSTOM_ONCE          2

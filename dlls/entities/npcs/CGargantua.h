@@ -14,12 +14,10 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "monsters.h"
+#include "entities/CBaseMonster.h"
 #include "entities/effects/CSprite.h"
 #include "entities/effects/CBeam.h"
+#include "monsters.h"
 
 const float GARG_ATTACKDIST = 80.0;
 

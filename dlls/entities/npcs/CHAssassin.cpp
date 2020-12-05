@@ -20,6 +20,7 @@
 #include "entities/effects/CSoundEnt.h"
 #include "scripted.h"
 #include "game.h"
+#include "entities/base/CCineMonster.h"
 
 //=========================================================
 // monster-specific schedule types

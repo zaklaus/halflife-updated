@@ -12,7 +12,10 @@
 *   without written permission from Valve LLC.
 *
 ****/
+#pragma once
 // Spectator.h
+
+#include "entities/CBaseEntity.h"
 
 class CBaseSpectator : public CBaseEntity 
 {

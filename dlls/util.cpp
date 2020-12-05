@@ -32,6 +32,7 @@
 #include "gamerules.h"
 #include "movewith.h"
 #include "locus.h"
+#include "entities/base/CWorld.h"
 
 #include "entities/point/CBaseMutableAlias.h"
 #include "entities/point/CInfoGroup.h"

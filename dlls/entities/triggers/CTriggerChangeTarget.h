@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 // this is a really bad idea.
 class CTriggerChangeTarget : public CBaseDelay

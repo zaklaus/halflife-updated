@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_SHOCKWAVE_CENTERED 1
 #define SF_SHOCKWAVE_REPEATABLE 2

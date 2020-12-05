@@ -14,12 +14,9 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-#include "monsters.h"
-#include "squadmonster.h"
+#include "entities/base/CSquadMonster.h"
 #include "entities/effects/CBeam.h"
+#include "monsters.h"
 
 #define ISLAVE_MAX_BEAMS    8
 

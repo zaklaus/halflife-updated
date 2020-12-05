@@ -15,6 +15,7 @@
 
 #include "CController.h"
 #include "scripted.h"
+#include "entities/base/CCineMonster.h"
 
 //=========================================================
 // Monster's Anim Events Go Here

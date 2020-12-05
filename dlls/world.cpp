@@ -469,6 +469,7 @@ void ResetGlobalState( void )
 }
 
 
+#include "entities/base/CWorld.h"
 
 // moved CWorld class definition to cbase.h
 //=======================

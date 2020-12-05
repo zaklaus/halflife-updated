@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 //LRC-  RenderFxFader, a subsidiary entity for RenderFxManager
 class CRenderFxFader : public CBaseEntity

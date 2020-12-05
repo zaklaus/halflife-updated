@@ -16,6 +16,7 @@
 #include "CPendulum.h"
 #include "doors.h"
 #include "movewith.h"
+#include "entities/CBaseToggle.h"
 
 LINK_ENTITY_TO_CLASS(func_pendulum, CPendulum);
 

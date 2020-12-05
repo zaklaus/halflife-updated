@@ -16,8 +16,8 @@
 #include "CEnvShooter.h"
 #include "CShot.h"
 #include "entities/brush/CBreakable.h"
+#include "entities/npcs/CGib.h"
 #include "locus.h"
-#include "monsters.h"
 
 TYPEDESCRIPTION CEnvShooter::m_SaveData[] =
 {

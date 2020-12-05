@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_FUNNEL_REVERSE     1 // funnel effect repels particles instead of attracting them.
 #define SF_FUNNEL_REPEATABLE  2 // allows a funnel to be refired

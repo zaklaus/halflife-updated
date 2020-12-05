@@ -14,9 +14,8 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
+
 class CFuncTank;
 
 #define SF_TSEQ_DUMPPLAYER  1

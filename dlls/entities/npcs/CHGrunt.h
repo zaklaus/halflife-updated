@@ -14,11 +14,8 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CSquadMonster.h"
 #include "monsters.h"
-#include "squadmonster.h"
 
 #define HEAD_GROUP      1
 #define HEAD_GRUNT      0

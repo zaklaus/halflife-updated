@@ -22,6 +22,7 @@
 #include    "game.h"
 #include    "movewith.h"
 #include    "skill.h"
+#include    "entities/CBaseEntity.h"
 
 void EntvarsKeyvalue( entvars_t *pev, KeyValueData *pkvd );
 

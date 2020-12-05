@@ -14,8 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 // Position/number marker
 class CMark : public CPointEntity

@@ -23,6 +23,7 @@
 #include    "nodes.h"
 #include    "animation.h"
 #include    "doors.h"
+#include "entities/CBaseMonster.h"
 
 #if !defined ( _WIN32 )
 #include <sys/stat.h>

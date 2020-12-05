@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_RENDER_MASKFX     (1<<0)
 #define SF_RENDER_MASKAMT    (1<<1)

@@ -14,7 +14,7 @@
 ****/
 #pragma once
 
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 //LRC - shiny surfaces
 class CFuncShine : public CBaseEntity

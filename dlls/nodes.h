@@ -12,15 +12,20 @@
 *   use or distribution of this code by or to any unlicensed person is illegal.
 *
 ****/
+#pragma once
 //=========================================================
 // nodes.h
 //=========================================================
+#include "entities/CBaseEntity.h"
 
 //=========================================================
 // DEFINE
 //=========================================================
+
+#define MAX_PATH_SIZE    10 // max number of nodes available for a path.
+
 #define MAX_STACK_NODES        100
-#define    NO_NODE                -1
+#define NO_NODE                -1
 #define MAX_NODE_HULLS        4
 
 #define bits_NODE_LAND      ( 1 << 0 )  // Land node, so nudge if necessary.

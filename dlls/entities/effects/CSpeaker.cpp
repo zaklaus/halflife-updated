@@ -14,7 +14,7 @@
 ****/
 
 #include "CSpeaker.h"
-#include "talkmonster.h"
+#include "entities/base/CTalkMonster.h"
 
 LINK_ENTITY_TO_CLASS(speaker, CSpeaker);
 

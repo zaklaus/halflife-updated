@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseDelay.h"
 
 #define SF_AUTO_FIREONCE    0x0001
 #define SF_AUTO_FROMPLAYER  0x0002

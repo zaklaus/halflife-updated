@@ -17,7 +17,8 @@
 #include "schedule.h"
 #include "animation.h"
 #include "weapons.h"
-#include "talkmonster.h"
+#include "entities/base/CTalkMonster.h"
+#include "entities/base/CCineMonster.h"
 #include "entities/effects/CSoundEnt.h"
 #include "entities/weapons/CGrenade.h"
 #include "scripted.h" //LRC

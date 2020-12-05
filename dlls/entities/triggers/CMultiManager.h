@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 #define SF_MULTIMAN_CLONE       0x80000000
 #define SF_MULTIMAN_SAMETRIG    0x40000000

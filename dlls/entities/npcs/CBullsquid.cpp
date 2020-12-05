@@ -19,6 +19,7 @@
 #include "scripted.h"
 #include "nodes.h"
 #include "game.h"
+#include "entities/base/CCineMonster.h"
 
 int iSquidSpitSprite;
 

@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseAnimating.h"
 #include "weapons.h"
 
 // Items that the player has in their inventory that they can use

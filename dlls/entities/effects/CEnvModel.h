@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseAnimating.h"
 
 #define SF_ENVMODEL_OFF          1
 #define SF_ENVMODEL_DROPTOFLOOR  2

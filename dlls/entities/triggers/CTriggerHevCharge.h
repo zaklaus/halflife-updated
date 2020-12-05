@@ -15,6 +15,7 @@
 #pragma once
 
 #include "CBaseTrigger.h"
+
 #define SF_HEVCHARGE_START_OFF   0x02
 #define SF_HEVCHARGE_NOANNOUNCE  0x04
 

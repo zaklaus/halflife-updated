@@ -14,7 +14,7 @@
 ****/
 
 #include "CGibShooter.h"
-#include "monsters.h"
+#include "entities/npcs/CGib.h"
 #include "locus.h"
 
 TYPEDESCRIPTION CGibShooter::m_SaveData[] =

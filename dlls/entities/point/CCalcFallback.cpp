@@ -14,6 +14,7 @@
 ****/
 
 #include "CCalcFallback.h"
+#include "locus.h"
 #include "movewith.h"
 
 LINK_ENTITY_TO_CLASS(calc_fallback, CCalcFallback);

@@ -14,8 +14,7 @@
 ****/
 #pragma once
 
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseEntity.h"
 
 class CFuncWall : public CBaseEntity
 {

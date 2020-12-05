@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_MESSAGE_ONCE  0x0001  // Fade in, not out
 #define SF_MESSAGE_ALL   0x0002  // Send to all clients

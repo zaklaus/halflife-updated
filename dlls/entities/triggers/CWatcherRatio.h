@@ -17,6 +17,7 @@
 #include "extdll.h"
 #include "util.h"
 #include "cbase.h"
+#include "entities/CBaseToggle.h"
 
 #define SF_WATCHERRATIO_MANUALUPDATES  0x0001
 #define SF_WATCHERRATIO_FIREONSTART    0x0002

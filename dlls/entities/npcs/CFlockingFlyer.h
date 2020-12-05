@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/CBaseMonster.h"
 
 #define AFLOCK_MAX_RECRUIT_RADIUS  1024
 #define AFLOCK_FLY_SPEED           125

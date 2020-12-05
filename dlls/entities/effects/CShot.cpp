@@ -14,6 +14,7 @@
 ****/
 
 #include "CShot.h"
+#include "entities/base/CWorld.h"
 
 void CShot::Touch(CBaseEntity* pOther)
 {

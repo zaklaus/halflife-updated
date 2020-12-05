@@ -14,9 +14,7 @@
 ****/
 #pragma once
 
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
+#include "entities/base/CPointEntity.h"
 
 #define SF_SPRITE_STARTON    0x0001
 #define SF_SPRITE_ONCE       0x0002
@@ -36,8 +34,8 @@ public:
         return (CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION) | flags;
     }
 
-    void EXPORT AnimateThink(void);
-    void EXPORT ExpandThink(void);
+    void DLLEXPORT AnimateThink(void);
+    void DLLEXPORT ExpandThink(void);
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     void Animate(float frames);
     void Expand(float scaleSpeed, float fadeSpeed);

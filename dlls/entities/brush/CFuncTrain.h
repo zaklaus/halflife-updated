@@ -15,6 +15,7 @@
 #pragma once
 
 #include "CBasePlatTrain.h"
+
 class CTrainSequence;
 
 //the others are defined in const.h

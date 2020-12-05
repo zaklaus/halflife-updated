@@ -15,6 +15,7 @@
 #pragma once
 
 #include "CFuncTrain.h"
+
 class CFuncTrackTrain;
 
 #define DIRECTION_NONE 0
