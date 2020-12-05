@@ -82,6 +82,9 @@
     <Filter Include="Header Files\dlls\entities\items">
       <UniqueIdentifier>{f527b101-9fe1-4013-b246-bc810b7668cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\dlls\entities\npcs">
+      <UniqueIdentifier>{0c36e8e5-cbde-4b05-b5e0-af15ef00de19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -165,84 +168,6 @@
     <ClCompile Include="..\..\dlls\entities\base\talkmonster.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\aflock.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\agrunt.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\apache.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\barnacle.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\barney.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\bigmomma.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\bloater.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\bullsquid.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\controller.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\gargantua.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\gman.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\hassassin.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\headcrab.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\hornet.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\houndeye.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\ichthyosaur.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\islave.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\leech.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\nihilanth.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\osprey.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\rat.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\roach.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\scientist.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\tentacle.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\turret.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\zombie.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\animating.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
@@ -254,12 +179,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\flyingmonster.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\genericmonster.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\npcs\hgrunt.cpp">
-      <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\monsterstate.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
@@ -969,6 +888,156 @@
     <ClCompile Include="..\..\dlls\entities\items\CItemMedicalKit.cpp">
       <Filter>Source Files\dlls\entities\items</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CAGrunt.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CApache.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CApacheHVR.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBabyCrab.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBarnacle.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBarney.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBaseTurret.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBigMomma.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBloater.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBMortar.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CBullsquid.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CController.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CControllerHeadBall.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CControllerZapBall.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CDeadBarney.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CDeadGenericMonster.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CDeadHGrunt.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CDeadScientist.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CFlockingFlyer.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CFlockingFlyerFlock.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CGargantua.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CGenericMonster.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CGMan.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHAssassin.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHeadCrab.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHGrunt.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHGruntRepel.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHoundeye.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CIchthyosaur.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CInfoBM.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CISlave.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CLeech.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CMiniTurret.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CNihilanth.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CNihilanthHVR.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\COsprey.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CRat.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CRoach.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CScientist.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CSentry.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CSittingScientist.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CSmoker.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CSpiral.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CSquidSpit.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CStomp.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CTentacle.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CTentacleMaw.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CTurret.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CZombie.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\npcs\CHornet.cpp">
+      <Filter>Source Files\dlls\entities\npcs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\doors.h">
@@ -1003,9 +1072,6 @@
     </ClInclude>
     <ClInclude Include="..\..\engine\eiface.h">
       <Filter>Header Files\engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\hornet.h">
-      <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\enginecallback.h">
       <Filter>Header Files\dlls</Filter>
@@ -1780,6 +1846,156 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\items\CItemMedicalKit.h">
       <Filter>Header Files\dlls\entities\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CAGrunt.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CApache.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CApacheHVR.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBabyCrab.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBarnacle.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBarney.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBaseTurret.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBigMomma.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBloater.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBMortar.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CBullsquid.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CController.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CControllerHeadBall.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CControllerZapBall.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CDeadBarney.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CDeadGenericMonster.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CDeadHGrunt.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CDeadScientist.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CFlockingFlyer.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CFlockingFlyerFlock.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CGargantua.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CGenericMonster.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CGMan.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHAssassin.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHeadCrab.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHGrunt.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHGruntRepel.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHoundeye.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CIchthyosaur.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CInfoBM.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CISlave.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CLeech.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CMiniTurret.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CNihilanth.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CNihilanthHVR.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\COsprey.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CRat.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CRoach.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CScientist.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CSentry.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CSittingScientist.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CSmoker.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CSpiral.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CSquidSpit.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CStomp.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CTentacle.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CTentacleMaw.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CTurret.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CZombie.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\npcs\CHornet.h">
+      <Filter>Header Files\dlls\entities\npcs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
