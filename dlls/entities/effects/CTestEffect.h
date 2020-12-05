@@ -24,7 +24,7 @@ public:
     void Spawn() override;
     void Precache() override;
     // void    KeyValue( KeyValueData *pkvd );
-    void EXPORT TestThink();
+    void DLLEXPORT TestThink();
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 
     int m_iLoop;

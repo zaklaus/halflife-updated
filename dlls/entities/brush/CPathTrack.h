@@ -44,7 +44,7 @@ public:
 
     static TYPEDESCRIPTION m_SaveData[];
 #if PATH_SPARKLE_DEBUG
-    void EXPORT Sparkle();
+    void DLLEXPORT Sparkle();
 #endif
 
     float m_length;

@@ -25,7 +25,7 @@ public:
     void Spawn(void) override;
     void Precache(void) override;
 
-    void EXPORT SittingThink(void);
+    void DLLEXPORT SittingThink(void);
     int Classify(void) override;
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

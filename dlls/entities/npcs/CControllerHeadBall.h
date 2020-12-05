@@ -23,9 +23,9 @@ class CControllerHeadBall : public CBaseMonster
 {
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT HuntThink(void);
-    void EXPORT DieThink(void);
-    void EXPORT BounceTouch(CBaseEntity* pOther);
+    void DLLEXPORT HuntThink(void);
+    void DLLEXPORT DieThink(void);
+    void DLLEXPORT BounceTouch(CBaseEntity* pOther);
     void MovetoTarget(Vector vecTarget);
     void Crawl(void);
     int m_iTrail;

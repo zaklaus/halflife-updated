@@ -31,7 +31,7 @@ class CWeaponBox : public CBaseEntity
     void SetObjectCollisionBox(void) override;
 
 public:
-    void EXPORT Kill(void);
+    void DLLEXPORT Kill(void);
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;
     static TYPEDESCRIPTION m_SaveData[];

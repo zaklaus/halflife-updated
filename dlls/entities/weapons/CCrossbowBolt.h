@@ -26,9 +26,9 @@ class CCrossbowBolt : public CBaseEntity
     void Spawn(void) override;
     void Precache(void) override;
     int Classify(void) override;
-    void EXPORT BubbleThink(void);
-    void EXPORT BoltTouch(CBaseEntity* pOther);
-    void EXPORT ExplodeThink(void);
+    void DLLEXPORT BubbleThink(void);
+    void DLLEXPORT BoltTouch(CBaseEntity* pOther);
+    void DLLEXPORT ExplodeThink(void);
 
     int m_iTrail;
 

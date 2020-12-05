@@ -44,12 +44,12 @@ public:
     void Precache() override;
 
     //    virtual void    Blocked( void );
-    void EXPORT GoUp() override;
-    void EXPORT GoDown() override;
+    void DLLEXPORT GoUp() override;
+    void DLLEXPORT GoDown() override;
 
     void KeyValue(KeyValueData* pkvd) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
-    void EXPORT Find();
+    void DLLEXPORT Find();
     TRAIN_CODE EvaluateTrain(CPathTrack* pcurrent);
     void UpdateTrain(Vector& dest);
     void HitBottom() override;

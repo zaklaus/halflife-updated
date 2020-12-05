@@ -17,7 +17,6 @@
 //=============================================================================
 #include    "extdll.h"
 #include    "util.h"
-#include    "cbase.h"
 #include    "player.h"
 #include "entities/weapons/CBasePlayerItem.h"
 #include    "pm_shared.h"

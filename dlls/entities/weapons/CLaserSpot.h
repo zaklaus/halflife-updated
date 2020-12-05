@@ -24,7 +24,7 @@ class CLaserSpot : public CBaseEntity
 
 public:
     void Suspend(float flSuspendTime);
-    void EXPORT Revive(void);
+    void DLLEXPORT Revive(void);
 
     static CLaserSpot* CreateSpot(void);
     static CLaserSpot* CreateSpot(const char* spritename);

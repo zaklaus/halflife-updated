@@ -37,7 +37,7 @@ public:
     inline void MessageSet(const char* pMessage) { pev->message = ALLOC_STRING(pMessage); }
     inline const char* MessageGet(void) { return STRING(pev->message); }
 
-    void EXPORT TriggerThink(void);
+    void DLLEXPORT TriggerThink(void);
 
 private:
 

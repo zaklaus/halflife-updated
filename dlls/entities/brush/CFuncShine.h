@@ -24,5 +24,5 @@ public:
     void Activate() override;
     int ObjectCaps() override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
     void DesiredAction() override;
-    void EXPORT Think() override;
+    void DLLEXPORT Think() override;
 };

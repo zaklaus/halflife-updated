@@ -35,7 +35,9 @@ CBaseEntity
                     CCineMonster
 */
 
-#include "cbase.h"
+#include "entities/constants/damage.h"
+#include "entities/constants/capability.h"
+#include "util/ehandle.h"
 #include "extdll.h"
 #include "util.h"
 #include "saverestore.h"
@@ -97,6 +99,12 @@ extern void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEn
 #define CLASS_FACTION_B          15
 #define CLASS_FACTION_C          16
 #define CLASS_BARNACLE           99  // special because no one pays attention to it, and it eats a wide cross-section of creatures.
+
+
+#define    SF_NORESPAWN    ( 1 << 30 )// !!!set this bit on guns and stuff that should never respawn.
+
+
+#define MAX_MULTI_TARGETS    16 // maximum number of targets a single multi_manager entity may be assigned.
 
 
 typedef void (CBaseEntity::* BASEPTR)(void);
@@ -503,20 +511,49 @@ public:
 //LRC- moved here from player.cpp. I'd put it in util.h with its friends, but it needs CBaseEntity to be declared.
 inline BOOL FNullEnt(CBaseEntity* ent) { return ent == NULL || FNullEnt(ent->edict()); }
 
+
+// Ugly technique to override base member functions
+// Normally it's illegal to cast a pointer to a member function of a derived class to a pointer to a
+// member function of a base class.  static_cast is a sleezy way around that problem.
+
+#ifdef _DEBUG
+
+#define SetThink( a ) ThinkSet( static_cast <void (CBaseEntity::*)(void)> (a), #a )
+#define SetTouch( a ) TouchSet( static_cast <void (CBaseEntity::*)(CBaseEntity *)> (a), #a )
+#define SetUse( a ) UseSet( static_cast <void (CBaseEntity::*)(    CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value )> (a), #a )
+#define SetBlocked( a ) BlockedSet( static_cast <void (CBaseEntity::*)(CBaseEntity *)> (a), #a )
+
+#else
+
+#define SetThink( a ) m_pfnThink = static_cast <void (CBaseEntity::*)(void)> (a)
+#define SetTouch( a ) m_pfnTouch = static_cast <void (CBaseEntity::*)(CBaseEntity *)> (a)
+#define SetUse( a ) m_pfnUse = static_cast <void (CBaseEntity::*)( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value )> (a)
+#define SetBlocked( a ) m_pfnBlocked = static_cast <void (CBaseEntity::*)(CBaseEntity *)> (a)
+
+#endif
+
+
 //
-// EHANDLE. Safe way to point to CBaseEntities who may die between frames
+// Converts a entvars_t * to a class pointer
+// It will allocate the class and entity if necessary
 //
-class EHANDLE
+template <class T>
+T* GetClassPtr(T* a)
 {
-private:
-    edict_t* m_pent;
-    int m_serialnumber;
-public:
-    edict_t* Get(void);
-    edict_t* Set(edict_t* pent);
+    entvars_t* pev = (entvars_t*)a;
 
-    operator CBaseEntity*();
+    // allocate entity if necessary
+    if (pev == NULL)
+        pev = VARS(CREATE_ENTITY());
 
-    CBaseEntity* operator =(CBaseEntity* pEntity);
-    CBaseEntity* operator ->();
-};
+    // get the private data
+    a = (T*)GET_PRIVATE(ENT(pev));
+
+    if (a == NULL)
+    {
+        // allocate private data
+        a = new(pev) T;
+        a->pev = pev;
+    }
+    return a;
+}

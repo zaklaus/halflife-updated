@@ -48,7 +48,7 @@ public:
     void Spawn(void) override;
     void Precache(void) override;
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT TurretUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT TurretUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 
     void TraceAttack(entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) override;
     int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
@@ -62,24 +62,24 @@ public:
 
     // Think functions
 
-    void EXPORT ActiveThink(void);
-    void EXPORT SearchThink(void);
-    void EXPORT AutoSearchThink(void);
-    void EXPORT TurretDeath(void);
+    void DLLEXPORT ActiveThink(void);
+    void DLLEXPORT SearchThink(void);
+    void DLLEXPORT AutoSearchThink(void);
+    void DLLEXPORT TurretDeath(void);
 
-    virtual void EXPORT SpinDownCall(void) { m_iSpin = 0; }
-    virtual void EXPORT SpinUpCall(void) { m_iSpin = 1; }
+    virtual void DLLEXPORT SpinDownCall(void) { m_iSpin = 0; }
+    virtual void DLLEXPORT SpinUpCall(void) { m_iSpin = 1; }
 
     // void SpinDown(void);
-    // float EXPORT SpinDownCall( void ) { return SpinDown(); }
+    // float DLLEXPORT SpinDownCall( void ) { return SpinDown(); }
 
     // virtual float SpinDown(void) { return 0;}
     // virtual float Retire(void) { return 0;}
 
-    void EXPORT Deploy(void);
-    void EXPORT Retire(void);
+    void DLLEXPORT Deploy(void);
+    void DLLEXPORT Retire(void);
 
-    void EXPORT Initialize(void);
+    void DLLEXPORT Initialize(void);
 
     virtual void Ping(void);
     virtual void EyeOn(void);

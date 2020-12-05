@@ -22,7 +22,7 @@ public:
     //LRC - this was very bloated. I moved lots of methods into the
     // subclasses where they belonged.
     void InitTrigger(void);
-    void EXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
     BOOL CanTouch(entvars_t* pevToucher);
 
     virtual int ObjectCaps(void) { return CBaseToggle::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }

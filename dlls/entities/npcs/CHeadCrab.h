@@ -25,7 +25,7 @@ public:
     void RunTask(Task_t* pTask) override;
     void StartTask(Task_t* pTask) override;
     void SetYawSpeed(void) override;
-    void EXPORT LeapTouch(CBaseEntity* pOther);
+    void DLLEXPORT LeapTouch(CBaseEntity* pOther);
     Vector Center(void) override;
     Vector BodyTarget(const Vector& posSrc) override;
     void PainSound(void) override;

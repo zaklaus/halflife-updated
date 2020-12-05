@@ -22,7 +22,7 @@ class CTriggerEndSection : public CBaseTrigger
 {
 public:
     void Spawn(void) override;
-    void EXPORT EndSectionTouch(CBaseEntity* pOther);
+    void DLLEXPORT EndSectionTouch(CBaseEntity* pOther);
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT EndSectionUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT EndSectionUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 };

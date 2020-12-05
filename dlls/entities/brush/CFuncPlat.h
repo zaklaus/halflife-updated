@@ -25,12 +25,12 @@ public:
 
     void Blocked(CBaseEntity* pOther) override;
 
-    void EXPORT PlatUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT PlatUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 
-    void EXPORT CallGoUp();
-    void EXPORT CallGoDown();
-    void EXPORT CallHitTop();
-    void EXPORT CallHitBottom();
+    void DLLEXPORT CallGoUp();
+    void DLLEXPORT CallGoDown();
+    void DLLEXPORT CallHitTop();
+    void DLLEXPORT CallHitBottom();
 
     virtual void GoUp();
     virtual void GoDown();

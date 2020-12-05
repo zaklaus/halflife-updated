@@ -24,5 +24,5 @@ class CTriggerTeleport : public CBaseTrigger
 {
 public:
     void Spawn(void) override;
-    void EXPORT TeleportTouch(CBaseEntity* pOther);
+    void DLLEXPORT TeleportTouch(CBaseEntity* pOther);
 };

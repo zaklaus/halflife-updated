@@ -26,7 +26,7 @@ public:
     void KeyValue(KeyValueData* pkvd) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     void DoRespawn() override; //AJH Fix for respawnable breakable pushables (BY HAWK777)
-    void EXPORT StopSound();
+    void DLLEXPORT StopSound();
 
     int ObjectCaps() override;
 

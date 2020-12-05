@@ -29,8 +29,8 @@ public:
     void KeyValue(KeyValueData* pkvd) override;
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT SpeakerThink(void);
+    void DLLEXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT SpeakerThink(void);
 
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

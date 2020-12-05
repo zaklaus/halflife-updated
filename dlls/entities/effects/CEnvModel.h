@@ -27,7 +27,7 @@ class CEnvModel : public CBaseAnimating
 {
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT Think(void) override;
+    void DLLEXPORT Think(void) override;
     void KeyValue(KeyValueData* pkvd) override;
     STATE GetState(void) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;

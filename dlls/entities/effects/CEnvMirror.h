@@ -29,7 +29,7 @@ public:
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     void KeyValue(KeyValueData* pkvd) override;
     int ObjectCaps(void) override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
-    void EXPORT MirrorThink(void);
+    void DLLEXPORT MirrorThink(void);
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;
     STATE GetState(void) override { return m_iActive ? STATE_ON : STATE_OFF; } //Support this stuff for watcher

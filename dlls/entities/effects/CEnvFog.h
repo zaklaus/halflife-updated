@@ -27,12 +27,12 @@ class CEnvFog : public CPointEntity
 public:
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT ResumeThink(void);
-    void EXPORT Resume2Think(void);
-    void EXPORT TurnOn(void);
-    void EXPORT TurnOff(void);
-    void EXPORT FadeInDone(void);
-    void EXPORT FadeOutDone(void);
+    void DLLEXPORT ResumeThink(void);
+    void DLLEXPORT Resume2Think(void);
+    void DLLEXPORT TurnOn(void);
+    void DLLEXPORT TurnOff(void);
+    void DLLEXPORT FadeInDone(void);
+    void DLLEXPORT FadeOutDone(void);
     void SendData(Vector col, int fFadeTime, int StartDist, int iEndDist);
     void KeyValue(KeyValueData* pkvd) override;
     int Save(CSave& save) override;

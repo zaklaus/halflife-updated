@@ -171,5 +171,7 @@ public:
 
 extern CGameRules* InstallGameRules(void);
 
-
 extern DLL_GLOBAL CGameRules* g_pGameRules;
+
+//LRC- much as I hate to add new globals, I can't see how to read data from the World entity.
+extern BOOL g_startSuit;

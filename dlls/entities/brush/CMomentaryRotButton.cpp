@@ -13,9 +13,8 @@
 *
 ****/
 
-#include "extdll.h"
-#include "util.h"
 #include "CMomentaryRotButton.h"
+#include "CBaseButton.h"
 
 TYPEDESCRIPTION CMomentaryRotButton::m_SaveData[] =
 {

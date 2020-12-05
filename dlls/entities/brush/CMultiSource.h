@@ -33,7 +33,7 @@ public:
     void KeyValue(KeyValueData* pkvd) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     STATE GetState(void) override;
-    void EXPORT Register(void);
+    void DLLEXPORT Register(void);
 
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

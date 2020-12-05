@@ -14,10 +14,6 @@
 ****/
 
 #include "CTripBeam.h"
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
-
 
 // UNDONE: Jay -- CTripBeam is only a test
 #if _DEBUG

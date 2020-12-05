@@ -30,7 +30,7 @@ public:
     void Activate(void) override;
     void Precache(void) override;
     void DesiredAction(void) override;
-    void EXPORT Think(void) override;
+    void DLLEXPORT Think(void) override;
 
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 };

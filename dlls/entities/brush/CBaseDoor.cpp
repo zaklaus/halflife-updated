@@ -14,6 +14,7 @@
 ****/
 
 #include "CBaseDoor.h"
+#include "CBaseButton.h"
 #include "doors.h"
 #include "movewith.h"
 

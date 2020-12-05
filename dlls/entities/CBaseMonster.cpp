@@ -22,7 +22,6 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "cbase.h"
 #include "entities/CBaseToggle.h"
 #include "nodes.h"
 #include "monsters.h"
@@ -35,6 +34,7 @@
 #include "entities/base/CCineMonster.h"
 #include "entities/effects/CSoundEnt.h"
 #include "gamerules/CGameRules.h"
+#include "util/dispatch.h"
 
 #define MONSTER_CUT_CORNER_DIST        8 // 8 means the monster's bounding box is contained without the box of the node in WC
 

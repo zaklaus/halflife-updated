@@ -20,7 +20,6 @@
 // 
 #include    "extdll.h"
 #include    "util.h"
-#include    "cbase.h"
 #include    "monsters.h"
 #include    "spectator.h"
 #include "entities/CBaseEntity.h"

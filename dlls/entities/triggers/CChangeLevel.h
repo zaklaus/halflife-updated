@@ -25,10 +25,10 @@ class CChangeLevel : public CBaseTrigger
 public:
     void Spawn(void) override;
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT UseChangeLevel(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT TriggerChangeLevel(void);
-    void EXPORT ExecuteChangeLevel(void);
-    void EXPORT TouchChangeLevel(CBaseEntity* pOther);
+    void DLLEXPORT UseChangeLevel(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT TriggerChangeLevel(void);
+    void DLLEXPORT ExecuteChangeLevel(void);
+    void DLLEXPORT TouchChangeLevel(CBaseEntity* pOther);
     void ChangeLevelNow(CBaseEntity* pActivator);
 
     static edict_t* FindLandmark(const char* pLandmarkName);

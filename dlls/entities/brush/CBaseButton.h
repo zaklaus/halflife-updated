@@ -15,6 +15,9 @@
 #pragma once
 
 #include "entities/CBaseToggle.h"
+#include "doors.h"
+
+const char* ButtonSound(int sound); // get string of button sound number
 
 //
 // Generic Button
@@ -31,14 +34,14 @@ public:
     void ButtonActivate();
     void SparkSoundCache();
 
-    void EXPORT ButtonShot();
-    void EXPORT ButtonTouch(CBaseEntity* pOther);
-    void EXPORT ButtonSpark();
-    void EXPORT TriggerAndWait();
-    void EXPORT ButtonReturn();
-    void EXPORT ButtonBackHome();
-    void EXPORT ButtonUse_IgnorePlayer(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT ButtonUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT ButtonShot();
+    void DLLEXPORT ButtonTouch(CBaseEntity* pOther);
+    void DLLEXPORT ButtonSpark();
+    void DLLEXPORT TriggerAndWait();
+    void DLLEXPORT ButtonReturn();
+    void DLLEXPORT ButtonBackHome();
+    void DLLEXPORT ButtonUse_IgnorePlayer(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT ButtonUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
     int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

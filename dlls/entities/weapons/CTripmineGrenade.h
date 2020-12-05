@@ -29,10 +29,10 @@ class CTripmineGrenade : public CGrenade
 
     int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
 
-    void EXPORT WarningThink(void);
-    void EXPORT PowerupThink(void);
-    void EXPORT BeamBreakThink(void);
-    void EXPORT DelayDeathThink(void);
+    void DLLEXPORT WarningThink(void);
+    void DLLEXPORT PowerupThink(void);
+    void DLLEXPORT BeamBreakThink(void);
+    void DLLEXPORT DelayDeathThink(void);
     void Killed(entvars_t* pevAttacker, int iGib) override;
 
     void MakeBeam(void);

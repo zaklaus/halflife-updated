@@ -20,5 +20,5 @@ class CTriggerSave : public CBaseTrigger
 {
 public:
     void Spawn(void) override;
-    void EXPORT SaveTouch(CBaseEntity* pOther);
+    void DLLEXPORT SaveTouch(CBaseEntity* pOther);
 };

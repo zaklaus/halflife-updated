@@ -24,7 +24,6 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "cbase.h"
 #include "doors.h"
 
 // play door or button locked or unlocked sounds. 

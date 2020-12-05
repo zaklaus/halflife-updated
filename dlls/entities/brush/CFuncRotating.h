@@ -31,13 +31,13 @@ public:
     // basic functions
     void Spawn() override;
     void Precache() override;
-    void EXPORT SpinUp();
-    void EXPORT SpinDown();
+    void DLLEXPORT SpinUp();
+    void DLLEXPORT SpinDown();
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT HurtTouch(CBaseEntity* pOther);
-    void EXPORT RotatingUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT WaitForStart(); //LRC - get round 1.1.0.8's bizarre behaviour on startup
-    void EXPORT Rotate();
+    void DLLEXPORT HurtTouch(CBaseEntity* pOther);
+    void DLLEXPORT RotatingUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT WaitForStart(); //LRC - get round 1.1.0.8's bizarre behaviour on startup
+    void DLLEXPORT Rotate();
     void RampPitchVol(int fUp);
     void Blocked(CBaseEntity* pOther) override;
     int ObjectCaps() override;

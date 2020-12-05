@@ -29,6 +29,6 @@ public:
     void Spawn(void) override;
     void Precache(void) override;
     int MyTouch(CBasePlayer* pPlayer) override;
-    void EXPORT ItemTouch(CBaseEntity* pOther);
+    void DLLEXPORT ItemTouch(CBaseEntity* pOther);
     void CItemMedicalKit::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 };

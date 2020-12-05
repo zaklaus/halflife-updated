@@ -21,8 +21,8 @@ class CTriggerInOut : public CBaseTrigger
 {
 public:
     void Spawn(void) override;
-    void EXPORT Touch(CBaseEntity* pOther) override;
-    void EXPORT Think(void) override;
+    void DLLEXPORT Touch(CBaseEntity* pOther) override;
+    void DLLEXPORT Think(void) override;
     void FireOnEntry(CBaseEntity* pOther);
     void FireOnLeaving(CBaseEntity* pOther);
 

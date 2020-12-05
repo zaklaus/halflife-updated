@@ -35,7 +35,7 @@ public:
 
     void FireAtPoint(Vector startpos, TraceResult& point);
 
-    void EXPORT StrikeThink(void);
+    void DLLEXPORT StrikeThink(void);
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

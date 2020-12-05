@@ -22,5 +22,5 @@ class CFuncTrainControls : public CBaseEntity
 public:
     int ObjectCaps() override;
     void Spawn() override;
-    void EXPORT Find();
+    void DLLEXPORT Find();
 };

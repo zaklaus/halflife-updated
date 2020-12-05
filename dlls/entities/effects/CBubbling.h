@@ -25,7 +25,7 @@ public:
     void Precache(void) override;
     void KeyValue(KeyValueData* pkvd) override;
 
-    void EXPORT FizzThink(void);
+    void DLLEXPORT FizzThink(void);
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 
     int ObjectCaps(void) override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }

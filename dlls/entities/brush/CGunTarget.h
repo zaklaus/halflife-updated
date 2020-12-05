@@ -30,9 +30,9 @@ class CGunTarget : public CBaseMonster
 public:
     void Spawn() override;
     void Activate() override;
-    void EXPORT Next();
-    void EXPORT Start();
-    void EXPORT Wait();
+    void DLLEXPORT Next();
+    void DLLEXPORT Start();
+    void DLLEXPORT Wait();
     void Stop() override;
 
     int BloodColor() override;

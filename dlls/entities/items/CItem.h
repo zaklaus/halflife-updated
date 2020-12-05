@@ -36,7 +36,7 @@ class CItem : public CBaseEntity
 public:
     void Spawn(void) override;
     CBaseEntity* Respawn(void) override;
-    void EXPORT ItemTouch(CBaseEntity* pOther);
-    void EXPORT Materialize(void);
+    void DLLEXPORT ItemTouch(CBaseEntity* pOther);
+    void DLLEXPORT Materialize(void);
     virtual BOOL MyTouch(CBasePlayer* pPlayer) { return FALSE; };
 };

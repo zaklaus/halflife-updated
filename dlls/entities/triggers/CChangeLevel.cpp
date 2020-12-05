@@ -16,6 +16,7 @@
 #include "CChangeLevel.h"
 #include "CFireAndDie.h"
 #include "gamerules/CGameRules.h"
+#include "util/dispatch.h"
 
 LINK_ENTITY_TO_CLASS(trigger_changelevel, CChangeLevel);
 

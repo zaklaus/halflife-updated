@@ -12,6 +12,7 @@
 *   without written permission from Valve LLC.
 *
 ****/
+#pragma once
 //=========================================================
 // skill.h - skill level concerns
 //=========================================================

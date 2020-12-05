@@ -14,9 +14,6 @@
 ****/
 
 #include "CHalfLifeTeamplay.h"
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
 #include "player.h"
 #include "game.h"
 #include "voice_gamemgr.h"

@@ -40,7 +40,7 @@ class CStateWatcher : public CBaseToggle
 {
 public:
     void Spawn(void) override;
-    void EXPORT Think(void) override;
+    void DLLEXPORT Think(void) override;
     void KeyValue(KeyValueData* pkvd) override;
     STATE GetState(void) override;
     STATE GetState(CBaseEntity* pActivator) override;

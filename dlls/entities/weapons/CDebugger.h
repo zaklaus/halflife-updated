@@ -23,7 +23,7 @@ public:
     void Precache(void) override;
     int GetItemInfo(ItemInfo* p) override;
     int AddToPlayer(CBasePlayer* pPlayer) override;
-    void EXPORT Commands(BOOL type);
+    void DLLEXPORT Commands(BOOL type);
     void PrimaryAttack(void) override;
     void SecondaryAttack(void) override;
     BOOL Deploy(void) override;

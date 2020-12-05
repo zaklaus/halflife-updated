@@ -15,6 +15,7 @@
 #pragma once
 
 #include "entities/CBaseToggle.h"
+#include "doors.h"
 
 class CBaseDoor : public CBaseToggle
 {
@@ -35,14 +36,14 @@ public:
     void SetToggleState(int state) override;
 
     // used to selectivly override defaults
-    void EXPORT DoorTouch(CBaseEntity* pOther);
+    void DLLEXPORT DoorTouch(CBaseEntity* pOther);
 
     // local functions
     int DoorActivate();
-    void EXPORT DoorGoUp();
-    void EXPORT DoorGoDown();
-    void EXPORT DoorHitTop();
-    void EXPORT DoorHitBottom();
+    void DLLEXPORT DoorGoUp();
+    void DLLEXPORT DoorGoDown();
+    void DLLEXPORT DoorHitTop();
+    void DLLEXPORT DoorHitBottom();
 
     BYTE m_bHealthValue; // some doors are medi-kit doors, they give players health
 

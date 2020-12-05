@@ -94,7 +94,7 @@ void CEnvSpark::KeyValue(KeyValueData* pkvd)
         FStrEq(pkvd->szKeyName, "value1") ||
         FStrEq(pkvd->szKeyName, "value2") ||
         FStrEq(pkvd->szKeyName, "value3")
-        )
+    )
     {
         pkvd->fHandled = TRUE;
     }
@@ -104,7 +104,7 @@ void CEnvSpark::KeyValue(KeyValueData* pkvd)
     }
 }
 
-void EXPORT CEnvSpark::SparkCyclic(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+void DLLEXPORT CEnvSpark::SparkCyclic(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
     if (m_pfnThink == NULL)
     {
@@ -118,12 +118,12 @@ void EXPORT CEnvSpark::SparkCyclic(CBaseEntity* pActivator, CBaseEntity* pCaller
     }
 }
 
-void EXPORT CEnvSpark::SparkWait()
+void DLLEXPORT CEnvSpark::SparkWait()
 {
     SetThink(NULL);
 }
 
-void EXPORT CEnvSpark::SparkThink()
+void DLLEXPORT CEnvSpark::SparkThink()
 {
     DoSpark(pev, pev->origin);
     if (pev->spawnflags & 16)
@@ -136,7 +136,7 @@ void EXPORT CEnvSpark::SparkThink()
     }
 }
 
-void EXPORT CEnvSpark::SparkStart(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+void DLLEXPORT CEnvSpark::SparkStart(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
     SetUse(&CEnvSpark::SparkStop);
     SetThink(&CEnvSpark::SparkThink);
@@ -144,9 +144,35 @@ void EXPORT CEnvSpark::SparkStart(CBaseEntity* pActivator, CBaseEntity* pCaller,
     SetNextThink(0.1 + RANDOM_FLOAT(0, m_flDelay));
 }
 
-void EXPORT CEnvSpark::SparkStop(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+void DLLEXPORT CEnvSpark::SparkStop(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
     SetUse(&CEnvSpark::SparkStart);
     SetThink(NULL);
     m_iState = STATE_OFF; //LRC
+}
+
+//
+// Makes flagged buttons spark when turned off
+//
+void DoSpark(entvars_t* pev, const Vector& location)
+{
+    Vector tmp = location + pev->size * 0.5;
+    UTIL_Sparks(tmp);
+
+    float flVolume = RANDOM_FLOAT(0.25, 0.75) * 0.4; //random volume range
+    switch ((int)(RANDOM_FLOAT(0, 1) * 6))
+    {
+    case 0: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark1.wav", flVolume, ATTN_NORM);
+        break;
+    case 1: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark2.wav", flVolume, ATTN_NORM);
+        break;
+    case 2: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark3.wav", flVolume, ATTN_NORM);
+        break;
+    case 3: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark4.wav", flVolume, ATTN_NORM);
+        break;
+    case 4: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark5.wav", flVolume, ATTN_NORM);
+        break;
+    case 5: EMIT_SOUND(ENT(pev), CHAN_VOICE, "buttons/spark6.wav", flVolume, ATTN_NORM);
+        break;
+    }
 }

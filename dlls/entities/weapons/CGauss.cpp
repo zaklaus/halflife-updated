@@ -21,6 +21,10 @@
 #include "player.h"
 #include "skill.h"
 
+#ifndef CLIENT_DLL
+extern BOOL g_allowGJump; //AJH SP Gaussjump
+#endif
+
 enum gauss_e
 {
     GAUSS_IDLE = 0,

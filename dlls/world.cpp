@@ -22,7 +22,6 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "cbase.h"
 #include "nodes.h"
 #include "entities/effects/CSoundEnt.h"
 #include "client.h"
@@ -122,8 +121,8 @@ class CDecal : public CBaseEntity
 public:
     void    Spawn( void );
     void    KeyValue( KeyValueData *pkvd );
-    void    EXPORT StaticDecal( void );
-    void    EXPORT TriggerDecal( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
+    void    DLLEXPORT StaticDecal( void );
+    void    DLLEXPORT TriggerDecal( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
 };
 
 LINK_ENTITY_TO_CLASS( infodecal, CDecal );
@@ -445,28 +444,6 @@ void CGlobalState::ClearStates( void )
     }
     Reset();
 }
-
-
-void SaveGlobalState( SAVERESTOREDATA *pSaveData )
-{
-    CSave saveHelper( pSaveData );
-    gGlobalState.Save( saveHelper );
-}
-
-
-void RestoreGlobalState( SAVERESTOREDATA *pSaveData )
-{
-    CRestore restoreHelper( pSaveData );
-    gGlobalState.Restore( restoreHelper );
-}
-
-
-void ResetGlobalState( void )
-{
-    gGlobalState.ClearStates();
-    gInitHUD = TRUE;    // Init the HUD on a new game / load game
-}
-
 
 #include "entities/base/CWorld.h"
 

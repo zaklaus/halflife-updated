@@ -16,9 +16,6 @@
 #include "entities/weapons/CBasePlayerItem.h"
 #include "entities/weapons/CBasePlayerAmmo.h"
 #include "entities/items/CItem.h"
-#include "extdll.h"
-#include "util.h"
-#include "cbase.h"
 #include "player.h"
 #include "skill.h"
 

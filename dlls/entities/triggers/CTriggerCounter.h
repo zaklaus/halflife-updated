@@ -24,7 +24,7 @@ class CTriggerCounter : public CTriggerMultiple
 {
 public:
     void Spawn(void) override;
-    void EXPORT CounterUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT CounterUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
     void KeyValue(KeyValueData* pkvd) override;
     bool CalcNumber(CBaseEntity* pLocus, float* OUTresult) override;
 };

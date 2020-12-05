@@ -30,7 +30,7 @@ public:
     int Restore(CRestore& restore) override;
     static TYPEDESCRIPTION m_SaveData[];
 
-    void EXPORT DoorMoveDone(void);
+    void DLLEXPORT DoorMoveDone(void);
 
     BYTE m_bMoveSnd; // sound a door makes while moving    
     BYTE m_bStopSnd; // sound a door makes while moving

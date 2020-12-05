@@ -49,14 +49,14 @@ public:
         pev->absmax = pev->origin + Vector(400, 400, 850);
     }
 
-    void EXPORT Cycle(void);
-    void EXPORT CommandUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT Start(void);
-    void EXPORT DieThink(void);
+    void DLLEXPORT Cycle(void);
+    void DLLEXPORT CommandUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT Start(void);
+    void DLLEXPORT DieThink(void);
 
-    void EXPORT Test(void);
+    void DLLEXPORT Test(void);
 
-    void EXPORT HitTouch(CBaseEntity* pOther);
+    void DLLEXPORT HitTouch(CBaseEntity* pOther);
 
     float HearingSensitivity(void) override { return 2.0; };
 

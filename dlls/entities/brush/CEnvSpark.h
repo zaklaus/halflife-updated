@@ -16,16 +16,18 @@
 
 #include "entities/CBaseEntity.h"
 
+void DoSpark(entvars_t* pev, const Vector& location);
+
 class CEnvSpark : public CBaseEntity
 {
 public:
     void Spawn() override;
     void Precache() override;
-    void EXPORT SparkThink();
-    void EXPORT SparkWait();
-    void EXPORT SparkCyclic(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT SparkStart(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT SparkStop(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT SparkThink();
+    void DLLEXPORT SparkWait();
+    void DLLEXPORT SparkCyclic(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT SparkStart(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT SparkStop(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
     void KeyValue(KeyValueData* pkvd) override;
 
     int Save(CSave& save) override;

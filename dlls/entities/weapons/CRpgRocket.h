@@ -25,9 +25,9 @@ public:
     static TYPEDESCRIPTION m_SaveData[];
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT FollowThink(void);
-    void EXPORT IgniteThink(void);
-    void EXPORT RocketTouch(CBaseEntity* pOther);
+    void DLLEXPORT FollowThink(void);
+    void DLLEXPORT IgniteThink(void);
+    void DLLEXPORT RocketTouch(CBaseEntity* pOther);
     static CRpgRocket* CreateRpgRocket(Vector vecOrigin, Vector vecAngles, CBaseEntity* pOwner, CRpg* pLauncher);
 
     int m_iTrail;

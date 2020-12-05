@@ -34,7 +34,7 @@ public:
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     //void Think( void );
     void Precache(void) override;
-    void EXPORT ItemTouch(CBaseEntity* pOther);
+    void DLLEXPORT ItemTouch(CBaseEntity* pOther);
     int MyTouch(CBasePlayer* pPlayer) override;
     //CBaseEntity* Respawn(void);
     //void Materialize(void);

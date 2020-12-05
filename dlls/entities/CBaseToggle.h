@@ -75,7 +75,7 @@ public:
     void DLLEXPORT LinearMoveNow(void); //LRC- think function that lets us guarantee a LinearMove gets done as a think.
     void DLLEXPORT LinearMoveDone(void);
     void DLLEXPORT LinearMoveDoneNow(void); //LRC
-    //    void EXPORT LinearMoveFinalDone( void );
+    //    void DLLEXPORT LinearMoveFinalDone( void );
     void AngularMove(Vector vecDestAngle, float flSpeed);
     void DLLEXPORT AngularMoveNow(void); //LRC- think function that lets us guarantee an AngularMove gets done as a think.
     void DLLEXPORT AngularMoveDone(void);

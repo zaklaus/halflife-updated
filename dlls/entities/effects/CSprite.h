@@ -88,7 +88,7 @@ public:
         SetNextThink(0);
     }
 
-    void EXPORT AnimateUntilDead(void);
+    void DLLEXPORT AnimateUntilDead(void);
 
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

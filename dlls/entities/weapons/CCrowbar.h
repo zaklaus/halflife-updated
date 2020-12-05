@@ -24,8 +24,8 @@ class CCrowbar : public CBasePlayerWeapon
 public:
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT SwingAgain(void);
-    void EXPORT Smack(void);
+    void DLLEXPORT SwingAgain(void);
+    void DLLEXPORT Smack(void);
     int GetItemInfo(ItemInfo* p) override;
 
     void PrimaryAttack(void) override;

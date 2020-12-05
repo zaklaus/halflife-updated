@@ -73,9 +73,9 @@ public:
     void Spawn(void) override;
     //    void PostSpawn( void );
     void Precache(void) override;
-    void EXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT StartPlayFrom(void);
-    void EXPORT RampThink(void);
+    void DLLEXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT StartPlayFrom(void);
+    void DLLEXPORT RampThink(void);
     void InitModulationParms(void);
 
     int Save(CSave& save) override;

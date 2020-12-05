@@ -94,6 +94,15 @@
     <Filter Include="Header Files\dlls\gamerules">
       <UniqueIdentifier>{b52279a7-5fef-415d-b5a3-893287453ec4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\dlls\util">
+      <UniqueIdentifier>{4af5b447-6212-4cb5-a1e7-a040f87c3cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\util">
+      <UniqueIdentifier>{7fdf0492-f7dc-4abb-b139-c94ac280c976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\entities\constants">
+      <UniqueIdentifier>{76f083a9-a5c7-495c-aa35-8e053857d838}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\animation.cpp">
@@ -152,9 +161,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\movewith.cpp">
       <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\cbase.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\brush\CFuncWall.cpp">
       <Filter>Source Files\dlls\entities\brush</Filter>
@@ -795,9 +801,6 @@
     <ClCompile Include="..\..\dlls\bmodels.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\buttons.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\doors.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
@@ -1086,6 +1089,54 @@
     <ClCompile Include="..\..\dlls\gamerules\CGameRules.cpp">
       <Filter>Source Files\dlls\gamerules</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (4).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (5).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (6).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (7).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (8).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (9).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (10).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (11).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (12).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (13).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy (14).cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code - Copy.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\code.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\dispatch.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\ehandle.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\EntityApi.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\doors.h">
@@ -1098,9 +1149,6 @@
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\animation.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\cbase.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\cdll_dll.h">
@@ -2092,6 +2140,57 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\game.h">
       <Filter>Header Files\dlls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (5).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (6).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (7).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (8).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (9).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (10).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (11).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (12).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (13).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy (14).h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header - Copy.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\header.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\dispatch.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\constants\damage.h">
+      <Filter>Header Files\dlls\entities\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\constants\capability.h">
+      <Filter>Header Files\dlls\entities\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\EntityApi.h">
+      <Filter>Header Files\dlls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\ehandle.h">
+      <Filter>Header Files\dlls\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

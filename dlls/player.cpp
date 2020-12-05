@@ -27,7 +27,6 @@
 #include "extdll.h"
 #include "util.h"
 
-#include "cbase.h"
 #include "player.h"
 #include "trains.h"
 #include "nodes.h"
@@ -47,6 +46,7 @@
 #include "pm_shared.h"
 #include "hltv.h"
 #include "entities/npcs/CGib.h"
+#include "util/dispatch.h"
 
 // #define DUCKFIX
 
@@ -199,7 +199,6 @@ TYPEDESCRIPTION    CBasePlayer::m_playerSaveData[] =
 int giPrecacheGrunt = 0;
 int gmsgShake = 0;
 int gmsgFade = 0;
-int gmsgSelAmmo = 0;
 int gmsgFlashlight = 0;
 int gmsgFlashBattery = 0;
 int gmsgResetHUD = 0;
@@ -251,12 +250,11 @@ int gmsgInventory = 0; //AJH Inventory system
 void LinkUserMessages( void )
 {
     // Already taken care of?
-    if ( gmsgSelAmmo )
+    if (gmsgCurWeapon)
     {
         return;
     }
 
-    gmsgSelAmmo = REG_USER_MSG("SelAmmo", sizeof(SelAmmo));
     gmsgCurWeapon = REG_USER_MSG("CurWeapon", 3);
     gmsgGeigerRange = REG_USER_MSG("Geiger", 1);
     gmsgFlashlight = REG_USER_MSG("Flashlight", 2);
@@ -5449,8 +5447,8 @@ class CRevertSaved : public CPointEntity
 {
 public:
     void    Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
-    void    EXPORT MessageThink( void );
-    void    EXPORT LoadThink( void );
+    void    DLLEXPORT MessageThink( void );
+    void    DLLEXPORT LoadThink( void );
     void    KeyValue( KeyValueData *pkvd );
 
     virtual int        Save( CSave &save );

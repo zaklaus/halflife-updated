@@ -22,7 +22,6 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "cbase.h"
 
 //LRC
 int GetStdLightStyle (int iStyle)

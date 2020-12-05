@@ -26,7 +26,7 @@ public:
 
     static CBMortar* Shoot(edict_t* pOwner, Vector vecStart, Vector vecVelocity);
     void Touch(CBaseEntity* pOther) override;
-    void EXPORT Animate(void);
+    void DLLEXPORT Animate(void);
 
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

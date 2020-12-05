@@ -13,9 +13,6 @@
 *
 ****/
 
-#include "extdll.h"
-#include "util.h"
-#include "doors.h"
 #include "CRotButton.h"
 
 LINK_ENTITY_TO_CLASS( func_rot_button, CRotButton );

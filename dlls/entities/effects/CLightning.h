@@ -24,13 +24,13 @@ public:
     void KeyValue(KeyValueData* pkvd) override;
     void Activate() override;
 
-    void EXPORT StrikeThink();
-    void EXPORT TripThink();
+    void DLLEXPORT StrikeThink();
+    void DLLEXPORT TripThink();
     void RandomArea();
     void RandomPoint(Vector& vecSrc);
     void Zap(const Vector& vecSrc, const Vector& vecDest);
-    void EXPORT StrikeUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT StrikeUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 
     inline BOOL ServerSide()
     {

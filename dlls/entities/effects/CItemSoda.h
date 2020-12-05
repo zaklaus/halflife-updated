@@ -24,6 +24,6 @@ class CItemSoda : public CBaseEntity
 public:
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT CanThink(void);
-    void EXPORT CanTouch(CBaseEntity* pOther);
+    void DLLEXPORT CanThink(void);
+    void DLLEXPORT CanTouch(CBaseEntity* pOther);
 };

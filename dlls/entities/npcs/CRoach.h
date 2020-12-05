@@ -32,10 +32,10 @@ public:
     void Spawn(void) override;
     void Precache(void) override;
     void SetYawSpeed(void) override;
-    void EXPORT MonsterThink(void) override;
+    void DLLEXPORT MonsterThink(void) override;
     void Move(float flInterval) override;
     void PickNewDest(int iCondition);
-    void EXPORT Touch(CBaseEntity* pOther) override;
+    void DLLEXPORT Touch(CBaseEntity* pOther) override;
     void Killed(entvars_t* pevAttacker, int iGib) override;
 
     float m_flLastLightLevel;

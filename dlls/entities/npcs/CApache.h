@@ -36,12 +36,12 @@ class CApache : public CBaseMonster
         pev->absmax = pev->origin + Vector(300, 300, 8);
     }
 
-    void EXPORT HuntThink(void);
-    void EXPORT FlyTouch(CBaseEntity* pOther);
-    void EXPORT CrashTouch(CBaseEntity* pOther);
-    void EXPORT DyingThink(void);
-    void EXPORT StartupUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT NullThink(void);
+    void DLLEXPORT HuntThink(void);
+    void DLLEXPORT FlyTouch(CBaseEntity* pOther);
+    void DLLEXPORT CrashTouch(CBaseEntity* pOther);
+    void DLLEXPORT DyingThink(void);
+    void DLLEXPORT StartupUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT NullThink(void);
 
     void ShowDamage(void);
     void Flight(void);

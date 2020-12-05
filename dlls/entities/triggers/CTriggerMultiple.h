@@ -29,7 +29,7 @@ public:
             PRECACHE_SOUND((char*)STRING(pev->noise));
     }
 
-    void EXPORT MultiTouch(CBaseEntity* pOther);
-    void EXPORT MultiWaitOver(void);
+    void DLLEXPORT MultiTouch(CBaseEntity* pOther);
+    void DLLEXPORT MultiWaitOver(void);
     void ActivateMultiTrigger(CBaseEntity* pActivator);
 };

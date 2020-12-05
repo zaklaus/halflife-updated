@@ -16,7 +16,6 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "cbase.h"
 #include "entities/CBaseToggle.h"
 
 #define SF_WATCHERRATIO_MANUALUPDATES  0x0001
@@ -40,7 +39,7 @@ class CWatcherRatio : public CBaseToggle
 {
 public:
     void Spawn(void) override;
-    void EXPORT Think(void) override;
+    void DLLEXPORT Think(void) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     STATE GetState(void) override { return (pev->spawnflags & SF_WATCHERRATIO_ON) ? STATE_ON : STATE_OFF; };
     int ObjectCaps(void) override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }

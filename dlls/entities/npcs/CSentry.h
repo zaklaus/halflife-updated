@@ -27,6 +27,6 @@ public:
     // other functions
     void Shoot(Vector& vecSrc, Vector& vecDirToEnemy) override;
     int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
-    void EXPORT SentryTouch(CBaseEntity* pOther);
-    void EXPORT SentryDeath(void);
+    void DLLEXPORT SentryTouch(CBaseEntity* pOther);
+    void DLLEXPORT SentryDeath(void);
 };

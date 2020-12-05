@@ -22,7 +22,7 @@ public:
     void Spawn() override;
     void Precache() override;
 
-    void EXPORT MortarExplode();
+    void DLLEXPORT MortarExplode();
 
     int m_spriteTexture;
 };

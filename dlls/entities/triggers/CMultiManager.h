@@ -40,12 +40,12 @@ class CMultiManager : public CBaseEntity
 public:
     void KeyValue(KeyValueData* pkvd) override;
     void Spawn(void) override;
-    void EXPORT UseThink(void);
-    void EXPORT ManagerThink(void);
-    void EXPORT ManagerUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT UseThink(void);
+    void DLLEXPORT ManagerThink(void);
+    void DLLEXPORT ManagerUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 
 #if _DEBUG
-    void EXPORT ManagerReport(void);
+    void DLLEXPORT ManagerReport(void);
 #endif
 
     BOOL HasTarget(string_t targetname) override;

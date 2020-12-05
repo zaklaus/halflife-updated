@@ -22,8 +22,8 @@ class CSatchelCharge : public CGrenade
     void Precache(void) override;
     void BounceSound(void) override;
 
-    void EXPORT SatchelSlide(CBaseEntity* pOther);
-    void EXPORT SatchelThink(void);
+    void DLLEXPORT SatchelSlide(CBaseEntity* pOther);
+    void DLLEXPORT SatchelThink(void);
 
 public:
     void Deactivate(void);

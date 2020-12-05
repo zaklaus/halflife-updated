@@ -23,11 +23,11 @@ class CPendulum : public CBaseEntity
 public:
     void Spawn() override;
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT SwingThink();
-    void EXPORT PendulumUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT StopThink();
+    void DLLEXPORT SwingThink();
+    void DLLEXPORT PendulumUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT StopThink();
     void Touch(CBaseEntity* pOther) override;
-    void EXPORT RopeTouch(CBaseEntity* pOther); // this touch func makes the pendulum a rope
+    void DLLEXPORT RopeTouch(CBaseEntity* pOther); // this touch func makes the pendulum a rope
     int ObjectCaps() override;
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;

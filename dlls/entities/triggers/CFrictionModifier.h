@@ -21,7 +21,7 @@ class CFrictionModifier : public CBaseEntity
 public:
     void Spawn(void) override;
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT ChangeFriction(CBaseEntity* pOther);
+    void DLLEXPORT ChangeFriction(CBaseEntity* pOther);
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;
 

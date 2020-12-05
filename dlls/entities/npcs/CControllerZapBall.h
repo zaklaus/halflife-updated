@@ -20,8 +20,8 @@ class CControllerZapBall : public CBaseMonster
 {
     void Spawn(void) override;
     void Precache(void) override;
-    void EXPORT AnimateThink(void);
-    void EXPORT ExplodeTouch(CBaseEntity* pOther);
+    void DLLEXPORT AnimateThink(void);
+    void DLLEXPORT ExplodeTouch(CBaseEntity* pOther);
 
     EHANDLE m_hOwner;
 };

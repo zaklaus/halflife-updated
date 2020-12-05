@@ -34,16 +34,16 @@ public:
 
     void UpdateGoal(void);
     BOOL HasDead(void);
-    void EXPORT FlyThink(void);
-    void EXPORT DeployThink(void);
+    void DLLEXPORT FlyThink(void);
+    void DLLEXPORT DeployThink(void);
     void Flight(void);
-    void EXPORT HitTouch(CBaseEntity* pOther);
-    void EXPORT FindAllThink(void);
-    void EXPORT HoverThink(void);
+    void DLLEXPORT HitTouch(CBaseEntity* pOther);
+    void DLLEXPORT FindAllThink(void);
+    void DLLEXPORT HoverThink(void);
     CBaseMonster* MakeGrunt(Vector vecSrc);
-    void EXPORT CrashTouch(CBaseEntity* pOther);
-    void EXPORT DyingThink(void);
-    void EXPORT CommandUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT CrashTouch(CBaseEntity* pOther);
+    void DLLEXPORT DyingThink(void);
+    void DLLEXPORT CommandUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 
     // int  TakeDamage( entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType );
     void TraceAttack(entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) override;

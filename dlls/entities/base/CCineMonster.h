@@ -47,7 +47,7 @@ public:
     STATE GetState(void) override { return m_iState; };
     STATE m_iState;
 
-    // void EXPORT CineSpawnThink( void );
+    // void DLLEXPORT CineSpawnThink( void );
     void DLLEXPORT CineThink(void);
     void DLLEXPORT InitIdleThink(void); //LRC
     void Pain(void);

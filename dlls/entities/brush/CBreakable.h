@@ -45,11 +45,11 @@ public:
     void Precache() override;
     void KeyValue(KeyValueData* pkvd) override;
     bool CalcNumber(CBaseEntity* pLocus, float* OUTresult) override;
-    void EXPORT BreakTouch(CBaseEntity* pOther);
-    void EXPORT BreakUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT RespawnUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
-    void EXPORT RespawnThink();
-    void EXPORT RespawnFadeThink();
+    void DLLEXPORT BreakTouch(CBaseEntity* pOther);
+    void DLLEXPORT BreakUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT RespawnUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+    void DLLEXPORT RespawnThink();
+    void DLLEXPORT RespawnFadeThink();
     void DamageSound();
     virtual void DoRespawn(); //AJH Fix for respawnable breakable pushables
     int Classify() override;
@@ -66,7 +66,7 @@ public:
 
     int DamageDecal(int bitsDamageType) override;
 
-    void EXPORT Die();
+    void DLLEXPORT Die();
 
     int ObjectCaps() override;
     int Save(CSave& save) override;

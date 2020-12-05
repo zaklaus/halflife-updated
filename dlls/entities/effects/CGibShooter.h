@@ -25,7 +25,7 @@ public:
     void Spawn(void) override;
     void Precache(void) override;
     void KeyValue(KeyValueData* pkvd) override;
-    void EXPORT ShootThink(void);
+    void DLLEXPORT ShootThink(void);
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 
     virtual CBaseEntity* CreateGib(Vector vecPos, Vector vecVel);

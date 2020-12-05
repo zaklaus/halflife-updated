@@ -35,11 +35,11 @@ public:
 
     void DesiredAction() override; //LRC - used to be called Next!
 
-    //    void EXPORT Next( void );
-    void EXPORT PostponeNext();
-    void EXPORT Find();
-    void EXPORT NearestPath();
-    void EXPORT DeadEnd();
+    //    void DLLEXPORT Next( void );
+    void DLLEXPORT PostponeNext();
+    void DLLEXPORT Find();
+    void DLLEXPORT NearestPath();
+    void DLLEXPORT DeadEnd();
 
     void NextThink(float thinkTime, BOOL alwaysThink);
 

@@ -28,7 +28,7 @@ public:
     void Precache(void) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
     STATE GetState(void) override;
-    void EXPORT StartTrailThink(void);
+    void DLLEXPORT StartTrailThink(void);
     void Affect(CBaseEntity* pTarget, USE_TYPE useType);
 
     int m_iSprite; // Don't save, precache

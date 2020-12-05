@@ -42,10 +42,10 @@ public:
     void StopSequence();
     CTrainSequence* m_pSequence;
 
-    void EXPORT Wait();
-    void EXPORT Next();
-    void EXPORT ThinkDoNext();
-    void EXPORT SoundSetup();
+    void DLLEXPORT Wait();
+    void DLLEXPORT Next();
+    void DLLEXPORT ThinkDoNext();
+    void DLLEXPORT SoundSetup();
 
     STATE GetState() override { return m_iState; }
 

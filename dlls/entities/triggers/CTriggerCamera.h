@@ -27,7 +27,7 @@ public:
     void Spawn(void) override;
     void KeyValue(KeyValueData* pkvd) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
-    void EXPORT FollowTarget(void);
+    void DLLEXPORT FollowTarget(void);
     void Move(void);
 
     int Save(CSave& save) override;

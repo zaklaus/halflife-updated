@@ -27,8 +27,8 @@ public:
     CBaseEntity* TongueTouchEnt(float* pflLength);
     int Classify(void) override;
     void HandleAnimEvent(MonsterEvent_t* pEvent) override;
-    void EXPORT BarnacleThink(void);
-    void EXPORT WaitTillDead(void);
+    void DLLEXPORT BarnacleThink(void);
+    void DLLEXPORT WaitTillDead(void);
     void Killed(entvars_t* pevAttacker, int iGib) override;
     int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
     int Save(CSave& save) override;

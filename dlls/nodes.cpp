@@ -18,7 +18,6 @@
 
 #include    "extdll.h"
 #include    "util.h"
-#include    "cbase.h"
 #include    "monsters.h"
 #include    "nodes.h"
 #include    "animation.h"
@@ -1440,11 +1439,11 @@ class CTestHull : public CBaseMonster
 public:
     void Spawn( entvars_t *pevMasterNode );
     virtual int    ObjectCaps( void ) { return CBaseMonster :: ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
-    void EXPORT CallBuildNodeGraph ( void );
+    void DLLEXPORT CallBuildNodeGraph ( void );
     void BuildNodeGraph ( void );
-    void EXPORT ShowBadNode ( void );
-    void EXPORT DropDelay ( void );
-    void EXPORT PathFind ( void );
+    void DLLEXPORT ShowBadNode ( void );
+    void DLLEXPORT DropDelay ( void );
+    void DLLEXPORT PathFind ( void );
 
     Vector    vecBadNodeOrigin;
 };
@@ -3498,7 +3497,7 @@ public:
 
     void FindNodeConnections( int iNode );
     void AddNode( int iFrom, int iTo );
-    void EXPORT DrawThink( void );
+    void DLLEXPORT DrawThink( void );
 
 };
 LINK_ENTITY_TO_CLASS( node_viewer, CNodeViewer );

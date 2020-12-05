@@ -29,8 +29,8 @@ public:
     void KeyValue(KeyValueData* pkvd) override;
     int ObjectCaps(void) override;
     void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
-    void EXPORT Off(void);
-    void EXPORT Return(void);
+    void DLLEXPORT Off(void);
+    void DLLEXPORT Return(void);
     void UpdateSelf(float value);
     void UpdateSelfReturn(float value);
     void UpdateAllButtons(float value, int start);
