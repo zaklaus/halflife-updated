@@ -17,7 +17,7 @@
 #include "CBasePlayerAmmo.h"
 #include "player.h"
 #include "customentity.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "skill.h"
 
 enum egon_e

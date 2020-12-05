@@ -15,7 +15,7 @@
 
 #include "CSatchel.h"
 #include "CSatchelCharge.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 
 enum satchel_e

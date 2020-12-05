@@ -19,7 +19,7 @@
 #include "monsters.h"
 #include "weapons.h"
 #include "decals.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "entities/weapons/CBasePlayerItem.h"
 
 extern int gEvilImpulse101;

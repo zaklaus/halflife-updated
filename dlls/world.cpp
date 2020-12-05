@@ -31,8 +31,7 @@
 #include "entities/effects/CMessage.h"
 #include "player.h"
 #include "weapons.h"
-#include "gamerules.h"
-#include "teamplay_gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "movewith.h" //LRC
 
 extern CGraph WorldGraph;

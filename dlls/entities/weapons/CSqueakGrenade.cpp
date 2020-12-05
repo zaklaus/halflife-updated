@@ -16,7 +16,7 @@
 #include "CSqueakGrenade.h"
 #include "CSqueak.h"
 #include "entities/effects/CSoundEnt.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "monsters.h"
 #include "weapons.h"
 

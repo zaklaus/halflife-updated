@@ -14,7 +14,6 @@
 ****/
 
 #include "CSentry.h"
-#include "explode.h"
 #include "skill.h"
 #include "weapons.h"
 

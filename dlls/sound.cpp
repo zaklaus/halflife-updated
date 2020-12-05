@@ -21,7 +21,7 @@
 #include "cbase.h"
 #include "weapons.h"
 #include "player.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "locus.h"
 
 #if !defined ( _WIN32 )

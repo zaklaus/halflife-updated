@@ -37,7 +37,7 @@
 #include "monsters.h"
 #include "shake.h"
 #include "decals.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "game.h"
 #include "entities/effects/CRainModify.h"
 #include "entities/effects/CRainSettings.h"

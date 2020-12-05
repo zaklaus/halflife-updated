@@ -14,7 +14,7 @@
 ****/
 
 #include "CSmoker.h"
-#include "explode.h"
+#include "weapons.h"
 
 LINK_ENTITY_TO_CLASS(env_smoker, CSmoker);
 

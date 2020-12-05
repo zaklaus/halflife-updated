@@ -15,7 +15,6 @@
 
 #include "CGrenade.h"
 #include "decals.h"
-#include "explode.h"
 #include "weapons.h"
 #include "entities/effects/CSoundEnt.h"
 #include "skill.h"

@@ -31,7 +31,7 @@
 #include "spectator.h"
 #include "client.h"
 #include "entities/effects/CSoundEnt.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "game.h"
 #include "customentity.h"
 #include "entities/weapons/CBasePlayerWeapon.h"

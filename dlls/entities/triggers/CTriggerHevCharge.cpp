@@ -14,7 +14,7 @@
 ****/
 
 #include "CTriggerHevCharge.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 #include "weapons.h"
 

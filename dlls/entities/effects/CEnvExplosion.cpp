@@ -16,8 +16,8 @@
 #include "CEnvExplosion.h"
 
 #include "decals.h"
-#include "explode.h"
 #include "locus.h"
+#include "weapons.h"
 
 TYPEDESCRIPTION CEnvExplosion::m_SaveData[] =
 {
@@ -183,7 +183,6 @@ void CEnvExplosion::Smoke(void)
         UTIL_Remove(this);
     }
 }
-
 
 // HACKHACK -- create one of these and fake a keyvalue to get the right explosion setup
 void ExplosionCreate(const Vector& center, const Vector& angles, edict_t* pOwner, int magnitude, BOOL doDamage)

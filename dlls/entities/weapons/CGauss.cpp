@@ -17,7 +17,7 @@
 #include "CBasePlayerAmmo.h"
 #include "entities/effects/CSoundEnt.h"
 #include "shake.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 #include "skill.h"
 

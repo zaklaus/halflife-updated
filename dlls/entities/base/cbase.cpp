@@ -18,7 +18,7 @@
 #include    "saverestore.h"
 #include    "client.h"
 #include    "decals.h"
-#include    "gamerules.h"
+#include    "gamerules/CGameRules.h"
 #include    "game.h"
 #include    "movewith.h"
 #include    "skill.h"

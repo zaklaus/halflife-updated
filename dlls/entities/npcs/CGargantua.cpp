@@ -24,7 +24,7 @@
 #include "customentity.h"
 #include "weapons.h"
 #include "decals.h"
-#include "explode.h"
+#include "entities/effects/CEnvExplosion.h"
 #include "entities/base/CCineMonster.h"
 
 int gStompSprite = 0, gGargGibModel = 0;

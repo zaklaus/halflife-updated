@@ -15,7 +15,7 @@
 
 #include "CHgun.h"
 #include "entities/npcs/CHornet.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 
 enum hgun_e

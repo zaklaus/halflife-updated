@@ -14,7 +14,7 @@
 ****/
 
 #include "CItem.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 
 extern int gEvilImpulse101;
 

@@ -14,7 +14,7 @@
 ****/
 
 #include "CWreckage.h"
-#include "explode.h"
+#include "weapons.h"
 
 LINK_ENTITY_TO_CLASS(cycler_wreckage, CWreckage);
 

@@ -14,7 +14,7 @@
 ****/
 
 #include "CHealthKit.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "skill.h"
 #include "player.h"
 

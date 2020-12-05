@@ -17,7 +17,7 @@
 #include "CBasePlayerAmmo.h"
 #include "CGrenade.h"
 #include "CSound.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 
 enum mp5_e

@@ -14,7 +14,7 @@
 ****/
 
 #include "CFuncTankMortar.h"
-#include "explode.h"
+#include "entities/effects/CEnvExplosion.h"
 
 LINK_ENTITY_TO_CLASS(func_tankmortar, CFuncTankMortar);
 

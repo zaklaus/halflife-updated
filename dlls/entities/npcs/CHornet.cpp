@@ -19,7 +19,7 @@
 #include "CHornet.h"
 #include "monsters.h"
 #include "entities/effects/CSoundEnt.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 
 int iHornetTrail;
 int iHornetPuff;

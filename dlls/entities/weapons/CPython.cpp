@@ -15,7 +15,7 @@
 
 #include "CPython.h"
 #include "CBasePlayerAmmo.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 
 enum python_e

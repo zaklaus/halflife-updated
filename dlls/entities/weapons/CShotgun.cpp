@@ -16,7 +16,7 @@
 #include "CShotgun.h"
 #include "CBasePlayerAmmo.h"
 #include "player.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 
 enum shotgun_e
 {

@@ -14,7 +14,7 @@
 ****/
 
 #include "CCrowbar.h"
-#include "gamerules.h"
+#include "gamerules/CGameRules.h"
 #include "player.h"
 #include "skill.h"
 
