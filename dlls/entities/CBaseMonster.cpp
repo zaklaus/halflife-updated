@@ -23,9 +23,8 @@
 #include "extdll.h"
 #include "util.h"
 #include "entities/CBaseToggle.h"
-#include "nodes.h"
 #include "monsters.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "saverestore.h"
 #include "weapons.h"
 #include "scripted.h"
@@ -34,11 +33,11 @@
 #include "entities/base/CCineMonster.h"
 #include "entities/effects/CSoundEnt.h"
 #include "gamerules/CGameRules.h"
+#include "nodes/CGraph.h"
 #include "util/dispatch.h"
+#include "util/findentity.h"
 
 #define MONSTER_CUT_CORNER_DIST        8 // 8 means the monster's bounding box is contained without the box of the node in WC
-
-extern DLL_GLOBAL BOOL g_fDrawLines;
 
 
 // Global Savedata for monster

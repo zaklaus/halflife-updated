@@ -15,10 +15,10 @@
 
 #include "CEgon.h"
 #include "CBasePlayerAmmo.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "customentity.h"
 #include "gamerules/CGameRules.h"
-#include "skill.h"
+#include "util/skill.h"
 
 enum egon_e
 {

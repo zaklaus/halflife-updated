@@ -15,6 +15,8 @@
 
 #include "CWatcherCount.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(watcher_count, CWatcherCount);
 
 TYPEDESCRIPTION CWatcherCount::m_SaveData[] =

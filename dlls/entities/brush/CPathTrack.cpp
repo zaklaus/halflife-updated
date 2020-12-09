@@ -15,6 +15,7 @@
 
 #include "CPathTrack.h"
 #include "trains.h"
+#include "util/findentity.h"
 
 TYPEDESCRIPTION CPathTrack::m_SaveData[] =
 {

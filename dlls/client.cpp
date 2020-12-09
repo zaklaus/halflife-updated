@@ -26,8 +26,8 @@
 #include "extdll.h"
 #include "util.h"
 #include "saverestore.h"
-#include "player.h"
-#include "spectator.h"
+#include "entities/player/CBasePlayer.h"
+#include "entities/player/CBaseSpectator.h"
 #include "client.h"
 #include "entities/effects/CSoundEnt.h"
 #include "gamerules/CGameRules.h"
@@ -39,13 +39,16 @@
 #include "usercmd.h"
 #include "netadr.h"
 #include "pm_shared.h"
-#include "movewith.h"
+#include "util/movewith.h"
 #include "entities/base/CWorld.h"
 #include "entities/items/CItemCamera.h"
 #include "entities/items/CItemAntiRad.h"
 #include "entities/items/CItemMedicalKit.h"
 #include "entities/items/CItemFlare.h"
 #include "entities/items/CItemAntidote.h"
+#include "util/findentity.h"
+#include "util/grouptrace.h"
+#include "util/usermessages.h"
 
 #if !defined ( _WIN32 )
 #include <ctype.h>
@@ -65,8 +68,6 @@ extern int gmsgCamData; // for trigger_viewset
 extern cvar_t allow_spectators;
 
 extern int g_teamplay;
-
-void LinkUserMessages( void );
 
 /*
  * used by kill command and disconnect command

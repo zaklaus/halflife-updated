@@ -15,7 +15,8 @@
 
 #include "CTriggerMotion.h"
 #include "CMotionManager.h"
-#include "locus.h"
+#include "util/findentity.h"
+#include "util/locus.h"
 
 LINK_ENTITY_TO_CLASS(trigger_motion, CTriggerMotion);
 

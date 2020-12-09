@@ -15,7 +15,7 @@
 
 #include "CTripmine.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 LINK_ENTITY_TO_CLASS(weapon_tripmine, CTripmine);
 

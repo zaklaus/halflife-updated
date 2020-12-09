@@ -16,6 +16,8 @@
 
 #include "CItem.h"
 
+#define MAX_NORMAL_BATTERY    100
+
 class CItemBattery : public CItem
 {
     void Spawn(void) override;

@@ -16,6 +16,7 @@
 #include "CBaseTurret.h"
 #include "monsters.h"
 #include "weapons.h"
+#include "util/ai.h"
 
 extern Vector VecBModelOrigin(entvars_t* pevBModel);
 

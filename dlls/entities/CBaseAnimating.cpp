@@ -14,7 +14,7 @@
 ****/
 
 #include "CBaseAnimating.h"
-#include "animation.h"
+#include "util/animation.h"
 
 TYPEDESCRIPTION CBaseAnimating::m_SaveData[] =
 {

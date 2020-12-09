@@ -15,6 +15,8 @@
 
 #include "CTriggerRotTest.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(trigger_rottest, CTriggerRotTest);
 
 TYPEDESCRIPTION CTriggerRotTest::m_SaveData[] =

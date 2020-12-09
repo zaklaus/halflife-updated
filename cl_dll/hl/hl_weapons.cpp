@@ -14,21 +14,14 @@
 ****/
 #include "extdll.h"
 #include "util.h"
-#include "monsters.h"
-#include "nodes.h"
-#include "player.h"
-
+#include "entities/player/CBasePlayer.h"
 #include "usercmd.h"
 #include "entity_state.h"
-#include "demo_api.h"
 #include "pm_defs.h"
 #include "event_api.h"
 #include "r_efx.h"
-
 #include "../hud_iface.h"
 #include "../com_weapons.h"
-#include "../demo.h"
-
 #include "entities/weapons/CCrossbow.h"
 #include "entities/weapons/CCrowbar.h"
 #include "entities/weapons/CEgon.h"
@@ -44,7 +37,6 @@
 #include "entities/weapons/CSqueak.h"
 #include "entities/weapons/CTripmine.h"
 
-extern globalvars_t *gpGlobals;
 extern int g_iUser1;
 
 // Pool of client side entities/entvars_t

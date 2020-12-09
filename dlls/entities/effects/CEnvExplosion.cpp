@@ -16,7 +16,7 @@
 #include "CEnvExplosion.h"
 
 #include "decals.h"
-#include "locus.h"
+#include "util/locus.h"
 #include "weapons.h"
 
 TYPEDESCRIPTION CEnvExplosion::m_SaveData[] =

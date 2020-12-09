@@ -15,8 +15,8 @@
 
 #include "CMotionThread.h"
 #include "CMotionManager.h"
-#include "locus.h"
-#include "movewith.h"
+#include "util/locus.h"
+#include "util/movewith.h"
 
 LINK_ENTITY_TO_CLASS(motion_thread, CPointEntity);
 

@@ -15,8 +15,8 @@
 
 #include "CItemBattery.h"
 #include "weapons.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 
 extern int gmsgItemPickup;
 

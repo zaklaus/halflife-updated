@@ -14,8 +14,9 @@
 ****/
 
 #include "CApache.h"
-#include "skill.h"
+#include "util/skill.h"
 #include "weapons.h"
+#include "util/findentity.h"
 
 #define SF_WAITFORTRIGGER    (0x04 | 0x40) // UNDONE: Fix!
 #define SF_NOWRECKAGE        0x08

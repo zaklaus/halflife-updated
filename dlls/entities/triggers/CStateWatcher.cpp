@@ -15,6 +15,8 @@
 
 #include "CStateWatcher.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(multi_watcher, CStateWatcher);
 LINK_ENTITY_TO_CLASS(watcher, CStateWatcher);
 

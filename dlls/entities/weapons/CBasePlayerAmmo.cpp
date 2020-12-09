@@ -15,7 +15,7 @@
 
 #include "CBasePlayerAmmo.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 extern int gEvilImpulse101;
 

@@ -15,7 +15,7 @@
 
 #include "CGibShooter.h"
 #include "entities/npcs/CGib.h"
-#include "locus.h"
+#include "util/locus.h"
 
 TYPEDESCRIPTION CGibShooter::m_SaveData[] =
 {

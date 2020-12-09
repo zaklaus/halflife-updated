@@ -15,7 +15,7 @@
 
 #include "CGlock.h"
 #include "CBasePlayerAmmo.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 enum glock_e
 {

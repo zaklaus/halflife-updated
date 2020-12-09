@@ -15,7 +15,7 @@
 
 #include "CFuncPlat.h"
 #include "CPlatTrigger.h"
-#include "movewith.h"
+#include "util/movewith.h"
 #include "trains.h"
 
 //

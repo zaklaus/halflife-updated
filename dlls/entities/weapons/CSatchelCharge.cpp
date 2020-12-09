@@ -14,7 +14,7 @@
 ****/
 
 #include "CSatchelCharge.h"
-#include "skill.h"
+#include "util/skill.h"
 
 enum satchel_e
 {

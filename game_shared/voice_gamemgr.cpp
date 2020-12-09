@@ -11,7 +11,7 @@
 #include <assert.h>
 #include "extdll.h"
 #include "util.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 
 

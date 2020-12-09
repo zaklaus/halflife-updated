@@ -15,6 +15,7 @@
 
 #include "CTriggerChangeAlias.h"
 #include "CBaseMutableAlias.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(trigger_changealias, CTriggerChangeAlias);
 

@@ -16,6 +16,7 @@
 #include "CTriggerSetPatrol.h"
 
 #include "entities/CBaseMonster.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(trigger_startpatrol, CTriggerSetPatrol);
 

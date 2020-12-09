@@ -14,8 +14,9 @@
 ****/
 
 #include "CRotButton.h"
+#include "CBaseDoor.h"
 
-LINK_ENTITY_TO_CLASS( func_rot_button, CRotButton );
+LINK_ENTITY_TO_CLASS(func_rot_button, CRotButton);
 
 void CRotButton::PostSpawn()
 {

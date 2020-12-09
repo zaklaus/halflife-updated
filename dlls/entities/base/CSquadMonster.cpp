@@ -14,9 +14,9 @@
 ****/
 
 #include "CSquadMonster.h"
-#include "animation.h"
 #include "saverestore.h"
-#include "plane.h"
+#include "CPlane.h"
+#include "util/findentity.h"
 
 //=========================================================
 // Save/Restore
@@ -31,8 +31,6 @@ TYPEDESCRIPTION CSquadMonster::m_SaveData[] =
     DEFINE_FIELD(CSquadMonster, m_flLastEnemySightTime, FIELD_TIME),
 
     DEFINE_FIELD(CSquadMonster, m_iMySlot, FIELD_INTEGER),
-
-
 };
 
 IMPLEMENT_SAVERESTORE(CSquadMonster, CBaseMonster);

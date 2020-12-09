@@ -14,7 +14,7 @@
 ****/
 
 #include "CRecharge.h"
-#include "skill.h"
+#include "util/skill.h"
 #include "gamerules/CGameRules.h"
 
 TYPEDESCRIPTION CRecharge::m_SaveData[] =

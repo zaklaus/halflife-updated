@@ -14,8 +14,9 @@
 ****/
 
 #include "CTriggerCamera.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "trains.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(trigger_camera, CTriggerCamera);
 

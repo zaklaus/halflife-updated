@@ -15,7 +15,7 @@
 
 #include "CScientist.h"
 #include "CSound.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "defaultai.h"
 
 enum

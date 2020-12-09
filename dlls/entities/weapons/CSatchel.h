@@ -16,6 +16,8 @@
 
 #include "CBasePlayerWeapon.h"
 
+void DeactivateSatchels(CBasePlayer* pOwner);
+
 class CSatchel : public CBasePlayerWeapon
 {
 public:

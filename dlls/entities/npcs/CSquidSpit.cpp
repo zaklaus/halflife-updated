@@ -15,7 +15,8 @@
 
 #include "CSquidSpit.h"
 #include "decals.h"
-#include "skill.h"
+#include "util/skill.h"
+#include "util/sound.h"
 
 extern int iSquidSpitSprite;
 

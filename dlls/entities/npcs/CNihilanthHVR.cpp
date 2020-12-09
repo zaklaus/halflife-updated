@@ -14,8 +14,9 @@
 ****/
 
 #include "CNihilanthHVR.h"
-#include "skill.h"
+#include "util/skill.h"
 #include "weapons.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(nihilanth_energy_ball, CNihilanthHVR);
 

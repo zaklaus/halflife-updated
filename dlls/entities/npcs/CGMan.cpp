@@ -17,6 +17,7 @@
 #include "schedule.h"
 #include "weapons.h"
 #include "entities/effects/CSoundEnt.h"
+#include "util/findentity.h"
 
 //=========================================================
 // Monster's Anim Events Go Here

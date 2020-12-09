@@ -14,8 +14,9 @@
 ****/
 
 #include "CFuncTrackTrain.h"
-#include "movewith.h"
+#include "util/movewith.h"
 #include "trains.h"
+#include "util/findentity.h"
 
 // ---------------------------------------------------------------------
 //

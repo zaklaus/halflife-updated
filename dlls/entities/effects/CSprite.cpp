@@ -15,6 +15,8 @@
 
 #include "CSprite.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(env_sprite, CSprite);
 
 TYPEDESCRIPTION CSprite::m_SaveData[] =

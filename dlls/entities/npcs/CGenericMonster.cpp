@@ -16,7 +16,7 @@
 #include "CGenericMonster.h"
 #include "monsters.h"
 #include "schedule.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "customentity.h"
 #include "entities/effects/CSoundEnt.h"
 

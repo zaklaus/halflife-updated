@@ -14,7 +14,7 @@
 ****/
 
 #include "CActAnimating.h"
-#include "animation.h"
+#include "util/animation.h"
 
 TYPEDESCRIPTION CActAnimating::m_SaveData[] =
 {

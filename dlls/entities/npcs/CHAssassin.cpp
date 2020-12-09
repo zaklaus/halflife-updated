@@ -21,6 +21,7 @@
 #include "scripted.h"
 #include "game.h"
 #include "entities/base/CCineMonster.h"
+#include "util/ai.h"
 
 //=========================================================
 // monster-specific schedule types

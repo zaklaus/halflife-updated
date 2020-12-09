@@ -17,8 +17,8 @@
 #include "CFuncTankControls.h"
 #include "CTankSequence.h"
 #include "monsters.h"
-#include "movewith.h"
-#include "player.h"
+#include "util/movewith.h"
+#include "entities/player/CBasePlayer.h"
 #include "weapons.h"
 
 TYPEDESCRIPTION CFuncTank::m_SaveData[] =

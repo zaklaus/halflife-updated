@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Source Files\dlls">
       <UniqueIdentifier>{a59f65b1-455f-459d-bc2a-75775255cd5c}</UniqueIdentifier>
     </Filter>
@@ -103,11 +99,20 @@
     <Filter Include="Header Files\dlls\entities\constants">
       <UniqueIdentifier>{76f083a9-a5c7-495c-aa35-8e053857d838}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\dlls\entities\player">
+      <UniqueIdentifier>{4e4a9e9b-4dbb-4c34-bff0-794140cecf3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\entities\player">
+      <UniqueIdentifier>{60932c39-ef16-4e68-b5ec-9a27ddbeab90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\nodes">
+      <UniqueIdentifier>{49f18624-b30c-4ec3-ab34-6d389947e07c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dlls\nodes">
+      <UniqueIdentifier>{77d74dcc-825a-4744-9d3b-202e75bc8d39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\dlls\animation.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\client.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
@@ -115,30 +120,6 @@
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\globals.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\h_ai.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\h_export.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\player.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\nodes.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\observer.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\plane.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\skill.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\spectator.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\util.cpp">
@@ -158,9 +139,6 @@
     </ClCompile>
     <ClCompile Include="..\..\pm_shared\pm_shared.cpp">
       <Filter>Source Files\pm_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\movewith.cpp">
-      <Filter>Source Files\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\brush\CFuncWall.cpp">
       <Filter>Source Files\dlls\entities\brush</Filter>
@@ -795,21 +773,6 @@
     <ClCompile Include="..\..\dlls\entities\point\CInfoGroup.cpp">
       <Filter>Source Files\dlls\entities\point</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\locus.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\bmodels.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\doors.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\lights.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\sound.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\items\CAirtank.cpp">
       <Filter>Source Files\dlls\entities\items</Filter>
     </ClCompile>
@@ -1065,9 +1028,6 @@
     <ClCompile Include="..\..\dlls\entities\CBaseMonster_State.cpp">
       <Filter>Source Files\dlls\entities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\subs.cpp">
-      <Filter>Source Files\dlls</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\weapons.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
@@ -1089,45 +1049,6 @@
     <ClCompile Include="..\..\dlls\gamerules\CGameRules.cpp">
       <Filter>Source Files\dlls\gamerules</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (4).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (5).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (6).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (7).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (8).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (9).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (10).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (11).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (12).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (13).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy (14).cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code - Copy.cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\util\code.cpp">
-      <Filter>Source Files\dlls\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\util\dispatch.cpp">
       <Filter>Source Files\dlls\util</Filter>
     </ClCompile>
@@ -1137,20 +1058,116 @@
     <ClCompile Include="..\..\dlls\EntityApi.cpp">
       <Filter>Source Files\dlls</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\util\animation.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\activity.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\lights.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\locus.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\movewith.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\locksounds.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\ai.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\export.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\CPlane.cpp">
+      <Filter>Source Files\dlls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\sound.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\grouptrace.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\findentity.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\entity.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CBasePlayer.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\usermessages.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CSprayCan.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CBloodSplat.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CDeadHEV.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CStripWeapons.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CRevertSaved.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CPlayerFreeze.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CPlayerMarker.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CInfoIntermission.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CHudSprite.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CBasePlayer_Observer.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CGraph.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CLink.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CNode.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CNodeEnt.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CNodeViewer.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CQueue.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CQueuePriority.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CStack.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\nodes\CTestHull.cpp">
+      <Filter>Source Files\dlls\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\skill.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CBaseSpectator.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\dlls\doors.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\activity.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\activitymap.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\animation.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\cdll_dll.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
@@ -1172,19 +1189,10 @@
     <ClInclude Include="..\..\dlls\extdll.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\player.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\monsterevent.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\monsters.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\nodes.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\plane.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\pm_shared\pm_shared.h">
@@ -1220,12 +1228,6 @@
     <ClInclude Include="..\..\dlls\scriptevent.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\skill.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\spectator.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\trains.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
@@ -1237,12 +1239,6 @@
     </ClInclude>
     <ClInclude Include="..\..\common\Platform.h">
       <Filter>Header Files\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\movewith.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\locus.h">
-      <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\brush\CFuncWall.h">
       <Filter>Header Files\dlls\entities\brush</Filter>
@@ -2141,42 +2137,6 @@
     <ClInclude Include="..\..\dlls\game.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (5).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (6).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (7).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (8).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (9).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (10).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (11).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (12).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (13).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy (14).h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header - Copy.h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\util\header.h">
-      <Filter>Header Files\dlls\util</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\util\dispatch.h">
       <Filter>Header Files\dlls\util</Filter>
     </ClInclude>
@@ -2191,6 +2151,111 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\util\ehandle.h">
       <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\animation.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\activity.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\lights.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\locus.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\movewith.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\locksounds.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\ai.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\CPlane.h">
+      <Filter>Header Files\dlls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\sound.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\grouptrace.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\findentity.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\entity.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CBasePlayer.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\usermessages.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CBloodSplat.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CSprayCan.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CDeadHEV.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CStripWeapons.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CRevertSaved.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CPlayerFreeze.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CPlayerMarker.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CInfoIntermission.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CHudSprite.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CGraph.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CLink.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CNode.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CNodeEnt.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CNodeViewer.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CQueue.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CQueuePriority.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CStack.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\CTestHull.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\nodes\NodeConstants.h">
+      <Filter>Header Files\dlls\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\skill.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CBaseSpectator.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

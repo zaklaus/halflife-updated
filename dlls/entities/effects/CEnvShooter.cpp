@@ -17,7 +17,7 @@
 #include "CShot.h"
 #include "entities/brush/CBreakable.h"
 #include "entities/npcs/CGib.h"
-#include "locus.h"
+#include "util/locus.h"
 
 TYPEDESCRIPTION CEnvShooter::m_SaveData[] =
 {

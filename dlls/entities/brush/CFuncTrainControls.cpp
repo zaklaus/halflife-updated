@@ -15,6 +15,7 @@
 
 #include "CFuncTrainControls.h"
 #include "CFuncTrackTrain.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(func_traincontrols, CFuncTrainControls);
 

@@ -16,6 +16,7 @@
 
 #include "entities/CBaseAnimating.h"
 #include "weapons.h"
+#include "util/sound.h"
 
 // Items that the player has in their inventory that they can use
 class CBasePlayerItem : public CBaseAnimating

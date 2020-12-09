@@ -15,6 +15,7 @@
 
 #include "CTrainSequence.h"
 #include "CFuncTrackTrain.h"
+#include "util/findentity.h"
 
 STATE CTrainSequence::GetState()
 {

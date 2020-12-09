@@ -14,9 +14,8 @@
 ****/
 
 #include "CPendulum.h"
-#include "doors.h"
-#include "movewith.h"
-#include "entities/CBaseToggle.h"
+#include "CBaseDoor.h"
+#include "util/movewith.h"
 
 LINK_ENTITY_TO_CLASS(func_pendulum, CPendulum);
 
@@ -90,7 +89,7 @@ void CPendulum::Spawn(void)
     m_start = pev->angles;
     m_center = pev->angles + (m_distance * 0.5) * pev->movedir;
 
-    if (FBitSet(pev->spawnflags, SF_BRUSH_ROTATE_INSTANT))
+    if (FBitSet(pev->spawnflags, SF_PENDULUM_INSTANT))
     {
         SetThink(&CPendulum::SUB_CallUseToggle);
         SetNextThink(0.1);

@@ -49,7 +49,7 @@ void CTriggerCounter::CounterUse(CBaseEntity* pActivator, CBaseEntity* pCaller, 
 
     BOOL fTellActivator =
         FClassnameIs(m_hActivator->pev, "player") &&
-        !FBitSet(pev->spawnflags, SPAWNFLAG_NOMESSAGE);
+        !FBitSet(pev->spawnflags, SF_TRIGGER_COUNTER_NOMESSAGE);
     if (m_cTriggersLeft != 0)
     {
         if (fTellActivator)

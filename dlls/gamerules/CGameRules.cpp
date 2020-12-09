@@ -23,9 +23,9 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "entities/weapons/CBasePlayerItem.h"
-#include "skill.h"
+#include "util/skill.h"
 #include "game.h"
 
 extern edict_t* EntSelectSpawnPoint(CBaseEntity* pPlayer);

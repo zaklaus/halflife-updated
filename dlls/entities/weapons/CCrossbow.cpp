@@ -17,7 +17,7 @@
 #include "CBasePlayerAmmo.h"
 #include "CCrossbowBolt.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 enum crossbow_e
 {

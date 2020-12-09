@@ -14,7 +14,10 @@
 ****/
 
 #include "CAmbientGeneric.h"
-#include "locus.h"
+
+#include "util/findentity.h"
+#include "util/locus.h"
+#include "util/sound.h"
 
 // presets for runtime pitch and vol modulation of ambient sounds
 dynpitchvol_t rgdpvpreset[CDPVPRESETMAX] =

@@ -14,7 +14,7 @@
 ****/
 
 #include "CTriggerHurt.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "gamerules/CGameRules.h"
 
 LINK_ENTITY_TO_CLASS(trigger_hurt, CTriggerHurt);

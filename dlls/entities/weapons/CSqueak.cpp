@@ -14,7 +14,7 @@
 ****/
 
 #include "CSqueak.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 enum squeak_e
 {

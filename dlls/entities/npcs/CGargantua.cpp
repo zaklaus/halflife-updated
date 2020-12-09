@@ -26,6 +26,7 @@
 #include "decals.h"
 #include "entities/effects/CEnvExplosion.h"
 #include "entities/base/CCineMonster.h"
+#include "util/findentity.h"
 
 int gStompSprite = 0, gGargGibModel = 0;
 

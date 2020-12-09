@@ -15,6 +15,8 @@
 
 #include "CFuncTankLaser.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(func_tanklaser, CFuncTankLaser);
 
 TYPEDESCRIPTION CFuncTankLaser::m_SaveData[] =

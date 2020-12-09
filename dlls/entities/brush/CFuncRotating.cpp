@@ -14,7 +14,8 @@
 ****/
 
 #include "CFuncRotating.h"
-#include "movewith.h"
+#include "util/movewith.h"
+#include "util/sound.h"
 
 LINK_ENTITY_TO_CLASS(func_rotating, CFuncRotating);
 

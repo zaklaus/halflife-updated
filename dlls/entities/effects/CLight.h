@@ -16,6 +16,8 @@
 
 #include "entities/base/CPointEntity.h"
 
+#define SF_LIGHT_START_OFF   1
+
 class CLight : public CPointEntity
 {
 public:

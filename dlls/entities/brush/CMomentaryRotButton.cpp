@@ -15,6 +15,8 @@
 
 #include "CMomentaryRotButton.h"
 #include "CBaseButton.h"
+#include "util/findentity.h"
+#include "util/sound.h"
 
 TYPEDESCRIPTION CMomentaryRotButton::m_SaveData[] =
 {
@@ -209,7 +211,7 @@ void CMomentaryRotButton::Off( void )
 {
     pev->avelocity = g_vecZero;
     m_lastUsed = 0;
-    if ( FBitSet( pev->spawnflags, SF_PENDULUM_AUTO_RETURN ) && m_returnSpeed > 0 )
+    if ( FBitSet( pev->spawnflags, SF_MOMENTARY_ROTBUTTON_AUTO_RETURN) && m_returnSpeed > 0 )
     {
         SetThink( &CMomentaryRotButton::Return );
         SetNextThink( 0.1 );

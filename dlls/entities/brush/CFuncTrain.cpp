@@ -15,8 +15,9 @@
 
 #include "CFuncTrain.h"
 #include "CTrainSequence.h"
-#include "movewith.h"
+#include "util/movewith.h"
 #include "trains.h"
+#include "util/findentity.h"
 
 //
 //====================== TRAIN code ==================================================

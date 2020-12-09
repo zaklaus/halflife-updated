@@ -16,9 +16,10 @@
 #include "CTalkMonster.h"
 #include "entities/base/CCineMonster.h"
 #include "entities/effects/CSoundEnt.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "defaultai.h"
 #include "scriptevent.h"
+#include "util/findentity.h"
 
 //=========================================================
 // Talking monster base class

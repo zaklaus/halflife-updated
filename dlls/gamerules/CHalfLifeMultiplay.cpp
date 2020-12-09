@@ -17,11 +17,13 @@
 #include "entities/weapons/CBasePlayerItem.h"
 #include "entities/weapons/CBasePlayerAmmo.h"
 #include "entities/items/CItem.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 #include "game.h"
 #include "voice_gamemgr.h"
 #include "hltv.h"
+#include "entities/weapons/CSatchel.h"
+#include "util/findentity.h"
 
 #if !defined ( _WIN32 )
 #include <ctype.h>

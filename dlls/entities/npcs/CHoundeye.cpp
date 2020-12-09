@@ -15,10 +15,12 @@
 
 #include "CHoundeye.h"
 #include "schedule.h"
-#include "animation.h"
-#include "nodes.h"
+#include "util/animation.h"
 #include "entities/effects/CSoundEnt.h"
 #include "game.h"
+#include "nodes/NodeConstants.h"
+#include "nodes/CNodeEnt.h"
+#include "util/findentity.h"
 
 // houndeye does 20 points of damage spread over a sphere 384 units in diameter, and each additional 
 // squad member increases the BASE damage by 110%, per the spec.

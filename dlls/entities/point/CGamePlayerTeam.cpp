@@ -15,6 +15,7 @@
 
 #include "CGamePlayerTeam.h"
 #include "gamerules/CGameRules.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(game_player_team, CGamePlayerTeam);
 

@@ -19,10 +19,12 @@
 #include "CBaseMonster.h"
 #include "base/CCineMonster.h"
 #include "monsters.h"
-#include "animation.h"
-#include "nodes.h"
+#include "util/animation.h"
 #include "defaultai.h"
 #include "entities/effects/CSoundEnt.h"
+#include "nodes/CGraph.h"
+#include "nodes/NodeConstants.h"
+#include "util/findentity.h"
 
 //=========================================================
 // FHaveSchedule - Returns TRUE if monster's m_pSchedule

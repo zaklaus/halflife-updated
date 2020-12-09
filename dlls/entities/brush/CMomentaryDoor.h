@@ -15,6 +15,7 @@
 #pragma once
 
 #include "entities/CBaseToggle.h"
+#include "CBaseDoor.h"
 
 class CMomentaryDoor : public CBaseToggle
 {

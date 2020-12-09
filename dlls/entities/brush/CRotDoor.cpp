@@ -14,7 +14,6 @@
 ****/
 
 #include "CRotDoor.h"
-#include "doors.h"
 
 LINK_ENTITY_TO_CLASS( func_door_rotating, CRotDoor );
 

@@ -15,8 +15,8 @@
 
 #include "CCrowbar.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 
 LINK_ENTITY_TO_CLASS(weapon_crowbar, CCrowbar);
 

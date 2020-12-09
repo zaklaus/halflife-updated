@@ -15,7 +15,7 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "movewith.h"
+#include "util/movewith.h"
 #include "CFuncShine.h"
 
 extern int gmsgAddShine;

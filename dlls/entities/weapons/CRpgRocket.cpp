@@ -14,7 +14,8 @@
 ****/
 
 #include "CRpgRocket.h"
-#include "skill.h"
+#include "util/skill.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(rpg_rocket, CRpgRocket);
 

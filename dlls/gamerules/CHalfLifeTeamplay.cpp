@@ -14,7 +14,7 @@
 ****/
 
 #include "CHalfLifeTeamplay.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "game.h"
 #include "voice_gamemgr.h"
 

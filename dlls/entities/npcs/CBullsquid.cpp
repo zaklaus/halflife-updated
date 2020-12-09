@@ -17,9 +17,9 @@
 #include "CSound.h"
 #include "CSquidSpit.h"
 #include "scripted.h"
-#include "nodes.h"
 #include "game.h"
 #include "entities/base/CCineMonster.h"
+#include "nodes/CNodeEnt.h"
 
 int iSquidSpitSprite;
 

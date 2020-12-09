@@ -15,6 +15,8 @@
 
 #include "CTriggerTeleport.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(trigger_teleport, CTriggerTeleport);
 
 void CTriggerTeleport::Spawn(void)

@@ -15,14 +15,12 @@
 //=========================================================
 // Default behaviors.
 //=========================================================
-#include    "extdll.h"
-#include    "util.h"
-#include    "monsters.h"
-#include    "schedule.h"
-#include    "defaultai.h"
-#include "entities/effects/CSoundEnt.h"
-#include    "nodes.h"
-#include    "scripted.h"
+#include "extdll.h"
+#include "util.h"
+#include "monsters.h"
+#include "schedule.h"
+#include "defaultai.h"
+#include "scripted.h"
 #include "entities/CBaseMonster.h"
 #include "entities/base/CCineMonster.h"
 

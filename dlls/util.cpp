@@ -26,15 +26,16 @@
 #include <time.h>
 #include "shake.h"
 #include "decals.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 #include "weapons.h"
 #include "gamerules/CGameRules.h"
-#include "movewith.h"
-#include "locus.h"
+#include "util/movewith.h"
+#include "util/locus.h"
 #include "entities/base/CWorld.h"
 
 #include "entities/point/CBaseMutableAlias.h"
 #include "entities/point/CInfoGroup.h"
+#include "util/findentity.h"
 
 float UTIL_WeaponTimeBase( void )
 {
@@ -162,45 +163,6 @@ void UTIL_ParametricRocket( entvars_t *pev, Vector vecOrigin, Vector vecAngles, 
     pev->impacttime = gpGlobals->time + travelTime;
 }
 
-int g_groupmask = 0;
-int g_groupop = 0;
-
-// Normal overrides
-void UTIL_SetGroupTrace( int groupmask, int op )
-{
-    g_groupmask        = groupmask;
-    g_groupop        = op;
-
-    ENGINE_SETGROUPMASK( g_groupmask, g_groupop );
-}
-
-void UTIL_UnsetGroupTrace( void )
-{
-    g_groupmask        = 0;
-    g_groupop        = 0;
-
-    ENGINE_SETGROUPMASK( 0, 0 );
-}
-
-// Smart version, it'll clean itself up when it pops off stack
-UTIL_GroupTrace::UTIL_GroupTrace( int groupmask, int op )
-{
-    m_oldgroupmask    = g_groupmask;
-    m_oldgroupop    = g_groupop;
-
-    g_groupmask        = groupmask;
-    g_groupop        = op;
-
-    ENGINE_SETGROUPMASK( g_groupmask, g_groupop );
-}
-
-UTIL_GroupTrace::~UTIL_GroupTrace( void )
-{
-    g_groupmask        =    m_oldgroupmask;
-    g_groupop        =    m_oldgroupop;
-
-    ENGINE_SETGROUPMASK( g_groupmask, g_groupop );
-}
 
 TYPEDESCRIPTION    gEntvarsDescription[] = 
 {
@@ -315,20 +277,6 @@ TYPEDESCRIPTION    gEntvarsDescription[] =
 
 #define ENTVARS_COUNT        (sizeof(gEntvarsDescription)/sizeof(gEntvarsDescription[0]))
 
-
-#ifdef    DEBUG
-edict_t *DBG_EntOfVars( const entvars_t *pev )
-{
-    if (pev->pContainingEntity != NULL)
-        return pev->pContainingEntity;
-    ALERT(at_debug, "entvars_t pContainingEntity is NULL, calling into engine");
-    edict_t* pent = (*g_engfuncs.pfnFindEntityByVars)((entvars_t*)pev);
-    if (pent == NULL)
-        ALERT(at_debug, "DAMN!  Even the engine couldn't FindEntityByVars!");
-    ((entvars_t *)pev)->pContainingEntity = pent;
-    return pent;
-}
-#endif //DEBUG
 
 
 #ifdef    DEBUG
@@ -537,59 +485,6 @@ int UTIL_MonstersInSphere( CBaseEntity **pList, int listMax, const Vector &cente
 
 
     return count;
-}
-
-
-CBaseEntity *UTIL_FindEntityInSphere( CBaseEntity *pStartEntity, const Vector &vecCenter, float flRadius )
-{
-    edict_t    *pentEntity;
-
-    if (pStartEntity)
-        pentEntity = pStartEntity->edict();
-    else
-        pentEntity = NULL;
-
-    pentEntity = FIND_ENTITY_IN_SPHERE( pentEntity, vecCenter, flRadius);
-
-    if (!FNullEnt(pentEntity))
-        return CBaseEntity::Instance(pentEntity);
-    return NULL;
-}
-
-
-CBaseEntity *UTIL_FindEntityByString( CBaseEntity *pStartEntity, const char *szKeyword, const char *szValue )
-{
-    edict_t    *pentEntity;
-    CBaseEntity *pEntity;
-
-    if (pStartEntity)
-        pentEntity = pStartEntity->edict();
-    else
-        pentEntity = NULL;
-        
-    for (;;)
-    {
-        // Don't change this to use UTIL_FindEntityByString!
-        pentEntity = FIND_ENTITY_BY_STRING( pentEntity, szKeyword, szValue );
-
-        // if pentEntity (the edict) is null, we're at the end of the entities. Give up.
-        if (FNullEnt(pentEntity))
-        {
-            return NULL;
-        }
-        else
-        {
-            // ...but if only pEntity (the classptr) is null, we've just got one dud, so we try again.
-            pEntity = CBaseEntity::Instance(pentEntity);
-            if (pEntity)
-                return pEntity;
-        }
-    }
-}
-
-CBaseEntity *UTIL_FindEntityByClassname( CBaseEntity *pStartEntity, const char *szName )
-{
-    return UTIL_FindEntityByString( pStartEntity, "classname", szName );
 }
 
 #define MAX_ALIASNAME_LEN 80
@@ -802,56 +697,6 @@ CBaseEntity *UTIL_FollowReference( CBaseEntity *pStartEntity, const char* szName
     // not a reference
 //    ALERT(at_console,"%s is not a reference\n",szName);
     return NULL;
-}
-
-CBaseEntity *UTIL_FindEntityByTargetname( CBaseEntity *pStartEntity, const char *szName )
-{
-    CBaseEntity *pFound = UTIL_FollowReference( pStartEntity, szName );
-    if (pFound)
-        return pFound;
-    else
-        return UTIL_FindEntityByString( pStartEntity, "targetname", szName );
-}
-
-CBaseEntity *UTIL_FindEntityByTargetname( CBaseEntity *pStartEntity, const char *szName, CBaseEntity *pActivator )
-{
-    if (FStrEq(szName, "*locus"))
-    {
-        if (pActivator && (pStartEntity == NULL || pActivator->eoffset() > pStartEntity->eoffset()))
-            return pActivator;
-        else
-            return NULL;
-    }
-    else 
-        return UTIL_FindEntityByTargetname( pStartEntity, szName );
-}
-
-CBaseEntity *UTIL_FindEntityByTarget( CBaseEntity *pStartEntity, const char *szName )
-{
-    return UTIL_FindEntityByString( pStartEntity, "target", szName );
-}
-
-CBaseEntity *UTIL_FindEntityGeneric( const char *szWhatever, Vector &vecSrc, float flRadius )
-{
-    CBaseEntity *pEntity = NULL;
-
-    pEntity = UTIL_FindEntityByTargetname( NULL, szWhatever );
-    if (pEntity)
-        return pEntity;
-
-    CBaseEntity *pSearch = NULL;
-    float flMaxDist2 = flRadius * flRadius;
-    while ((pSearch = UTIL_FindEntityByClassname( pSearch, szWhatever )) != NULL)
-    {
-        float flDist2 = (pSearch->pev->origin - vecSrc).Length();
-        flDist2 = flDist2 * flDist2;
-        if (flMaxDist2 > flDist2)
-        {
-            pEntity = pSearch;
-            flMaxDist2 = flDist2;
-        }
-    }
-    return pEntity;
 }
 
 
@@ -2032,33 +1877,6 @@ void UTIL_StripToken( const char *pKey, char *pDest )
 }
 
 
-char* GetStringForUseType( USE_TYPE useType )
-{
-    switch(useType)
-    {
-    case USE_ON: return "USE_ON";
-    case USE_OFF: return "USE_OFF";
-    case USE_TOGGLE: return "USE_TOGGLE";
-    case USE_KILL: return "USE_KILL";
-    case USE_NOT: return "USE_NOT";
-    default:
-        return "USE_UNKNOWN!?";
-    }
-}
-
-char* GetStringForState( STATE state )
-{
-    switch(state)
-    {
-    case STATE_ON: return "ON";
-    case STATE_OFF: return "OFF";
-    case STATE_TURN_ON: return "TURN ON";
-    case STATE_TURN_OFF: return "TURN OFF";
-    case STATE_IN_USE: return "IN USE";
-    default:
-        return "STATE_UNKNOWN!?";
-    }
-}
 
 
 // --------------------------------------------------------------

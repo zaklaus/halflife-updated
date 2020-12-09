@@ -15,6 +15,7 @@
 
 #include "CTankSequence.h"
 #include "CFuncTank.h"
+#include "util/findentity.h"
 
 
 //============================================================================

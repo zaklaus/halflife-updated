@@ -14,9 +14,10 @@
 ****/
 
 #include "CCineMonster.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "schedule.h"
 #include "scripted.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(scripted_sequence, CCineMonster);
 LINK_ENTITY_TO_CLASS(scripted_action, CCineMonster); //LRC

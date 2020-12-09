@@ -23,10 +23,11 @@
 #include "extdll.h"
 #include "util.h"
 #include "monsters.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "weapons.h"
 #include "entities/CBaseMonster.h"
 #include "entities/npcs/CGib.h"
+#include "util/findentity.h"
 
 
 extern entvars_t *g_pevLastInflictor;

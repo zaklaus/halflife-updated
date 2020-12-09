@@ -16,6 +16,12 @@
 
 #include "CBreakable.h"
 
+// func_pushable (it's also func_breakable, so don't collide with those flags)
+#define SF_PUSH_BREAKABLE             128
+#define SF_PUSH_NOPULL                512  //LRC
+#define SF_PUSH_NOSUPERPUSH          1024  //LRC
+#define SF_PUSH_USECUSTOMSIZE    0x800000  //LRC, not yet used
+
 class CPushable : public CBreakable
 {
 public:

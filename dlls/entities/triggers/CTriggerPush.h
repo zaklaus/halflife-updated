@@ -16,6 +16,7 @@
 
 #include "CBaseTrigger.h"
 
+#define SF_TRIGGER_PUSH_ONCE       1
 #define SF_TRIGGER_PUSH_START_OFF  2  //spawnflag that makes trigger_push spawn turned OFF
 
 class CTriggerPush : public CBaseTrigger

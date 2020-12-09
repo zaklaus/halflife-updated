@@ -14,10 +14,10 @@
 ****/
 
 #include "CMomentaryDoor.h"
-#include "doors.h"
-#include "movewith.h"
+#include "util/movewith.h"
+#include "util/sound.h"
 
-LINK_ENTITY_TO_CLASS( momentary_door, CMomentaryDoor );
+LINK_ENTITY_TO_CLASS(momentary_door, CMomentaryDoor);
 
 TYPEDESCRIPTION    CMomentaryDoor::m_SaveData[] = 
 {

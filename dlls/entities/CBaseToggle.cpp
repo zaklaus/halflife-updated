@@ -14,8 +14,8 @@
 ****/
 
 #include "CBaseToggle.h"
-#include "doors.h"
-#include "movewith.h"
+#include "brush/CBaseDoor.h"
+#include "util/movewith.h"
 
 #define ACCELTIMEINCREMENT 0.1 //AJH for acceleration/deceleration time steps
 

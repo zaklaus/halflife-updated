@@ -15,6 +15,8 @@
 
 #include "CMultiAlias.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(multi_alias, CMultiAlias);
 
 TYPEDESCRIPTION CMultiAlias::m_SaveData[] =

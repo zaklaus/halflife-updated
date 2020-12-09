@@ -14,8 +14,8 @@
 ****/
 
 #include "CParticle.h"
-#include "movewith.h"
-#include "player.h"
+#include "util/movewith.h"
+#include "entities/player/CBasePlayer.h"
 
 LINK_ENTITY_TO_CLASS(env_particle, CParticle);
 

@@ -15,6 +15,8 @@
 #pragma once
 
 #include "entities/CBaseToggle.h"
+#include "CBaseDoor.h"
+#include "util/sound.h"
 
 #define SF_PLAT_TOGGLE        0x0001
 

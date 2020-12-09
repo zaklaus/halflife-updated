@@ -15,9 +15,10 @@
 
 #include "dispatch.h"
 #include "extdll.h"
-#include "movewith.h"
-#include "player.h"
-#include "skill.h"
+#include "findentity.h"
+#include "util/movewith.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 #include "util.h"
 #include "gamerules/CGameRules.h"
 

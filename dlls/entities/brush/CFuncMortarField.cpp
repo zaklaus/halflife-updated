@@ -15,8 +15,10 @@
 
 #include "CFuncMortarField.h"
 #include "entities/effects/CSoundEnt.h"
+#include "util/findentity.h"
+#include "util/sound.h"
 
-LINK_ENTITY_TO_CLASS( func_mortar_field, CFuncMortarField );
+LINK_ENTITY_TO_CLASS(func_mortar_field, CFuncMortarField);
 
 TYPEDESCRIPTION    CFuncMortarField::m_SaveData[] = 
 {

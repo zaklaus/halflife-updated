@@ -19,11 +19,7 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "nodes.h"
 #include "monsters.h"
-#include "animation.h"
-#include "saverestore.h"
-#include "entities/effects/CSoundEnt.h"
 #include "entities/CBaseMonster.h"
 
 //=========================================================

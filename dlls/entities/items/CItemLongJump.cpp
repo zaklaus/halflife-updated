@@ -14,7 +14,7 @@
 ****/
 
 #include "CItemLongJump.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 extern int gmsgItemPickup;
 

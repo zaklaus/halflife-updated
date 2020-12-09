@@ -14,6 +14,7 @@
 ****/
 
 #include "CXenTree.h"
+#include "util/sound.h"
 
 LINK_ENTITY_TO_CLASS(xen_tree, CXenTree);
 

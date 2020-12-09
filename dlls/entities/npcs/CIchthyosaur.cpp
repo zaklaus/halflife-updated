@@ -15,18 +15,17 @@
 
 #include "CIchthyosaur.h"
 #include "schedule.h"
-#include "nodes.h"
 #include "entities/effects/CSoundEnt.h"
 
-#define SEARCH_RETRY    16
+#define SEARCH_RETRY        16
 
-#define ICHTHYOSAUR_SPEED 150
+#define ICHTHYOSAUR_SPEED   150
 
-#define EYE_MAD        0
-#define EYE_BASE    1
-#define EYE_CLOSED    2
-#define EYE_BACK    3
-#define EYE_LOOK    4
+#define EYE_MAD             0
+#define EYE_BASE            1
+#define EYE_CLOSED          2
+#define EYE_BACK            3
+#define EYE_LOOK            4
 
 LINK_ENTITY_TO_CLASS(monster_ichthyosaur, CIchthyosaur);
 

@@ -15,7 +15,8 @@
 
 #include "CBaseButton.h"
 #include "CEnvSpark.h"
-#include "doors.h"
+#include "util/findentity.h"
+#include "util/sound.h"
 
 //===================================
 // func_button (= CBaseButton)

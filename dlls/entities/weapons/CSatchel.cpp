@@ -16,7 +16,8 @@
 #include "CSatchel.h"
 #include "CSatchelCharge.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/findentity.h"
 
 enum satchel_e
 {

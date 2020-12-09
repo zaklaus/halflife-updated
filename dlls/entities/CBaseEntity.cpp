@@ -17,11 +17,14 @@
 #include "base/CWorld.h"
 #include "decals.h"
 #include "monsters.h"
-#include "movewith.h"
-#include "nodes.h"
-#include "skill.h"
+#include "util/movewith.h"
+#include "util/skill.h"
 #include "weapons.h"
+#include "nodes/CGraph.h"
 #include "util/dispatch.h"
+#include "util/findentity.h"
+#include "util/locus.h"
+#include "util/sound.h"
 
 // This updates global tables that need to know about entities being removed
 void CBaseEntity::UpdateOnRemove(void)
@@ -1044,4 +1047,193 @@ CBaseEntity* CBaseEntity::Create(const char* szName, const Vector& vecOrigin, co
     pEntity->pev->angles = vecAngles;
     DispatchSpawn(pEntity->edict());
     return pEntity;
+}
+
+
+char* GetStringForUseType(USE_TYPE useType)
+{
+    switch (useType)
+    {
+    case USE_ON: return "USE_ON";
+    case USE_OFF: return "USE_OFF";
+    case USE_TOGGLE: return "USE_TOGGLE";
+    case USE_KILL: return "USE_KILL";
+    case USE_NOT: return "USE_NOT";
+    default:
+        return "USE_UNKNOWN!?";
+    }
+}
+
+char* GetStringForState(STATE state)
+{
+    switch (state)
+    {
+    case STATE_ON: return "ON";
+    case STATE_OFF: return "OFF";
+    case STATE_TURN_ON: return "TURN ON";
+    case STATE_TURN_OFF: return "TURN OFF";
+    case STATE_IN_USE: return "IN USE";
+    default:
+        return "STATE_UNKNOWN!?";
+    }
+}
+
+/*
+=============
+FEntIsVisible
+
+returns TRUE if the passed entity is visible to caller, even if not infront ()
+=============
+*/
+BOOL FEntIsVisible(entvars_t* pev, entvars_t* pevTarget)
+{
+    Vector vecSpot1 = pev->origin + pev->view_ofs;
+    Vector vecSpot2 = pevTarget->origin + pevTarget->view_ofs;
+    TraceResult tr;
+
+    UTIL_TraceLine(vecSpot1, vecSpot2, ignore_monsters, ENT(pev), &tr);
+
+    if (tr.fInOpen && tr.fInWater)
+        return FALSE; // sight line crossed contents
+
+    if (tr.flFraction == 1)
+        return TRUE;
+
+    return FALSE;
+}
+
+
+void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+{
+    const char* inputTargetName = targetName;
+    CBaseEntity* inputActivator = pActivator;
+    CBaseEntity* pTarget = NULL;
+    int i, j, found = false;
+    char szBuf[80];
+
+    if (!targetName)
+        return;
+    if (useType == USE_NOT)
+        return;
+
+    //LRC - allow changing of usetype
+    if (targetName[0] == '+')
+    {
+        targetName++;
+        useType = USE_ON;
+    }
+    else if (targetName[0] == '-')
+    {
+        targetName++;
+        useType = USE_OFF;
+    }
+    else if (targetName[0] == '!') //G-cont
+    {
+        targetName++;
+        useType = USE_KILL;
+    }
+    else if (targetName[0] == '>') //G-cont
+    {
+        targetName++;
+        useType = USE_SAME;
+    }
+
+    else if (targetName[0] == '&') //AJH Use_Spawn
+    {
+        targetName++;
+        useType = USE_SPAWN;
+    }
+
+    ALERT(at_aiconsole, "Firing: (%s)\n", targetName);
+
+    pTarget = UTIL_FindEntityByTargetname(pTarget, targetName, pActivator);
+    if (!pTarget)
+    {
+        // it's not an entity name; check for a locus specifier, e.g: "fadein(mywall)"
+        for (i = 0; targetName[i]; i++)
+        {
+            if (targetName[i] == '(')
+            {
+                i++;
+                for (j = i; targetName[j]; j++)
+                {
+                    if (targetName[j] == ')')
+                    {
+                        strncpy(szBuf, targetName + i, j - i);
+                        szBuf[j - i] = 0;
+                        pActivator = CalcLocusParameter(inputActivator, szBuf);
+                        //                        pActivator = UTIL_FindEntityByTargetname(NULL, szBuf, inputActivator);
+                        if (!pActivator)
+                        {
+                            //ALERT(at_console, "Missing activator \"%s\"\n", szBuf);
+                            return; // it's a locus specifier, but the locus is invalid.
+                        }
+                        //ALERT(at_console, "Found activator \"%s\"\n", STRING(pActivator->pev->targetname));
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                    ALERT(at_error, "Missing ')' in target value \"%s\"", inputTargetName);
+                break;
+            }
+        }
+        if (!found) return; // no, it's not a locus specifier.
+
+        strncpy(szBuf, targetName, i - 1);
+        szBuf[i - 1] = 0;
+        targetName = szBuf;
+        pTarget = UTIL_FindEntityByTargetname(NULL, targetName, inputActivator);
+
+        if (!pTarget) return; // it's a locus specifier all right, but the target's invalid.
+    }
+
+    do // start firing targets
+    {
+        if (!(pTarget->pev->flags & FL_KILLME)) // Don't use dying ents
+        {
+            if (useType == USE_KILL)
+            {
+                ALERT(at_aiconsole, "Use_kill on %s\n", STRING(pTarget->pev->classname));
+                UTIL_Remove(pTarget);
+            }
+            else
+            {
+                ALERT(at_aiconsole, "Found: %s, firing (%s)\n", STRING(pTarget->pev->classname), targetName);
+                pTarget->Use(pActivator, pCaller, useType, value);
+            }
+        }
+        pTarget = UTIL_FindEntityByTargetname(pTarget, targetName, inputActivator);
+    }
+    while (pTarget);
+
+    //LRC- Firing has finished, aliases can now reflect their new values.
+    UTIL_FlushAliases();
+}
+
+/*
+QuakeEd only writes a single float for angles (bad idea), so up and down are
+just constant angles.
+*/
+void SetMovedir(entvars_t* pev)
+{
+    pev->movedir = GetMovedir(pev->angles);
+    pev->angles = g_vecZero;
+}
+
+Vector GetMovedir(Vector vecAngles)
+{
+    if (vecAngles == Vector(0, -1, 0))
+    {
+        return Vector(0, 0, 1);
+    }
+    else if (vecAngles == Vector(0, -2, 0))
+    {
+        return Vector(0, 0, -1);
+    }
+    else
+    {
+        UTIL_MakeVectors(vecAngles);
+        return gpGlobals->v_forward;
+    }
 }

@@ -16,6 +16,7 @@
 #include "extdll.h"
 #include "util.h"
 #include "CEnvSpark.h"
+#include "util/sound.h"
 
 TYPEDESCRIPTION CEnvSpark::m_SaveData[] =
 {

@@ -15,6 +15,8 @@
 
 #include "CMultiSource.h"
 
+#include "util/findentity.h"
+
 //===========================
 //LRC- the evil multisource...
 //===========================

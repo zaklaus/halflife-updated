@@ -15,7 +15,7 @@
 
 #include "CBasePlayerWeapon.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 extern int gmsgCurWeapon;
 

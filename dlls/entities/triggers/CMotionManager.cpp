@@ -15,6 +15,7 @@
 
 #include "CMotionManager.h"
 #include "CMotionThread.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(motion_manager, CMotionManager);
 

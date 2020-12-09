@@ -17,6 +17,7 @@
 #include "customentity.h"
 #include "weapons.h"
 #include "decals.h"
+#include "util/findentity.h"
 
 
 // --------------------------------------------------

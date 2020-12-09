@@ -18,8 +18,8 @@
 #include "entities/effects/CSoundEnt.h"
 #include "shake.h"
 #include "gamerules/CGameRules.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 
 #ifndef CLIENT_DLL
 extern BOOL g_allowGJump; //AJH SP Gaussjump

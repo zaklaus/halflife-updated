@@ -15,13 +15,14 @@
 
 #include "CHGrunt.h"
 #include "schedule.h"
-#include "animation.h"
+#include "util/animation.h"
 #include "weapons.h"
 #include "entities/base/CTalkMonster.h"
 #include "entities/base/CCineMonster.h"
 #include "entities/effects/CSoundEnt.h"
 #include "entities/weapons/CGrenade.h"
 #include "scripted.h" //LRC
+#include "util/ai.h"
 
 int g_fGruntQuestion; // true if an idle grunt asked a question. Cleared when someone answers.
 

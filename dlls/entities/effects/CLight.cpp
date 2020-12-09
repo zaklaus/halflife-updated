@@ -14,6 +14,7 @@
 ****/
 
 #include "CLight.h"
+#include "util/lights.h"
 
 LINK_ENTITY_TO_CLASS(light, CLight);
 

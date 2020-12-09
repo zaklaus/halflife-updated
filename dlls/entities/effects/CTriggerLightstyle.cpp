@@ -16,6 +16,8 @@
 #include "CTriggerLightstyle.h"
 #include "CLight.h"
 #include "CLightFader.h"
+#include "util/findentity.h"
+#include "util/lights.h"
 
 LINK_ENTITY_TO_CLASS(trigger_lightstyle, CTriggerLightstyle);
 

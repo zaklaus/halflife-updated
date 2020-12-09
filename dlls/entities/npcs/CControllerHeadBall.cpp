@@ -14,7 +14,7 @@
 ****/
 
 #include "CControllerHeadBall.h"
-#include "skill.h"
+#include "util/skill.h"
 #include "weapons.h"
 
 LINK_ENTITY_TO_CLASS(controller_head_ball, CControllerHeadBall);

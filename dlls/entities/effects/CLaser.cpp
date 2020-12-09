@@ -16,8 +16,9 @@
 #include "CLaser.h"
 #include "CSprite.h"
 #include "customentity.h"
-#include "locus.h"
-#include "movewith.h"
+#include "util/findentity.h"
+#include "util/locus.h"
+#include "util/movewith.h"
 
 LINK_ENTITY_TO_CLASS(env_laser, CLaser);
 

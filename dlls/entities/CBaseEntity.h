@@ -38,6 +38,7 @@ CBaseEntity
 #include "entities/constants/damage.h"
 #include "entities/constants/capability.h"
 #include "util/ehandle.h"
+#include "util/entity.h"
 #include "extdll.h"
 #include "util.h"
 #include "saverestore.h"
@@ -60,8 +61,33 @@ typedef enum
     USE_NOT = 6,
 } USE_TYPE;
 
+// Things that toggle (buttons/triggers/doors) need this
+typedef enum
+{
+    TS_AT_TOP,
+    TS_AT_BOTTOM,
+    TS_GOING_UP,
+    TS_GOING_DOWN
+} TOGGLE_STATE;
+
+//LRC- the values used for the new "global states" mechanism.
+typedef enum
+{
+    STATE_OFF = 0,    // disabled, inactive, invisible, closed, or stateless. Or non-alert monster.
+    STATE_TURN_ON,  // door opening, env_fade fading in, etc.
+    STATE_ON,        // enabled, active, visisble, or open. Or alert monster.
+    STATE_TURN_OFF, // door closing, monster dying (?).
+    STATE_IN_USE,    // player is in control (train/tank/barney/scientist).
+                    // In_Use isn't very useful, I'll probably remove it.
+} STATE;
+
+
 extern char* GetStringForUseType(USE_TYPE useType);
+extern char* GetStringForState(STATE state);
+extern BOOL FEntIsVisible(entvars_t* pev, entvars_t* pevTarget);
 extern void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+extern void SetMovedir(entvars_t* pev);
+extern Vector GetMovedir(Vector vecAngles);
 
 // These are caps bits to indicate what an object's capabilities (currently used for save/restore and level transitions)
 #define FCAP_CUSTOMSAVE             0x00000001
@@ -101,7 +127,7 @@ extern void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEn
 #define CLASS_BARNACLE           99  // special because no one pays attention to it, and it eats a wide cross-section of creatures.
 
 
-#define    SF_NORESPAWN    ( 1 << 30 )// !!!set this bit on guns and stuff that should never respawn.
+#define SF_NORESPAWN         ( 1 << 30 )  // !!!set this bit on guns and stuff that should never respawn.
 
 
 #define MAX_MULTI_TARGETS    16 // maximum number of targets a single multi_manager entity may be assigned.

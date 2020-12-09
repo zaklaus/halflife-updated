@@ -21,17 +21,17 @@ This file contains "stubs" of class member implementations so that we can predic
  add in the functionality you need.
 ==========================
 */
-#include	"extdll.h"
-#include	"util.h"
-#include	"player.h"
-#include	"weapons.h"
-#include	"nodes.h"
+#include "extdll.h"
+#include "util.h"
+#include "entities/player/CBasePlayer.h"
+#include "weapons.h"
+#include "nodes/NodeConstants.h"
 #include "entities/effects/CSoundEnt.h"
 #include "entities/weapons/CBasePlayerItem.h"
 #include "entities/weapons/CBasePlayerWeapon.h"
 #include "entities/weapons/CBasePlayerAmmo.h"
 #include "entities/weapons/CGrenade.h"
-#include	"skill.h"
+#include "util/skill.h"
 
 // Globals used by game logic
 const Vector g_vecZero = Vector( 0, 0, 0 );

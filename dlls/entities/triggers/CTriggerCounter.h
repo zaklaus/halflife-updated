@@ -16,6 +16,8 @@
 
 #include "CTriggerMultiple.h"
 
+#define SF_TRIGGER_COUNTER_NOMESSAGE    1
+
 // ==============================
 // trigger_counter
 // After the counter has been triggered "cTriggersLeft"

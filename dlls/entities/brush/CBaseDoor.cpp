@@ -15,8 +15,9 @@
 
 #include "CBaseDoor.h"
 #include "CBaseButton.h"
-#include "doors.h"
-#include "movewith.h"
+#include "util/findentity.h"
+#include "util/movewith.h"
+#include "util/sound.h"
 
 TYPEDESCRIPTION CBaseDoor::m_SaveData[] =
 {

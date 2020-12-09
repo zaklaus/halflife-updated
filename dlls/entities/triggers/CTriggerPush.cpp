@@ -14,7 +14,7 @@
 ****/
 
 #include "CTriggerPush.h"
-#include "locus.h"
+#include "util/locus.h"
 
 LINK_ENTITY_TO_CLASS(trigger_push, CTriggerPush);
 
@@ -96,7 +96,7 @@ auto CTriggerPush::Touch(CBaseEntity* pOther) -> void
     if (pevToucher->solid != SOLID_NOT && pevToucher->solid != SOLID_BSP)
     {
         // Instant trigger, just transfer velocity and remove
-        if (FBitSet(pev->spawnflags, SF_TRIG_PUSH_ONCE))
+        if (FBitSet(pev->spawnflags, SF_TRIGGER_PUSH_ONCE))
         {
             pevToucher->velocity = pevToucher->velocity + vecPush;
             if (pevToucher->velocity.z > 0)

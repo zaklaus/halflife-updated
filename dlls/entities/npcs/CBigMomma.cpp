@@ -18,6 +18,7 @@
 #include "decals.h"
 #include "game.h"
 #include "CBMortar.h"
+#include "util/findentity.h"
 
 //LRC brought in from animation.h
 #define ACTIVITY_NOT_AVAILABLE        -1

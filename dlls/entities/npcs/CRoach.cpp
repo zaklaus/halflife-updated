@@ -17,6 +17,7 @@
 #include "entities/effects/CSoundEnt.h"
 #include "decals.h"
 #include "monsters.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(monster_cockroach, CRoach);
 

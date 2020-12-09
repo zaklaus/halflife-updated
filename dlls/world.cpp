@@ -22,19 +22,14 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "nodes.h"
 #include "entities/effects/CSoundEnt.h"
 #include "client.h"
 #include "decals.h"
-#include "skill.h"
 #include "entities/effects/CMessage.h"
-#include "player.h"
-#include "weapons.h"
 #include "gamerules/CGameRules.h"
-#include "movewith.h" //LRC
+#include "nodes/CGraph.h"
+#include "util/lights.h"
 
-extern CGraph WorldGraph;
-extern CSoundEnt *pSoundEnt;
 
 extern CBaseEntity                *g_pLastSpawn;
 DLL_GLOBAL edict_t                *g_pBodyQueueHead;

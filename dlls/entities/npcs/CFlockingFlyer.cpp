@@ -16,6 +16,7 @@
 #include "CFlockingFlyer.h"
 
 #include "CFlockingFlyerFlock.h"
+#include "util/findentity.h"
 
 LINK_ENTITY_TO_CLASS(monster_flyer, CFlockingFlyer);
 

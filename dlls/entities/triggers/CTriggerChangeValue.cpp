@@ -15,6 +15,8 @@
 
 #include "CTriggerChangeValue.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(trigger_changevalue, CTriggerChangeValue);
 
 TYPEDESCRIPTION CTriggerChangeValue::m_SaveData[] =

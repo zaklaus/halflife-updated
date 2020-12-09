@@ -18,6 +18,7 @@
 #include "entities/effects/CSoundEnt.h"
 #include "entities/effects/CBeam.h"
 #include "customentity.h"
+#include "util/findentity.h"
 
 #define SF_WAITFORTRIGGER    0x40
 

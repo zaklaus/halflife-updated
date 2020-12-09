@@ -14,6 +14,7 @@
 ****/
 
 #include "CItemSoda.h"
+#include "util/sound.h"
 
 LINK_ENTITY_TO_CLASS(item_sodacan, CItemSoda);
 

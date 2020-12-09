@@ -16,8 +16,9 @@
 #include "entities/weapons/CBasePlayerItem.h"
 #include "entities/weapons/CBasePlayerAmmo.h"
 #include "entities/items/CItem.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
+#include "util/findentity.h"
 
 extern DLL_GLOBAL BOOL g_fGameOver;
 extern int gmsgDeathMsg; // client dll messages

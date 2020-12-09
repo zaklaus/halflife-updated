@@ -15,7 +15,7 @@
 
 #include "CItemAntidote.h"
 #include "CItem.h"
-#include "player.h"
+#include "entities/player/CBasePlayer.h"
 
 LINK_ENTITY_TO_CLASS(item_antidote, CItemAntidote);
 

@@ -15,6 +15,8 @@
 
 #include "CEnvELight.h"
 
+#include "util/findentity.h"
+
 LINK_ENTITY_TO_CLASS(env_elight, CEnvELight);
 
 int CEnvELight::ms_iNextFreeKey = 1;

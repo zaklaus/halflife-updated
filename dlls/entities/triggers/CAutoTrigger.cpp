@@ -14,7 +14,9 @@
 ****/
 
 #include "CAutoTrigger.h"
-#include "movewith.h"
+
+#include "util/findentity.h"
+#include "util/movewith.h"
 
 LINK_ENTITY_TO_CLASS(trigger_auto, CAutoTrigger);
 

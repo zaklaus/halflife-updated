@@ -15,7 +15,8 @@
 
 #include "CRenderFxManager.h"
 #include "CRenderFxFader.h"
-#include "locus.h"
+#include "util/findentity.h"
+#include "util/locus.h"
 
 LINK_ENTITY_TO_CLASS(env_render, CRenderFxManager);
 

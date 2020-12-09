@@ -15,8 +15,8 @@
 
 #include "CHealthKit.h"
 #include "gamerules/CGameRules.h"
-#include "skill.h"
-#include "player.h"
+#include "util/skill.h"
+#include "entities/player/CBasePlayer.h"
 
 extern int gmsgItemPickup;
 

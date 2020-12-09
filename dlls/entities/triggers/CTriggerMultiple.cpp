@@ -14,6 +14,7 @@
 ****/
 
 #include "CTriggerMultiple.h"
+#include "util/sound.h"
 
 LINK_ENTITY_TO_CLASS(trigger_multiple, CTriggerMultiple);
 

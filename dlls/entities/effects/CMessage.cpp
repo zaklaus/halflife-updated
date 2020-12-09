@@ -14,6 +14,7 @@
 ****/
 
 #include "CMessage.h"
+#include "util/sound.h"
 
 LINK_ENTITY_TO_CLASS(env_message, CMessage);
 

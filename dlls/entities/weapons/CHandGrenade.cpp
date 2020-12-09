@@ -15,8 +15,8 @@
 
 #include "CHandGrenade.h"
 #include "CGrenade.h"
-#include "player.h"
-#include "skill.h"
+#include "entities/player/CBasePlayer.h"
+#include "util/skill.h"
 
 enum handgrenade_e
 {

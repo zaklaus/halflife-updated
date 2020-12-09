@@ -20,7 +20,8 @@
 // This will disable use and make the button solid
 // rotating buttons were made SOLID_NOT by default since their were some
 // collision problems with them...
-#define SF_MOMENTARY_DOOR  0x0001
+#define SF_MOMENTARY_DOOR                    0x0001
+#define SF_MOMENTARY_ROTBUTTON_AUTO_RETURN   16
 
 class CMomentaryRotButton : public CBaseToggle
 {
