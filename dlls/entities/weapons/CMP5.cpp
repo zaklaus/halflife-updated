@@ -14,7 +14,6 @@
 ****/
 
 #include "CMP5.h"
-#include "CBasePlayerAmmo.h"
 #include "CGrenade.h"
 #include "CSound.h"
 #include "gamerules/CGameRules.h"
@@ -303,93 +302,3 @@ void CMP5::WeaponIdle(void)
     m_flTimeWeaponIdle = UTIL_SharedRandomFloat(m_pPlayer->random_seed, 10, 15); // how long till we do this again.
 }
 
-
-class CMP5AmmoClip : public CBasePlayerAmmo
-{
-    void Spawn(void)
-    {
-        Precache();
-        SET_MODEL(ENT(pev), "models/w_9mmARclip.mdl");
-        CBasePlayerAmmo::Spawn();
-    }
-
-    void Precache(void)
-    {
-        PRECACHE_MODEL("models/w_9mmARclip.mdl");
-        PRECACHE_SOUND("items/9mmclip1.wav");
-    }
-
-    BOOL AddAmmo(CBaseEntity* pOther)
-    {
-        int bResult = (pOther->GiveAmmo(AMMO_MP5CLIP_GIVE, "9mm", _9MM_MAX_CARRY) != -1);
-        if (bResult)
-        {
-            EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-        }
-        return bResult;
-    }
-};
-
-LINK_ENTITY_TO_CLASS(ammo_mp5clip, CMP5AmmoClip);
-LINK_ENTITY_TO_CLASS(ammo_9mmAR, CMP5AmmoClip);
-
-
-class CMP5Chainammo : public CBasePlayerAmmo
-{
-    void Spawn(void)
-    {
-        Precache();
-        SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
-        CBasePlayerAmmo::Spawn();
-    }
-
-    void Precache(void)
-    {
-        PRECACHE_MODEL("models/w_chainammo.mdl");
-        PRECACHE_SOUND("items/9mmclip1.wav");
-    }
-
-    BOOL AddAmmo(CBaseEntity* pOther)
-    {
-        int bResult = (pOther->GiveAmmo(AMMO_CHAINBOX_GIVE, "9mm", _9MM_MAX_CARRY) != -1);
-        if (bResult)
-        {
-            EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-        }
-        return bResult;
-    }
-};
-
-LINK_ENTITY_TO_CLASS(ammo_9mmbox, CMP5Chainammo);
-
-//
-
-class CMP5AmmoGrenade : public CBasePlayerAmmo
-{
-    void Spawn(void)
-    {
-        Precache();
-        SET_MODEL(ENT(pev), "models/w_ARgrenade.mdl");
-        CBasePlayerAmmo::Spawn();
-    }
-
-    void Precache(void)
-    {
-        PRECACHE_MODEL("models/w_ARgrenade.mdl");
-        PRECACHE_SOUND("items/9mmclip1.wav");
-    }
-
-    BOOL AddAmmo(CBaseEntity* pOther)
-    {
-        int bResult = (pOther->GiveAmmo(AMMO_M203BOX_GIVE, "ARgrenades", M203_GRENADE_MAX_CARRY) != -1);
-
-        if (bResult)
-        {
-            EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-        }
-        return bResult;
-    }
-};
-
-LINK_ENTITY_TO_CLASS(ammo_mp5grenades, CMP5AmmoGrenade);
-LINK_ENTITY_TO_CLASS(ammo_ARgrenades, CMP5AmmoGrenade);

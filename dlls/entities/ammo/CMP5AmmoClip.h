@@ -14,15 +14,11 @@
 ****/
 #pragma once
 
-#include "CBasePlayerItem.h"
+#include "entities/ammo/CBasePlayerAmmo.h"
 
-class CBasePlayerAmmo : public CBasePlayerItem //AJH
+class CMP5AmmoClip : public CBasePlayerAmmo
 {
-public:
     void Spawn(void) override;
-    void DLLEXPORT DefaultTouch(CBaseEntity* pOther); // default weapon touch
-    virtual BOOL AddAmmo(CBaseEntity* pOther) { return TRUE; };
-
-    CBaseEntity* Respawn(void) override;
-    void DLLEXPORT Materialize(void);
+    void Precache(void) override;
+    BOOL AddAmmo(CBaseEntity* pOther) override;
 };

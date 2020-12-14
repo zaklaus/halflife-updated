@@ -14,7 +14,7 @@
 ****/
 #pragma once
 
-#include "CBasePlayerItem.h"
+#include "entities/player/CBasePlayerItem.h"
 
 extern int gmsgWeapPickup;
 

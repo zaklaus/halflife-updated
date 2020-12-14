@@ -15,7 +15,7 @@
 
 #include "CFuncTankControls.h"
 #include "CFuncTank.h"
-#include "entities/weapons/CBasePlayerItem.h"
+#include "entities/player/CBasePlayerItem.h"
 #include "entities/player/CBasePlayer.h"
 #include "util/findentity.h"
 

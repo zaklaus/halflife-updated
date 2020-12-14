@@ -123,6 +123,12 @@
     <Filter Include="Source Files\dlls\saverestore">
       <UniqueIdentifier>{16797f8f-69bd-4537-8bd1-692c0b3c3df0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\dlls\entities\ammo">
+      <UniqueIdentifier>{ea22e27c-8c3c-47f2-ad39-31aebee2fe3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\entities\ammo">
+      <UniqueIdentifier>{06b0d9b7-ab0f-4b91-9566-48026fe06c62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\client.cpp">
@@ -568,12 +574,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\triggers\CWatcherCount.cpp">
       <Filter>Source Files\dlls\entities\triggers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerItem.cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
@@ -1199,6 +1199,42 @@
     <ClCompile Include="..\..\dlls\util\saverestore.cpp">
       <Filter>Source Files\dlls\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CShotgunAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CRpgAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CBasePlayerAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CPythonAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5AmmoGrenade.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5Chainammo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5AmmoClip.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CGlockAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CGaussAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CEgonAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\ammo\CCrossbowAmmo.cpp">
+      <Filter>Source Files\dlls\entities\ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\player\CBasePlayerItem.cpp">
+      <Filter>Source Files\dlls\entities\player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\cdll_dll.h">
@@ -1686,12 +1722,6 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\triggers\CWatcherCount.h">
       <Filter>Header Files\dlls\entities\triggers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerItem.h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h">
       <Filter>Header Files\dlls\entities\weapons</Filter>
@@ -2307,6 +2337,42 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\util\saverestore.h">
       <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CBasePlayerAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CCrossbowAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CEgonAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CGaussAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CGlockAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5AmmoClip.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5AmmoGrenade.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CPythonAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CRpgAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CShotgunAmmo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5Chainammo.h">
+      <Filter>Header Files\dlls\entities\ammo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\player\CBasePlayerItem.h">
+      <Filter>Header Files\dlls\entities\player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

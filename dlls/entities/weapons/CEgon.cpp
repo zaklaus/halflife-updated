@@ -14,7 +14,6 @@
 ****/
 
 #include "CEgon.h"
-#include "CBasePlayerAmmo.h"
 #include "entities/player/CBasePlayer.h"
 #include "customentity.h"
 #include "gamerules/CGameRules.h"
@@ -532,33 +531,3 @@ void CEgon::EndAttack(void)
 
     DestroyEffect();
 }
-
-//
-
-class CEgonAmmo : public CBasePlayerAmmo
-{
-    void Spawn(void) override
-    {
-        Precache();
-        SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
-        CBasePlayerAmmo::Spawn();
-    }
-
-    void Precache(void) override
-    {
-        PRECACHE_MODEL("models/w_chainammo.mdl");
-        PRECACHE_SOUND("items/9mmclip1.wav");
-    }
-
-    BOOL AddAmmo(CBaseEntity* pOther) override
-    {
-        if (pOther->GiveAmmo(AMMO_URANIUMBOX_GIVE, "uranium", URANIUM_MAX_CARRY) != -1)
-        {
-            EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-            return TRUE;
-        }
-        return FALSE;
-    }
-};
-
-LINK_ENTITY_TO_CLASS(ammo_egonclip, CEgonAmmo);

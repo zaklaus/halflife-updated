@@ -13,7 +13,7 @@
 *
 ****/
 
-#include "CBasePlayerItem.h"
+#include "entities/player/CBasePlayerItem.h"
 #include "gamerules/CGameRules.h"
 #include "entities/player/CBasePlayer.h"
 

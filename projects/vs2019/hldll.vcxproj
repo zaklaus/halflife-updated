@@ -108,6 +108,17 @@ EXIT /B 0</Command>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\client.cpp" />
     <ClCompile Include="..\..\dlls\CSound.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CCrossbowAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CEgonAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CGaussAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CGlockAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5AmmoClip.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5Chainammo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CMP5AmmoGrenade.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CPythonAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CBasePlayerAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CRpgAmmo.cpp" />
+    <ClCompile Include="..\..\dlls\entities\ammo\CShotgunAmmo.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\CBaseDMStart.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\CCineMonster.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\CFlyingMonster.cpp" />
@@ -291,6 +302,7 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\npcs\CZombie.cpp" />
     <ClCompile Include="..\..\dlls\entities\npcs\CHornet.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CBasePlayer.cpp" />
+    <ClCompile Include="..\..\dlls\entities\player\CBasePlayerItem.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CRevertSaved.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CPlayerFreeze.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CPlayerMarker.cpp" />
@@ -389,8 +401,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\triggers\CTriggerVolume.cpp" />
     <ClCompile Include="..\..\dlls\entities\triggers\CWatcherCount.cpp" />
     <ClCompile Include="..\..\dlls\entities\triggers\CWatcherRatio.cpp" />
-    <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.cpp" />
-    <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerItem.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CCrossbow.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CCrowbar.cpp" />
@@ -467,7 +477,19 @@ EXIT /B 0</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\common\Platform.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CCrossbowAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CEgonAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CGaussAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CGlockAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5AmmoClip.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5Chainammo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CMP5AmmoGrenade.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CPythonAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CRpgAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CShotgunAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\ammo\CBasePlayerAmmo.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayer.h" />
+    <ClInclude Include="..\..\dlls\entities\player\CBasePlayerItem.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBloodSplat.h" />
     <ClInclude Include="..\..\dlls\entities\player\CPlayerMarker.h" />
     <ClInclude Include="..\..\dlls\entities\player\CPlayerFreeze.h" />
@@ -754,8 +776,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\triggers\CTriggerVolume.h" />
     <ClInclude Include="..\..\dlls\entities\triggers\CWatcherCount.h" />
     <ClInclude Include="..\..\dlls\entities\triggers\CWatcherRatio.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerItem.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrossbow.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrowbar.h" />

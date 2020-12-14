@@ -14,8 +14,7 @@
 ****/
 
 #include "CHalfLifeMultiplay.h"
-#include "entities/weapons/CBasePlayerItem.h"
-#include "entities/weapons/CBasePlayerAmmo.h"
+#include "entities/ammo/CBasePlayerAmmo.h"
 #include "entities/items/CItem.h"
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"
@@ -47,7 +46,7 @@ CVoiceGameMgr g_VoiceGameMgr;
 class CMultiplayGameMgrHelper : public IVoiceGameMgrHelper
 {
 public:
-    virtual bool CanPlayerHearPlayer(CBasePlayer* pListener, CBasePlayer* pTalker)
+    bool CanPlayerHearPlayer(CBasePlayer* pListener, CBasePlayer* pTalker) override
     {
         if (g_teamplay)
         {

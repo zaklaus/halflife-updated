@@ -24,7 +24,6 @@
 #include "extdll.h"
 #include "util.h"
 #include "entities/player/CBasePlayer.h"
-#include "entities/weapons/CBasePlayerItem.h"
 #include "util/skill.h"
 #include "game.h"
 

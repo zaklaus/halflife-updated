@@ -13,8 +13,8 @@
 *
 ****/
 #include "CHalfLifeRules.h"
-#include "entities/weapons/CBasePlayerItem.h"
-#include "entities/weapons/CBasePlayerAmmo.h"
+#include "entities/player/CBasePlayerItem.h"
+#include "entities/ammo/CBasePlayerAmmo.h"
 #include "entities/items/CItem.h"
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"

@@ -14,7 +14,6 @@
 ****/
 
 #include "CCrossbow.h"
-#include "CBasePlayerAmmo.h"
 #include "CCrossbowBolt.h"
 #include "gamerules/CGameRules.h"
 #include "entities/player/CBasePlayer.h"
@@ -327,33 +326,3 @@ void CCrossbow::WeaponIdle(void)
         }
     }
 }
-
-//
-
-class CCrossbowAmmo : public CBasePlayerAmmo
-{
-    void Spawn(void) override
-    {
-        Precache();
-        SET_MODEL(ENT(pev), "models/w_crossbow_clip.mdl");
-        CBasePlayerAmmo::Spawn();
-    }
-
-    void Precache(void) override
-    {
-        PRECACHE_MODEL("models/w_crossbow_clip.mdl");
-        PRECACHE_SOUND("items/9mmclip1.wav");
-    }
-
-    BOOL AddAmmo(CBaseEntity* pOther) override
-    {
-        if (pOther->GiveAmmo(AMMO_CROSSBOWCLIP_GIVE, "bolts", BOLT_MAX_CARRY) != -1)
-        {
-            EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-            return TRUE;
-        }
-        return FALSE;
-    }
-};
-
-LINK_ENTITY_TO_CLASS(ammo_crossbow, CCrossbowAmmo);

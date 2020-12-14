@@ -16,7 +16,7 @@
 
 #include "entities/CBaseEntity.h"
 #include "entities/items/CItem.h"
-#include "entities/weapons/CBasePlayerAmmo.h"
+#include "entities/ammo/CBasePlayerAmmo.h"
 
 #define GAME_NAME "Spirit-Level - Development"
 

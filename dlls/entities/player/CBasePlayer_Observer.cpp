@@ -16,7 +16,7 @@
 #include "extdll.h"
 #include "util.h"
 #include "entities/player/CBasePlayer.h"
-#include "entities/weapons/CBasePlayerItem.h"
+#include "entities/player/CBasePlayerItem.h"
 #include "pm_shared.h"
 
 extern int gmsgCurWeapon;
