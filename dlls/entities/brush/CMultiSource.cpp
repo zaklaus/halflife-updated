@@ -15,6 +15,8 @@
 
 #include "CMultiSource.h"
 
+
+#include "saverestore/CGlobalState.h"
 #include "util/findentity.h"
 
 //===========================

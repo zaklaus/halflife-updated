@@ -21,6 +21,7 @@
 #include "util/skill.h"
 #include "util.h"
 #include "gamerules/CGameRules.h"
+#include "saverestore/CGlobalState.h"
 
 int DispatchSpawn(edict_t* pent)
 {

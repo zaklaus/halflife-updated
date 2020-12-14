@@ -17,7 +17,7 @@
 #include "util.h"
 #include "monsters.h"
 #include "weapons.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "gamerules/CGameRules.h"
 #include "entities/weapons/CBasePlayerItem.h"
 

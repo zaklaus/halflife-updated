@@ -16,7 +16,7 @@
 #include "CSprayCan.h"
 #include "CBasePlayer.h"
 #include "util/sound.h"
-#include "decals.h"
+#include "util/decals.h"
 
 void CSprayCan::Spawn(entvars_t* pevOwner)
 {

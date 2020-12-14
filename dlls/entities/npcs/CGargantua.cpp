@@ -23,7 +23,7 @@
 #include "schedule.h"
 #include "customentity.h"
 #include "weapons.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "entities/effects/CEnvExplosion.h"
 #include "entities/base/CCineMonster.h"
 #include "util/findentity.h"

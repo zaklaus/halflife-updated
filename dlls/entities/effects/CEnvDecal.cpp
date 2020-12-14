@@ -14,7 +14,7 @@
 ****/
 
 #include "CEnvDecal.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "util/locus.h"
 
 

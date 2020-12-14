@@ -14,9 +14,7 @@
 ****/
 
 #include "util/movewith.h"
-#include "entities/base/CWorld.h"
-
-CWorld* g_pWorld = NULL; //LRC
+#include "entities/world/CWorld.h"
 
 BOOL g_doingDesired = FALSE; //LRC - marks whether the Desired functions are currently
 // being processed.

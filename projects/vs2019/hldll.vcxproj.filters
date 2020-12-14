@@ -111,6 +111,18 @@
     <Filter Include="Source Files\dlls\nodes">
       <UniqueIdentifier>{77d74dcc-825a-4744-9d3b-202e75bc8d39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\dlls\entities\world">
+      <UniqueIdentifier>{5c31eee4-c338-4b85-b9f5-83f6086f9108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\entities\world">
+      <UniqueIdentifier>{c6358e3a-6971-4717-9477-750128c90bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlls\saverestore">
+      <UniqueIdentifier>{d62b4bfc-3c93-4db7-8ea8-7e5b047f2d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dlls\saverestore">
+      <UniqueIdentifier>{16797f8f-69bd-4537-8bd1-692c0b3c3df0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\client.cpp">
@@ -127,9 +139,6 @@
     </ClCompile>
     <ClCompile Include="..\..\game_shared\voice_gamemgr.cpp">
       <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\world.cpp">
-      <Filter>Source Files\dlls</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pm_shared\pm_debug.cpp">
       <Filter>Source Files\pm_shared</Filter>
@@ -986,9 +995,6 @@
     <ClCompile Include="..\..\dlls\entities\base\CScriptedSentence.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\base\CWorld.cpp">
-      <Filter>Source Files\dlls\entities\base</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\base\CCineMonster.cpp">
       <Filter>Source Files\dlls\entities\base</Filter>
     </ClCompile>
@@ -1166,15 +1172,39 @@
     <ClCompile Include="..\..\dlls\entities\player\CBaseSpectator.cpp">
       <Filter>Source Files\dlls\entities\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\world\CWorld.cpp">
+      <Filter>Source Files\dlls\entities\world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\world\CCorpse.cpp">
+      <Filter>Source Files\dlls\entities\world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\world\CDecal.cpp">
+      <Filter>Source Files\dlls\entities\world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\decals.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\saverestore\CGlobalState.cpp">
+      <Filter>Source Files\dlls\saverestore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\saverestore\CRestore.cpp">
+      <Filter>Source Files\dlls\saverestore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\saverestore\CSave.cpp">
+      <Filter>Source Files\dlls\saverestore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\saverestore\CSaveRestoreBuffer.cpp">
+      <Filter>Source Files\dlls\saverestore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\util\saverestore.cpp">
+      <Filter>Source Files\dlls\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\cdll_dll.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\client.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\decals.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\defaultai.h">
@@ -1214,9 +1244,6 @@
       <Filter>Header Files\pm_shared</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\weapons.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\saverestore.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\schedule.h">
@@ -2095,9 +2122,6 @@
     <ClInclude Include="..\..\dlls\entities\base\CPointEntity.h">
       <Filter>Header Files\dlls\entities\base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\base\CWorld.h">
-      <Filter>Header Files\dlls\entities\base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\entities\base\CMonsterTarget.h">
       <Filter>Header Files\dlls\entities\base</Filter>
     </ClInclude>
@@ -2256,6 +2280,33 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\player\CBaseSpectator.h">
       <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\world\CWorld.h">
+      <Filter>Header Files\dlls\entities\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\world\CCorpse.h">
+      <Filter>Header Files\dlls\entities\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\world\CDecal.h">
+      <Filter>Header Files\dlls\entities\world</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\decals.h">
+      <Filter>Header Files\dlls\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\saverestore\CGlobalState.h">
+      <Filter>Header Files\dlls\saverestore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\saverestore\CRestore.h">
+      <Filter>Header Files\dlls\saverestore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\saverestore\CSave.h">
+      <Filter>Header Files\dlls\saverestore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\saverestore\CSaveRestoreBuffer.h">
+      <Filter>Header Files\dlls\saverestore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\util\saverestore.h">
+      <Filter>Header Files\dlls\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

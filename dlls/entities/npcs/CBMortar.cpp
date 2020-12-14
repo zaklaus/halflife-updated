@@ -14,7 +14,7 @@
 ****/
 
 #include "CBMortar.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "util/skill.h"
 #include "weapons.h"
 #include "util/sound.h"

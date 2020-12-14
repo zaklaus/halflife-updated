@@ -15,7 +15,7 @@
 
 #include "CRoach.h"
 #include "entities/effects/CSoundEnt.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "monsters.h"
 #include "util/findentity.h"
 

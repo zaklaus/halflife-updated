@@ -14,7 +14,7 @@
 ****/
 
 #include "CSquadMonster.h"
-#include "saverestore.h"
+#include "util/saverestore.h"
 #include "CPlane.h"
 #include "util/findentity.h"
 

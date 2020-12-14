@@ -16,6 +16,11 @@
 
 #include "entities/CBaseEntity.h"
 
+#define SF_WORLD_DARK         0x0001        // Fade from black at startup
+#define SF_WORLD_TITLE        0x0002        // Display game title at startup
+#define SF_WORLD_FORCETEAM    0x0004        // Force teams
+//#define SF_WORLD_STARTSUIT    0x0008        // LRC- Start this level with an HEV suit!
+
 //=======================
 // CWorld
 //

@@ -15,7 +15,7 @@
 
 #include "CBigMomma.h"
 #include "schedule.h"
-#include "decals.h"
+#include "util/decals.h"
 #include "game.h"
 #include "CBMortar.h"
 #include "util/findentity.h"

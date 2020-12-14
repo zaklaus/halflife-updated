@@ -15,6 +15,8 @@
 
 #include "CAutoTrigger.h"
 
+
+#include "saverestore/CGlobalState.h"
 #include "util/findentity.h"
 #include "util/movewith.h"
 

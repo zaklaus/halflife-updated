@@ -15,6 +15,8 @@
 
 #include "CEnvGlobal.h"
 
+#include "saverestore/CGlobalState.h"
+
 TYPEDESCRIPTION CEnvGlobal::m_SaveData[] =
 {
     DEFINE_FIELD(CEnvGlobal, m_globalstate, FIELD_STRING),

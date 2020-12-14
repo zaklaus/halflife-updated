@@ -119,7 +119,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\base\CScriptedSentence.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\CSquadMonster.cpp" />
     <ClCompile Include="..\..\dlls\entities\base\CTalkMonster.cpp" />
-    <ClCompile Include="..\..\dlls\entities\base\CWorld.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncTankMortar.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CBreakable.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CPushable.cpp" />
@@ -417,6 +416,9 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\weapons\CTripmine.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CWeaponBox.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CWpnGeneric.cpp" />
+    <ClCompile Include="..\..\dlls\entities\world\CDecal.cpp" />
+    <ClCompile Include="..\..\dlls\entities\world\CCorpse.cpp" />
+    <ClCompile Include="..\..\dlls\entities\world\CWorld.cpp" />
     <ClCompile Include="..\..\dlls\EntityApi.cpp" />
     <ClCompile Include="..\..\dlls\game.cpp" />
     <ClCompile Include="..\..\dlls\gamerules\CGameRules.cpp" />
@@ -435,9 +437,15 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\nodes\CQueuePriority.cpp" />
     <ClCompile Include="..\..\dlls\nodes\CStack.cpp" />
     <ClCompile Include="..\..\dlls\nodes\CTestHull.cpp" />
+    <ClCompile Include="..\..\dlls\saverestore\CGlobalState.cpp" />
+    <ClCompile Include="..\..\dlls\saverestore\CRestore.cpp" />
+    <ClCompile Include="..\..\dlls\saverestore\CSave.cpp" />
+    <ClCompile Include="..\..\dlls\saverestore\CSaveRestoreBuffer.cpp" />
     <ClCompile Include="..\..\dlls\util.cpp" />
     <ClCompile Include="..\..\dlls\util\activity.cpp" />
     <ClCompile Include="..\..\dlls\util\animation.cpp" />
+    <ClCompile Include="..\..\dlls\util\decals.cpp" />
+    <ClCompile Include="..\..\dlls\util\saverestore.cpp" />
     <ClCompile Include="..\..\dlls\util\usermessages.cpp" />
     <ClCompile Include="..\..\dlls\util\skill.cpp" />
     <ClCompile Include="..\..\dlls\util\dispatch.cpp" />
@@ -452,7 +460,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\util\movewith.cpp" />
     <ClCompile Include="..\..\dlls\util\sound.cpp" />
     <ClCompile Include="..\..\dlls\weapons.cpp" />
-    <ClCompile Include="..\..\dlls\world.cpp" />
     <ClCompile Include="..\..\game_shared\voice_gamemgr.cpp" />
     <ClCompile Include="..\..\pm_shared\pm_debug.cpp" />
     <ClCompile Include="..\..\pm_shared\pm_math.cpp" />
@@ -471,11 +478,13 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\player\CDeadHEV.h" />
     <ClInclude Include="..\..\dlls\entities\player\CSprayCan.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBaseSpectator.h" />
+    <ClInclude Include="..\..\dlls\entities\world\CDecal.h" />
+    <ClInclude Include="..\..\dlls\entities\world\CCorpse.h" />
+    <ClInclude Include="..\..\dlls\entities\world\CWorld.h" />
     <ClInclude Include="..\..\dlls\EntityApi.h" />
     <ClInclude Include="..\..\dlls\cdll_dll.h" />
     <ClInclude Include="..\..\dlls\client.h" />
     <ClInclude Include="..\..\dlls\CSound.h" />
-    <ClInclude Include="..\..\dlls\decals.h" />
     <ClInclude Include="..\..\dlls\defaultai.h" />
     <ClInclude Include="..\..\dlls\enginecallback.h" />
     <ClInclude Include="..\..\dlls\entities\base\CBaseDMStart.h" />
@@ -489,7 +498,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\base\CScriptedSentence.h" />
     <ClInclude Include="..\..\dlls\entities\base\CSquadMonster.h" />
     <ClInclude Include="..\..\dlls\entities\base\CTalkMonster.h" />
-    <ClInclude Include="..\..\dlls\entities\base\CWorld.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CFuncTankMortar.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CBreakable.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CPushable.h" />
@@ -792,7 +800,10 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\nodes\CStack.h" />
     <ClInclude Include="..\..\dlls\nodes\CTestHull.h" />
     <ClInclude Include="..\..\dlls\nodes\NodeConstants.h" />
-    <ClInclude Include="..\..\dlls\saverestore.h" />
+    <ClInclude Include="..\..\dlls\saverestore\CGlobalState.h" />
+    <ClInclude Include="..\..\dlls\saverestore\CRestore.h" />
+    <ClInclude Include="..\..\dlls\saverestore\CSave.h" />
+    <ClInclude Include="..\..\dlls\saverestore\CSaveRestoreBuffer.h" />
     <ClInclude Include="..\..\dlls\schedule.h" />
     <ClInclude Include="..\..\dlls\scripted.h" />
     <ClInclude Include="..\..\dlls\scriptevent.h" />
@@ -800,8 +811,10 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\util.h" />
     <ClInclude Include="..\..\dlls\util\activity.h" />
     <ClInclude Include="..\..\dlls\util\animation.h" />
+    <ClInclude Include="..\..\dlls\util\decals.h" />
     <ClInclude Include="..\..\dlls\util\findentity.h" />
     <ClInclude Include="..\..\dlls\util\entity.h" />
+    <ClInclude Include="..\..\dlls\util\saverestore.h" />
     <ClInclude Include="..\..\dlls\util\usermessages.h" />
     <ClInclude Include="..\..\dlls\util\skill.h" />
     <ClInclude Include="..\..\dlls\util\dispatch.h" />

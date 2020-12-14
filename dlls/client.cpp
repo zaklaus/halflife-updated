@@ -25,7 +25,7 @@
 
 #include "extdll.h"
 #include "util.h"
-#include "saverestore.h"
+#include "util/saverestore.h"
 #include "entities/player/CBasePlayer.h"
 #include "entities/player/CBaseSpectator.h"
 #include "client.h"
@@ -40,7 +40,7 @@
 #include "netadr.h"
 #include "pm_shared.h"
 #include "util/movewith.h"
-#include "entities/base/CWorld.h"
+#include "entities/world/CWorld.h"
 #include "entities/items/CItemCamera.h"
 #include "entities/items/CItemAntiRad.h"
 #include "entities/items/CItemMedicalKit.h"

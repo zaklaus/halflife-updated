@@ -14,21 +14,15 @@
 ****/
 #pragma once
 
-#include "entities/base/CPointEntity.h"
-#include "util/saverestore.h"
+#include "entities/CBaseEntity.h"
 
-class CPathCorner : public CPointEntity
+// Body queue class here.... It's really just CBaseEntity
+class CCorpse : public CBaseEntity
 {
-public:
-    void Spawn() override;
-    void KeyValue(KeyValueData* pkvd) override;
-    float GetDelay(void) override { return m_flWait; }
-    //    void Touch( CBaseEntity *pOther );
-    int Save(CSave& save) override;
-    int Restore(CRestore& restore) override;
-
-    static TYPEDESCRIPTION m_SaveData[];
-
-private:
-    float m_flWait;
+    int ObjectCaps(void) override { return FCAP_DONT_SAVE; }
 };
+
+extern DLL_GLOBAL edict_t* g_pBodyQueueHead;
+
+void InitBodyQue(void);
+void CopyToBodyQue(entvars_t* pev);

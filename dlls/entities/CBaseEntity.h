@@ -39,9 +39,9 @@ CBaseEntity
 #include "entities/constants/capability.h"
 #include "util/ehandle.h"
 #include "util/entity.h"
+#include "util/saverestore.h"
 #include "extdll.h"
 #include "util.h"
-#include "saverestore.h"
 
 class CBaseMonster;
 class CSquadMonster;

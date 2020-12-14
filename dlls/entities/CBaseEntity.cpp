@@ -14,13 +14,14 @@
 ****/
 
 #include "CBaseEntity.h"
-#include "base/CWorld.h"
-#include "decals.h"
+#include "entities/world/CWorld.h"
+#include "util/decals.h"
 #include "monsters.h"
 #include "util/movewith.h"
 #include "util/skill.h"
 #include "weapons.h"
 #include "nodes/CGraph.h"
+#include "saverestore/CGlobalState.h"
 #include "util/dispatch.h"
 #include "util/findentity.h"
 #include "util/locus.h"
