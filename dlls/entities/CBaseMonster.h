@@ -141,6 +141,8 @@ public:
     SCRIPTSTATE m_scriptState; // internal cinematic state
     CCineMonster* m_pCine;
 
+    float m_flLastYawTime;
+
     int Save(CSave& save) override;
     int Restore(CRestore& restore) override;
 

@@ -41,6 +41,7 @@ public:
     void Holster(int skiplocal = 0) override;
     void Reload(void) override;
     void WeaponIdle(void) override;
+    void ItemPostFrame() override;
     int m_fInReload;
     float m_flNextReload;
     int m_iShell;

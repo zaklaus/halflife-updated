@@ -81,6 +81,8 @@ public:
 
     float m_flNextAlert;
 
+    float m_flLastPitchTime;
+
     static const char* pIdleSounds[];
     static const char* pAlertSounds[];
     static const char* pAttackSounds[];

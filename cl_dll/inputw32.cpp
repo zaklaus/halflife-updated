@@ -156,6 +156,7 @@ DWORD	s_hMouseThreadId = 0;
 HANDLE	s_hMouseThread = 0;
 HANDLE	s_hMouseQuitEvent = 0;
 HANDLE	s_hMouseDoneQuitEvent = 0;
+SDL_bool mouseRelative = SDL_TRUE;
 #endif
 
 float g_clampMinYaw = 0;
@@ -306,6 +307,21 @@ void DLLEXPORT IN_ActivateMouse (void)
 #endif
 		mouseactive = 1;
 	}
+
+#ifdef _WIN32
+	if (!m_bRawInput)
+	{
+		SDL_SetRelativeMouseMode(SDL_FALSE);
+		mouseRelative = SDL_FALSE;
+	}
+	else
+	{
+		mouseRelative = SDL_TRUE;
+		SDL_SetRelativeMouseMode(SDL_TRUE);
+	}
+#else
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+#endif
 }
 
 
@@ -326,6 +342,15 @@ void DLLEXPORT IN_DeactivateMouse (void)
 
 		mouseactive = 0;
 	}
+
+#ifdef _WIN32
+	if (m_bRawInput)
+	{
+		mouseRelative = SDL_FALSE;
+	}
+
+#endif
+	SDL_SetRelativeMouseMode(SDL_FALSE);
 }
 
 /*
@@ -648,6 +673,19 @@ void IN_MouseMove ( float frametime, usercmd_t *cmd)
 	viewangles = V_LimitClampSpeed(oldviewangles, viewangles, frametime);
 
 	gEngfuncs.SetViewAngles( (float *)viewangles );
+
+#ifdef _WIN32
+	if (!m_bRawInput && mouseRelative)
+	{
+		SDL_SetRelativeMouseMode(SDL_FALSE);
+		mouseRelative = SDL_FALSE;
+	}
+	else if (m_bRawInput && !mouseRelative)
+	{
+		SDL_SetRelativeMouseMode(SDL_TRUE);
+		mouseRelative = SDL_TRUE;
+	}
+#endif
 
 /*
 //#define TRACE_TEST

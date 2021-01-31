@@ -48,4 +48,5 @@ protected:
     float m_stopTime; // Last time we stopped (to avoid switching states too soon)
     float m_momentum; // Weight for desired vs. momentum velocity
     const char* m_pFlapSound;
+    float m_flLastZYawTime;
 };
