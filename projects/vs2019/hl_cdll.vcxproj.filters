@@ -55,6 +55,15 @@
     <Filter Include="Header Files\dlls/entities/weapons">
       <UniqueIdentifier>{7b341be5-d7b2-41bc-8d0c-e19cb4e4741c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cl_dll\effects">
+      <UniqueIdentifier>{dcef5fb5-e7ab-4660-90df-f85e761b7f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cl_dll\hud">
+      <UniqueIdentifier>{1d959b2c-7b98-4c9d-81cc-83ca88b0aa4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\effects">
+      <UniqueIdentifier>{93ab672a-4ac0-4112-94c6-76125590be79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cl_dll\ev_hldm.cpp">
@@ -264,22 +273,10 @@
     <ClCompile Include="..\..\pm_shared\pm_shared.cpp">
       <Filter>Source Files\pm_shared</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\particlemgr.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\particlemsg.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\particlesys.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\mp3.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\CustomMenu.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\rain.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CCrossbow.cpp">
@@ -326,6 +323,18 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CSatchelCharge.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\particlemgr.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\particlemsg.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\particlesys.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\rain.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -452,12 +461,6 @@
     <ClInclude Include="..\..\common\Platform.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\particlemgr.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\particlesys.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\fmod.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
@@ -465,9 +468,6 @@
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\mp3.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\rain.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\glInclude.h">
@@ -532,6 +532,15 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\rain.h">
+      <Filter>Header Files\cl_dll\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\particlemgr.h">
+      <Filter>Header Files\cl_dll\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\particlesys.h">
+      <Filter>Header Files\cl_dll\effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

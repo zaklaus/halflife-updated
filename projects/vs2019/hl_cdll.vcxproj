@@ -119,6 +119,10 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\CustomMenu.cpp" />
     <ClCompile Include="..\..\cl_dll\death.cpp" />
     <ClCompile Include="..\..\cl_dll\demo.cpp" />
+    <ClCompile Include="..\..\cl_dll\effects\particlemgr.cpp" />
+    <ClCompile Include="..\..\cl_dll\effects\particlemsg.cpp" />
+    <ClCompile Include="..\..\cl_dll\effects\particlesys.cpp" />
+    <ClCompile Include="..\..\cl_dll\effects\rain.cpp" />
     <ClCompile Include="..\..\cl_dll\entity.cpp" />
     <ClCompile Include="..\..\cl_dll\events.cpp" />
     <ClCompile Include="..\..\cl_dll\ev_common.cpp" />
@@ -146,10 +150,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\menu.cpp" />
     <ClCompile Include="..\..\cl_dll\message.cpp" />
     <ClCompile Include="..\..\cl_dll\mp3.cpp" />
-    <ClCompile Include="..\..\cl_dll\particlemgr.cpp" />
-    <ClCompile Include="..\..\cl_dll\particlemsg.cpp" />
-    <ClCompile Include="..\..\cl_dll\particlesys.cpp" />
-    <ClCompile Include="..\..\cl_dll\rain.cpp" />
     <ClCompile Include="..\..\cl_dll\saytext.cpp" />
     <ClCompile Include="..\..\cl_dll\statusbar.cpp" />
     <ClCompile Include="..\..\cl_dll\status_icons.cpp" />
@@ -209,6 +209,9 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\cl_util.h" />
     <ClInclude Include="..\..\cl_dll\com_weapons.h" />
     <ClInclude Include="..\..\cl_dll\demo.h" />
+    <ClInclude Include="..\..\cl_dll\effects\particlemgr.h" />
+    <ClInclude Include="..\..\cl_dll\effects\particlesys.h" />
+    <ClInclude Include="..\..\cl_dll\effects\rain.h" />
     <ClInclude Include="..\..\cl_dll\eventscripts.h" />
     <ClInclude Include="..\..\cl_dll\ev_hldm.h" />
     <ClInclude Include="..\..\cl_dll\fmod.h" />
@@ -224,9 +227,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\in_defs.h" />
     <ClInclude Include="..\..\cl_dll\kbutton.h" />
     <ClInclude Include="..\..\cl_dll\mp3.h" />
-    <ClInclude Include="..\..\cl_dll\particlemgr.h" />
-    <ClInclude Include="..\..\cl_dll\particlesys.h" />
-    <ClInclude Include="..\..\cl_dll\rain.h" />
     <ClInclude Include="..\..\cl_dll\StudioModelRenderer.h" />
     <ClInclude Include="..\..\cl_dll\tri.h" />
     <ClInclude Include="..\..\cl_dll\util_vector.h" />
