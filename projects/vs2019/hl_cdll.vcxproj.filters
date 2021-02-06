@@ -339,9 +339,6 @@
     <ClCompile Include="..\..\cl_dll\effects\particlesys.cpp">
       <Filter>Source Files\cl_dll\effects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\effects\rain.cpp">
-      <Filter>Source Files\cl_dll\effects</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\effects\CWeather.cpp">
       <Filter>Source Files\cl_dll\effects</Filter>
     </ClCompile>
@@ -550,9 +547,6 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\effects\rain.h">
-      <Filter>Header Files\cl_dll\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\effects\particlemgr.h">
       <Filter>Header Files\cl_dll\effects</Filter>

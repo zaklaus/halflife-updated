@@ -323,9 +323,6 @@
     <ClCompile Include="..\..\dlls\entities\effects\CEnvQuakeFx.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\CEnvRain.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CEnvShockwave.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
@@ -378,12 +375,6 @@
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CLaser.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\CRainModify.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\CRainSettings.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CSprite.cpp">
@@ -1480,9 +1471,6 @@
     <ClInclude Include="..\..\dlls\entities\effects\CEnvQuakeFx.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\effects\CEnvRain.h">
-      <Filter>Header Files\dlls\entities\effects</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CEnvShockwave.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
@@ -1535,12 +1523,6 @@
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CLaser.h">
-      <Filter>Header Files\dlls\entities\effects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\effects\CRainModify.h">
-      <Filter>Header Files\dlls\entities\effects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\effects\CRainSettings.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CSprite.h">

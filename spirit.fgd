@@ -2024,52 +2024,6 @@
     ]
 ]
 
-//NEW 0.4
-//* Essentially, this produces a shifting group of parallel beams. I've called it
-//* env_rain because that's the most-requested use for it.
-//*   For a sunbeam effect, try Drip Speed = 0, Drip Width = 30, Drip Brightness = 25,
-//* Drip Color = 255 255 255, Time between updates = 0, Drip Sprite = sprites/laserbeam.spr.
-//*   For snow, try Drip Speed = 20, Drip Width = 20, Drip Color = 255 255 255,
-//* Drip Sprite = sprites/rain.spr.
-@SolidClass base(Targetname, MoveWith) iconsprite("sprites/env.spr") = env_rain_old : "Rain Effect"
-[
-    //* Set this to (for example) "70 0 0" to make slanted rain.
-    angles(string) : "Pitch Yaw Roll (Y Z X)" : "0 0 0"
-    //* Negative numbers will make the rain fall upwards.
-    //* This is an average; each drip will move at between 75%-125% of this speed.
-    m_dripSpeed(integer) : "Drip Speed" : 40
-    m_dripSize(integer) : "Drip Width" : 5
-    m_brightness(integer) : "Drip Brightness (1 - 255)" : 128
-    rendercolor(color255) : "Drip Color (R G B)" : "64 128 255"
-    m_iNoise(integer) : "Beam noise (distortion)" : 0
-    m_burstSize(integer) : "Number of drips per update" : 2
-    //* If 0, no updates; all the beams will appear as soon as it's activated.
-    m_flUpdateTime(string) : "Time between updates" : "0.5"
-    m_flMaxUpdateTime(string) : "Max time between updates (random)"
-    target(string) : "Fire on updating"
-    m_fLifeTime(string) : "Beam Lifetime (0 = three updates)"
-    texture(sprite) : "Drip Sprite" : "sprites/rain.spr"
-    m_axis(choices) : "Beam Direction" : 0 =
-    [
-        0 : "Z axis (vertical)"
-        1 : "X axis"
-        2 : "Y axis"
-    ]
-    m_iExtent(choices) : "Extent type" : 1 =
-    [
-        0 : "Fill brush"
-        1 : "Obstructable"
-        3 : "Reverse obstructable"
-        2 : "Arcing"
-        4 : "Reverse arcing"
-        5 : "Arcing Through"
-    ]
-    spawnflags(Flags) = 
-    [
-        1 : "Start Off"     : 0
-    ]
-]
-
 @SolidClass base(Targetname, MoveWith) = env_mirror : "Mirror"
 [
     radius(integer) : "Radius" : 330

@@ -126,7 +126,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\effects\particles\CRaindrop.cpp" />
     <ClCompile Include="..\..\cl_dll\effects\particles\CRainSpray.cpp" />
     <ClCompile Include="..\..\cl_dll\effects\particles\CSnowflake.cpp" />
-    <ClCompile Include="..\..\cl_dll\effects\rain.cpp" />
     <ClCompile Include="..\..\cl_dll\entity.cpp" />
     <ClCompile Include="..\..\cl_dll\events.cpp" />
     <ClCompile Include="..\..\cl_dll\ev_common.cpp" />
@@ -219,7 +218,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\effects\particles\CRaindrop.h" />
     <ClInclude Include="..\..\cl_dll\effects\particles\CRainSpray.h" />
     <ClInclude Include="..\..\cl_dll\effects\particles\CSnowflake.h" />
-    <ClInclude Include="..\..\cl_dll\effects\rain.h" />
     <ClInclude Include="..\..\cl_dll\eventscripts.h" />
     <ClInclude Include="..\..\cl_dll\ev_hldm.h" />
     <ClInclude Include="..\..\cl_dll\fmod.h" />

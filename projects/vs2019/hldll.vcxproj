@@ -203,7 +203,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\effects\CEnvMirror.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvModel.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvQuakeFx.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\CEnvRain.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvShockwave.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvShooter.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvSky.cpp" />
@@ -222,8 +221,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\effects\CLightning.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CMessage.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CParticle.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\CRainModify.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\CRainSettings.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CShake.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CShot.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CShower.cpp" />
@@ -596,7 +593,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\effects\CEnvMirror.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvModel.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvQuakeFx.h" />
-    <ClInclude Include="..\..\dlls\entities\effects\CEnvRain.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvShockwave.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvShooter.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvSky.h" />
@@ -615,8 +611,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\effects\CLightning.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CMessage.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CParticle.h" />
-    <ClInclude Include="..\..\dlls\entities\effects\CRainModify.h" />
-    <ClInclude Include="..\..\dlls\entities\effects\CRainSettings.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CShake.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CShot.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CShower.h" />

@@ -345,18 +345,6 @@ public:
     int viewFlags; // 1-active, 2-draw hud
     int viewNeedsUpdate; // precache sets to 1, UpdateClientData() sets to 0    
     float m_flNextChatTime;
-    int Rain_dripsPerSecond;
-    float Rain_windX, Rain_windY;
-    float Rain_randX, Rain_randY;
-
-    int Rain_ideal_dripsPerSecond;
-    float Rain_ideal_windX, Rain_ideal_windY;
-    float Rain_ideal_randX, Rain_ideal_randY;
-
-    float Rain_endFade; // 0 means off
-    float Rain_nextFadeUpdate;
-
-    int Rain_needsUpdate;
 
     BOOL m_bHasIntroPlayed; // not my job to clean up this mess of a class definition
 };

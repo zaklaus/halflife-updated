@@ -20,7 +20,6 @@
 #include "cl_util.h"
 #include "parsemsg.h"
 #include "r_efx.h"
-#include "effects/rain.h"
 
 #include "particleman.h"
 #include "effects/CWeather.h"
@@ -44,7 +43,6 @@ extern BEAM *pBeam2;
 void ClearEventList( void );
 #endif
 
-extern rain_properties Rain;
 extern float g_clampMinYaw, g_clampMaxYaw, g_clampMinPitch, g_clampMaxPitch;
 extern float g_clampTurnSpeed;
 
@@ -311,7 +309,7 @@ int CHud :: MsgFunc_PlayMP3( const char *pszName, int iSize, void *pbuf ) //AJH 
 	return 1;
 }
 	// trigger_viewset message
-int CHud :: MsgFunc_CamData( const char *pszName, int iSize, void *pbuf ) // rain stuff
+int CHud :: MsgFunc_CamData( const char *pszName, int iSize, void *pbuf )
 {
 	BEGIN_READ( pbuf, iSize );
 		gHUD.viewEntityIndex = READ_SHORT();
@@ -345,21 +343,6 @@ void CHud::MsgFunc_Weather(const char* pszName, int iSize, void* pBuf)
 			g_Weather.SetWind(yaw, speed, yawVariance, speedVariance, changeFrequency, changeSpeed);
 		}
 	}
-}
-
-
-int CHud :: MsgFunc_RainData( const char *pszName, int iSize, void *pbuf )
-{
-	BEGIN_READ( pbuf, iSize );
-		Rain.dripsPerSecond =	READ_SHORT();
-		Rain.distFromPlayer =	READ_COORD();
-		Rain.windX =			READ_COORD();
-		Rain.windY =			READ_COORD();
-		Rain.randX =			READ_COORD();
-		Rain.randY =			READ_COORD();
-		Rain.weatherMode =		READ_SHORT();
-		Rain.globalHeight =		READ_COORD();
-	return 1;
 }
 
 int CHud :: MsgFunc_Inventory( const char *pszName, int iSize, void *pbuf ) //AJH inventory system
