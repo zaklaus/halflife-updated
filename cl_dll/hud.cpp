@@ -34,6 +34,7 @@
 #include "demo_api.h"
 #include "vgui_ScorePanel.h"
 #include "effects/rain.h"
+#include "effects/CWeather.h"
 
 hud_player_info_t	 g_PlayerInfoList[MAX_PLAYERS+1];	   // player info from the engine
 extra_player_info_t  g_PlayerExtraInfo[MAX_PLAYERS+1];   // additional player info sent directly to the client dll
@@ -143,6 +144,12 @@ int __MsgFunc_RainData(const char *pszName, int iSize, void *pbuf)
 int __MsgFunc_ClampView(const char *pszName, int iSize, void *pbuf)
 {
 	gHUD.MsgFunc_ClampView( pszName, iSize, pbuf );
+	return 1;
+}
+
+int __MsgFunc_Weather(const char* pszName, int iSize, void* pbuf)
+{
+	gHUD.MsgFunc_Weather(pszName, iSize, pbuf);
 	return 1;
 }
 
@@ -386,6 +393,7 @@ void CHud :: Init( void )
 	HOOK_MESSAGE( RainData );//G-Cont. for rain control 
 	HOOK_MESSAGE( Inventory ); //AJH Inventory system
 	HOOK_MESSAGE( ClampView ); //LRC 1.8
+	HOOK_MESSAGE(Weather);
 
 	//KILLAR: MP3	
 	if(gMP3.Initialize())
@@ -654,6 +662,8 @@ void CHud :: VidInit( void )
 	m_StatusIcons.VidInit();
 	GetClientVoiceMgr()->VidInit();
 	m_Particle.VidInit(); // (LRC) -- 30/08/02 November235: Particles to Order
+
+	g_Weather.Initialise();
 }
 
 int CHud::MsgFunc_Logo(const char *pszName,  int iSize, void *pbuf)

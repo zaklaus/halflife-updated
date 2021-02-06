@@ -23,6 +23,7 @@
 #include "effects/rain.h"
 
 #include "particleman.h"
+#include "effects/CWeather.h"
 extern IParticleMan *g_pParticleMan;
 
 //LRC - the fogging fog
@@ -318,6 +319,34 @@ int CHud :: MsgFunc_CamData( const char *pszName, int iSize, void *pbuf ) // rai
 //	gEngfuncs.Con_Printf( "Got view entity with index %i\n", gHUD.viewEntityIndex );
 	return 1;
 }
+
+void CHud::MsgFunc_Weather(const char* pszName, int iSize, void* pBuf)
+{
+	BEGIN_READ(pBuf, iSize);
+	{
+        auto messageType = READ_BYTE();
+		if (messageType == 1)
+		{
+		    // Precipitation
+			auto type = static_cast<PrecipitationType>(READ_BYTE());
+			auto numParticles = READ_SHORT();
+			auto sprayDensity = READ_BYTE();
+			g_Weather.SetPrecipitation(type, numParticles, sprayDensity);
+		}
+		else if (messageType == 2)
+		{
+		    // Wind
+			auto yaw = READ_COORD();
+			auto speed = READ_COORD();
+			auto yawVariance = READ_COORD();
+			auto speedVariance = READ_COORD();
+			auto changeFrequency = READ_COORD();
+			auto changeSpeed = READ_COORD();
+			g_Weather.SetWind(yaw, speed, yawVariance, speedVariance, changeFrequency, changeSpeed);
+		}
+	}
+}
+
 
 int CHud :: MsgFunc_RainData( const char *pszName, int iSize, void *pbuf )
 {

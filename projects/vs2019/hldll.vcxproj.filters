@@ -1235,6 +1235,15 @@
     <ClCompile Include="..\..\dlls\entities\player\CBasePlayerItem.cpp">
       <Filter>Source Files\dlls\entities\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherPrecipitation.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherWind.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherController.cpp">
+      <Filter>Source Files\dlls\entities\effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dlls\cdll_dll.h">
@@ -2373,6 +2382,15 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayerItem.h">
       <Filter>Header Files\dlls\entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherPrecipitation.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherWind.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherController.h">
+      <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

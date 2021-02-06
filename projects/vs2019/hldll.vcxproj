@@ -235,6 +235,9 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\effects\CTriggerSound.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CTripBeam.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CWeaponCycler.cpp" />
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherController.cpp" />
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherPrecipitation.cpp" />
+    <ClCompile Include="..\..\dlls\entities\effects\CWeatherWind.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CWreckage.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CAirtank.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CHealthKit.cpp" />
@@ -488,6 +491,9 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\ammo\CRpgAmmo.h" />
     <ClInclude Include="..\..\dlls\entities\ammo\CShotgunAmmo.h" />
     <ClInclude Include="..\..\dlls\entities\ammo\CBasePlayerAmmo.h" />
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherController.h" />
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherPrecipitation.h" />
+    <ClInclude Include="..\..\dlls\entities\effects\CWeatherWind.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayer.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayerItem.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBloodSplat.h" />

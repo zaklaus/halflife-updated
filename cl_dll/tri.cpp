@@ -24,6 +24,7 @@
 #include "Exports.h"
 #include "particleman.h"
 #include "tri.h"
+#include "effects/CWeather.h"
 
 #include "glInclude.h"
 
@@ -371,8 +372,11 @@ void DLLEXPORT HUD_DrawTransparentTriangles( void )
 	RunEventList();
 #endif
 
-	if ( g_pParticleMan )
-		 g_pParticleMan->Update();
+	if (g_pParticleMan)
+	{
+		g_pParticleMan->Update();
+		g_Weather.Update();
+	}
 	
 	BlackFog();
 

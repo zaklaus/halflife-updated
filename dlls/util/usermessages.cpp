@@ -67,6 +67,7 @@ int gmsgStatusValue = 0;
 int gmsgCamData; // for trigger_viewset
 int gmsgRainData = 0;
 int gmsgInventory = 0; //AJH Inventory system
+int gmsgWeather = 0;
 
 void LinkUserMessages(void)
 {
@@ -127,4 +128,5 @@ void LinkUserMessages(void)
     gmsgPlayMP3 = REG_USER_MSG("PlayMP3", -1); //Killar
     gmsgRainData = REG_USER_MSG("RainData", 16);
     gmsgInventory = REG_USER_MSG("Inventory", -1); //AJH Inventory system
+    gmsgWeather = REG_USER_MSG("Weather", -1);
 }

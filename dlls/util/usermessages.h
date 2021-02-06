@@ -64,5 +64,6 @@ extern int gmsgStatusValue;
 extern int gmsgCamData; // for trigger_viewset
 extern int gmsgRainData;
 extern int gmsgInventory; //AJH Inventory system
+extern int gmsgWeather;
 
 void LinkUserMessages();

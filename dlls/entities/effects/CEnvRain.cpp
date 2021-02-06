@@ -15,7 +15,7 @@
 
 #include "CEnvRain.h"
 
-LINK_ENTITY_TO_CLASS(env_rain, CEnvRain);
+LINK_ENTITY_TO_CLASS(env_rain_old, CEnvRain);
 
 TYPEDESCRIPTION CEnvRain::m_SaveData[] =
 {
