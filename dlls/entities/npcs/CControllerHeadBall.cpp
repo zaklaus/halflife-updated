@@ -190,7 +190,7 @@ void CControllerHeadBall::BounceTouch(CBaseEntity* pOther)
 
     TraceResult tr = UTIL_GetGlobalTrace();
 
-    float n = -DotProduct(tr.vecPlaneNormal, vecDir);
+    float n = -Vector::DotProduct(tr.vecPlaneNormal, vecDir);
 
     vecDir = 2.0 * tr.vecPlaneNormal * n + vecDir;
 

@@ -282,7 +282,7 @@ void CHornet::TrackTarget(void)
         vecFlightDir = pev->velocity.Normalize();
 
     // measure how far the turn is, the wider the turn, the slow we'll go this time.
-    flDelta = DotProduct(vecFlightDir, vecDirToEnemy);
+    flDelta = Vector::DotProduct(vecFlightDir, vecDirToEnemy);
 
     if (flDelta < 0.5)
     {

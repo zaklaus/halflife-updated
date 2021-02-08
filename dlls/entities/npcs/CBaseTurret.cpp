@@ -326,7 +326,7 @@ void CBaseTurret::ActiveThink(void)
     vecLOS = vecLOS.Normalize();
 
     // Is the Gun looking at the target
-    if (DotProduct(vecLOS, gpGlobals->v_forward) <= 0.866) // 30 degree slop
+    if (Vector::DotProduct(vecLOS, gpGlobals->v_forward) <= 0.866) // 30 degree slop
         fAttack = FALSE;
     else
         fAttack = TRUE;

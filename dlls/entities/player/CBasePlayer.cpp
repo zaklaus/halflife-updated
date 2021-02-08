@@ -1613,7 +1613,7 @@ void CBasePlayer::PlayerUse(void)
                 // if it's "hull" is in the view cone
                 vecLOS = UTIL_ClampVectorToBox(vecLOS, pObject->pev->size * 0.5);
 
-                flDot = DotProduct(vecLOS, gpGlobals->v_forward);
+                flDot = Vector::DotProduct(vecLOS, gpGlobals->v_forward);
                 if (flDot > flMaxDot || vecLOS == g_vecZero) // LRC - if the player is standing inside this entity, it's also ok to use it.
                 {
                     // only if the item is in front of the user
@@ -4539,11 +4539,11 @@ Vector CBasePlayer::AutoaimDeflection(Vector& vecSrc, float flDist, float flDelt
         dir = (center - vecSrc).Normalize();
 
         // make sure it's in front of the player
-        if (DotProduct(dir, gpGlobals->v_forward) < 0)
+        if (Vector::DotProduct(dir, gpGlobals->v_forward) < 0)
             continue;
 
-        dot = fabs(DotProduct(dir, gpGlobals->v_right))
-            + fabs(DotProduct(dir, gpGlobals->v_up)) * 0.5;
+        dot = fabs(Vector::DotProduct(dir, gpGlobals->v_right))
+            + fabs(Vector::DotProduct(dir, gpGlobals->v_up)) * 0.5;
 
         // tweek for distance
         dot *= 1.0 + 0.2 * ((center - vecSrc).Length() / flDist);

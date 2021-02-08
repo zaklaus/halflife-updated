@@ -216,9 +216,9 @@ void CFuncTrackChange::UpdateTrain(Vector& dest)
     // Transform offset into local coordinates
     UTIL_MakeInvVectors(delta, gpGlobals);
     Vector local;
-    local.x = DotProduct(offset, gpGlobals->v_forward);
-    local.y = DotProduct(offset, gpGlobals->v_right);
-    local.z = DotProduct(offset, gpGlobals->v_up);
+    local.x = Vector::DotProduct(offset, gpGlobals->v_forward);
+    local.y = Vector::DotProduct(offset, gpGlobals->v_right);
+    local.z = Vector::DotProduct(offset, gpGlobals->v_up);
 
     local = local - offset;
     m_train->pev->velocity = vel + (local * (1.0 / time));

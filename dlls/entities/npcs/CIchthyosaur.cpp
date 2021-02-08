@@ -339,7 +339,7 @@ void CIchthyosaur::HandleAnimEvent(MonsterEvent_t* pEvent)
                 Vector vecShootDir = ShootAtEnemy(pev->origin);
                 UTIL_MakeAimVectors(pev->angles);
 
-                if (DotProduct(vecShootDir, gpGlobals->v_forward) > 0.707)
+                if (Vector::DotProduct(vecShootDir, gpGlobals->v_forward) > 0.707)
                 {
                     m_bOnAttack = TRUE;
                     pHurt->pev->punchangle.z = -18;
@@ -551,9 +551,9 @@ void CIchthyosaur::RunTask(Task_t* pTask)
             Vector vecFrom = m_hEnemy->EyePosition();
 
             Vector vecDelta = (pev->origin - vecFrom).Normalize();
-            Vector vecSwim = CrossProduct(vecDelta, Vector(0, 0, 1)).Normalize();
+            Vector vecSwim = Vector::CrossProduct(vecDelta, Vector(0, 0, 1)).Normalize();
 
-            if (DotProduct(vecSwim, m_SaveVelocity) < 0)
+            if (Vector::DotProduct(vecSwim, m_SaveVelocity) < 0)
                 vecSwim = vecSwim * -1.0;
 
             Vector vecPos = vecFrom + vecDelta * m_idealDist + vecSwim * 32;
@@ -890,7 +890,7 @@ void CIchthyosaur::Swim()
     UTIL_MakeVectorsPrivate(Angles, Forward, Right, Up);
     // ALERT( at_console, "%f : %f\n", Angles.x, Forward.z );
 
-    float flDot = DotProduct(Forward, m_SaveVelocity);
+    float flDot = Vector::DotProduct(Forward, m_SaveVelocity);
     if (flDot > 0.5)
         pev->velocity = m_SaveVelocity = m_SaveVelocity * m_flightSpeed;
     else if (flDot > 0)
@@ -1028,10 +1028,10 @@ Vector CIchthyosaur::DoProbe(const Vector& Probe)
     {
         Vector ProbeDir = Probe - pev->origin;
 
-        Vector NormalToProbeAndWallNormal = CrossProduct(ProbeDir, WallNormal);
-        Vector SteeringVector = CrossProduct(NormalToProbeAndWallNormal, ProbeDir);
+        Vector NormalToProbeAndWallNormal = Vector::CrossProduct(ProbeDir, WallNormal);
+        Vector SteeringVector = Vector::CrossProduct(NormalToProbeAndWallNormal, ProbeDir);
 
-        float SteeringForce = m_flightSpeed * (1 - frac) * (DotProduct(WallNormal.Normalize(), m_SaveVelocity.Normalize()));
+        float SteeringForce = m_flightSpeed * (1 - frac) * (Vector::DotProduct(WallNormal.Normalize(), m_SaveVelocity.Normalize()));
         if (SteeringForce < 0.0)
         {
             SteeringForce = -SteeringForce;

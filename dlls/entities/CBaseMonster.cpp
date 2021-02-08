@@ -1004,7 +1004,7 @@ void CBaseMonster::CheckAttacks(CBaseEntity* pTarget, float flDist)
     vec2LOS = (pTarget->pev->origin - pev->origin).Make2D();
     vec2LOS = vec2LOS.Normalize();
 
-    flDot = DotProduct(vec2LOS, gpGlobals->v_forward.Make2D());
+    flDot = Vector2D::DotProduct(vec2LOS, gpGlobals->v_forward.Make2D());
 
     // we know the enemy is in front now. We'll find which attacks the monster is capable of by
     // checking for corresponding Activities in the model file, then do the simple checks to validate
@@ -1644,7 +1644,7 @@ BOOL CBaseMonster::FTriangulate(const Vector& vecStart, const Vector& vecEnd, fl
     vecForward = (vecEnd - vecStart).Normalize();
 
     Vector vecDirUp(0, 0, 1);
-    vecDir = CrossProduct(vecForward, vecDirUp);
+    vecDir = Vector::CrossProduct(vecForward, vecDirUp);
 
     // start checking right about where the object is, picking two equidistant starting points, one on
     // the left, one on the right. As we progress through the loop, we'll push these away from the obstacle, 

@@ -311,7 +311,7 @@ void CNihilanth::DyingThink(void)
     {
         vecDir = Vector(RANDOM_FLOAT(-1, 1), RANDOM_FLOAT(-1, 1), RANDOM_FLOAT(-1, 1));
     }
-    while (DotProduct(vecDir, vecDir) > 1.0);
+    while (Vector::DotProduct(vecDir, vecDir) > 1.0);
 
     switch (RANDOM_LONG(1, 4))
     {
@@ -320,18 +320,18 @@ void CNihilanth::DyingThink(void)
         vecDir = vecDir + 2 * gpGlobals->v_up;
         break;
     case 2: // eyes
-        if (DotProduct(vecDir, gpGlobals->v_forward) < 0)
+        if (Vector::DotProduct(vecDir, gpGlobals->v_forward) < 0)
             vecDir = vecDir * -1;
 
         vecDir = vecDir + 2 * gpGlobals->v_forward;
         break;
     case 3: // left hand
-        if (DotProduct(vecDir, gpGlobals->v_right) > 0)
+        if (Vector::DotProduct(vecDir, gpGlobals->v_right) > 0)
             vecDir = vecDir * -1;
         vecDir = vecDir - 2 * gpGlobals->v_right;
         break;
     case 4: // right hand
-        if (DotProduct(vecDir, gpGlobals->v_right) < 0)
+        if (Vector::DotProduct(vecDir, gpGlobals->v_right) < 0)
             vecDir = vecDir * -1;
         vecDir = vecDir + 2 * gpGlobals->v_right;
         break;
@@ -580,7 +580,7 @@ void CNihilanth::NextActivity()
     }
 
     float flDist = (m_posDesired - pev->origin).Length();
-    float flDot = DotProduct(m_vecDesired, gpGlobals->v_forward);
+    float flDot = Vector::DotProduct(m_vecDesired, gpGlobals->v_forward);
 
     if (m_hRecharger != NULL)
     {
@@ -737,7 +737,7 @@ void CNihilanth::Flight(void)
     // Vector vecEst1 = pev->origin + m_velocity + gpGlobals->v_up * m_flForce - Vector( 0, 0, 384 );
     // float flSide = DotProduct( m_posDesired - vecEst1, gpGlobals->v_right );
 
-    float flSide = DotProduct(m_vecDesired, gpGlobals->v_right);
+    float flSide = Vector::DotProduct(m_vecDesired, gpGlobals->v_right);
 
     if (flSide < 0)
     {
@@ -766,11 +766,11 @@ void CNihilanth::Flight(void)
 
 
     float flSpeed = m_velocity.Length();
-    float flDir = DotProduct(Vector(gpGlobals->v_forward.x, gpGlobals->v_forward.y, 0), Vector(m_velocity.x, m_velocity.y, 0));
+    float flDir = Vector::DotProduct(Vector(gpGlobals->v_forward.x, gpGlobals->v_forward.y, 0), Vector(m_velocity.x, m_velocity.y, 0));
     if (flDir < 0)
         flSpeed = -flSpeed;
 
-    float flDist = DotProduct(m_posDesired - vecEst, gpGlobals->v_forward);
+    float flDist = Vector::DotProduct(m_posDesired - vecEst, gpGlobals->v_forward);
 
     // sideways drag
     m_velocity.x = m_velocity.x * (1.0 - fabs(gpGlobals->v_right.x) * 0.05);

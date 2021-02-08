@@ -226,7 +226,7 @@ BOOL CTriggerOnSight::CanSee(CBaseEntity* pLooker, CBaseEntity* pSeen)
         UTIL_MakeVectors(pLooker->pev->angles);
         vec2LOS = (pSeen->pev->origin - pLooker->pev->origin).Make2D();
         vec2LOS = vec2LOS.Normalize();
-        flDot = DotProduct(vec2LOS, gpGlobals->v_forward.Make2D());
+        flDot = Vector2D::DotProduct(vec2LOS, gpGlobals->v_forward.Make2D());
 
         //        ALERT(at_debug, "flDot is %f\n", flDot);
 

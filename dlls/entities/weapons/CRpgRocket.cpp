@@ -158,7 +158,7 @@ void CRpgRocket::FollowThink(void)
             vecDir = pOther->pev->origin - pev->origin;
             flDist = vecDir.Length();
             vecDir = vecDir.Normalize();
-            flDot = DotProduct(gpGlobals->v_forward, vecDir);
+            flDot = Vector::DotProduct(gpGlobals->v_forward, vecDir);
             if ((flDot > 0) && (flDist * (1 - flDot) < flMax))
             {
                 flMax = flDist * (1 - flDot);

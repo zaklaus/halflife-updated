@@ -451,7 +451,7 @@ void CApache::HuntThink(void)
     {
         // float flLength2 = (m_posTarget - pev->origin).Length() * (1.5 - DotProduct((m_posTarget - pev->origin).Normalize(), pev->velocity.Normalize() ));
         // if (flLength2 < flLength)
-        if (m_flLastSeen + 90 > gpGlobals->time && DotProduct((m_posTarget - pev->origin).Normalize(), (m_posDesired - pev->origin).Normalize()) > 0.25)
+        if (m_flLastSeen + 90 > gpGlobals->time && Vector::DotProduct((m_posTarget - pev->origin).Normalize(), (m_posDesired - pev->origin).Normalize()) > 0.25)
         {
             m_vecDesired = (m_posTarget - pev->origin).Normalize();
         }
@@ -496,14 +496,14 @@ void CApache::HuntThink(void)
             m_iRockets = 10;
         }
     }
-    else if (pev->angles.x < 0 && DotProduct(pev->velocity, gpGlobals->v_forward) > -100 && m_flNextRocket < gpGlobals->time)
+    else if (pev->angles.x < 0 && Vector::DotProduct(pev->velocity, gpGlobals->v_forward) > -100 && m_flNextRocket < gpGlobals->time)
     {
         if (m_flLastSeen + 60 > gpGlobals->time)
         {
             if (m_hEnemy != NULL)
             {
                 // make sure it's a good shot
-                if (DotProduct(m_vecTarget, vecEst) > .965)
+                if (Vector::DotProduct(m_vecTarget, vecEst) > .965)
                 {
                     TraceResult tr;
 
@@ -536,7 +536,7 @@ void CApache::Flight(void)
     // Vector vecEst1 = pev->origin + pev->velocity + gpGlobals->v_up * m_flForce - Vector( 0, 0, 384 );
     // float flSide = DotProduct( m_posDesired - vecEst1, gpGlobals->v_right );
 
-    float flSide = DotProduct(m_vecDesired, gpGlobals->v_right);
+    float flSide = Vector::DotProduct(m_vecDesired, gpGlobals->v_right);
 
     if (flSide < 0)
     {
@@ -568,14 +568,14 @@ void CApache::Flight(void)
 
 
     float flSpeed = pev->velocity.Length();
-    float flDir = DotProduct(Vector(gpGlobals->v_forward.x, gpGlobals->v_forward.y, 0), Vector(pev->velocity.x, pev->velocity.y, 0));
+    float flDir = Vector::DotProduct(Vector(gpGlobals->v_forward.x, gpGlobals->v_forward.y, 0), Vector(pev->velocity.x, pev->velocity.y, 0));
     if (flDir < 0)
         flSpeed = -flSpeed;
 
-    float flDist = DotProduct(m_posDesired - vecEst, gpGlobals->v_forward);
+    float flDist = Vector::DotProduct(m_posDesired - vecEst, gpGlobals->v_forward);
 
     // float flSlip = DotProduct( pev->velocity, gpGlobals->v_right );
-    float flSlip = -DotProduct(m_posDesired - vecEst, gpGlobals->v_right);
+    float flSlip = -Vector::DotProduct(m_posDesired - vecEst, gpGlobals->v_right);
 
     // fly sideways
     if (flSlip > 0)
@@ -655,7 +655,7 @@ void CApache::Flight(void)
         // UNDONE: this needs to send different sounds to every player for multiplayer.    
         if (pPlayer)
         {
-            float pitch = DotProduct(pev->velocity - pPlayer->pev->velocity, (pPlayer->pev->origin - pev->origin).Normalize());
+            float pitch = Vector::DotProduct(pev->velocity - pPlayer->pev->velocity, (pPlayer->pev->origin - pev->origin).Normalize());
 
             pitch = (int)(100 + pitch / 50.0);
 
@@ -734,9 +734,9 @@ BOOL CApache::FireGun()
 
     Vector vecOut;
 
-    vecOut.x = DotProduct(gpGlobals->v_forward, vecTarget);
-    vecOut.y = -DotProduct(gpGlobals->v_right, vecTarget);
-    vecOut.z = DotProduct(gpGlobals->v_up, vecTarget);
+    vecOut.x = Vector::DotProduct(gpGlobals->v_forward, vecTarget);
+    vecOut.y = -Vector::DotProduct(gpGlobals->v_right, vecTarget);
+    vecOut.z = Vector::DotProduct(gpGlobals->v_up, vecTarget);
 
     Vector angles = UTIL_VecToAngles(vecOut);
 
@@ -766,7 +766,7 @@ BOOL CApache::FireGun()
     GetAttachment(0, posBarrel, angBarrel);
     Vector vecGun = (posBarrel - posGun).Normalize();
 
-    if (DotProduct(vecGun, vecTarget) > 0.98)
+    if (Vector::DotProduct(vecGun, vecTarget) > 0.98)
     {
 #if 1
         FireBullets(1, posGun, vecGun, VECTOR_CONE_4DEGREES, 8192, BULLET_MONSTER_12MM, 1);

@@ -494,9 +494,9 @@ Vector Intersect(Vector vecSrc, Vector vecDst, Vector vecMove, float flSpeed)
 {
     Vector vecTo = vecDst - vecSrc;
 
-    float a = DotProduct(vecMove, vecMove) - flSpeed * flSpeed;
-    float b = 0 * DotProduct(vecTo, vecMove); // why does this work?
-    float c = DotProduct(vecTo, vecTo);
+    float a = Vector::DotProduct(vecMove, vecMove) - flSpeed * flSpeed;
+    float b = 0 * Vector::DotProduct(vecTo, vecMove); // why does this work?
+    float c = Vector::DotProduct(vecTo, vecTo);
 
     float t;
     if (a == 0)
@@ -536,9 +536,9 @@ int CController::LookupFloat()
     }
 
     UTIL_MakeAimVectors(pev->angles);
-    float x = DotProduct(gpGlobals->v_forward, m_velocity);
-    float y = DotProduct(gpGlobals->v_right, m_velocity);
-    float z = DotProduct(gpGlobals->v_up, m_velocity);
+    float x = Vector::DotProduct(gpGlobals->v_forward, m_velocity);
+    float y = Vector::DotProduct(gpGlobals->v_right, m_velocity);
+    float z = Vector::DotProduct(gpGlobals->v_up, m_velocity);
 
     if (fabs(x) > fabs(y) && fabs(x) > fabs(z))
     {

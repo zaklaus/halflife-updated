@@ -846,7 +846,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\util\grouptrace.h" />
     <ClInclude Include="..\..\dlls\util\locus.h" />
     <ClInclude Include="..\..\dlls\util\movewith.h" />
-    <ClInclude Include="..\..\dlls\vector.h" />
     <ClInclude Include="..\..\dlls\weapons.h" />
     <ClInclude Include="..\..\engine\eiface.h" />
     <ClInclude Include="..\..\pm_shared\pm_debug.h" />
@@ -855,6 +854,9 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\pm_shared\pm_materials.h" />
     <ClInclude Include="..\..\pm_shared\pm_movevars.h" />
     <ClInclude Include="..\..\pm_shared\pm_shared.h" />
+    <ClInclude Include="..\..\shared\types.h" />
+    <ClInclude Include="..\..\shared\Vector.h" />
+    <ClInclude Include="..\..\shared\Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

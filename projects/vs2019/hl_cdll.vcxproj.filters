@@ -70,6 +70,15 @@
     <Filter Include="Source Files\cl_dll\effects\particles">
       <UniqueIdentifier>{cdd36252-a82a-4c6a-976a-813a948249ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\shared">
+      <UniqueIdentifier>{4107e885-f07f-49ca-8527-59288b3d9a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\ui">
+      <UniqueIdentifier>{c18632c1-7c1e-4781-87fa-2ffee448f0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\hud">
+      <UniqueIdentifier>{1be37819-4e51-416c-96b9-b7db50ac05b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cl_dll\ev_hldm.cpp">
@@ -133,9 +142,6 @@
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\health.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hud.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\hud_bench.cpp">
@@ -351,6 +357,9 @@
     <ClCompile Include="..\..\cl_dll\effects\particles\CRainSpray.cpp">
       <Filter>Source Files\cl_dll\effects\particles</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\cl_dll\hud\hud.cpp">
+      <Filter>Source Files\cl_dll\hud</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cl_dll\kbutton.h">
@@ -437,9 +446,6 @@
     <ClInclude Include="..\..\cl_dll\tri.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\util_vector.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui_ControlConfigPanel.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
@@ -460,9 +466,6 @@
     </ClInclude>
     <ClInclude Include="..\..\game_shared\voice_banmgr.h">
       <Filter>Header Files\game_shared</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\wrect.h">
-      <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui_ServerBrowser.h">
       <Filter>Header Files\cl_dll</Filter>
@@ -565,6 +568,27 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\effects\particles\CRainSpray.h">
       <Filter>Header Files\cl_dll\effects\particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\Vector.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\Vector2D.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\types.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\ui\wrect.h">
+      <Filter>Header Files\cl_dll\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\ui\point.h">
+      <Filter>Header Files\cl_dll\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\ui\rgba.h">
+      <Filter>Header Files\cl_dll\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\hud\hud.h">
+      <Filter>Header Files\cl_dll\hud</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

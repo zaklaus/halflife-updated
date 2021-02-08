@@ -456,7 +456,7 @@ void CLightning::RandomArea(void)
         {
             vecDir2 = Vector(RANDOM_FLOAT(-1.0, 1.0), RANDOM_FLOAT(-1.0, 1.0), RANDOM_FLOAT(-1.0, 1.0));
         }
-        while (DotProduct(vecDir1, vecDir2) > 0);
+        while (Vector::DotProduct(vecDir1, vecDir2) > 0);
         vecDir2 = vecDir2.Normalize();
         TraceResult tr2;
         UTIL_TraceLine(vecSrc, vecSrc + vecDir2 * m_radius, ignore_monsters, ENT(pev), &tr2);

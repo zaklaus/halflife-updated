@@ -406,7 +406,7 @@ void CGargantua::FlameDamage(Vector vecStart, Vector vecEnd, entvars_t* pevInfli
 
             vecSpot = pEntity->BodyTarget(vecMid);
 
-            float dist = DotProduct(vecAim, vecSpot - vecMid);
+            float dist = Vector::DotProduct(vecAim, vecSpot - vecMid);
             if (dist > searchRadius)
                 dist = searchRadius;
             else if (dist < -searchRadius)

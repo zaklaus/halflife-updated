@@ -521,10 +521,6 @@ CHud :: ~CHud()
 	ServersShutdown();
 }
 
-// GetSpriteIndex()
-// searches through the sprite list loaded from hud.txt for a name matching SpriteName
-// returns an index into the gHUD.m_rghSprites[] array
-// returns 0 if sprite not found
 int CHud :: GetSpriteIndex( const char *SpriteName )
 {
 	// look through the loaded sprite name list for SpriteName

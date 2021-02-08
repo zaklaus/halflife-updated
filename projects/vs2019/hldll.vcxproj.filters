@@ -129,6 +129,9 @@
     <Filter Include="Header Files\dlls\entities\ammo">
       <UniqueIdentifier>{06b0d9b7-ab0f-4b91-9566-48026fe06c62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\shared">
+      <UniqueIdentifier>{deedbd06-d078-46d4-b327-2b105c425b0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\client.cpp">
@@ -1297,9 +1300,6 @@
     <ClInclude Include="..\..\dlls\util.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\vector.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\common\Platform.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
@@ -2373,6 +2373,15 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CWeatherController.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\Vector.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\Vector2D.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\types.h">
+      <Filter>Header Files\shared</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -207,9 +207,9 @@ void CPushable::Move(CBaseEntity* pOther, int push)
             float playerSpeed = pevToucher->velocity.Length2D();
             Vector playerPushDir = pevToucher->velocity / playerSpeed;
             playerPushDir.z = 0;
-            float newdot = DotProduct(playerPushDir, pev->velocity);
+            float newdot = Vector::DotProduct(playerPushDir, pev->velocity);
             // how fast we're going with respect to the playerPushDir
-            float olddot = DotProduct(playerPushDir, oldVelocity); // how fast we used to be going
+            float olddot = Vector::DotProduct(playerPushDir, oldVelocity); // how fast we used to be going
             if (/*olddot <= playerSpeed+0.1f &&*/ newdot > playerSpeed)
             {
                 // if it wasn't going too fast before, and now it is, adjust to the pusher's actual velocity

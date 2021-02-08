@@ -47,7 +47,7 @@ bool GetPointBetweenLines(vec3_t &p, vec3_t a1, vec3_t m1, vec3_t a2, vec3_t m2 
 {
 	float x,z;
 	
-	vec3_t t1 = CrossProduct(m1, m2);
+	vec3_t t1 = Vector::CrossProduct(m1, m2);
 	vec3_t t2 = a2 - a1;
 
 	if ( !SolveLSE( t2, m1, t1, m2, &x , NULL, &z ) )

@@ -30,7 +30,7 @@ void CTriggerBounce::Touch(CBaseEntity* pOther)
     if (!CanTouch(pOther->pev))
         return;
 
-    float dot = DotProduct(pev->movedir, pOther->pev->velocity);
+    float dot = Vector::DotProduct(pev->movedir, pOther->pev->velocity);
     if (dot < -pev->armorvalue)
     {
         if (pev->spawnflags & SF_BOUNCE_CUTOFF)

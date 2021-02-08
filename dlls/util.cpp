@@ -1451,7 +1451,7 @@ BOOL UTIL_IsFacing( entvars_t *pevTest, const Vector &reference )
     angle.x = 0;
     UTIL_MakeVectorsPrivate( angle, forward, NULL, NULL );
     // He's facing me, he meant it
-    if ( DotProduct( forward, vecDir ) > 0.96 )    // +/- 15 degrees or so
+    if (Vector::DotProduct( forward, vecDir ) > 0.96 )    // +/- 15 degrees or so
     {
         return TRUE;
     }
@@ -1741,7 +1741,7 @@ float UTIL_DotPoints ( const Vector &vecSrc, const Vector &vecCheck, const Vecto
     vec2LOS = ( vecCheck - vecSrc ).Make2D();
     vec2LOS = vec2LOS.Normalize();
 
-    return DotProduct (vec2LOS , ( vecDir.Make2D() ) );
+    return Vector2D::DotProduct (vec2LOS , ( vecDir.Make2D() ) );
 }
 
 

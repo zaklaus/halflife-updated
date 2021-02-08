@@ -4,13 +4,14 @@
 //
 // $NoKeywords: $
 //=============================================================================
+#pragma once
 
-#if !defined( WRECTH )
-#define WRECTH
-
-typedef struct rect_s
-{
-	int				left, right, top, bottom;
-} wrect_t;
-
-#endif
+/// <summary>
+/// Colour with r, g, b, and a values
+/// </summary>
+typedef struct {
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    unsigned char a;
+} rgba_t;

@@ -371,7 +371,7 @@ void COsprey::Flight()
     UTIL_SetOrigin(this, pos);
     pev->angles = ang;
     UTIL_MakeAimVectors(pev->angles);
-    float flSpeed = DotProduct(gpGlobals->v_forward, m_velocity);
+    float flSpeed = Vector::DotProduct(gpGlobals->v_forward, m_velocity);
 
     // float flSpeed = DotProduct( gpGlobals->v_forward, pev->velocity );
 
@@ -408,7 +408,7 @@ void COsprey::Flight()
         // UNDONE: this needs to send different sounds to every player for multiplayer.    
         if (pPlayer)
         {
-            float pitch = DotProduct(m_velocity - pPlayer->pev->velocity, (pPlayer->pev->origin - pev->origin).Normalize());
+            float pitch = Vector::DotProduct(m_velocity - pPlayer->pev->velocity, (pPlayer->pev->origin - pev->origin).Normalize());
 
             pitch = (int)(100 + pitch / 75.0);
 

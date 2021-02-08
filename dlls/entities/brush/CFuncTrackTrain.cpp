@@ -736,9 +736,9 @@ BOOL CFuncTrackTrain::OnControls(entvars_t* pevTest)
     // Transform offset into local coordinates
     UTIL_MakeVectors(pev->angles);
     Vector local;
-    local.x = DotProduct(offset, gpGlobals->v_forward);
-    local.y = -DotProduct(offset, gpGlobals->v_right);
-    local.z = DotProduct(offset, gpGlobals->v_up);
+    local.x = Vector::DotProduct(offset, gpGlobals->v_forward);
+    local.y = -Vector::DotProduct(offset, gpGlobals->v_right);
+    local.z = Vector::DotProduct(offset, gpGlobals->v_up);
 
     if (local.x >= m_controlMins.x && local.y >= m_controlMins.y && local.z >= m_controlMins.z &&
         local.x <= m_controlMaxs.x && local.y <= m_controlMaxs.y && local.z <= m_controlMaxs.z)

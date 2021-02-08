@@ -451,7 +451,7 @@ void CGauss::Fire(Vector vecOrigSrc, Vector vecDir, float flDamage)
 
             pentIgnore = NULL;
 
-            n = -DotProduct(tr.vecPlaneNormal, vecDir);
+            n = -Vector::DotProduct(tr.vecPlaneNormal, vecDir);
 
             if (n < 0.5) // 60 degrees
             {

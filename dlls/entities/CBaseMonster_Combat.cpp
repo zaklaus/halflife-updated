@@ -178,7 +178,7 @@ Activity CBaseMonster :: GetDeathActivity ( void )
     deathActivity = ACT_DIESIMPLE;// in case we can't find any special deaths to do.
 
     UTIL_MakeVectors ( pev->angles );
-    flDot = DotProduct ( gpGlobals->v_forward, g_vecAttackDir * -1 );
+    flDot = Vector::DotProduct ( gpGlobals->v_forward, g_vecAttackDir * -1 );
 
     switch ( m_LastHitGroup )
     {
@@ -287,7 +287,7 @@ Activity CBaseMonster :: GetSmallFlinchActivity ( void )
 
     fTriedDirection = FALSE;
     UTIL_MakeVectors ( pev->angles );
-    flDot = DotProduct ( gpGlobals->v_forward, g_vecAttackDir * -1 );
+    flDot = Vector::DotProduct ( gpGlobals->v_forward, g_vecAttackDir * -1 );
     
     switch ( m_LastHitGroup )
     {
@@ -839,7 +839,7 @@ BOOL CBaseMonster :: FInViewCone ( CBaseEntity *pEntity )
     vec2LOS = ( pEntity->pev->origin - pev->origin ).Make2D();
     vec2LOS = vec2LOS.Normalize();
 
-    flDot = DotProduct (vec2LOS , gpGlobals->v_forward.Make2D() );
+    flDot = Vector2D::DotProduct (vec2LOS , gpGlobals->v_forward.Make2D() );
 
     if ( flDot > m_flFieldOfView )
     {
@@ -866,7 +866,7 @@ BOOL CBaseMonster :: FInViewCone ( Vector *pOrigin )
     vec2LOS = ( *pOrigin - pev->origin ).Make2D();
     vec2LOS = vec2LOS.Normalize();
 
-    flDot = DotProduct (vec2LOS , gpGlobals->v_forward.Make2D() );
+    flDot = Vector2D::DotProduct (vec2LOS , gpGlobals->v_forward.Make2D() );
 
     if ( flDot > m_flFieldOfView )
     {
