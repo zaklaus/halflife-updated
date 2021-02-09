@@ -75,6 +75,8 @@ CInterpolation::~CInterpolation()
 	m_SmoothStart = m_SmoothEnd = false;
 }
 
+void NormalizeAngles(float* angles);
+
 void CInterpolation::SetViewAngles( vec3_t start, vec3_t end )
 {
 	m_StartAngle = start;

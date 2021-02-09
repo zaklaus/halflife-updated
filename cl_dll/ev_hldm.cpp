@@ -34,6 +34,7 @@
 
 #include "r_studioint.h"
 #include "com_model.h"
+#include "hud/CHud.h"
 
 extern engine_studio_api_t IEngineStudio;
 

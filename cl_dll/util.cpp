@@ -23,6 +23,7 @@
 #include <cmath>
 
 #include "hud.h"
+#include "hud/CHud.h"
 #include "cl_util.h"
 #include <string.h>
 
@@ -30,20 +31,19 @@
 #define M_PI		3.14159265358979323846	// matches value in gcc v2 math.h
 #endif
 
-vec3_t vec3_origin( 0, 0, 0 );
+vec3_t vec3_origin(0, 0, 0);
 
-HSPRITE LoadSprite(const char *pszName)
+HSPRITE LoadSprite(const char* pszName)
 {
-	int i;
-	char sz[256]; 
+    int i;
+    char sz[256];
 
-	if (ScreenWidth < 640)
-		i = 320;
-	else
-		i = 640;
+    if (ScreenWidth < 640)
+        i = 320;
+    else
+        i = 640;
 
-	sprintf(sz, pszName, i);
+    sprintf(sz, pszName, i);
 
-	return SPR_Load(sz);
+    return SPR_Load(sz);
 }
-

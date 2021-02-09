@@ -9,6 +9,7 @@
 #include "cl_util.h"
 #include "camera.h"
 #include "in_defs.h"
+#include "hud/CHud.h"
 
 extern "C" 
 {

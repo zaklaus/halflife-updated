@@ -26,6 +26,8 @@
 #include "particleman.h"
 
 #include "CWeather.h"
+
+#include "hud/CHud.h"
 #include "particles/CRaindrop.h"
 #include "particles/CRainSpray.h"
 #include "particles/CSnowflake.h"

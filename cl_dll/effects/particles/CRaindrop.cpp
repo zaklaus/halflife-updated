@@ -23,6 +23,8 @@
 #include "../CWeather.h"
 #include "CRaindrop.h"
 
+extern void VectorAngles(const float* forward, float* angles);
+
 void CRaindrop::Think(float time)
 {
 	Vector vecViewAngles;
