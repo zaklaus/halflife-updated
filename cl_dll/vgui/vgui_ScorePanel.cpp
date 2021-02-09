@@ -28,9 +28,8 @@
 #include "vgui_TeamFortressViewport.h"
 #include "vgui_ScorePanel.h"
 
-
-#include "vgui_helpers.h"
-#include "vgui_loadtga.h"
+#include "vgui/controls/vgui_helpers.h"
+#include "vgui/controls/vgui_loadtga.h"
 #include "voice/CVoiceStatus.h"
 #include "vgui_SpectatorPanel.h"
 

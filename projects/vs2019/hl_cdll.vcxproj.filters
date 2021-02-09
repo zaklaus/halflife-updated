@@ -22,9 +22,6 @@
     <Filter Include="Source Files\pm_shared">
       <UniqueIdentifier>{7d8ce8c9-fed8-42ee-9ba0-73d0fee6006a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\game_shared">
-      <UniqueIdentifier>{83318ea3-5019-4d8a-a9f9-4922cdb1c9bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\cl_dll">
       <UniqueIdentifier>{95dcdae3-b427-4517-a477-bfa2583b2e1f}</UniqueIdentifier>
     </Filter>
@@ -33,9 +30,6 @@
     </Filter>
     <Filter Include="Header Files\pm_shared">
       <UniqueIdentifier>{fb64b597-8c31-4391-b259-6121f67bbccb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\game_shared">
-      <UniqueIdentifier>{dfaa6b94-3821-41ff-a9c2-ef94fbb0d7d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\public">
       <UniqueIdentifier>{c053705f-05f3-4d16-ab13-80bfa84cbe75}</UniqueIdentifier>
@@ -90,6 +84,18 @@
     </Filter>
     <Filter Include="Source Files\cl_dll\voice">
       <UniqueIdentifier>{dcb4fe31-703e-423f-807f-0c46074ee6fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\vgui\controls">
+      <UniqueIdentifier>{7cb68b0c-a7d5-4ba3-84c1-a9841a4d0bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cl_dll\vgui\controls">
+      <UniqueIdentifier>{cd7d45df-4bb5-4495-8a53-5d494ef08745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cl_dll\effects\aurora">
+      <UniqueIdentifier>{ebdd5d7b-64a5-4a3c-a13d-c7add8e43f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\effects\aurora">
+      <UniqueIdentifier>{08c2f861-ba4e-463e-aaf4-b66569784bb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -156,30 +162,6 @@
     <ClCompile Include="..\..\cl_dll\tri.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_checkbutton2.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_grid.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_helpers.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_loadtga.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_listbox.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\voice_banmgr.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_scrollbar2.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\game_shared\vgui_slider2.cpp">
-      <Filter>Source Files\game_shared</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\view.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
@@ -242,12 +224,6 @@
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CSatchelCharge.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\effects\particlemgr.cpp">
-      <Filter>Source Files\cl_dll\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\effects\particlesys.cpp">
-      <Filter>Source Files\cl_dll\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\effects\CWeather.cpp">
       <Filter>Source Files\cl_dll\effects</Filter>
@@ -354,6 +330,42 @@
     <ClCompile Include="..\..\cl_dll\hud\CHudHealth.cpp">
       <Filter>Source Files\cl_dll\hud</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\cl_dll\voice\CVoiceBanMgr.cpp">
+      <Filter>Source Files\cl_dll\voice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_checkbutton2.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_grid.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_helpers.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_listbox.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_loadtga.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_scrollbar2.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_slider2.cpp">
+      <Filter>Source Files\cl_dll\vgui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\aurora\ParticleSystemManager.cpp">
+      <Filter>Source Files\cl_dll\effects\aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\aurora\RandomRange.cpp">
+      <Filter>Source Files\cl_dll\effects\aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\aurora\ParticleType.cpp">
+      <Filter>Source Files\cl_dll\effects\aurora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\aurora\ParticleSystem.cpp">
+      <Filter>Source Files\cl_dll\effects\aurora</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cl_dll\kbutton.h">
@@ -415,15 +427,6 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\StudioModelRenderer.h">
       <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game_shared\vgui_slider2.h">
-      <Filter>Header Files\game_shared</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game_shared\vgui_scrollbar2.h">
-      <Filter>Header Files\game_shared</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\game_shared\voice_banmgr.h">
-      <Filter>Header Files\game_shared</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\view.h">
       <Filter>Header Files\cl_dll</Filter>
@@ -502,12 +505,6 @@
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\effects\particlemgr.h">
-      <Filter>Header Files\cl_dll\effects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\effects\particlesys.h">
-      <Filter>Header Files\cl_dll\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\effects\CWeather.h">
       <Filter>Header Files\cl_dll\effects</Filter>
@@ -631,6 +628,48 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\voice\CHLVoiceStatusHelper.h">
       <Filter>Header Files\cl_dll\voice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\voice\CVoiceBanMgr.h">
+      <Filter>Header Files\cl_dll\voice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_defaultinputsignal.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_checkbutton2.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_grid.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_helpers.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_listbox.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_loadtga.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_scrollbar2.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\controls\vgui_slider2.h">
+      <Filter>Header Files\cl_dll\vgui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\aurora\ParticleSystemManager.h">
+      <Filter>Header Files\cl_dll\effects\aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\aurora\RandomRange.h">
+      <Filter>Header Files\cl_dll\effects\aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\aurora\ParticleType.h">
+      <Filter>Header Files\cl_dll\effects\aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\aurora\particle.h">
+      <Filter>Header Files\cl_dll\effects\aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\aurora\ParticleSystem.h">
+      <Filter>Header Files\cl_dll\effects\aurora</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

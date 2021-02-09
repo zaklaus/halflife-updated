@@ -11,16 +11,13 @@
 
 #include "hud/CHudBase.h"
 #include "VGUI_Label.h"
-#include "VGUI_LineBorder.h"
 #include "VGUI_ImagePanel.h"
 #include "VGUI_BitmapTGA.h"
-#include "VGUI_InputSignal.h"
 #include "VGUI_Button.h"
-#include "voice_common.h"
+#include "../shared/voice_common.h"
 #include "cl_entity.h"
-#include "voice_banmgr.h"
-#include "vgui_checkbutton2.h"
-#include "vgui_defaultinputsignal.h"
+#include "voice/CVoiceBanMgr.h"
+#include "vgui/controls/vgui_defaultinputsignal.h"
 
 // ---------------------------------------------------------------------- //
 // The voice manager for the client.

@@ -469,8 +469,8 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\util\locus.cpp" />
     <ClCompile Include="..\..\dlls\util\movewith.cpp" />
     <ClCompile Include="..\..\dlls\util\sound.cpp" />
+    <ClCompile Include="..\..\dlls\voice_gamemgr.cpp" />
     <ClCompile Include="..\..\dlls\weapons.cpp" />
-    <ClCompile Include="..\..\game_shared\voice_gamemgr.cpp" />
     <ClCompile Include="..\..\pm_shared\pm_debug.cpp" />
     <ClCompile Include="..\..\pm_shared\pm_math.cpp" />
     <ClCompile Include="..\..\pm_shared\pm_shared.cpp" />
@@ -846,6 +846,7 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\util\grouptrace.h" />
     <ClInclude Include="..\..\dlls\util\locus.h" />
     <ClInclude Include="..\..\dlls\util\movewith.h" />
+    <ClInclude Include="..\..\dlls\voice_gamemgr.h" />
     <ClInclude Include="..\..\dlls\weapons.h" />
     <ClInclude Include="..\..\engine\eiface.h" />
     <ClInclude Include="..\..\pm_shared\pm_debug.h" />
@@ -854,9 +855,11 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\pm_shared\pm_materials.h" />
     <ClInclude Include="..\..\pm_shared\pm_movevars.h" />
     <ClInclude Include="..\..\pm_shared\pm_shared.h" />
+    <ClInclude Include="..\..\shared\bitvec.h" />
     <ClInclude Include="..\..\shared\types.h" />
     <ClInclude Include="..\..\shared\Vector.h" />
     <ClInclude Include="..\..\shared\Vector2D.h" />
+    <ClInclude Include="..\..\shared\voice_common.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

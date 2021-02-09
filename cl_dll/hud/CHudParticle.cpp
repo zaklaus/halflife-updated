@@ -15,8 +15,8 @@
 
 #include "CHudParticle.h"
 #include "CHud.h"
-#include "effects/particlemgr.h"
-#include "effects/particlesys.h"
+#include "effects/aurora/ParticleSystemManager.h"
+#include "effects/aurora/ParticleSystem.h"
 
 DECLARE_MESSAGE(m_Particle, Particle)
 

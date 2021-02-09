@@ -16,7 +16,7 @@
 #include "entity_state.h"
 #include "cl_entity.h"
 #include "triangleapi.h"
-#include "effects/particlemgr.h"
+#include "effects/aurora/ParticleSystemManager.h"
 #include "com_model.h"
 #include "studio_util.h"
 

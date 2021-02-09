@@ -31,7 +31,7 @@
 
 #include "vgui_int.h"
 #include "vgui_TeamFortressViewport.h"
-#include "vgui_loadtga.h"
+#include "vgui/controls/vgui_loadtga.h"
 
 // Arrow filenames
 const char* sArrowFilenames[] =

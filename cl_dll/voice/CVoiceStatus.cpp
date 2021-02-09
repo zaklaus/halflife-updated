@@ -11,16 +11,11 @@
 #include <cstring>
 #include <cstdio>
 #include "parsemsg.h"
-#include "demo.h"
-#include "demo_api.h"
 #include "r_efx.h"
 #include "entity_types.h"
-#include "VGUI_ActionSignal.h"
 #include "VGUI_Scheme.h"
 #include "VGUI_TextImage.h"
-#include "vgui_loadtga.h"
-#include "vgui_helpers.h"
-#include "VGUI_MouseCode.h"
+#include "vgui/controls/vgui_loadtga.h"
 #include "hud/CHud.h"
 
 using namespace vgui;
