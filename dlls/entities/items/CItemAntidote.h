@@ -16,7 +16,7 @@
 
 #include "CItem.h"
 
-class CItemAntidote : public CItem //AJH new anti radiation syringe
+class CItemAntidote : public CItem
 {
 public:
     void Spawn(void) override;

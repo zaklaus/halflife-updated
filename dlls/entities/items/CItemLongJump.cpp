@@ -49,11 +49,6 @@ BOOL CItemLongJump::MyTouch(CBasePlayer* pPlayer)
         WRITE_STRING(STRING(pev->classname));
         MESSAGE_END();
 
-        MESSAGE_BEGIN(MSG_ONE, gmsgInventory, NULL, pPlayer->pev); //AJH msg change inventory
-        WRITE_SHORT((ITEM_LONGJUMP)); //which item to change
-        WRITE_SHORT(1); //set counter to this ammount
-        MESSAGE_END();
-
         EMIT_SOUND_SUIT(pPlayer->edict(), "!HEV_A1"); // Play the longjump sound UNDONE: Kelly? correct sound?
         return TRUE;
     }

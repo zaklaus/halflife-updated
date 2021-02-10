@@ -74,7 +74,6 @@ struct team_info_t
 
 extern int g_iPlayerClass;
 extern int g_iTeamNumber;
-extern int g_iInventory[MAX_ITEMS];	//AJH Inventory system
 extern int g_iUser1;
 extern int g_iUser2;
 extern int g_iUser3;

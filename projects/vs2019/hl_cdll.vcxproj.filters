@@ -267,9 +267,6 @@
     <ClCompile Include="..\..\cl_dll\vgui\vgui_teammenu.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\CustomMenu.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\voice\CVoiceStatus.cpp">
       <Filter>Source Files\cl_dll\voice</Filter>
     </ClCompile>

@@ -42,8 +42,6 @@ cvar_t mp3player = {"mp3player", "1", FCVAR_SERVER};
 cvar_t mp3volume = {"mp3volume", "1", FCVAR_SERVER};
 
 cvar_t timeddamage = {"timed_damage", "0", FCVAR_SERVER | FCVAR_ARCHIVE}; //AJH Time based damage (nervegas/rad, not poison) on/off
-cvar_t maxcameras = {"max_cameras", "2", FCVAR_SERVER | FCVAR_ARCHIVE}; //AJH the maximum number of inventory cameras a player may carry
-cvar_t maxmedkit = {"max_medkit", "200", FCVAR_SERVER | FCVAR_ARCHIVE}; //AJH The maximum portable medkit charge a player may have
 
 cvar_t allow_spectators = {"allow_spectators", "0.0", FCVAR_SERVER}; // 0 prevents players from being spectators
 
@@ -509,11 +507,7 @@ void GameDLLInit(void)
     CVAR_REGISTER(&cvar_user6); //LRC
     CVAR_REGISTER(&cvar_user7); //LRC
     CVAR_REGISTER(&cvar_user8); //LRC
-    //CVAR_REGISTER (&mp3player); //G-Cont. Stuff for Mp3 player    //AJH - Too late, I've already added mp3/ogg
-    //CVAR_REGISTER (&mp3volume); //G-Cont. Stuff for Mp3 player    //AJH
     CVAR_REGISTER(&timeddamage); //AJH Time based damage (nervegas/rad, not poison) on/off
-    CVAR_REGISTER(&maxcameras); //AJH the maximum number of inventory cameras a player may carry
-    CVAR_REGISTER(&maxmedkit); //AJH The maximum portable medkit charge a player may have
 
     CVAR_REGISTER(&mp_chattime);
 

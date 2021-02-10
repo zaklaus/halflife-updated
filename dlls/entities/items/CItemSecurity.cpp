@@ -32,12 +32,7 @@ void CItemSecurity::Precache()
 
 BOOL CItemSecurity::MyTouch(CBasePlayer* pPlayer)
 {
-    pPlayer->m_rgItems[ITEM_SECURITY] += 1; //AJH implement a new system with different cards instead of just MORE cards
-
-    MESSAGE_BEGIN(MSG_ONE, gmsgInventory, NULL, pPlayer->pev); //AJH msg change inventory
-    WRITE_SHORT((ITEM_SECURITY)); //which item to change
-    WRITE_SHORT(pPlayer->m_rgItems[ITEM_SECURITY]); //set counter to this ammount
-    MESSAGE_END();
+    pPlayer->m_rgItems[ITEM_SECURITY] += 1;
 
     if (pev->noise) //AJH
         EMIT_SOUND(pPlayer->edict(), CHAN_ITEM, STRING(pev->noise), 1, ATTN_NORM);

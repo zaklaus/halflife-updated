@@ -16,20 +16,11 @@
 
 #include "entities/CBaseEntity.h"
 
-// AJH Inventory items, some of which can be manually used, others automatically
-// and are here just so the player knows they have it/them.
-//This  has been moved from weapons.h
-#define ITEM_HEALTHKIT   1
-#define ITEM_ANTIDOTE    2
-#define ITEM_ANTIRAD     3
-#define ITEM_SECURITY    4
-#define ITEM_LONGJUMP    5
-#define ITEM_FLARE       6
-#define ITEM_CAMERA      7
-//AJH extended inventory (rename me when I'm implemented)
-#define ITEM_SLOT8       8
-#define ITEM_SLOT9       9
-#define ITEM_SLOT10     10
+// constant items
+#define ITEM_HEALTHKIT		1
+#define ITEM_ANTIDOTE		2
+#define ITEM_SECURITY		3
+#define ITEM_BATTERY		4
 
 class CItem : public CBaseEntity
 {

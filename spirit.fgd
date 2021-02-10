@@ -6015,33 +6015,6 @@ sequence(Choices) : "Animation Sequence (editor)" : 10 =
     ]
 ]
 
-//NEW 1.5
-//A portable flare the player can use once (at any time)
-@PointClass base(Weapon, Targetx, RenderFields) size(-16 -16 -5, 16 16 27) = item_flare : "Inventory Flare"
-[
-    ltime(integer): "Override flares lifetime"
-    noise(string): "Override default pickup sound"
-    rendercolor(color255): "Override flares colour (R G B)"
-]
-
-//NEW 1.5
-//A portable camera that can be set up at any location the player can get to.
-// Currently on explosive damage can effect cameras
-@PointClass base(Weapon, Targetx, RenderFields) size(-16 -16 -5, 16 16 27) = item_camera : "Inventory Camera"
-[
-    targetname(string): "UNIQUE!! name for this camera"
-    // EVERY camera in your map (unit) must have a unique name. Call them something like 'mapname_camera_1'
-    noise(string): "Override default pickup sound"
-    health(integer):  "Health of the camera" : 20
-]
-
-//NEW 1.5
-//Limit the total 'health' a player can have in his medkit with cvar 'max_medkit'. Defaults to 200.
-@PointClass base(Weapon, Targetx, RenderFields) size(-16 -16 -5, 16 16 27) = item_medicalkit : "Inventory Medkit" 
-[
-    health(integer): "Healing charge" : 50
-]
-
 
 //
 // Xen

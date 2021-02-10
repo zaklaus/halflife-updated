@@ -142,12 +142,6 @@ int __MsgFunc_CamData(const char* pszName, int iSize, void* pbuf)
     return 1;
 }
 
-int __MsgFunc_Inventory(const char* pszName, int iSize, void* pbuf)
-{
-    gHUD.MsgFunc_Inventory(pszName, iSize, pbuf);
-    return 1;
-}
-
 // TFFree Command Menu
 void __CmdFunc_OpenCommandMenu(void)
 {
@@ -326,7 +320,6 @@ void CHud::Init(void)
     HOOK_MESSAGE(Test); //LRC
     HOOK_MESSAGE(SetSky); //LRC
     HOOK_MESSAGE(CamData); //G-Cont. for new camera style 	
-    HOOK_MESSAGE(Inventory); //AJH Inventory system
     HOOK_MESSAGE(ClampView); //LRC 1.8
     HOOK_MESSAGE(Weather);
 
@@ -366,14 +359,6 @@ void CHud::Init(void)
 
     CVAR_CREATE("hud_classautokill", "1", FCVAR_ARCHIVE | FCVAR_USERINFO); // controls whether or not to suicide immediately on TF class switch
     CVAR_CREATE("hud_takesshots", "0", FCVAR_ARCHIVE); // controls whether or not to automatically take screenshots at the end of a round
-
-    //start glow effect --FragBait0
-    CVAR_CREATE("r_glow", "0", FCVAR_ARCHIVE);
-    //CVAR_CREATE("r_glowmode", "0", FCVAR_ARCHIVE ); //AJH this is now redundant
-    CVAR_CREATE("r_glowstrength", "1", FCVAR_ARCHIVE);
-    CVAR_CREATE("r_glowblur", "4", FCVAR_ARCHIVE);
-    CVAR_CREATE("r_glowdark", "2", FCVAR_ARCHIVE);
-    //end glow effect
 
     viewEntityIndex = 0; // trigger_viewset stuff
     viewFlags = 0;
@@ -998,27 +983,6 @@ void CHud::MsgFunc_Weather(const char* pszName, int iSize, void* pBuf)
     }
 }
 
-int CHud::MsgFunc_Inventory(const char* pszName, int iSize, void* pbuf) //AJH inventory system
-{
-    BEGIN_READ(pbuf, iSize);
-    int i = READ_SHORT();
-
-    if (i == 0)
-    {
-        //We've died (or got told to lose all items) so remove inventory.
-        for (i = 0; i < MAX_ITEMS; i++)
-        {
-            g_iInventory[i] = 0;
-        }
-    }
-    else
-    {
-        i -= 1; // subtract one so g_iInventory[0] can be used. (lowest ITEM_* is defined as '1')
-        g_iInventory[i] = READ_SHORT();
-    }
-    return 1;
-}
-
 
 #define MAX_LOGO_FRAMES 56
 
@@ -1167,75 +1131,6 @@ int CHud::Redraw(float flTime, int intermission)
     // return 0;
 
     // trigger_viewset stuff
-    if ((viewFlags & 1) && (viewFlags & 4)) //AJH Draw the camera hud
-    {
-        int r, g, b, x, y, a;
-        //wrect_t rc;
-        HSPRITE m_hCam1;
-        int HUD_camera_active;
-        int HUD_camera_rect;
-
-        a = 225;
-
-        UnpackRGB(r, g, b, gHUD.m_iHUDColor);
-        ScaleColors(r, g, b, a);
-
-        //Draw the flashing camera active logo
-        HUD_camera_active = gHUD.GetSpriteIndex("camera_active");
-        m_hCam1 = gHUD.GetSprite(HUD_camera_active);
-        SPR_Set(m_hCam1, r, g, b);
-        x = SPR_Width(m_hCam1, 0);
-        x = ScreenWidth - x;
-        y = SPR_Height(m_hCam1, 0) / 2;
-
-        // Draw the camera sprite at 1 fps
-        int i = (int)(flTime) % 2;
-        i = grgLogoFrame[i] - 1;
-
-        SPR_DrawAdditive(i, x, y, NULL);
-
-        //Draw the camera reticle (top left)
-        HUD_camera_rect = gHUD.GetSpriteIndex("camera_rect_tl");
-        m_hCam1 = gHUD.GetSprite(HUD_camera_rect);
-        SPR_Set(m_hCam1, r, g, b);
-        x = ScreenWidth / 4;
-        y = ScreenHeight / 4;
-
-        SPR_DrawAdditive(0, x, y, &gHUD.GetSpriteRect(HUD_camera_rect));
-
-        //Draw the camera reticle (top right)
-        HUD_camera_rect = gHUD.GetSpriteIndex("camera_rect_tr");
-        m_hCam1 = gHUD.GetSprite(HUD_camera_rect);
-        SPR_Set(m_hCam1, r, g, b);
-
-        int w, h;
-        w = SPR_Width(m_hCam1, 0) / 2;
-        h = SPR_Height(m_hCam1, 0) / 2;
-
-        x = ScreenWidth - ScreenWidth / 4 - w;
-        y = ScreenHeight / 4;
-
-        SPR_DrawAdditive(0, x, y, &gHUD.GetSpriteRect(HUD_camera_rect));
-
-        //Draw the camera reticle (bottom left)
-        HUD_camera_rect = gHUD.GetSpriteIndex("camera_rect_bl");
-        m_hCam1 = gHUD.GetSprite(HUD_camera_rect);
-        SPR_Set(m_hCam1, r, g, b);
-        x = ScreenWidth / 4;
-        y = ScreenHeight - ScreenHeight / 4 - h;
-
-        SPR_DrawAdditive(0, x, y, &gHUD.GetSpriteRect(HUD_camera_rect));
-
-        //Draw the camera reticle (bottom right)
-        HUD_camera_rect = gHUD.GetSpriteIndex("camera_rect_br");
-        m_hCam1 = gHUD.GetSprite(HUD_camera_rect);
-        SPR_Set(m_hCam1, r, g, b);
-        x = ScreenWidth - ScreenWidth / 4 - w;
-        y = ScreenHeight - ScreenHeight / 4 - h;
-
-        SPR_DrawAdditive(0, x, y, &gHUD.GetSpriteRect(HUD_camera_rect));
-    }
-
     if ((viewFlags & 1) && !(viewFlags & 2)) // custom view active, and flag "draw hud" isnt set
         return 1;
 

@@ -319,17 +319,6 @@ void CWorld::KeyValue(KeyValueData* pkvd)
         CVAR_SET_FLOAT("timed_damage", atof(pkvd->szValue));
         pkvd->fHandled = TRUE;
     }
-    else if (FStrEq(pkvd->szKeyName, "max_medkit"))
-    {
-        CVAR_SET_FLOAT("max_medkit", atof(pkvd->szValue));
-        pkvd->fHandled = TRUE;
-    }
-    else if (FStrEq(pkvd->szKeyName, "max_cameras"))
-    {
-        CVAR_SET_FLOAT("max_cameras", atof(pkvd->szValue));
-        pkvd->fHandled = TRUE;
-    }
-
     else
         CBaseEntity::KeyValue(pkvd);
 }
@@ -343,8 +332,4 @@ void I_Precache(void)
     UTIL_PrecacheOther("item_security");
     UTIL_PrecacheOther("item_longjump");
     UTIL_PrecacheOther("item_healthkit");
-    UTIL_PrecacheOther("item_camera");
-    UTIL_PrecacheOther("item_flare");
-    UTIL_PrecacheOther("item_antirad");
-    UTIL_PrecacheOther("item_medicalkit");
 }

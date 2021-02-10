@@ -58,7 +58,6 @@ extern int g_iVisibleMouse;
 class CCommandMenu;
 int g_iPlayerClass;
 int g_iTeamNumber;
-int g_iInventory[MAX_ITEMS]; //AJH Inventory system
 int g_iUser1 = 0;
 int g_iUser2 = 0;
 int g_iUser3 = 0;
@@ -138,34 +137,6 @@ const char* sTFClassSelection[] =
     "engineer",
     "randompc",
     "civilian",
-};
-
-char* sLocalisedInventory[MAX_ITEMS] = //AJH Inventory system
-{
-    "#Item1",
-    "#Item2",
-    "#Item3",
-    "#Item4",
-    "#Item5",
-    "#Item6",
-    "#Item7",
-    "#Item8",
-    "#Item9",
-    "#Item10",
-};
-
-char* sInventorySelection[MAX_ITEMS] = //AJH Inventory system
-{
-    "inventory 1",
-    "inventory 2",
-    "inventory 3",
-    "inventory 4",
-    "inventory 5",
-    "inventory 6",
-    "inventory 7",
-    "inventory 8",
-    "inventory 9",
-    "inventory 10",
 };
 
 #ifdef _TFC
@@ -536,17 +507,9 @@ public:
     {
     }
 
-    virtual void cursorMoved(int x, int y, Panel* panel)
-    {
-    }
-
-    virtual void cursorEntered(Panel* panel)
-    {
-    }
-
-    virtual void cursorExited(Panel* panel)
-    {
-    }
+    virtual void cursorMoved(int x, int y, Panel* panel) { return; }
+    virtual void cursorEntered(Panel* panel) { return; }
+    virtual void cursorExited(Panel* panel) { return; }
 
     virtual void mousePressed(MouseCode code, Panel* panel)
     {
@@ -558,33 +521,13 @@ public:
         }
     }
 
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    }
-
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    }
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    }
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    }
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    }
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    }
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    }
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; }
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; }
+    virtual void mouseWheeled(int delta, Panel* panel) { return; }
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; }
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; }
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; }
+    virtual void keyFocusTicked(Panel* panel) { return; }
 };
 
 
@@ -1066,37 +1009,6 @@ CommandButton* TeamFortressViewport::CreateCustomButton(char* pButtonText, char*
                                                false);
         m_pTeamButtons[5]->addActionSignal(new CMenuHandler_StringCommand("spectate"));
         pMenu->AddButton(m_pTeamButtons[5]);
-    }
-
-        //AJH Show inventory 
-    else if (!strcmp(pButtonName, "!SHOWINVENTORY"))
-    {
-        // Create the inventory menu
-        pButton = new InventoryButton(-1, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y, false);
-
-        //	if (cl_entity_t *source = gEngfuncs.GetLocalPlayer() )
-        //	{
-        //	part->origin = source->curstate.origin; //??how to get the inventory??
-        //	}
-
-        // Inventory Submenu
-        pMenu = CreateSubMenu(pButton, m_pCurrentCommandMenu, iYOffset);
-        m_pCommandMenus[m_iNumMenus] = pMenu;
-        m_iNumMenus++;
-
-        for (int i = 0; i < MAX_ITEMS; i++)
-        {
-            char sz[256];
-
-            // Inventory buttons
-
-            CHudTextMessage::LocaliseTextString(sLocalisedInventory[i], sz, 256);
-            InventoryButton* pInventoryButton = new InventoryButton(i, sz, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y, false);
-
-            sprintf(sz, "%s", sInventorySelection[i]);
-            pInventoryButton->addActionSignal(new CMenuHandler_StringCommand(sz));
-            pMenu->AddButton(pInventoryButton);
-        }
     }
 
         // ChangeClass
@@ -1975,12 +1887,6 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 
     switch (iMenu)
     {
-    case MENU_CUSTOM: //AJH New customizable menu HUD system
-
-        CreateCustomMenu(); //AJH new customizable menu system
-        pNewMenu = ShowCustomMenu();
-        break;
-
     case MENU_TEAM:
         pNewMenu = ShowTeamMenu();
         break;
@@ -2102,28 +2008,6 @@ void TeamFortressViewport::CreateTeamMenu()
     m_pTeamMenu = new CTeamMenuPanel(100, false, 0, 0, ScreenWidth, ScreenHeight);
     m_pTeamMenu->setParent(this);
     m_pTeamMenu->setVisible(false);
-}
-
-//======================================================================================
-// CUSTOM MENU //AJH New customizable menu system
-//======================================================================================
-// Bring up the Custom Menu
-CMenuPanel* TeamFortressViewport::ShowCustomMenu()
-{
-    // Don't open menus in demo playback
-    if (gEngfuncs.pDemoAPI->IsPlayingback())
-        return NULL;
-
-    m_pCustomMenu->Reset();
-    return m_pCustomMenu;
-}
-
-void TeamFortressViewport::CreateCustomMenu()
-{
-    // Create the panel
-    m_pCustomMenu = new CCustomMenu(100, false, 0, 0, ScreenWidth, ScreenHeight);
-    m_pCustomMenu->setParent(this);
-    m_pCustomMenu->setVisible(false);
 }
 
 //======================================================================================

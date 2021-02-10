@@ -64,7 +64,6 @@ int gmsgStatusIcon = 0; //LRC
 int gmsgStatusText = 0;
 int gmsgStatusValue = 0;
 int gmsgCamData; // for trigger_viewset
-int gmsgInventory = 0; //AJH Inventory system
 int gmsgWeather = 0;
 
 void LinkUserMessages(void)
@@ -123,6 +122,5 @@ void LinkUserMessages(void)
     gmsgStatusValue = REG_USER_MSG("StatusValue", 3);
     gmsgCamData = REG_USER_MSG("CamData", -1);
     gmsgPlayMP3 = REG_USER_MSG("PlayMP3", -1); //Killar
-    gmsgInventory = REG_USER_MSG("Inventory", -1); //AJH Inventory system
     gmsgWeather = REG_USER_MSG("Weather", -1);
 }

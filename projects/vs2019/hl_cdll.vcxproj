@@ -176,7 +176,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_loadtga.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_scrollbar2.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\controls\vgui_slider2.cpp" />
-    <ClCompile Include="..\..\cl_dll\vgui\CustomMenu.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\vgui_ClassMenu.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\vgui_CustomObjects.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\vgui_int.cpp" />

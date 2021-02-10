@@ -92,7 +92,6 @@ enum sbar_data
 
 extern int gmsgHudText;
 extern int gmsgParticle; // LRC
-extern int gmsgInventory; //AJH
 extern BOOL gInitHUD;
 
 //NB: changing this structure will cause problems! --LRC
@@ -114,7 +113,6 @@ public:
 
     entvars_t* m_pevInflictor; //AJH used for time based damage to remember inflictor
     //m_hActivator remembers activator
-    CItemCamera* m_pItemCamera; //AJH Remember that we have a camera
 
     int random_seed; // See that is shared between client & server for shared weapons code
 

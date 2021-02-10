@@ -37,11 +37,6 @@ BOOL CItemAntidote::MyTouch(CBasePlayer* pPlayer)
 
     pPlayer->m_rgItems[ITEM_ANTIDOTE] += 1;
 
-    MESSAGE_BEGIN(MSG_ONE, gmsgInventory, NULL, pPlayer->pev); //AJH msg change inventory
-    WRITE_SHORT((ITEM_ANTIDOTE)); //which item to change
-    WRITE_SHORT(pPlayer->m_rgItems[ITEM_ANTIDOTE]); //set counter to this ammount
-    MESSAGE_END();
-
     if (pev->noise) //AJH
         EMIT_SOUND(pPlayer->edict(), CHAN_ITEM, STRING(pev->noise), 1, ATTN_NORM);
     else

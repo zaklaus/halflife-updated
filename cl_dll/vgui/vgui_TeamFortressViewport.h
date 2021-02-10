@@ -44,7 +44,6 @@
 #define MENU_CLASSHELP2 			7
 #define MENU_REPEATHELP 			8
 #define MENU_SPECHELP				9
-#define MENU_CUSTOM					10	//AJH New Customizable menu HUD system
 
 using namespace vgui;
 
@@ -62,17 +61,14 @@ class DragNDropPanel;
 class CTransparentPanel;
 class CClassMenuPanel;
 class CTeamMenuPanel;
-class CCustomMenu; //AJH new customizable menu system
 class TeamFortressViewport;
 
 char* GetVGUITGAName(const char* pszName);
 BitmapTGA* LoadTGAForRes(const char* pImageName);
 void ScaleColors(int& r, int& g, int& b, int a);
 extern const char* sTFClassSelection[];
-extern char* sInventorySelection[]; //AJH Inventory selection system
 extern int sTFValidClassInts[];
 extern const char* sLocalisedClasses[];
-extern char* sLocalisedInventory[]; //AJH Inventory selection system
 extern int iTeamColors[5][3];
 extern int iNumberOfTeamColors;
 extern TeamFortressViewport* gViewPort;
@@ -518,8 +514,6 @@ private:
     void CreateClassMenu(void);
     CMenuPanel* ShowClassMenu(void);
     void CreateSpectatorMenu(void);
-    CMenuPanel* ShowCustomMenu(void); //AJH new customizable menu system
-    void CreateCustomMenu(void); //AJH new customizable menu system
 
     // Scheme handler
     CSchemeManager m_SchemeManager;
@@ -638,7 +632,6 @@ public:
     // VGUI Menus
     CMenuPanel* m_pCurrentMenu;
     CTeamMenuPanel* m_pTeamMenu;
-    CCustomMenu* m_pCustomMenu; //AJH new customizable menu system
     int m_StandardMenu; // indexs in m_pCommandMenus
     int m_SpectatorOptionsMenu;
     int m_SpectatorCameraMenu;
@@ -755,42 +748,15 @@ public:
         if (m_pButton)
             m_pButton->setArmed(true);
     };
-
-    virtual void cursorExited(Panel* Panel)
-    {
-    };
-
-    virtual void mousePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    };
+    virtual void cursorExited(Panel* Panel) { return; };
+    virtual void mousePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; };
+    virtual void mouseWheeled(int delta, Panel* panel) { return; };
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; };
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; };
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; };
+    virtual void keyFocusTicked(Panel* panel) { return; };
 };
 
 class CMenuHandler_LabelInput : public InputSignal
@@ -808,45 +774,16 @@ public:
         m_pActionSignal->actionPerformed(panel);
     }
 
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void cursorEntered(Panel* panel)
-    {
-    };
-
-    virtual void cursorExited(Panel* Panel)
-    {
-    };
-
-    virtual void cursorMoved(int x, int y, Panel* panel)
-    {
-    };
-
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    };
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; };
+    virtual void cursorEntered(Panel* panel) { return; };
+    virtual void cursorExited(Panel* Panel) { return; };
+    virtual void cursorMoved(int x, int y, Panel* panel) { return; };
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseWheeled(int delta, Panel* panel) { return; };
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; };
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; };
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; };
+    virtual void keyFocusTicked(Panel* panel) { return; };
 };
 
 #define HIDE_TEXTWINDOW		0
@@ -943,37 +880,14 @@ public:
     void mousePressed(MouseCode code, Panel* panel);
     void mouseReleased(MouseCode code, Panel* panel);
 
-    void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    void cursorEntered(Panel* panel)
-    {
-    };
-
-    void cursorExited(Panel* panel)
-    {
-    };
-
-    void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyFocusTicked(Panel* panel)
-    {
-    };
+    void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    void cursorEntered(Panel* panel) { return; };
+    void cursorExited(Panel* panel) { return; };
+    void mouseWheeled(int delta, Panel* panel) { return; };
+    void keyPressed(KeyCode code, Panel* panel) { return; };
+    void keyTyped(KeyCode code, Panel* panel) { return; };
+    void keyReleased(KeyCode code, Panel* panel) { return; };
+    void keyFocusTicked(Panel* panel) { return; };
 };
 
 class CHandler_MenuButtonOver : public InputSignal
@@ -990,45 +904,16 @@ public:
 
     void cursorEntered(Panel* panel);
 
-    void cursorMoved(int x, int y, Panel* panel)
-    {
-    };
-
-    void mousePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    void cursorExited(Panel* panel)
-    {
-    };
-
-    void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    void keyFocusTicked(Panel* panel)
-    {
-    };
+    void cursorMoved(int x, int y, Panel* panel) { return; };
+    void mousePressed(MouseCode code, Panel* panel) { return; };
+    void mouseReleased(MouseCode code, Panel* panel) { return; };
+    void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    void cursorExited(Panel* panel) { return; };
+    void mouseWheeled(int delta, Panel* panel) { return; };
+    void keyPressed(KeyCode code, Panel* panel) { return; };
+    void keyTyped(KeyCode code, Panel* panel) { return; };
+    void keyReleased(KeyCode code, Panel* panel) { return; };
+    void keyFocusTicked(Panel* panel) { return; };
 };
 
 class CHandler_ButtonHighlight : public InputSignal
@@ -1050,42 +935,15 @@ public:
     {
         m_pButton->setArmed(false);
     };
-
-    virtual void mousePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void cursorMoved(int x, int y, Panel* panel)
-    {
-    };
-
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    };
+    virtual void mousePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; };
+    virtual void cursorMoved(int x, int y, Panel* panel) { return; };
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseWheeled(int delta, Panel* panel) { return; };
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; };
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; };
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; };
+    virtual void keyFocusTicked(Panel* panel) { return; };
 };
 
 //-----------------------------------------------------------------------------
@@ -1231,29 +1089,6 @@ public:
         if (m_iValidTeamsBits & iTmp)
             return false;
         return true;
-    }
-};
-
-class InventoryButton : public CommandButton //AJH inventory system
-{
-private:
-    int m_iItem;
-public:
-    InventoryButton(int item, const char* text, int x, int y, int wide, int tall, bool bFlat) : CommandButton(text, x, y, wide, tall, bFlat)
-    {
-        m_iItem = item;
-    }
-
-    virtual int IsNotValid()
-    {
-        // Always show the main 'Inventory' button (if it is specified in commandmenu.txt
-        if (m_iItem < 0 || m_iItem >= MAX_ITEMS) // m_iItem >= MAX_ITEMS shouldn't ever be true
-            return false;
-        //Only visible if the item is in the players inventory
-        if (g_iInventory[m_iItem] > 0)
-            return false;
-        else
-            return true;
     }
 };
 
@@ -1476,37 +1311,15 @@ public:
         doClick();
     };
 
-    virtual void cursorMoved(int x, int y, Panel* panel)
-    {
-    };
+    virtual void cursorMoved(int x, int y, Panel* panel) { return; };
 
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    };
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; };
+    virtual void mouseWheeled(int delta, Panel* panel) { return; };
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; };
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; };
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; };
+    virtual void keyFocusTicked(Panel* panel) { return; };
 
     virtual void paint(void)
     {
@@ -1570,37 +1383,15 @@ public:
         doClick();
     };
 
-    virtual void cursorMoved(int x, int y, Panel* panel)
-    {
-    };
+    virtual void cursorMoved(int x, int y, Panel* panel) { return; };
 
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseReleased(MouseCode code, Panel* panel)
-    {
-    };
-
-    virtual void mouseWheeled(int delta, Panel* panel)
-    {
-    };
-
-    virtual void keyPressed(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyTyped(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyReleased(KeyCode code, Panel* panel)
-    {
-    };
-
-    virtual void keyFocusTicked(Panel* panel)
-    {
-    };
+    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; };
+    virtual void mouseReleased(MouseCode code, Panel* panel) { return; };
+    virtual void mouseWheeled(int delta, Panel* panel) { return; };
+    virtual void keyPressed(KeyCode code, Panel* panel) { return; };
+    virtual void keyTyped(KeyCode code, Panel* panel) { return; };
+    virtual void keyReleased(KeyCode code, Panel* panel) { return; };
+    virtual void keyFocusTicked(Panel* panel) { return; };
 
     virtual void paintBackground()
     {
@@ -1846,9 +1637,7 @@ public:
     // Numeric input
     virtual bool SlotInput(int iSlot) { return false; };
 
-    virtual void SetActiveInfo(int iInput)
-    {
-    };
+    virtual void SetActiveInfo(int iInput) { return; };
 };
 
 //================================================================
@@ -1905,39 +1694,6 @@ private:
 
 public:
     CClassMenuPanel(int iTrans, int iRemoveMe, int x, int y, int wide, int tall);
-
-    virtual bool SlotInput(int iSlot);
-    virtual void Open(void);
-    virtual void Update(void);
-    virtual void SetActiveInfo(int iInput);
-    virtual void Initialize(void);
-
-    virtual void Reset(void)
-    {
-        CMenuPanel::Reset();
-        m_iCurrentInfo = 0;
-    }
-};
-
-class CCustomMenu : public CMenuPanel //AJH Custom Menu HUD
-{
-private:
-    CTransparentPanel* m_pClassInfoPanel[PC_LASTCLASS];
-    Label* m_pPlayers[PC_LASTCLASS];
-    ClassButton* m_pButtons[PC_LASTCLASS];
-    CommandButton* m_pCancelButton;
-    ScrollPanel* m_pScrollPanel;
-
-    CImageLabel* m_pClassImages[MAX_TEAMS][PC_LASTCLASS];
-
-    int m_iCurrentInfo;
-
-    enum { STRLENMAX_PLAYERSONTEAM = 128 };
-
-    char m_sPlayersOnTeamString[STRLENMAX_PLAYERSONTEAM];
-
-public:
-    CCustomMenu(int iTrans, int iRemoveMe, int x, int y, int wide, int tall);
 
     virtual bool SlotInput(int iSlot);
     virtual void Open(void);

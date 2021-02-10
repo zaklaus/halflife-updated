@@ -794,18 +794,6 @@
     <ClCompile Include="..\..\dlls\entities\items\CItemAntidote.cpp">
       <Filter>Source Files\dlls\entities\items</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\CItemAntiRad.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\CItemCamera.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\CItemFlare.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\items\CItemMedicalKit.cpp">
-      <Filter>Source Files\dlls\entities\items</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\npcs\CAGrunt.cpp">
       <Filter>Source Files\dlls\entities\npcs</Filter>
     </ClCompile>
@@ -1934,18 +1922,6 @@
       <Filter>Header Files\dlls\entities\items</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\items\CItemAntidote.h">
-      <Filter>Header Files\dlls\entities\items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\items\CItemAntiRad.h">
-      <Filter>Header Files\dlls\entities\items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\items\CItemCamera.h">
-      <Filter>Header Files\dlls\entities\items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\items\CItemFlare.h">
-      <Filter>Header Files\dlls\entities\items</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\items\CItemMedicalKit.h">
       <Filter>Header Files\dlls\entities\items</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\npcs\CAGrunt.h">

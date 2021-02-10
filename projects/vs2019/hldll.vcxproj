@@ -238,12 +238,8 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\items\CHealthKit.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItem.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItemAntidote.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\CItemAntiRad.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItemBattery.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\CItemCamera.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\CItemFlare.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItemLongJump.cpp" />
-    <ClCompile Include="..\..\dlls\entities\items\CItemMedicalKit.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItemSecurity.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CItemSuit.cpp" />
     <ClCompile Include="..\..\dlls\entities\items\CWallHealth.cpp" />
@@ -621,12 +617,8 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\items\CHealthKit.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItem.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItemAntidote.h" />
-    <ClInclude Include="..\..\dlls\entities\items\CItemAntiRad.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItemBattery.h" />
-    <ClInclude Include="..\..\dlls\entities\items\CItemCamera.h" />
-    <ClInclude Include="..\..\dlls\entities\items\CItemFlare.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItemLongJump.h" />
-    <ClInclude Include="..\..\dlls\entities\items\CItemMedicalKit.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItemSecurity.h" />
     <ClInclude Include="..\..\dlls\entities\items\CItemSuit.h" />
     <ClInclude Include="..\..\dlls\entities\items\CWallHealth.h" />

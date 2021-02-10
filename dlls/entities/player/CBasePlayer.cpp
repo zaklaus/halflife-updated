@@ -28,7 +28,6 @@
 #include "gamerules/CGameRules.h"
 #include "game.h"
 #include "entities/items/CItem.h"
-#include "entities/items/CItemCamera.h"
 #include "util/locus.h" //LRC 1.8
 #include "pm_shared.h"
 #include "hltv.h"
@@ -138,10 +137,6 @@ TYPEDESCRIPTION CBasePlayer::m_playerSaveData[] =
     DEFINE_FIELD(CBasePlayer, viewEntity, FIELD_STRING),
     DEFINE_FIELD(CBasePlayer, viewFlags, FIELD_INTEGER),
     DEFINE_FIELD(CBasePlayer, viewNeedsUpdate, FIELD_INTEGER),
-
-    //AJH
-    DEFINE_FIELD(CBasePlayer, m_pItemCamera, FIELD_CLASSPTR), // Pointer to the first item_camera a player has
-    DEFINE_ARRAY(CBasePlayer, m_rgItems, FIELD_INTEGER, MAX_ITEMS), // The inventory status array
 
     //LRC
     //DEFINE_FIELD( CBasePlayer, m_iFogStartDist, FIELD_INTEGER ),
@@ -2187,28 +2182,7 @@ void CBasePlayer::CheckTimeBasedDamage()
                     {
                         m_rgbTimeBasedDamage[i] = 0;
                         m_rgItems[ITEM_ANTIDOTE]--;
-
-                        MESSAGE_BEGIN(MSG_ONE, gmsgInventory, NULL, pev); //AJH msg change inventory
-                        WRITE_SHORT((ITEM_ANTIDOTE)); //which item to change
-                        WRITE_SHORT(m_rgItems[ITEM_ANTIDOTE]); //set counter to this ammount
-                        MESSAGE_END();
-
                         SetSuitUpdate("!HEV_HEAL4", FALSE, SUIT_REPEAT_OK);
-                    }
-                }
-                else if ((i == itbd_Radiation) && (m_rgbTimeBasedDamage[i] < RADIATION_DURATION)) //AJH added anti radiation syringe
-                {
-                    if (m_rgItems[ITEM_ANTIRAD])
-                    {
-                        m_rgbTimeBasedDamage[i] = 0;
-                        m_rgItems[ITEM_ANTIRAD]--;
-
-                        MESSAGE_BEGIN(MSG_ONE, gmsgInventory, NULL, pev); //AJH msg change inventory
-                        WRITE_SHORT((ITEM_ANTIRAD)); //which item to change
-                        WRITE_SHORT(m_rgItems[ITEM_ANTIRAD]); //set counter to this ammount
-                        MESSAGE_END();
-
-                        SetSuitUpdate("!HEV_HEAL5", FALSE, SUIT_REPEAT_OK);
                     }
                 }
 
@@ -3011,17 +2985,6 @@ void CBasePlayer::Spawn(void)
     {
         //AJH remove all inventory items
         m_rgItems[j] = 0;
-    }
-
-    MESSAGE_BEGIN(MSG_ONE, gmsgInventory,NULL, pev); //AJH let client know he's lost items
-    WRITE_SHORT(0); //delete all items            //For some reason this doesn't work after a map change??!
-    MESSAGE_END();
-
-    if (m_pItemCamera)
-    {
-        //AJH If we have any cameras in our inventory, reset them all.
-        m_pItemCamera->StripFromPlayer();
-        m_pItemCamera = NULL;
     }
 
     g_pGameRules->PlayerSpawn(this);
@@ -4065,14 +4028,6 @@ void CBasePlayer::UpdateClientData(void)
             {
                 FireTargets("game_playerjoin", this, this, USE_TOGGLE, 0);
             }
-        }
-
-        for (int i = 0; i < MAX_ITEMS; i++) //AJH 
-        {
-            MESSAGE_BEGIN(MSG_ONE, gmsgInventory,NULL, pev); // let client know which items he has
-            WRITE_SHORT(i); //which item we have
-            WRITE_SHORT(m_rgItems[i]);
-            MESSAGE_END();
         }
 
         FireTargets("game_playerspawn", this, this, USE_TOGGLE, 0);

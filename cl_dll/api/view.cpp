@@ -533,15 +533,6 @@ void V_CalcNormalRefdef(struct ref_params_s* pparams)
                 pparams->viewangles[1] = viewentity->angles[1];
                 pparams->viewangles[2] = viewentity->angles[2];
                 pparams->crosshairangle[PITCH] = 100; // test // ugly method to remove crosshair from screen
-
-                if (gHUD.viewFlags & 8) //AJH Do we draw the player in the camera?
-                {
-                    gHUD.m_iCameraMode = 2;
-                }
-                if (gHUD.viewFlags & 4) //AJH Invert the x view angle again if we are using an item camera?
-                {
-                    pparams->viewangles[0] = -viewentity->angles[0];
-                }
             }
             else
             {
@@ -882,15 +873,6 @@ void V_CalcNormalRefdef(struct ref_params_s* pparams)
             pparams->viewangles[1] = viewentity->angles[1];
             pparams->viewangles[2] = viewentity->angles[2];
             pparams->crosshairangle[PITCH] = 100; // test // ugly method to remove crosshair from screen
-
-            if (gHUD.viewFlags & 8) //AJH Do we draw the player in the camera?
-            {
-                gHUD.m_iCameraMode = 2;
-            }
-            if (gHUD.viewFlags & 4) //AJH Invert the x view angle again if we are using an item camera?
-            {
-                pparams->viewangles[0] = -viewentity->angles[0];
-            }
         }
         else
             gEngfuncs.Con_Printf("Warning : invalid view ent index: %i\n", gHUD.viewEntityIndex);

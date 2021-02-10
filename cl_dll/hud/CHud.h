@@ -155,7 +155,6 @@ public:
     void _cdecl MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf); //LRC
     void _cdecl MsgFunc_SetSky(const char* pszName, int iSize, void* pbuf); //LRC
     int _cdecl MsgFunc_CamData(const char* pszName, int iSize, void* pbuf); //G-Cont
-    int _cdecl MsgFunc_Inventory(const char* pszName, int iSize, void* pbuf); //AJH
     void _cdecl MsgFunc_ClampView(const char* pszName, int iSize, void* pbuf); //LRC 1.8
     void _cdecl MsgFunc_Weather(const char* pszName, int iSize, void* pBuf);
 
