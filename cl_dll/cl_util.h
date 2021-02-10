@@ -183,6 +183,4 @@ inline void UnpackRGB(int &r, int &g, int &b, unsigned long ulRGB)\
 	b = ulRGB & 0xFF;\
 }
 
-HSPRITE LoadSprite(const char *pszName);
-
 inline float		UTIL_Lerp( float lerpfactor, float A, float B ) { return A + lerpfactor*(B-A); }

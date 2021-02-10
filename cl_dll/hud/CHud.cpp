@@ -18,8 +18,8 @@
 #include <particleman.h>
 
 #include "effects/CWeather.h"
-#include "mp3.h"
-#include "demo.h"
+#include "effects/CMP3.h"
+#include "api/demo.h"
 #include "demo_api.h"
 #include "vgui/vgui_TeamFortressViewport.h"
 #include "voice/CVoiceStatus.h"
@@ -1504,4 +1504,20 @@ int CHud::UpdateClientData(client_data_t* cdata, float time)
 
     // return 1 if in anything in the client_data struct has been changed, 0 otherwise
     return 1;
+}
+
+
+HSPRITE LoadSprite(const char* pszName)
+{
+    int i;
+    char sz[256];
+
+    if (ScreenWidth < 640)
+        i = 320;
+    else
+        i = 640;
+
+    sprintf(sz, pszName, i);
+
+    return SPR_Load(sz);
 }

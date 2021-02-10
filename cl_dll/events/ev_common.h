@@ -1,13 +1,18 @@
-//========= Copyright © 1996-2002, Valve LLC, All rights reserved. ============
+//========= Copyright ï¿½ 1996-2002, Valve LLC, All rights reserved. ============
 //
 // Purpose: 
 //
 // $NoKeywords: $
 //=============================================================================
+#pragma once
 
-// eventscripts.h
-#if !defined ( EVENTSCRIPTSH )
-#define EVENTSCRIPTSH
+#include "hud/hud.h"
+#include "hud/CHud.h"
+#include "pm_defs.h"
+#include "cl_util.h"
+#include "event_api.h"
+#include "r_studioint.h"
+#include "in_defs.h"
 
 // defaults for clientinfo messages
 #define	DEFAULT_VIEWHEIGHT	28
@@ -58,16 +63,44 @@
 #define DMG_CALTROP				(1<<30)
 #define DMG_HALLUC				(1<<31)
 
+extern engine_studio_api_t IEngineStudio;
+extern cvar_t* cl_lw;
+extern int tracerCount[32];
+
+#define SND_CHANGE_PITCH	(1<<7)		// duplicated in protocol.h change sound pitch
+
+// bullet types
+typedef	enum
+{
+	BULLET_NONE = 0,
+	BULLET_PLAYER_9MM, // glock
+	BULLET_PLAYER_MP5, // mp5
+	BULLET_PLAYER_357, // python
+	BULLET_PLAYER_BUCKSHOT, // shotgun
+	BULLET_PLAYER_CROWBAR, // crowbar swipe
+
+	BULLET_MONSTER_9MM,
+	BULLET_MONSTER_MP5,
+	BULLET_MONSTER_12MM,
+} Bullet;
+
 // Some of these are HL/TFC specific?
-void EV_EjectBrass( float *origin, float *velocity, float rotation, int model, int soundtype );
-void EV_GetGunPosition( struct event_args_s *args, float *pos, float *origin );
-void EV_GetDefaultShellInfo( struct event_args_s *args, float *origin, float *velocity, float *ShellVelocity, float *ShellOrigin, float *forward, float *right, float *up, float forwardScale, float upScale, float rightScale );
-qboolean EV_IsLocal( int idx );
-qboolean EV_IsPlayer( int idx );
-void EV_CreateTracer( float *start, float *end );
+struct cl_entity_s* GetEntity(int idx);
+struct cl_entity_s* GetViewEntity();
 
-struct cl_entity_s *GetEntity( int idx );
-struct cl_entity_s *GetViewEntity( void );
-void EV_MuzzleFlash( void );
+void EV_CreateTracer(float* start, float* end);
+qboolean EV_IsPlayer(int idx);
+qboolean EV_IsLocal(int idx);
+void EV_GetGunPosition(struct event_args_s* args, float* pos, float* origin);
+void EV_EjectBrass(float* origin, float* velocity, float rotation, int model, int soundtype);
+void EV_GetDefaultShellInfo(struct event_args_s* args, float* origin, float* velocity, float* ShellVelocity, float* ShellOrigin, float* forward, float* right, 
+                            float* up, float forwardScale, float upScale, float rightScale);
+void EV_MuzzleFlash();
 
-#endif // EVENTSCRIPTSH
+void EV_HLDM_GunshotDecalTrace(pmtrace_t* pTrace, char* decalName);
+void EV_HLDM_DecalGunshot(pmtrace_t* pTrace, int iBulletType);
+int EV_HLDM_CheckTracer(int idx, float* vecSrc, float* end, float* forward, float* right, int iBulletType, int iTracerFreq, int* tracerCount);
+void EV_HLDM_FireBullets(int idx, float* forward, float* right, float* up, int cShots, float* vecSrc, float* vecDirShooting, float flDistance, int iBulletType, int iTracerFreq, int* tracerCount, float flSpreadX, float flSpreadY);
+
+void V_PunchAxis(int axis, float punch);
+void VectorAngles(const float* forward, float* angles);

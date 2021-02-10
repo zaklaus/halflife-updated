@@ -20,7 +20,7 @@
 #include "r_studioint.h"
 
 #include "StudioModelRenderer.h"
-#include "GameStudioModelRenderer.h"
+#include "api/GameStudioModelRenderer.h"
 #include "hud/CHud.h"
 
 extern cvar_t* tfc_newmodels;

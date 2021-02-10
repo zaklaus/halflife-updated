@@ -20,15 +20,10 @@
 #include "VGUI_ScrollPanel.h"
 #include "VGUI_TextImage.h"
 
-#include<VGUI_StackLayout.h>
-
 #include "hud.h"
 #include "cl_util.h"
-#include "camera.h"
-#include "kbutton.h"
 #include "const.h"
 
-#include "vgui_int.h"
 #include "vgui_TeamFortressViewport.h"
 
 #define MOTD_TITLE_X		XRES(16)

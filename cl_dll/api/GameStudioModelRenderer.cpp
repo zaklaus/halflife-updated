@@ -24,7 +24,7 @@
 #include "studio_util.h"
 #include "r_studioint.h"
 
-#include "StudioModelRenderer.h"
+#include "effects/StudioModelRenderer.h"
 #include "GameStudioModelRenderer.h"
 #include "Exports.h"
 

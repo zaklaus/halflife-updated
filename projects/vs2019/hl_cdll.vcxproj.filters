@@ -34,15 +34,6 @@
     <Filter Include="Source Files\public">
       <UniqueIdentifier>{c053705f-05f3-4d16-ab13-80bfa84cbe75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\_hl">
-      <UniqueIdentifier>{f033f23a-ab54-411c-bebf-72d10839418e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\_hl\cl_dll">
-      <UniqueIdentifier>{5bff06ec-c232-4dd2-8642-4e2ce64f31ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\_hl\cl_dll\hl">
-      <UniqueIdentifier>{bd9d5958-4e67-4bff-bbd8-6ba6dfcdb720}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\dlls/entities/weapons">
       <UniqueIdentifier>{6e5b1d43-c860-4a8b-a4b3-23c4f743b30b}</UniqueIdentifier>
     </Filter>
@@ -97,51 +88,24 @@
     <Filter Include="Header Files\cl_dll\effects\aurora">
       <UniqueIdentifier>{08c2f861-ba4e-463e-aaf4-b66569784bb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cl_dll\hl">
+      <UniqueIdentifier>{f1ef5625-373a-4a20-9b5e-58dec08c5d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cl_dll\api">
+      <UniqueIdentifier>{ffe44820-26f1-4d8b-a6c7-a5396824e170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\api">
+      <UniqueIdentifier>{df153ac0-6bb9-4ef2-b12b-ae25693cede5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cl_dll\events">
+      <UniqueIdentifier>{91a7b228-c053-4330-b2f1-9d63d84ef2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cl_dll\events">
+      <UniqueIdentifier>{565c4ff7-2864-4045-b697-4f91cb44688f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\cl_dll\ev_hldm.cpp">
-      <Filter>Source Files\_hl\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hl\hl_weapons.cpp">
-      <Filter>Source Files\_hl\cl_dll\hl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hl\hl_baseentity.cpp">
-      <Filter>Source Files\_hl\cl_dll\hl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hl\hl_events.cpp">
-      <Filter>Source Files\_hl\cl_dll\hl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hl\hl_objects.cpp">
-      <Filter>Source Files\_hl\cl_dll\hl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\cdll_int.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\com_weapons.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\demo.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\entity.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\ev_common.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\events.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\GameStudioModelRenderer.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\in_camera.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\input.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\inputw32.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\interpolation.cpp">
@@ -156,15 +120,6 @@
     <ClCompile Include="..\..\cl_dll\studio_util.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\StudioModelRenderer.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\tri.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\view.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\public\interface.cpp">
       <Filter>Source Files\public</Filter>
     </ClCompile>
@@ -176,9 +131,6 @@
     </ClCompile>
     <ClCompile Include="..\..\pm_shared\pm_shared.cpp">
       <Filter>Source Files\pm_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\mp3.cpp">
-      <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CCrossbow.cpp">
       <Filter>Source Files\dlls/entities/weapons</Filter>
@@ -366,12 +318,99 @@
     <ClCompile Include="..\..\cl_dll\effects\aurora\ParticleSystem.cpp">
       <Filter>Source Files\cl_dll\effects\aurora</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\cl_dll\hl\hl_weapons.cpp">
+      <Filter>Source Files\cl_dll\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\hl\hl_objects.cpp">
+      <Filter>Source Files\cl_dll\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\hl\hl_stubs.cpp">
+      <Filter>Source Files\cl_dll\hl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\CMP3.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\demo.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\entity.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\in_camera.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\GameStudioModelRenderer.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\input.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\inputw32.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\tri.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\view.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\api\cdll_int.cpp">
+      <Filter>Source Files\cl_dll\api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\effects\StudioModelRenderer.cpp">
+      <Filter>Source Files\cl_dll\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_common.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_crossbow.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_egon.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_gauss.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_generic.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_glock.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_hornet.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_mirror.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_mp5.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_python.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_rpg.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_shotgun.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_snark.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_tripmine.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_train.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\events\ev_hook.cpp">
+      <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cl_dll\kbutton.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\camera.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\cl_dll.h">
@@ -381,18 +420,6 @@
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\com_weapons.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\demo.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\ev_hldm.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\eventscripts.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\GameStudioModelRenderer.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\hud.h">
@@ -425,12 +452,6 @@
     <ClInclude Include="..\..\pm_shared\pm_movevars.h">
       <Filter>Header Files\pm_shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\StudioModelRenderer.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\view.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\common\Platform.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
@@ -438,9 +459,6 @@
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\fmod_errors.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\mp3.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\glInclude.h">
@@ -670,6 +688,27 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\effects\aurora\ParticleSystem.h">
       <Filter>Header Files\cl_dll\effects\aurora</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\CMP3.h">
+      <Filter>Header Files\cl_dll\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\api\GameStudioModelRenderer.h">
+      <Filter>Header Files\cl_dll\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\api\view.h">
+      <Filter>Header Files\cl_dll\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\effects\StudioModelRenderer.h">
+      <Filter>Header Files\cl_dll\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\api\demo.h">
+      <Filter>Header Files\cl_dll\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\api\camera.h">
+      <Filter>Header Files\cl_dll\api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\events\ev_common.h">
+      <Filter>Header Files\cl_dll\events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

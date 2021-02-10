@@ -181,3 +181,5 @@ public:
 };
 
 extern CHud gHUD;
+
+HSPRITE LoadSprite(const char* pszName);

@@ -4,12 +4,9 @@
 //
 // $NoKeywords: $
 //=============================================================================
-
-#if !defined( GAMESTUDIOMODELRENDERER_H )
-#define GAMESTUDIOMODELRENDERER_H
-#if defined( _WIN32 )
 #pragma once
-#endif
+
+#include "effects/StudioModelRenderer.h"
 
 /*
 ====================
@@ -20,7 +17,5 @@ CGameStudioModelRenderer
 class CGameStudioModelRenderer : public CStudioModelRenderer
 {
 public:
-	CGameStudioModelRenderer( void );
+    CGameStudioModelRenderer(void);
 };
-
-#endif // GAMESTUDIOMODELRENDERER_H

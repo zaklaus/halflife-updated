@@ -14,66 +14,60 @@
 ****/
 #include "../hud.h"
 #include "../cl_util.h"
-#include "../demo.h"
-
-#include "demo_api.h"
 #include "const.h"
-#include "entity_state.h"
 #include "cl_entity.h"
-
 #include "pm_defs.h"
 #include "event_api.h"
-#include "entity_types.h"
 #include "r_efx.h"
 
-extern BEAM *pBeam;
-extern BEAM *pBeam2;
-void HUD_GetLastOrg( float *org );
+extern BEAM* pBeam;
+extern BEAM* pBeam2;
+void HUD_GetLastOrg(float* org);
 
-void UpdateBeams ( void )
+void UpdateBeams(void)
 {
-	vec3_t forward, vecSrc, vecEnd, origin, angles, right, up;
-	vec3_t view_ofs;
-	pmtrace_t tr;
-	cl_entity_t *pthisplayer = gEngfuncs.GetLocalPlayer();
-	int idx = pthisplayer->index;
-		
-	// Get our exact viewangles from engine
-	gEngfuncs.GetViewAngles( (float *)angles );
+    vec3_t forward, vecSrc, vecEnd, origin, angles, right, up;
+    vec3_t view_ofs;
+    pmtrace_t tr;
+    cl_entity_t* pthisplayer = gEngfuncs.GetLocalPlayer();
+    int idx = pthisplayer->index;
 
-	// Determine our last predicted origin
-	HUD_GetLastOrg( (float *)&origin );
+    // Get our exact viewangles from engine
+    gEngfuncs.GetViewAngles((float*)angles);
 
-	AngleVectors( angles, forward, right, up );
+    // Determine our last predicted origin
+    HUD_GetLastOrg((float*)&origin);
 
-	VectorCopy( origin, vecSrc );
-	
-	VectorMA( vecSrc, 2048, forward, vecEnd );
+    AngleVectors(angles, forward, right, up);
 
-	gEngfuncs.pEventAPI->EV_SetUpPlayerPrediction( false, true );	
-						
-	// Store off the old count
-	gEngfuncs.pEventAPI->EV_PushPMStates();
-					
-	// Now add in all of the players.
-	gEngfuncs.pEventAPI->EV_SetSolidPlayers ( idx - 1 );	
+    VectorCopy(origin, vecSrc);
 
-	gEngfuncs.pEventAPI->EV_SetTraceHull( 2 );
-	gEngfuncs.pEventAPI->EV_PlayerTrace( vecSrc, vecEnd, PM_STUDIO_BOX, -1, &tr );
+    VectorMA(vecSrc, 2048, forward, vecEnd);
 
-	gEngfuncs.pEventAPI->EV_PopPMStates();
+    gEngfuncs.pEventAPI->EV_SetUpPlayerPrediction(false, true);
 
-	if ( pBeam )
-	{
-		pBeam->target = tr.endpos;
-		pBeam->die	  = gEngfuncs.GetClientTime() + 0.1; // We keep it alive just a little bit forward in the future, just in case.
-	}
-		
-	if ( pBeam2 )
-	{
-		pBeam2->target = tr.endpos;
-		pBeam2->die	   = gEngfuncs.GetClientTime() + 0.1; // We keep it alive just a little bit forward in the future, just in case.
-	}
+    // Store off the old count
+    gEngfuncs.pEventAPI->EV_PushPMStates();
+
+    // Now add in all of the players.
+    gEngfuncs.pEventAPI->EV_SetSolidPlayers(idx - 1);
+
+    gEngfuncs.pEventAPI->EV_SetTraceHull(2);
+    gEngfuncs.pEventAPI->EV_PlayerTrace(vecSrc, vecEnd, PM_STUDIO_BOX, -1, &tr);
+
+    gEngfuncs.pEventAPI->EV_PopPMStates();
+
+    if (pBeam)
+    {
+        pBeam->target = tr.endpos;
+        pBeam->die = gEngfuncs.GetClientTime() + 0.1; // We keep it alive just a little bit forward in the future, just in case.
+    }
+
+    if (pBeam2)
+    {
+        pBeam2->target = tr.endpos;
+        pBeam2->die = gEngfuncs.GetClientTime() + 0.1; // We keep it alive just a little bit forward in the future, just in case.
+    }
 }
 
 /*
@@ -83,8 +77,8 @@ Game_AddObjects
 Add game specific, client-side objects here
 =====================
 */
-void Game_AddObjects( void )
+void Game_AddObjects(void)
 {
-	if ( pBeam && pBeam2 )
-		UpdateBeams();
+    if (pBeam && pBeam2)
+        UpdateBeams();
 }

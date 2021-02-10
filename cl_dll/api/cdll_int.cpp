@@ -24,7 +24,7 @@
 #undef INTERFACE_H
 #include "../public/interface.h"
 //#include "vgui_schememanager.h"
-#include "mp3.h" //AJH - Killars MP3player
+#include "effects/CMP3.h" //AJH - Killars MP3player
 
 #include "pm_shared.h"
 
@@ -56,7 +56,7 @@ void CL_LoadParticleMan(void);
 void CL_UnloadParticleMan(void);
 
 void InitInput(void);
-void EV_HookEvents(void);
+void Game_HookEvents(void);
 void IN_Commands(void);
 
 /*
@@ -150,7 +150,7 @@ int DLLEXPORT Initialize(cl_enginefunc_t* pEnginefuncs, int iVersion)
 
     memcpy(&gEngfuncs, pEnginefuncs, sizeof(cl_enginefunc_t));
 
-    EV_HookEvents();
+    Game_HookEvents();
     CL_LoadParticleMan();
 
     // get tracker interface, if any

@@ -2,7 +2,7 @@
 
 #include "hud.h"
 #include "cl_util.h"
-#include "mp3.h"
+#include "CMP3.h"
 
 int CMP3::Initialize()
 {
