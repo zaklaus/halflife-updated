@@ -2024,16 +2024,6 @@
     ]
 ]
 
-@SolidClass base(Targetname, MoveWith) = env_mirror : "Mirror"
-[
-    radius(integer) : "Radius" : 330
-    frags(string) : "Frags ([SF]blank for auto)"
-    spawnflag(flags) = 
-    [
-        1 : "Draw Player" : 0
-    ]
-]
-
 @PointClass base(Targetname, MoveWith) size(-16 -16 -16, 16 16 16) iconsprite("sprites/env.spr") = env_explosion : "Explosion" 
 [
       target(string) : "Initial position (blank = here) [LP]"
@@ -2962,14 +2952,6 @@
     _minlight(integer) : "_minlight"
     spawnorigin(string) : "X Y Z - Move here after lighting" : "0 0 0"
     dmg(integer) : "Damage inflicted when blocked" : 0
-]
-
-//NEW 1.1
-@SolidClass base(Targetname) = func_shine : "Shiny Surface" 
-[
-    message(sprite) : "Shine sprite" : "sprites/bgspr.spr"
-    scale(integer) : "Shine scale" : 10
-    renderamt(integer) : "Shine brightness (0-255)" : 50
 ]
 
 @SolidClass base(BaseTank, ZHLTLightKeys) = func_tank : "Brush Gun Turret" 

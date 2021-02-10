@@ -134,7 +134,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\events\ev_crossbow.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_egon.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_gauss.cpp" />
-    <ClCompile Include="..\..\cl_dll\events\ev_generic.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_glock.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_hornet.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_mp5.cpp" />

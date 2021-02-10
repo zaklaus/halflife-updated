@@ -369,9 +369,6 @@
     <ClCompile Include="..\..\cl_dll\events\ev_gauss.cpp">
       <Filter>Source Files\cl_dll\events</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\events\ev_generic.cpp">
-      <Filter>Source Files\cl_dll\events</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\events\ev_glock.cpp">
       <Filter>Source Files\cl_dll\events</Filter>
     </ClCompile>
