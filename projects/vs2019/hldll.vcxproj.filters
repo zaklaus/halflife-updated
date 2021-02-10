@@ -164,9 +164,6 @@
     <ClCompile Include="..\..\dlls\entities\brush\CMonsterClip.cpp">
       <Filter>Source Files\dlls\entities\brush</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\brush\CFuncShine.cpp">
-      <Filter>Source Files\dlls\entities\brush</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\brush\CFuncIllusionary.cpp">
       <Filter>Source Files\dlls\entities\brush</Filter>
     </ClCompile>
@@ -309,9 +306,6 @@
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CEnvFunnel.cpp">
-      <Filter>Source Files\dlls\entities\effects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\effects\CEnvMirror.cpp">
       <Filter>Source Files\dlls\entities\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dlls\entities\effects\CEnvModel.cpp">
@@ -1115,9 +1109,6 @@
     <ClCompile Include="..\..\dlls\entities\player\CPlayerFreeze.cpp">
       <Filter>Source Files\dlls\entities\player</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\player\CPlayerMarker.cpp">
-      <Filter>Source Files\dlls\entities\player</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\player\CInfoIntermission.cpp">
       <Filter>Source Files\dlls\entities\player</Filter>
     </ClCompile>
@@ -1312,9 +1303,6 @@
     <ClInclude Include="..\..\dlls\entities\brush\CFuncMonsterClip.h">
       <Filter>Header Files\dlls\entities\brush</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\brush\CFuncShine.h">
-      <Filter>Header Files\dlls\entities\brush</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\entities\brush\CFuncIllusionary.h">
       <Filter>Header Files\dlls\entities\brush</Filter>
     </ClInclude>
@@ -1457,9 +1445,6 @@
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CEnvFunnel.h">
-      <Filter>Header Files\dlls\entities\effects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\effects\CEnvMirror.h">
       <Filter>Header Files\dlls\entities\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\effects\CEnvModel.h">
@@ -2252,9 +2237,6 @@
       <Filter>Header Files\dlls\entities\player</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\player\CPlayerFreeze.h">
-      <Filter>Header Files\dlls\entities\player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\player\CPlayerMarker.h">
       <Filter>Header Files\dlls\entities\player</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\player\CInfoIntermission.h">

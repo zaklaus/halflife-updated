@@ -129,10 +129,6 @@ void DLLEXPORT HUD_DrawTransparentTriangles(void)
 
     BlackFog();
 
-    //22/03/03 LRC: shiny surfaces
-    if (gHUD.m_pShinySurface)
-        gHUD.m_pShinySurface->DrawAll(v_origin);
-
     // LRC: find out the time elapsed since the last redraw
     static float fOldTime, fTime;
     fOldTime = fTime;

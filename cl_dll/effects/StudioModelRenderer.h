@@ -184,11 +184,6 @@ public:
 	// Concatenated bone and light transforms
 	float			(*m_pbonetransform) [ MAXSTUDIOBONES ][ 3 ][ 4 ];
 	float			(*m_plighttransform)[ MAXSTUDIOBONES ][ 3 ][ 4 ];
-
-	// Mirror stuff
-	int 			mirror_id;
-	bool b_PlayerMarkerParsed;
-	int m_nCachedFrameCount;
 };
 
 #endif // STUDIOMODELRENDERER_H

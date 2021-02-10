@@ -160,7 +160,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\brush\CMortar.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncMortarField.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncIllusionary.cpp" />
-    <ClCompile Include="..\..\dlls\entities\brush\CFuncShine.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CMonsterClip.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CFuncConveyor.cpp" />
     <ClCompile Include="..\..\dlls\entities\brush\CEnvState.cpp" />
@@ -200,7 +199,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\effects\CEnvFootsteps.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvFunnel.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvLight.cpp" />
-    <ClCompile Include="..\..\dlls\entities\effects\CEnvMirror.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvModel.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvQuakeFx.cpp" />
     <ClCompile Include="..\..\dlls\entities\effects\CEnvShockwave.cpp" />
@@ -305,7 +303,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\player\CBasePlayerItem.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CRevertSaved.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CPlayerFreeze.cpp" />
-    <ClCompile Include="..\..\dlls\entities\player\CPlayerMarker.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CInfoIntermission.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CHudSprite.cpp" />
     <ClCompile Include="..\..\dlls\entities\player\CDeadHEV.cpp" />
@@ -494,7 +491,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayer.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBasePlayerItem.h" />
     <ClInclude Include="..\..\dlls\entities\player\CBloodSplat.h" />
-    <ClInclude Include="..\..\dlls\entities\player\CPlayerMarker.h" />
     <ClInclude Include="..\..\dlls\entities\player\CPlayerFreeze.h" />
     <ClInclude Include="..\..\dlls\entities\player\CInfoIntermission.h" />
     <ClInclude Include="..\..\dlls\entities\player\CRevertSaved.h" />
@@ -553,7 +549,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\brush\CRotButton.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CButtonTarget.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CEnvSpark.h" />
-    <ClInclude Include="..\..\dlls\entities\brush\CFuncShine.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CFuncMonsterClip.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CFuncConveyor.h" />
     <ClInclude Include="..\..\dlls\entities\brush\CEnvGlobal.h" />
@@ -590,7 +585,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\effects\CEnvFootsteps.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvFunnel.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvLight.h" />
-    <ClInclude Include="..\..\dlls\entities\effects\CEnvMirror.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvModel.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvQuakeFx.h" />
     <ClInclude Include="..\..\dlls\entities\effects\CEnvShockwave.h" />

@@ -137,7 +137,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\events\ev_generic.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_glock.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_hornet.cpp" />
-    <ClCompile Include="..\..\cl_dll\events\ev_mirror.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_mp5.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_python.cpp" />
     <ClCompile Include="..\..\cl_dll\events\ev_rpg.cpp" />
@@ -166,7 +165,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\hud\CHudStatusIcons.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\CHudTextMessage.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\CHudTrain.cpp" />
-    <ClCompile Include="..\..\cl_dll\hud\CShinySurface.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\HistoryResource.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\WeaponsResource.cpp" />
     <ClCompile Include="..\..\cl_dll\interpolation.cpp" />
@@ -256,7 +254,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\hud\CHudStatusIcons.h" />
     <ClInclude Include="..\..\cl_dll\hud\CHudTextMessage.h" />
     <ClInclude Include="..\..\cl_dll\hud\CHudTrain.h" />
-    <ClInclude Include="..\..\cl_dll\hud\CShinySurface.h" />
     <ClInclude Include="..\..\cl_dll\hud\hud.h" />
     <ClInclude Include="..\..\cl_dll\interpolation.h" />
     <ClInclude Include="..\..\cl_dll\in_defs.h" />

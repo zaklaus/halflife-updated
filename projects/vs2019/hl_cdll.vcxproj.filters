@@ -234,9 +234,6 @@
     <ClCompile Include="..\..\cl_dll\hud\CHudTrain.cpp">
       <Filter>Source Files\cl_dll\hud</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\hud\CShinySurface.cpp">
-      <Filter>Source Files\cl_dll\hud</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\hud\HistoryResource.cpp">
       <Filter>Source Files\cl_dll\hud</Filter>
     </ClCompile>
@@ -379,9 +376,6 @@
       <Filter>Source Files\cl_dll\events</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\events\ev_hornet.cpp">
-      <Filter>Source Files\cl_dll\events</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\events\ev_mirror.cpp">
       <Filter>Source Files\cl_dll\events</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\events\ev_mp5.cpp">
@@ -603,9 +597,6 @@
       <Filter>Header Files\cl_dll\hud</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\hud\CHudTrain.h">
-      <Filter>Header Files\cl_dll\hud</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\hud\CShinySurface.h">
       <Filter>Header Files\cl_dll\hud</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\hud\CHudHealth.h">

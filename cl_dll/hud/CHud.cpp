@@ -67,13 +67,6 @@ int __MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf)
     return 1;
 }
 
-//LRC
-int __MsgFunc_AddShine(const char* pszName, int iSize, void* pbuf)
-{
-    gHUD.MsgFunc_AddShine(pszName, iSize, pbuf);
-    return 1;
-}
-
 int __MsgFunc_Test(const char* pszName, int iSize, void* pbuf)
 {
     return 1;
@@ -330,7 +323,6 @@ void CHud::Init(void)
     HOOK_MESSAGE(SetFog); //LRC
     HOOK_MESSAGE(KeyedDLight); //LRC
     //	HOOK_MESSAGE( KeyedELight ); //LRC
-    HOOK_MESSAGE(AddShine); //LRC
     HOOK_MESSAGE(Test); //LRC
     HOOK_MESSAGE(SetSky); //LRC
     HOOK_MESSAGE(CamData); //G-Cont. for new camera style 	
@@ -387,7 +379,6 @@ void CHud::Init(void)
     viewFlags = 0;
     m_iLogo = 0;
     m_iFOV = 0;
-    numMirrors = 0;
     m_iHUDColor = 0x00FFA000; //255,160,0 -- LRC
 
     CVAR_CREATE("zoom_sensitivity_ratio", "1.2", 0);
@@ -396,7 +387,6 @@ void CHud::Init(void)
     m_pCvarDraw = CVAR_CREATE("hud_draw", "1", FCVAR_ARCHIVE);
     cl_lw = gEngfuncs.pfnGetCvarPointer("cl_lw");
     m_pSpriteList = NULL;
-    m_pShinySurface = NULL; //LRC
 
     // Clear any old HUD list
     if (m_pHudList)
@@ -448,13 +438,6 @@ CHud::~CHud()
     delete[] m_rgszSpriteNames;
     gMP3.Shutdown();
 
-    //LRC - clear all shiny surfaces
-    if (m_pShinySurface)
-    {
-        delete m_pShinySurface;
-        m_pShinySurface = NULL;
-    }
-
     if (m_pHudList)
     {
         HUDLIST* pList;
@@ -495,14 +478,6 @@ void CHud::VidInit(void)
 
     m_hsprLogo = 0;
     m_hsprCursor = 0;
-    numMirrors = 0;
-
-    //LRC - clear all shiny surfaces
-    if (m_pShinySurface)
-    {
-        delete m_pShinySurface;
-        m_pShinySurface = NULL;
-    }
 
     if (ScreenWidth < 640)
         m_iRes = 320;
@@ -772,7 +747,6 @@ int CHud::MsgFunc_ResetHUD(const char* pszName, int iSize, void* pbuf)
     /*	//LRC - reset fog
         g_fStartDist = 0;
         g_fEndDist = 0;
-        numMirrors = 0;
     */
     return 1;
 }
@@ -799,7 +773,6 @@ void CHud::MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
     g_clampMinYaw = 0;
     g_clampMaxYaw = 360;
     g_clampTurnSpeed = 1E6;
-    numMirrors = 0;
 
     m_iSkyMode = SKY_OFF; //LRC
 
@@ -909,28 +882,6 @@ void CHud::MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf)
         dl->color.g = READ_BYTE();
         dl->color.b = READ_BYTE();
     }
-}
-
-//LRC
-void CHud::MsgFunc_AddShine(const char* pszName, int iSize, void* pbuf)
-{
-    //	CONPRINT("MSG:AddShine");
-    BEGIN_READ(pbuf, iSize);
-
-    float fScale = READ_BYTE();
-    float fAlpha = READ_BYTE() / 255.0;
-    float fMinX = READ_COORD();
-    float fMaxX = READ_COORD();
-    float fMinY = READ_COORD();
-    float fMaxY = READ_COORD();
-    float fZ = READ_COORD();
-    char* szSprite = READ_STRING();
-
-    //	gEngfuncs.Con_Printf("minx %f, maxx %f, miny %f, maxy %f\n", fMinX, fMaxX, fMinY, fMaxY);
-
-    CShinySurface* pSurface = new CShinySurface(fScale, fAlpha, fMinX, fMaxX, fMinY, fMaxY, fZ, szSprite);
-    pSurface->m_pNext = m_pShinySurface;
-    m_pShinySurface = pSurface;
 }
 
 //LRC

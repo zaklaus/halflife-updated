@@ -31,7 +31,6 @@
 #include "CHudStatusIcons.h"
 #include "CHudTextMessage.h"
 #include "CHudTrain.h"
-#include "CShinySurface.h"
 
 #define HUD_ACTIVE	1
 #define HUD_INTERMISSION 2
@@ -74,7 +73,6 @@ public:
     int m_iRes;
     cvar_t* m_pCvarStealMouse;
     cvar_t* m_pCvarDraw;
-    CShinySurface* m_pShinySurface; //LRC
     Vector m_vecSkyPos; //LRC
     int m_iSkyMode; //LRC
     int m_iSkyScale; //AJH Allows parallax for the sky. 0 means no parallax, i.e infinitly large & far away.
@@ -88,8 +86,6 @@ public:
     int GetNumWidth(int iNumber, int iFlags);
     int viewEntityIndex; // for trigger_viewset
     int viewFlags;
-    struct cl_mirror_s Mirrors[32]; //Limit - 32 mirrors!
-    int numMirrors;
 
     int m_iHUDColor; //LRC
 
@@ -138,7 +134,7 @@ public:
     int Redraw(float flTime, int intermission);
     int UpdateClientData(client_data_t* cdata, float time);
 
-    CHud() : m_iSpriteCount(0), m_pHudList(NULL), m_pShinySurface(NULL)
+    CHud() : m_iSpriteCount(0), m_pHudList(NULL)
     {
     }
 
@@ -159,7 +155,6 @@ public:
     void _cdecl MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf); //LRC
     void _cdecl MsgFunc_SetSky(const char* pszName, int iSize, void* pbuf); //LRC
     int _cdecl MsgFunc_CamData(const char* pszName, int iSize, void* pbuf); //G-Cont
-    void _cdecl MsgFunc_AddShine(const char* pszName, int iSize, void* pbuf); //LRC
     int _cdecl MsgFunc_Inventory(const char* pszName, int iSize, void* pbuf); //AJH
     void _cdecl MsgFunc_ClampView(const char* pszName, int iSize, void* pbuf); //LRC 1.8
     void _cdecl MsgFunc_Weather(const char* pszName, int iSize, void* pBuf);

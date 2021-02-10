@@ -63,7 +63,6 @@ void CStudioModelRenderer::Init(void)
     m_plighttransform = (float (*)[MAXSTUDIOBONES][3][4])IEngineStudio.StudioGetLightTransform();
     m_paliastransform = (float (*)[3][4])IEngineStudio.StudioGetAliasTransform();
     m_protationmatrix = (float (*)[3][4])IEngineStudio.StudioGetRotationMatrix();
-    b_PlayerMarkerParsed = false;
 }
 
 /*
@@ -398,12 +397,7 @@ StudioPlayerBlend
 void CStudioModelRenderer::StudioPlayerBlend(mstudioseqdesc_t* pseqdesc, int* pBlend, float* pPitch)
 {
     // calc up/down pointing
-
-    //G-Cont. no need anymore
-    //	if(gHUD.m_iCameraMode)	
-    //		*pBlend = (*pPitch * 3);//G-Cont. check for right calculate blending in diff mode
-    //	else 
-    *pBlend = (*pPitch * -6);
+    *pBlend = (*pPitch * 3);
 
     if (*pBlend < pseqdesc->blendstart[0])
     {
@@ -550,6 +544,7 @@ void CStudioModelRenderer::StudioSetUpTransform(int trivial_accept)
                 (*m_paliastransform)[1][i] *= m_fSoftwareYScale *
                     (1.0 / (ZISCALE * 0x10000));
                 (*m_paliastransform)[2][i] *= 1.0 / (ZISCALE * 0x10000);
+
             }
         }
     }
@@ -716,6 +711,7 @@ void CStudioModelRenderer::StudioFxTransform(cl_entity_t* ent, float transform[3
             transform[2][1] *= scale;
         }
         break;
+
     }
 }
 
@@ -738,6 +734,7 @@ float CStudioModelRenderer::StudioEstimateFrame(mstudioseqdesc_t* pseqdesc)
         else
         {
             dfdt = (m_clTime - m_pCurrentEntity->curstate.animtime) * m_pCurrentEntity->curstate.framerate * pseqdesc->fps;
+
         }
     }
     else
@@ -1173,44 +1170,9 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
 
     m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
 
-    if (gHUD.m_iSkyMode == SKY_ON_DRAWING && m_pCurrentEntity->curstate.renderfx != kRenderFxEntInPVS)
-    {
-        return 0;
-    }
-
     IEngineStudio.GetTimes(&m_nFrameCount, &m_clTime, &m_clOldTime);
     IEngineStudio.GetViewInfo(m_vRenderOrigin, m_vUp, m_vRight, m_vNormal);
     IEngineStudio.GetAliasScale(&m_fSoftwareXScale, &m_fSoftwareYScale);
-
-    if (m_nCachedFrameCount != m_nFrameCount)
-    {
-        b_PlayerMarkerParsed = false;
-        m_nCachedFrameCount = m_nFrameCount;
-    }
-
-    if (!strcmp(m_pCurrentEntity->model->name, "models/null.mdl"))
-    {
-        if (!b_PlayerMarkerParsed)
-        {
-            cl_entity_t* player = gEngfuncs.GetLocalPlayer();
-            entity_state_t* shinyplr = IEngineStudio.GetPlayerState(0);
-
-            int save_interp;
-            save_interp = m_fDoInterp;
-            m_fDoInterp = 0;
-
-            // draw as though it were a player
-            flags |= 2048;
-
-            m_pCurrentEntity = player;
-
-            StudioDrawPlayer(flags, shinyplr);
-
-            b_PlayerMarkerParsed = true;
-            m_fDoInterp = save_interp;
-        }
-        return 1;
-    }
 
     if (m_pCurrentEntity->curstate.renderfx == kRenderFxDeadPlayer)
     {
@@ -1223,8 +1185,7 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
             return 0;
 
         // get copy of player
-        deadplayer = *(IEngineStudio.GetPlayerState(m_pCurrentEntity->curstate.renderamt - 1));
-        //cl.frames[cl.parsecount & CL_UPDATE_MASK].playerstate[m_pCurrentEntity->curstate.renderamt-1];
+        deadplayer = *(IEngineStudio.GetPlayerState(m_pCurrentEntity->curstate.renderamt - 1)); //cl.frames[cl.parsecount & CL_UPDATE_MASK].playerstate[m_pCurrentEntity->curstate.renderamt-1];
 
         // clear weapon, movement state
         deadplayer.number = m_pCurrentEntity->curstate.renderamt;
@@ -1256,13 +1217,7 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
     {
         // see if the bounding box lets us trivially reject, also sets
         if (!IEngineStudio.StudioCheckBBox())
-        {
-            vec3_t delta;
-            float dist;
-            VectorSubtract(gHUD.Mirrors[mirror_id].origin, m_pCurrentEntity->origin, delta);
-            dist = Length(delta);
-            if ((gHUD.numMirrors < 0) || (gHUD.Mirrors[mirror_id].radius < dist)) return 0;
-        }
+            return 0;
 
         (*m_pModelsDrawn)++;
         (*m_pStudioModelCount)++; // render data cache cookie
@@ -1390,111 +1345,6 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
         StudioRenderModel();
     }
 
-    //G-Cont. you may choose any check - any nice works ;)
-    //if ((gHUD.numMirrors>0 && !(m_pCurrentEntity->model->name[7]=='v' && m_pCurrentEntity->model->name[8]=='_')))
-    if ((gHUD.numMirrors > 0 && (gEngfuncs.GetViewModel() != m_pCurrentEntity)))
-    {
-        for (int ic = 0; ic < gHUD.numMirrors; ic++)
-        {
-            //Parsing mirror
-            if (!gHUD.Mirrors[ic].enabled)
-            {
-                continue;
-            }
-
-            vec3_t delta;
-            float dist;
-            VectorSubtract(gHUD.Mirrors[ic].origin, m_pCurrentEntity->origin, delta);
-            dist = Length(delta);
-
-            if (gHUD.Mirrors[ic].radius < dist)
-            {
-                continue;
-            }
-
-            switch (gHUD.Mirrors[ic].type)
-            {
-            case 0:
-                (*m_protationmatrix)[0][0] *= -1;
-                (*m_protationmatrix)[0][1] *= -1;
-                (*m_protationmatrix)[0][2] *= -1;
-                (*m_protationmatrix)[0][3] = gHUD.Mirrors[ic].origin[0] * 2 - m_pCurrentEntity->origin[0];
-                break;
-
-            case 1:
-                (*m_protationmatrix)[1][1] *= -1;
-                (*m_protationmatrix)[1][0] *= -1;
-                (*m_protationmatrix)[1][2] *= -1;
-                (*m_protationmatrix)[1][3] = gHUD.Mirrors[ic].origin[1] * 2 - m_pCurrentEntity->origin[1];
-                break;
-
-            case 2:
-                (*m_protationmatrix)[2][2] *= -1; //minimal matrix transform - for right calculate origin of monster. G-cont
-                break;
-            }
-
-            mirror_id = ic;
-
-            gEngfuncs.pTriAPI->CullFace(TRI_NONE);
-
-            if (flags & STUDIO_RENDER)
-            {
-                // see if the bounding box lets us trivially reject, also sets
-                if (!IEngineStudio.StudioCheckBBox()) //no need disabled frustrum cull for "mirroring" models. G-Cont
-                    return 0;
-
-                (*m_pModelsDrawn)++;
-                (*m_pStudioModelCount)++; // render data cache cookie
-
-                if (m_pStudioHeader->numbodyparts == 0)
-                    return 1;
-            }
-
-            if (m_pCurrentEntity->curstate.movetype == MOVETYPE_FOLLOW)
-            {
-                StudioMergeBones(m_pRenderModel);
-            }
-            else
-            {
-                StudioSetupBones();
-            }
-            StudioSaveBones();
-
-            if (flags & STUDIO_EVENTS)
-            {
-                StudioCalcAttachments();
-                IEngineStudio.StudioClientEvents();
-                // copy attachments into global entity array
-                if (m_pCurrentEntity->index > 0)
-                {
-                    cl_entity_t* ent = gEngfuncs.GetEntityByIndex(m_pCurrentEntity->index);
-                    memcpy(ent->attachment, m_pCurrentEntity->attachment, sizeof(vec3_t) * 4);
-                }
-            }
-
-            if (flags & STUDIO_RENDER)
-            {
-                lighting.plightvec = dir;
-                IEngineStudio.StudioDynamicLight(m_pCurrentEntity, &lighting);
-
-                IEngineStudio.StudioEntityLight(&lighting);
-
-                // model and frame independant
-                IEngineStudio.StudioSetupLighting(&lighting);
-
-                // get remap colors
-                m_nTopColor = m_pCurrentEntity->curstate.colormap & 0xFF;
-                m_nBottomColor = (m_pCurrentEntity->curstate.colormap & 0xFF00) >> 8;
-
-                IEngineStudio.StudioSetRemapColors(m_nTopColor, m_nBottomColor);
-
-                StudioRenderModel();
-            }
-
-            gEngfuncs.pTriAPI->CullFace(TRI_FRONT);
-        }
-    }
-
     return 1;
 }
 
@@ -1596,7 +1446,7 @@ void CStudioModelRenderer::StudioProcessGait(entity_state_t* pplayer)
     m_pCurrentEntity->latched.prevblending[0] = m_pCurrentEntity->curstate.blending[0];
     m_pCurrentEntity->latched.prevseqblending[0] = m_pCurrentEntity->curstate.blending[0];
 
-    //CONPRINT("%f %d\n", m_pCurrentEntity->angles[PITCH], m_pCurrentEntity->curstate.blending[0] );
+    // Con_DPrintf("%f %d\n", m_pCurrentEntity->angles[PITCH], m_pCurrentEntity->blending[0] );
 
     dt = (m_clTime - m_clOldTime);
     if (dt < 0)
@@ -1821,11 +1671,7 @@ int CStudioModelRenderer::StudioDrawPlayer(int flags, entity_state_t* pplayer)
     alight_t lighting;
     vec3_t dir;
 
-    if (!(flags & 2048))
-    {
-        m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
-    }
-
+    m_pCurrentEntity = IEngineStudio.GetCurrentEntity();
     IEngineStudio.GetTimes(&m_nFrameCount, &m_clTime, &m_clOldTime);
     IEngineStudio.GetViewInfo(m_vRenderOrigin, m_vUp, m_vRight, m_vNormal);
     IEngineStudio.GetAliasScale(&m_fSoftwareXScale, &m_fSoftwareYScale);
@@ -1867,276 +1713,93 @@ int CStudioModelRenderer::StudioDrawPlayer(int flags, entity_state_t* pplayer)
     IEngineStudio.StudioSetHeader(m_pStudioHeader);
     IEngineStudio.SetRenderModel(m_pRenderModel);
 
-    if (gHUD.numMirrors > 0)
+    if (pplayer->gaitsequence)
     {
-        StudioSetUpTransform(0); //G-cont. transform must be first!
-        switch (gHUD.Mirrors[mirror_id].type)
-        {
-        case 0:
-            (*m_protationmatrix)[0][0] *= -1;
-            (*m_protationmatrix)[0][1] *= -1;
-            (*m_protationmatrix)[0][2] *= -1;
-            (*m_protationmatrix)[0][3] = gHUD.Mirrors[mirror_id].origin[0] * 2 - m_pCurrentEntity->origin[0];
-            break;
-
-        case 1:
-            (*m_protationmatrix)[1][1] *= -1;
-            (*m_protationmatrix)[1][0] *= -1;
-            (*m_protationmatrix)[1][2] *= -1;
-            (*m_protationmatrix)[1][3] = gHUD.Mirrors[mirror_id].origin[1] * 2 - m_pCurrentEntity->origin[1];
-            break;
-
-        case 2:
-            (*m_protationmatrix)[2][2] *= -1;
-            (*m_protationmatrix)[2][1] *= -1;
-            (*m_protationmatrix)[2][0] *= -1;
-            (*m_protationmatrix)[2][3] = gHUD.Mirrors[mirror_id].origin[2] * 2.3 - m_pCurrentEntity->origin[2];
-            break;
-        }
-
-        for (int ic = 0; ic < gHUD.numMirrors; ic++)
-        {
-            //Parsing mirror
-
-            m_pStudioHeader = (studiohdr_t*)IEngineStudio.Mod_Extradata(m_pRenderModel);
-            IEngineStudio.StudioSetHeader(m_pStudioHeader);
-            IEngineStudio.SetRenderModel(m_pRenderModel);
-
-            if (!gHUD.Mirrors[ic].enabled)
-            {
-                continue;
-            }
-
-            vec3_t delta;
-            float dist;
-            VectorSubtract(gHUD.Mirrors[ic].origin, m_pCurrentEntity->origin, delta);
-            dist = Length(delta);
-
-            if (gHUD.Mirrors[ic].radius < dist)
-            {
-                continue;
-            }
-
-            mirror_id = ic;
-
-            gEngfuncs.pTriAPI->CullFace(TRI_NONE);
-
-            if (pplayer->gaitsequence)
-            {
-                vec3_t orig_angles;
-                m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-
-                VectorCopy(m_pCurrentEntity->angles, orig_angles);
-                StudioProcessGait(pplayer);
-
-                m_pPlayerInfo->gaitsequence = pplayer->gaitsequence;
-                m_pPlayerInfo = NULL;
-
-                //StudioSetUpTransform( 0 );
-                VectorCopy(orig_angles, m_pCurrentEntity->angles);
-            }
-            else //player in jump (or duck)
-            {
-                m_pCurrentEntity->curstate.controller[0] = 127;
-                m_pCurrentEntity->curstate.controller[1] = 127;
-                m_pCurrentEntity->curstate.controller[2] = 127;
-                m_pCurrentEntity->curstate.controller[3] = 127;
-                m_pCurrentEntity->latched.prevcontroller[0] = m_pCurrentEntity->curstate.controller[0];
-                m_pCurrentEntity->latched.prevcontroller[1] = m_pCurrentEntity->curstate.controller[1];
-                m_pCurrentEntity->latched.prevcontroller[2] = m_pCurrentEntity->curstate.controller[2];
-                m_pCurrentEntity->latched.prevcontroller[3] = m_pCurrentEntity->curstate.controller[3];
-
-                m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-                m_pPlayerInfo->gaitsequence = 0;
-
-                //StudioSetUpTransform( 0 );
-            }
-            if (flags & STUDIO_RENDER)
-            {
-                // see if the bounding box lets us trivially reject, also sets
-                if (!IEngineStudio.StudioCheckBBox())
-                    return 0;
-
-                (*m_pModelsDrawn)++;
-                (*m_pStudioModelCount)++; // render data cache cookie
-
-                if (m_pStudioHeader->numbodyparts == 0)
-                    return 1;
-            }
-
-            m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-            StudioSetupBones();
-            StudioSaveBones();
-            m_pPlayerInfo->renderframe = m_nFrameCount;
-
-            m_pPlayerInfo = NULL;
-
-            if (flags & STUDIO_EVENTS)
-            {
-                StudioCalcAttachments();
-                IEngineStudio.StudioClientEvents();
-                // copy attachments into global entity array
-                if (m_pCurrentEntity->index > 0)
-                {
-                    cl_entity_t* ent = gEngfuncs.GetEntityByIndex(m_pCurrentEntity->index);
-                    memcpy(ent->attachment, m_pCurrentEntity->attachment, sizeof(vec3_t) * 4);
-                }
-            }
-
-            if (flags & STUDIO_RENDER)
-            {
-                if (m_pCvarHiModels->value && m_pRenderModel != m_pCurrentEntity->model)
-                {
-                    // show highest resolution multiplayer model
-                    m_pCurrentEntity->curstate.body = 255;
-                }
-
-                if (!(m_pCvarDeveloper->value == 0 && gEngfuncs.GetMaxClients() == 1) && (m_pRenderModel == m_pCurrentEntity->model))
-                {
-                    m_pCurrentEntity->curstate.body = 1; // force helmet
-                }
-
-                lighting.plightvec = dir;
-                IEngineStudio.StudioDynamicLight(m_pCurrentEntity, &lighting);
-
-                IEngineStudio.StudioEntityLight(&lighting);
-
-                // model and frame independant
-                IEngineStudio.StudioSetupLighting(&lighting);
-
-                m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-
-                // get remap colors
-                m_nTopColor = m_pPlayerInfo->topcolor;
-                m_nBottomColor = m_pPlayerInfo->bottomcolor;
-                if (m_nTopColor < 0)
-                    m_nTopColor = 0;
-                if (m_nTopColor > 360)
-                    m_nTopColor = 360;
-                if (m_nBottomColor < 0)
-                    m_nBottomColor = 0;
-                if (m_nBottomColor > 360)
-                    m_nBottomColor = 360;
-
-                IEngineStudio.StudioSetRemapColors(m_nTopColor, m_nBottomColor);
-
-                StudioRenderModel();
-                m_pPlayerInfo = NULL;
-
-                if (pplayer->weaponmodel)
-                {
-                    cl_entity_t saveent = *m_pCurrentEntity;
-                    model_t* pweaponmodel = IEngineStudio.GetModelByIndex(pplayer->weaponmodel);
-
-                    m_pStudioHeader = (studiohdr_t*)IEngineStudio.Mod_Extradata(pweaponmodel);
-                    IEngineStudio.StudioSetHeader(m_pStudioHeader);
-
-                    StudioMergeBones(pweaponmodel);
-                    IEngineStudio.StudioSetupLighting(&lighting);
-
-                    StudioRenderModel();
-                    StudioCalcAttachments();
-                    *m_pCurrentEntity = saveent;
-                }
-            }
-        } //end for
-
-        gEngfuncs.pTriAPI->CullFace(TRI_FRONT);
-    }
-
-    if (!(flags & 2048))
-    {
-        m_pStudioHeader = (studiohdr_t*)IEngineStudio.Mod_Extradata(m_pRenderModel);
-        IEngineStudio.StudioSetHeader(m_pStudioHeader);
-        IEngineStudio.SetRenderModel(m_pRenderModel);
-
-        if (pplayer->gaitsequence)
-        {
-            vec3_t orig_angles;
-            m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-
-            VectorCopy(m_pCurrentEntity->angles, orig_angles);
-
-            StudioProcessGait(pplayer);
-
-            m_pPlayerInfo->gaitsequence = pplayer->gaitsequence;
-            m_pPlayerInfo = NULL;
-
-            StudioSetUpTransform(0);
-            VectorCopy(orig_angles, m_pCurrentEntity->angles);
-        }
-        else
-        {
-            m_pCurrentEntity->curstate.controller[0] = 127;
-            m_pCurrentEntity->curstate.controller[1] = 127;
-            m_pCurrentEntity->curstate.controller[2] = 127;
-            m_pCurrentEntity->curstate.controller[3] = 127;
-            m_pCurrentEntity->latched.prevcontroller[0] = m_pCurrentEntity->curstate.controller[0];
-            m_pCurrentEntity->latched.prevcontroller[1] = m_pCurrentEntity->curstate.controller[1];
-            m_pCurrentEntity->latched.prevcontroller[2] = m_pCurrentEntity->curstate.controller[2];
-            m_pCurrentEntity->latched.prevcontroller[3] = m_pCurrentEntity->curstate.controller[3];
-
-            m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-            m_pPlayerInfo->gaitsequence = 0;
-
-            StudioSetUpTransform(0);
-        }
-
-        if (flags & STUDIO_RENDER)
-        {
-            // see if the bounding box lets us trivially reject, also sets
-            if (!IEngineStudio.StudioCheckBBox())
-                return 0;
-
-            (*m_pModelsDrawn)++;
-            (*m_pStudioModelCount)++; // render data cache cookie
-
-            if (m_pStudioHeader->numbodyparts == 0)
-                return 1;
-        }
-
+        vec3_t orig_angles;
         m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
-        StudioSetupBones();
-        StudioSaveBones();
-        m_pPlayerInfo->renderframe = m_nFrameCount;
 
+        VectorCopy(m_pCurrentEntity->angles, orig_angles);
+
+        StudioProcessGait(pplayer);
+
+        m_pPlayerInfo->gaitsequence = pplayer->gaitsequence;
         m_pPlayerInfo = NULL;
 
-        if (flags & STUDIO_EVENTS)
-        {
-            StudioCalcAttachments();
-            IEngineStudio.StudioClientEvents();
-            // copy attachments into global entity array
-            if (m_pCurrentEntity->index > 0)
-            {
-                cl_entity_t* ent = gEngfuncs.GetEntityByIndex(m_pCurrentEntity->index);
+        StudioSetUpTransform(0);
+        VectorCopy(orig_angles, m_pCurrentEntity->angles);
+    }
+    else
+    {
+        m_pCurrentEntity->curstate.controller[0] = 127;
+        m_pCurrentEntity->curstate.controller[1] = 127;
+        m_pCurrentEntity->curstate.controller[2] = 127;
+        m_pCurrentEntity->curstate.controller[3] = 127;
+        m_pCurrentEntity->latched.prevcontroller[0] = m_pCurrentEntity->curstate.controller[0];
+        m_pCurrentEntity->latched.prevcontroller[1] = m_pCurrentEntity->curstate.controller[1];
+        m_pCurrentEntity->latched.prevcontroller[2] = m_pCurrentEntity->curstate.controller[2];
+        m_pCurrentEntity->latched.prevcontroller[3] = m_pCurrentEntity->curstate.controller[3];
 
-                memcpy(ent->attachment, m_pCurrentEntity->attachment, sizeof(vec3_t) * 4);
-            }
+        m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
+        m_pPlayerInfo->gaitsequence = 0;
+
+        StudioSetUpTransform(0);
+    }
+
+    if (flags & STUDIO_RENDER)
+    {
+        // see if the bounding box lets us trivially reject, also sets
+        if (!IEngineStudio.StudioCheckBBox())
+            return 0;
+
+        (*m_pModelsDrawn)++;
+        (*m_pStudioModelCount)++; // render data cache cookie
+
+        if (m_pStudioHeader->numbodyparts == 0)
+            return 1;
+    }
+
+    m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
+    StudioSetupBones();
+    StudioSaveBones();
+    m_pPlayerInfo->renderframe = m_nFrameCount;
+
+    m_pPlayerInfo = NULL;
+
+    if (flags & STUDIO_EVENTS)
+    {
+        StudioCalcAttachments();
+        IEngineStudio.StudioClientEvents();
+        // copy attachments into global entity array
+        if (m_pCurrentEntity->index > 0)
+        {
+            cl_entity_t* ent = gEngfuncs.GetEntityByIndex(m_pCurrentEntity->index);
+
+            memcpy(ent->attachment, m_pCurrentEntity->attachment, sizeof(vec3_t) * 4);
+        }
+    }
+
+    if (flags & STUDIO_RENDER)
+    {
+        if (m_pCvarHiModels->value && m_pRenderModel != m_pCurrentEntity->model)
+        {
+            // show highest resolution multiplayer model
+            m_pCurrentEntity->curstate.body = 255;
         }
 
-        if (flags & STUDIO_RENDER)
+        if (!(m_pCvarDeveloper->value == 0 && gEngfuncs.GetMaxClients() == 1) && (m_pRenderModel == m_pCurrentEntity->model))
         {
-            if (m_pCvarHiModels->value && m_pRenderModel != m_pCurrentEntity->model)
-            {
-                // show highest resolution multiplayer model
-                m_pCurrentEntity->curstate.body = 255;
-            }
+            m_pCurrentEntity->curstate.body = 1; // force helmet
+        }
 
-            if (!(m_pCvarDeveloper->value == 0 && gEngfuncs.GetMaxClients() == 1) && (m_pRenderModel == m_pCurrentEntity->model))
-            {
-                m_pCurrentEntity->curstate.body = 1; // force helmet
-            }
+        lighting.plightvec = dir;
+        IEngineStudio.StudioDynamicLight(m_pCurrentEntity, &lighting);
 
-            lighting.plightvec = dir;
-            IEngineStudio.StudioDynamicLight(m_pCurrentEntity, &lighting);
+        IEngineStudio.StudioEntityLight(&lighting);
 
-            IEngineStudio.StudioEntityLight(&lighting);
+        // model and frame independant
+        IEngineStudio.StudioSetupLighting(&lighting);
 
-            // model and frame independant
-            IEngineStudio.StudioSetupLighting(&lighting);
-
-            m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
+        m_pPlayerInfo = IEngineStudio.PlayerInfo(m_nPlayerIndex);
 
 #if defined _TFC
 
@@ -2173,32 +1836,32 @@ int CStudioModelRenderer::StudioDrawPlayer(int flags, entity_state_t* pplayer)
 		    }
 
 #else
-            // get remap colors
-            m_nTopColor = m_pPlayerInfo->topcolor;
-            m_nBottomColor = m_pPlayerInfo->bottomcolor;
+        // get remap colors
+        m_nTopColor = m_pPlayerInfo->topcolor;
+        m_nBottomColor = m_pPlayerInfo->bottomcolor;
 
 #endif
 
-            // bounds check
-            if (m_nTopColor < 0)
-                m_nTopColor = 0;
-            if (m_nTopColor > 360)
-                m_nTopColor = 360;
-            if (m_nBottomColor < 0)
-                m_nBottomColor = 0;
-            if (m_nBottomColor > 360)
-                m_nBottomColor = 360;
+        // bounds check
+        if (m_nTopColor < 0)
+            m_nTopColor = 0;
+        if (m_nTopColor > 360)
+            m_nTopColor = 360;
+        if (m_nBottomColor < 0)
+            m_nBottomColor = 0;
+        if (m_nBottomColor > 360)
+            m_nBottomColor = 360;
 
-            IEngineStudio.StudioSetRemapColors(m_nTopColor, m_nBottomColor);
+        IEngineStudio.StudioSetRemapColors(m_nTopColor, m_nBottomColor);
 
-            StudioRenderModel();
-            m_pPlayerInfo = NULL;
+        StudioRenderModel();
+        m_pPlayerInfo = NULL;
 
-            if (pplayer->weaponmodel)
-            {
-                cl_entity_t saveent = *m_pCurrentEntity;
+        if (pplayer->weaponmodel)
+        {
+            cl_entity_t saveent = *m_pCurrentEntity;
 
-                model_t* pweaponmodel = IEngineStudio.GetModelByIndex(pplayer->weaponmodel);
+            model_t* pweaponmodel = IEngineStudio.GetModelByIndex(pplayer->weaponmodel);
 
 #if defined _TFC
 			    if ( pweaponmodel )
@@ -2218,8 +1881,8 @@ int CStudioModelRenderer::StudioDrawPlayer(int flags, entity_state_t* pplayer)
 				    }
 			    }
 #endif
-                m_pStudioHeader = (studiohdr_t*)IEngineStudio.Mod_Extradata(pweaponmodel);
-                IEngineStudio.StudioSetHeader(m_pStudioHeader);
+            m_pStudioHeader = (studiohdr_t*)IEngineStudio.Mod_Extradata(pweaponmodel);
+            IEngineStudio.StudioSetHeader(m_pStudioHeader);
 
 #ifdef _TFC
 			    //Do spinning stuff for the HWGuy minigun
@@ -2270,16 +1933,15 @@ int CStudioModelRenderer::StudioDrawPlayer(int flags, entity_state_t* pplayer)
 
 #endif
 
-                StudioMergeBones(pweaponmodel);
+            StudioMergeBones(pweaponmodel);
 
-                IEngineStudio.StudioSetupLighting(&lighting);
+            IEngineStudio.StudioSetupLighting(&lighting);
 
-                StudioRenderModel();
+            StudioRenderModel();
 
-                StudioCalcAttachments();
+            StudioCalcAttachments();
 
-                *m_pCurrentEntity = saveent;
-            }
+            *m_pCurrentEntity = saveent;
         }
     }
     return 1;
