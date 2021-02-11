@@ -15,7 +15,7 @@
 
 #include "CHudSayText.h"
 #include "CHud.h"
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 #include "player_info.h"
 #include "malloc.h" // _alloca
 #include <cassert>

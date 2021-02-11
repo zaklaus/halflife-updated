@@ -54,10 +54,10 @@ namespace vgui
         // vgui overrides.
     public:
 
-        virtual void setPos(int x, int y);
-        virtual void setSize(int wide, int tall);
+        void setPos(int x, int y) override;
+        void setSize(int wide, int tall) override;
         virtual void setPixelScroll(int value);
-        virtual void paintBackground();
+        void paintBackground() override;
 
 
     protected:
@@ -72,7 +72,7 @@ namespace vgui
         class ListBoxSignal : public IntChangeSignal
         {
         public:
-            void intChanged(int value, Panel* panel)
+            void intChanged(int value, Panel* panel) override
             {
                 m_pListBox->setPixelScroll(-value);
             }

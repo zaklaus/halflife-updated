@@ -15,7 +15,7 @@
 
 #include "CHudTextMessage.h"
 #include "CHud.h"
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 
 DECLARE_MESSAGE(m_TextMessage, TextMsg);
 

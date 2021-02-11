@@ -16,15 +16,21 @@
 // $NoKeywords: $
 //=============================================================================
 
-#include "VGUI_Font.h"
-#include "VGUI_ScrollPanel.h"
-#include "VGUI_TextImage.h"
+#include <VGUI_LineBorder.h>
+#include <VGUI_Font.h>
+#include <VGUI_ScrollPanel.h>
+#include <VGUI_TextImage.h>
 
 #include "hud.h"
 #include "cl_util.h"
 #include "const.h"
+#include "vgui_common.h"
 
-#include "vgui_TeamFortressViewport.h"
+#include "CMenuHandler_TextWindow.h"
+#include "CMenuPanel.h"
+#include "CMessageWindowPanel.h"
+#include "CSchemeManager.h"
+#include "CTFScrollPanel.h"
 
 #define MOTD_TITLE_X		XRES(16)
 #define MOTD_TITLE_Y		YRES(16)
@@ -34,17 +40,7 @@
 #define MOTD_WINDOW_SIZE_X			XRES(424)
 #define MOTD_WINDOW_SIZE_Y			YRES(312)
 
-//-----------------------------------------------------------------------------
-// Purpose: Displays the MOTD and basic server information
-//-----------------------------------------------------------------------------
-class CMessageWindowPanel : public CMenuPanel
-{
-public:
-    CMessageWindowPanel(const char* szMOTD, const char* szTitle, int iShadeFullScreen, int iRemoveMe, int x, int y, int wide, int tall);
-
-private:
-    CTransparentPanel* m_pBackgroundPanel;
-};
+using namespace vgui;
 
 //-----------------------------------------------------------------------------
 // Purpose: Creates a new CMessageWindowPanel

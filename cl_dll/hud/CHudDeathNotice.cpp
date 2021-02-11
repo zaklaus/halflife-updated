@@ -16,7 +16,7 @@
 #include "CHudDeathNotice.h"
 #include "CHud.h"
 #include "player_info.h"
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 
 DECLARE_MESSAGE(m_DeathNotice, DeathMsg);
 

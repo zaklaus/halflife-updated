@@ -1,40 +1,29 @@
-//=========== (C) Copyright 1999 Valve, L.L.C. All rights reserved. ===========
-//
-// The copyright to the contents herein is the property of Valve, L.L.C.
-// The contents may be used and/or copied only with the written permission of
-// Valve, L.L.C., or in accordance with the terms and conditions stipulated in
-// the agreement/contract under which the contents have been supplied.
-//
-// Purpose: VGUI scoreboard
-//
-// $Workfile:     $
-// $Date:         $
-//
-//-----------------------------------------------------------------------------
-// $Log: $
-//
-// $NoKeywords: $
-//=============================================================================
+/***
+*
+* Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+* 
+* This product contains software technology licensed from Id
+* Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
+* All Rights Reserved.
+*
+* Use, distribution, and modification of this source code and/or resulting
+* object code is restricted to non-commercial enhancements to products from
+* Valve LLC.  All other use, distribution, or modification is prohibited
+* without written permission from Valve LLC.
+*
+****/
 
-
-#include <VGUI_LineBorder.h>
 #include <VGUI_App.h>
+#include <VGUI_LineBorder.h>
 
-#include "hud.h"
-#include "cl_util.h"
-#include "const.h"
-#include "entity_state.h"
-#include "cl_entity.h"
-#include "vgui_TeamFortressViewport.h"
-#include "vgui_ScorePanel.h"
-
-#include "vgui/controls/vgui_helpers.h"
-#include "vgui/controls/vgui_loadtga.h"
+#include "ScorePanel.h"
+#include "CMenuHandler_StringCommandWatch.h"
+#include "controls/vgui_helpers.h"
 #include "voice/CVoiceStatus.h"
-#include "vgui_SpectatorPanel.h"
+#include "TeamFortressViewport.h"
 
-extern hud_player_info_t g_PlayerInfoList[MAX_PLAYERS + 1]; // player info from the engine
-extern extra_player_info_t g_PlayerExtraInfo[MAX_PLAYERS + 1]; // additional player info sent directly to the client dll
+using namespace vgui;
+
 team_info_t g_TeamInfo[MAX_TEAMS + 1];
 int g_IsSpectator[MAX_PLAYERS + 1];
 
@@ -789,9 +778,9 @@ void ScorePanel::FillGrid()
                     if (g_iTeamNumber == 0)
                         bShowClass = false;
 #ifdef _TFC
-					// in TFC show all classes in spectator mode
-					if ( g_iUser1 )
-						bShowClass = true;
+                    // in TFC show all classes in spectator mode
+                    if (g_iUser1)
+                        bShowClass = true;
 #endif
 
                     if (bShowClass)
@@ -834,18 +823,18 @@ void ScorePanel::FillGrid()
                     break;
 
 #ifdef _TFC
-				case COLUMN_KILLS:
-					if (g_PlayerExtraInfo[ m_iSortedRows[row] ].teamnumber)
-						sprintf(sz, "%d",  g_PlayerExtraInfo[ m_iSortedRows[row] ].frags );
-					break;
-				case COLUMN_DEATHS:
-					if (g_PlayerExtraInfo[ m_iSortedRows[row] ].teamnumber)
-						sprintf(sz, "%d",  g_PlayerExtraInfo[ m_iSortedRows[row] ].deaths );
-					break;
-				case COLUMN_LATENCY:
-					if (g_PlayerExtraInfo[ m_iSortedRows[row] ].teamnumber)
-						sprintf(sz, "%d", g_PlayerInfoList[ m_iSortedRows[row] ].ping );
-					break;
+                case COLUMN_KILLS:
+                    if (g_PlayerExtraInfo[m_iSortedRows[row]].teamnumber)
+                        sprintf(sz, "%d", g_PlayerExtraInfo[m_iSortedRows[row]].frags);
+                    break;
+                case COLUMN_DEATHS:
+                    if (g_PlayerExtraInfo[m_iSortedRows[row]].teamnumber)
+                        sprintf(sz, "%d", g_PlayerExtraInfo[m_iSortedRows[row]].deaths);
+                    break;
+                case COLUMN_LATENCY:
+                    if (g_PlayerExtraInfo[m_iSortedRows[row]].teamnumber)
+                        sprintf(sz, "%d", g_PlayerInfoList[m_iSortedRows[row]].ping);
+                    break;
 #else
                 case COLUMN_KILLS:
                     sprintf(sz, "%d", g_PlayerExtraInfo[m_iSortedRows[row]].frags);

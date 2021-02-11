@@ -23,7 +23,7 @@ extern "C" {
 #include <ctype.h>
 #include "Exports.h"
 
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 #include "voice/CVoiceStatus.h"
 
 

@@ -37,7 +37,7 @@
 #include "Platform.h"
 #include "Exports.h"
 
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 #include "../public/interface.h"
 
 #include "effects/CWeather.h"
@@ -297,6 +297,30 @@ void DLLEXPORT HUD_DirectorMessage(int iSize, void* pbuf)
     //	RecClDirectorMessage(iSize, pbuf);
 
     gHUD.m_Spectator.DirectorMessage(iSize, pbuf);
+}
+
+/*
+==========================
+HUD_ChatInputPosition
+
+Sets the location of the input for chat text
+==========================
+*/
+void DLLEXPORT HUD_ChatInputPosition(int* x, int* y)
+{
+    //	RecClChatInputPosition( x, y );
+
+    if (g_iUser1 != 0 || gEngfuncs.IsSpectateOnly())
+    {
+        if (gHUD.m_Spectator.m_pip->value == INSET_OFF)
+        {
+            *y = YRES(PANEL_HEIGHT);
+        }
+        else
+        {
+            *y = YRES(gHUD.m_Spectator.m_OverviewData.insetWindowHeight + 5);
+        }
+    }
 }
 
 void CL_UnloadParticleMan(void)

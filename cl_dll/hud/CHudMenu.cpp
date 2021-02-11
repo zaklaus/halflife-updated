@@ -15,7 +15,7 @@
 
 #include "CHudMenu.h"
 #include "CHud.h"
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 
 #define MAX_MENU_STRING	512
 

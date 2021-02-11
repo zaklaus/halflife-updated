@@ -16,8 +16,8 @@
 
 #include "IVoiceStatusHelper.h"
 #include "hud/CHud.h"
-#include "vgui/vgui_TeamFortressViewport.h"
-#include "vgui/vgui_ScorePanel.h"
+#include "vgui/TeamFortressViewport.h"
+#include "vgui/ScorePanel.h"
 
 class CHLVoiceStatusHelper : public IVoiceStatusHelper
 {

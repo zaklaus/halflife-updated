@@ -240,31 +240,7 @@
     <ClCompile Include="..\..\cl_dll\hud\WeaponsResource.cpp">
       <Filter>Source Files\cl_dll\hud</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_ClassMenu.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_CustomObjects.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\vgui_int.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_MOTDWindow.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_SchemeManager.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_ScorePanel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_SpectatorPanel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_TeamFortressViewport.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\vgui_teammenu.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\voice\CVoiceStatus.cpp">
@@ -395,6 +371,81 @@
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\events\ev_hook.cpp">
       <Filter>Source Files\cl_dll\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CClassMenuPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CCommandMenu.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CDragNDropHandler.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CHandler_MenuButtonOver.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CHealthPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CImageLabel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\ClassButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandClassSelect.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CMenuPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\ColorButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CommandButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CTeamMenuPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CTFScrollButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CTFScrollPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CTFSlider.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CTransparentPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\DragNDropPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\SpectToggleButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\TeamFortressViewport.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\ToggleCommandButton.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CSchemeManager.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\ScorePanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\SpectatorPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\CMessageWindowPanel.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cl_dll\vgui\vgui_common.cpp">
+      <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -608,18 +659,6 @@
     <ClInclude Include="..\..\cl_dll\vgui\vgui_int.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\vgui_SchemeManager.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\vgui_ScorePanel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\vgui_SpectatorPanel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\vgui_TeamFortressViewport.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\voice\CVoiceStatus.h">
       <Filter>Header Files\cl_dll\voice</Filter>
     </ClInclude>
@@ -694,6 +733,153 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\events\ev_common.h">
       <Filter>Header Files\cl_dll\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\BuildButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CClassMenuPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CCommandMenu.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CDragNDropHandler.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CHandler_ButtonHighlight.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CHandler_CommandButtonHighlight.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CHandler_MenuButtonOver.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CHealthPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CImageButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CImageLabel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\ClassButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_LabelInput.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_PopupSubMenuInput.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_SpectateFollow.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommand.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandClassSelect.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandWatch.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_TextWindow.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_ToggleCvar.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMenuPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\ColorButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CommandButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CommandLabel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTeamMenuPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTFScrollButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTFScrollPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTFSlider.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTransparentPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\DetpackButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\DisguiseButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\DragNDropPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\DropDownButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\FeignButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\MapButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\SpectateButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\SpectButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\SpectToggleButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\TeamButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\TeamFortressViewport.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\TeamOnlyCommandButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\ToggleCommandButton.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\vgui_common.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CSchemeManager.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CLabelHeader.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CTextImage2.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\ScorePanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CSpectatorHandler_Command.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\SpectatorPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CMessageWindowPanel.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

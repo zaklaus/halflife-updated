@@ -1,13 +1,24 @@
-// vgui_SpectatorPanel.h: interface for the SpectatorPanel class.
-//
-//////////////////////////////////////////////////////////////////////
+/***
+*
+* Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+*
+* This product contains software technology licensed from Id
+* Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
+* All Rights Reserved.
+*
+* Use, distribution, and modification of this source code and/or resulting
+* object code is restricted to non-commercial enhancements to products from
+* Valve LLC.All other use, distribution, or modification is prohibited
+* without written permission from Valve LLC.
+*
+****/
 #pragma once
 
 #include <VGUI_Panel.h>
-#include <VGUI_Label.h>
 #include <VGUI_Button.h>
 
-using namespace vgui;
+#include "CImageButton.h"
+#include "DropDownButton.h"
 
 #define SPECTATOR_PANEL_CMD_NONE				0
 
@@ -28,14 +39,12 @@ using namespace vgui;
 #define OPTIONS_BUTTON_X 96
 #define CAMOPTIONS_BUTTON_X 200
 
-
 #define SEPERATOR_WIDTH 15
 #define SEPERATOR_HEIGHT 15
 
-
 #define TEAM_NUMBER 2
 
-class SpectatorPanel : public Panel //, public vgui::CDefaultInputSignal
+class SpectatorPanel : public vgui::Panel //, public vgui::CDefaultInputSignal
 {
 public:
     SpectatorPanel(int x, int y, int wide, int tall);
@@ -44,16 +53,13 @@ public:
     void ActionSignal(int cmd);
 
     // InputSignal overrides.
-public:
     void Initialize();
     void Update();
-
-
-public:
 
     void EnableInsetView(bool isEnabled);
     void ShowMenu(bool isVisible);
 
+public:
     DropDownButton* m_OptionButton;
     //	CommandButton     *	m_HideButton;
     //ColorButton	  *	m_PrevPlayerButton;
@@ -69,35 +75,15 @@ public:
 
     DropDownButton* m_BottomMainButton;
     CImageLabel* m_TimerImage;
-    Label* m_BottomMainLabel;
-    Label* m_CurrentTime;
-    Label* m_ExtraInfo;
+    vgui::Label* m_BottomMainLabel;
+    vgui::Label* m_CurrentTime;
+    vgui::Label* m_ExtraInfo;
     Panel* m_Separator;
 
-    Label* m_TeamScores[TEAM_NUMBER];
+    vgui::Label* m_TeamScores[TEAM_NUMBER];
 
     CImageLabel* m_TopBanner;
 
     bool m_menuVisible;
     bool m_insetVisible;
-};
-
-
-class CSpectatorHandler_Command : public ActionSignal
-{
-private:
-    SpectatorPanel* m_pFather;
-    int m_cmd;
-
-public:
-    CSpectatorHandler_Command(SpectatorPanel* panel, int cmd)
-    {
-        m_pFather = panel;
-        m_cmd = cmd;
-    }
-
-    virtual void actionPerformed(Panel* panel)
-    {
-        m_pFather->ActionSignal(m_cmd);
-    }
 };

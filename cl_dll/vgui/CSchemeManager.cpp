@@ -17,20 +17,16 @@
 //=============================================================================
 
 #include "hud.h"
-#include "vgui_SchemeManager.h"
+#include "CSchemeManager.h"
 #include "cvardef.h"
-
 #include <string.h>
 
-
 cvar_t* g_CV_BitmapFonts;
-
 
 void Scheme_Init()
 {
     g_CV_BitmapFonts = gEngfuncs.pfnRegisterVariable("bitmapfonts", "1", 0);
 }
-
 
 //-----------------------------------------------------------------------------
 // Purpose: Scheme managers data container

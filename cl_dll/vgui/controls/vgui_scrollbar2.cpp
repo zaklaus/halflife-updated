@@ -28,7 +28,7 @@ namespace
             _scrollBar = scrollBar;
         }
 
-        virtual void intChanged(int value, Panel* panel)
+        void intChanged(int value, Panel* panel) override
         {
             _scrollBar->fireIntChangeSignal();
         }
@@ -50,7 +50,7 @@ namespace
         }
 
     public:
-        virtual void actionPerformed(Panel* panel)
+        void actionPerformed(Panel* panel) override
         {
             _scrollBar->doButtonPressed(_buttonIndex);
         }
@@ -79,7 +79,7 @@ public:
         setBorder(&m_Border);
     }
 
-    virtual void paintBackground()
+    void paintBackground() override
     {
         int wide, tall;
         getPaintSize(wide, tall);

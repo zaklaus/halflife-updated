@@ -1,41 +1,48 @@
-//=========== (C) Copyright 1999 Valve, L.L.C. All rights reserved. ===========
-//
-// The copyright to the contents herein is the property of Valve, L.L.C.
-// The contents may be used and/or copied only with the written permission of
-// Valve, L.L.C., or in accordance with the terms and conditions stipulated in
-// the agreement/contract under which the contents have been supplied.
-//
-// Purpose: Client DLL VGUI Viewport
-//
-// $Workfile:     $
-// $Date:         $
-//
-//-----------------------------------------------------------------------------
-// $Log: $
-//
-// $NoKeywords: $
-//=============================================================================
+/***
+*
+* Copyright (c) 1996-2001, Valve LLC. All rights reserved.
+* 
+* This product contains software technology licensed from Id
+* Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc.
+* All Rights Reserved.
+*
+* Use, distribution, and modification of this source code and/or resulting
+* object code is restricted to non-commercial enhancements to products from
+* Valve LLC.  All other use, distribution, or modification is prohibited
+* without written permission from Valve LLC.
+*
+****/
 
 #include <VGUI_Cursor.h>
 #include <VGUI_Frame.h>
 #include <VGUI_Label.h>
-#include <VGUI_Surface.h>
-#include <VGUI_BorderLayout.h>
 #include <VGUI_Panel.h>
-#include <VGUI_ImagePanel.h>
 #include <VGUI_Button.h>
-#include <VGUI_ActionSignal.h>
 #include <VGUI_InputSignal.h>
-#include <VGUI_MenuSeparator.h>
-#include <VGUI_TextPanel.h>
-#include <VGUI_LoweredBorder.h>
 #include <VGUI_LineBorder.h>
 #include <VGUI_Scheme.h>
-#include <VGUI_Font.h>
 #include <VGUI_App.h>
-#include <VGUI_BuildGroup.h>
 
-#include "hud.h"
+#include "vgui_int.h"
+#include "TeamFortressViewport.h"
+
+#include "ScorePanel.h"
+#include "SpectatorPanel.h"
+#include "MapButton.h"
+#include "SpectateButton.h"
+#include "SpectButton.h"
+#include "SpectToggleButton.h"
+#include "TeamButton.h"
+#include "TeamOnlyCommandButton.h"
+#include "ToggleCommandButton.h"
+#include "CMenuHandler_PopupSubMenuInput.h"
+#include "CMenuHandler_SpectateFollow.h"
+#include "CMenuHandler_StringCommand.h"
+#include "CMenuHandler_StringCommandWatch.h"
+#include "CMenuHandler_ToggleCvar.h"
+#include "CHandler_CommandButtonHighlight.h"
+#include "voice/CVoiceStatus.h"
+
 #include "cl_util.h"
 #include "cvardef.h"
 #include "const.h"
@@ -43,16 +50,6 @@
 #include "pm_shared.h"
 #include "keydefs.h"
 #include "demo_api.h"
-
-#include "voice/CVoiceStatus.h"
-
-#include "vgui_int.h"
-#include "vgui_TeamFortressViewport.h"
-#include "vgui_ScorePanel.h"
-#include "vgui_SpectatorPanel.h"
-
-#include "shake.h"
-#include "screenfade.h"
 
 extern int g_iVisibleMouse;
 class CCommandMenu;
@@ -72,6 +69,8 @@ int g_iUser3 = 0;
 
 #define SBOARD_INDENT_X_400		0
 #define SBOARD_INDENT_Y_400		20
+
+
 
 void IN_ResetMouse(void);
 extern CMenuPanel* CMessageWindowPanel_Create(const char* szMOTD, const char* szTitle, int iShadeFullscreen, int iRemoveMe, int x, int y, int wide, int tall);
@@ -139,33 +138,6 @@ const char* sTFClassSelection[] =
     "civilian",
 };
 
-#ifdef _TFC
-int iBuildingCosts[] =
-{
-	BUILD_COST_DISPENSER,
-	BUILD_COST_SENTRYGUN,
-	BUILD_COST_TELEPORTER
-};
-
-// This maps class numbers to the Invalid Class bit.
-// This is needed for backwards compatability in maps that were finished before
-// all the classes were in TF. Hence the wacky sequence.
-int sTFValidClassInts[] =
-{
-	0,
-	TF_ILL_SCOUT,
-	TF_ILL_SNIPER,
-	TF_ILL_SOLDIER,
-	TF_ILL_DEMOMAN,
-	TF_ILL_MEDIC,
-	TF_ILL_HVYWEP,
-	TF_ILL_PYRO,
-	TF_ILL_SPY,
-	TF_ILL_ENGINEER,
-	TF_ILL_RANDOMPC,
-};
-#endif
-
 // Get the name of TGA file, based on GameDir
 char* GetVGUITGAName(const char* pszName)
 {
@@ -184,259 +156,6 @@ char* GetVGUITGAName(const char* pszName)
     sprintf(gd, "%s/gfx/vgui/%s.tga", gamedir, sz);
 
     return gd;
-}
-
-//================================================================
-// COMMAND MENU
-//================================================================
-void CCommandMenu::AddButton(CommandButton* pButton)
-{
-    if (m_iButtons >= MAX_BUTTONS)
-        return;
-
-    m_aButtons[m_iButtons] = pButton;
-    m_iButtons++;
-    pButton->setParent(this);
-    pButton->setFont(Scheme::sf_primary3);
-
-    // give the button a default key binding
-    if (m_iButtons < 10)
-    {
-        pButton->setBoundKey(m_iButtons + '0');
-    }
-    else if (m_iButtons == 10)
-    {
-        pButton->setBoundKey('0');
-    }
-}
-
-void CCommandMenu::RemoveAllButtons(void)
-{
-    /*
-    for(int i=0;i<m_iButtons;i++)
-    {
-        CommandButton *pTemp = m_aButtons[i]; 
-        m_aButtons[i] = NULL;
-        
-        pTemp
-        if(pTemp)
-        {
-            delete(pTemp);
-        }
-        
-    }
-    */
-    removeAllChildren();
-    m_iButtons = 0;
-}
-
-//-----------------------------------------------------------------------------
-// Purpose: Tries to find a button that has a key bound to the input, and
-//			presses the button if found
-// Input  : keyNum - the character number of the input key
-// Output : Returns true if the command menu should close, false otherwise
-//-----------------------------------------------------------------------------
-bool CCommandMenu::KeyInput(int keyNum)
-{
-    // loop through all our buttons looking for one bound to keyNum
-    for (int i = 0; i < m_iButtons; i++)
-    {
-        if (!m_aButtons[i]->IsNotValid())
-        {
-            if (m_aButtons[i]->getBoundKey() == keyNum)
-            {
-                // hit the button
-                if (m_aButtons[i]->GetSubMenu())
-                {
-                    // open the sub menu
-                    gViewPort->SetCurrentCommandMenu(m_aButtons[i]->GetSubMenu());
-                    return false;
-                }
-                else
-                {
-                    // run the bound command
-                    m_aButtons[i]->fireActionSignal();
-                    return true;
-                }
-            }
-        }
-    }
-
-    return false;
-}
-
-//-----------------------------------------------------------------------------
-// Purpose: clears the current menus buttons of any armed (highlighted) 
-//			state, and all their sub buttons
-//-----------------------------------------------------------------------------
-void CCommandMenu::ClearButtonsOfArmedState(void)
-{
-    for (int i = 0; i < GetNumButtons(); i++)
-    {
-        m_aButtons[i]->setArmed(false);
-
-        if (m_aButtons[i]->GetSubMenu())
-        {
-            m_aButtons[i]->GetSubMenu()->ClearButtonsOfArmedState();
-        }
-    }
-}
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-// Input  : *pSubMenu - 
-// Output : CommandButton
-//-----------------------------------------------------------------------------
-CommandButton* CCommandMenu::FindButtonWithSubmenu(CCommandMenu* pSubMenu)
-{
-    for (int i = 0; i < GetNumButtons(); i++)
-    {
-        if (m_aButtons[i]->GetSubMenu() == pSubMenu)
-            return m_aButtons[i];
-    }
-
-    return NULL;
-}
-
-// Recalculate the visible buttons
-bool CCommandMenu::RecalculateVisibles(int iYOffset, bool bHideAll)
-{
-    int i, iCurrentY = 0;
-    int iVisibleButtons = 0;
-
-    // Cycle through all the buttons in this menu, and see which will be visible
-    for (i = 0; i < m_iButtons; i++)
-    {
-        int iClass = m_aButtons[i]->GetPlayerClass();
-
-        if ((iClass && iClass != g_iPlayerClass) || (m_aButtons[i]->IsNotValid()) || bHideAll)
-        {
-            m_aButtons[i]->setVisible(false);
-            if (m_aButtons[i]->GetSubMenu() != NULL)
-            {
-                (m_aButtons[i]->GetSubMenu())->RecalculateVisibles(0, true);
-            }
-        }
-        else
-        {
-            // If it's got a submenu, force it to check visibilities
-            if (m_aButtons[i]->GetSubMenu() != NULL)
-            {
-                if (!(m_aButtons[i]->GetSubMenu())->RecalculateVisibles(0, false))
-                {
-                    // The submenu had no visible buttons, so don't display this button
-                    m_aButtons[i]->setVisible(false);
-                    continue;
-                }
-            }
-
-            m_aButtons[i]->setVisible(true);
-            iVisibleButtons++;
-        }
-    }
-
-    // Set Size
-    setSize(_size[0], (iVisibleButtons * (m_flButtonSizeY - 1)) + 1);
-
-    if (iYOffset)
-    {
-        m_iYOffset = iYOffset;
-    }
-
-    for (i = 0; i < m_iButtons; i++)
-    {
-        if (m_aButtons[i]->isVisible())
-        {
-            if (m_aButtons[i]->GetSubMenu() != NULL)
-                (m_aButtons[i]->GetSubMenu())->RecalculateVisibles(iCurrentY + m_iYOffset, false);
-
-
-            // Make sure it's at the right Y position
-            // m_aButtons[i]->getPos( iXPos, iYPos );
-
-            if (m_iDirection)
-            {
-                m_aButtons[i]->setPos(0, (iVisibleButtons - 1) * (m_flButtonSizeY - 1) - iCurrentY);
-            }
-            else
-            {
-                m_aButtons[i]->setPos(0, iCurrentY);
-            }
-
-            iCurrentY += (m_flButtonSizeY - 1);
-        }
-    }
-
-    return iVisibleButtons ? true : false;
-}
-
-// Make sure all submenus can fit on the screen
-void CCommandMenu::RecalculatePositions(int iYOffset)
-{
-    int iTop;
-    int iAdjust = 0;
-
-    m_iYOffset += iYOffset;
-
-    if (m_iDirection)
-        iTop = ScreenHeight - (m_iYOffset + _size[1]);
-    else
-        iTop = m_iYOffset;
-
-    if (iTop < 0)
-        iTop = 0;
-
-    // Calculate if this is going to fit onscreen, and shuffle it up if it won't
-    int iBottom = iTop + _size[1];
-
-    if (iBottom > ScreenHeight)
-    {
-        // Move in increments of button sizes
-        while (iAdjust < (iBottom - ScreenHeight))
-        {
-            iAdjust += m_flButtonSizeY - 1;
-        }
-
-        iTop -= iAdjust;
-
-        // Make sure it doesn't move off the top of the screen (the menu's too big to fit it all)
-        if (iTop < 0)
-        {
-            iAdjust -= (0 - iTop);
-            iTop = 0;
-        }
-    }
-
-    setPos(_pos[0], iTop);
-
-    // We need to force all menus below this one to update their positions now, because they
-    // might have submenus riding off buttons in this menu that have just shifted.
-    for (int i = 0; i < m_iButtons; i++)
-        m_aButtons[i]->UpdateSubMenus(iAdjust);
-}
-
-
-// Make this menu and all menus above it in the chain visible
-void CCommandMenu::MakeVisible(CCommandMenu* pChildMenu)
-{
-    /*
-        // Push down the button leading to the child menu
-        for (int i = 0; i < m_iButtons; i++)
-        {
-            if ( (pChildMenu != NULL) && (m_aButtons[i]->GetSubMenu() == pChildMenu) )
-            {
-                m_aButtons[i]->setArmed( true );
-            }
-            else
-            {
-                m_aButtons[i]->setArmed( false );
-            }
-        }
-    */
-
-    setVisible(true);
-    if (m_pParentMenu)
-        m_pParentMenu->MakeVisible(this);
 }
 
 //================================================================
@@ -507,11 +226,11 @@ public:
     {
     }
 
-    virtual void cursorMoved(int x, int y, Panel* panel) { return; }
-    virtual void cursorEntered(Panel* panel) { return; }
-    virtual void cursorExited(Panel* panel) { return; }
+    void cursorMoved(int x, int y, Panel* panel) override { return; }
+    void cursorEntered(Panel* panel) override { return; }
+    void cursorExited(Panel* panel) override { return; }
 
-    virtual void mousePressed(MouseCode code, Panel* panel)
+    void mousePressed(MouseCode code, Panel* panel) override
     {
         if (code != MOUSE_LEFT)
         {
@@ -521,13 +240,13 @@ public:
         }
     }
 
-    virtual void mouseReleased(MouseCode code, Panel* panel) { return; }
-    virtual void mouseDoublePressed(MouseCode code, Panel* panel) { return; }
-    virtual void mouseWheeled(int delta, Panel* panel) { return; }
-    virtual void keyPressed(KeyCode code, Panel* panel) { return; }
-    virtual void keyTyped(KeyCode code, Panel* panel) { return; }
-    virtual void keyReleased(KeyCode code, Panel* panel) { return; }
-    virtual void keyFocusTicked(Panel* panel) { return; }
+    void mouseReleased(MouseCode code, Panel* panel) override { return; }
+    void mouseDoublePressed(MouseCode code, Panel* panel) override { return; }
+    void mouseWheeled(int delta, Panel* panel) override { return; }
+    void keyPressed(KeyCode code, Panel* panel) override { return; }
+    void keyTyped(KeyCode code, Panel* panel) override { return; }
+    void keyReleased(KeyCode code, Panel* panel) override { return; }
+    void keyFocusTicked(Panel* panel) override { return; }
 };
 
 
@@ -615,7 +334,7 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
     float flLabelSize = ((ScreenWidth - (XRES(CAMOPTIONS_BUTTON_X) + 15)) - XRES(24 + 15)) - XRES((15 + OPTIONS_BUTTON_X + 15) + 38);
 
     m_pCommandMenus[m_PlayerMenu] = new CCommandMenu(NULL, 1,
-                                                     XRES(( 15 + OPTIONS_BUTTON_X + 15 ) + 31),PANEL_HEIGHT, flLabelSize, 300);
+        XRES((15 + OPTIONS_BUTTON_X + 15) + 31), PANEL_HEIGHT, flLabelSize, 300);
     m_pCommandMenus[m_PlayerMenu]->setParent(this);
     m_pCommandMenus[m_PlayerMenu]->setVisible(false);
     m_pCommandMenus[m_PlayerMenu]->m_flButtonSizeY = BUTTON_SIZE_Y / 2;
@@ -680,7 +399,7 @@ class CException;
 //			Returns Index of menu in m_pCommandMenus
 //-----------------------------------------------------------------------------
 int TeamFortressViewport::CreateCommandMenu(const char* menuFile, int direction, int yOffset, bool flatDesign, float flButtonSizeX, float flButtonSizeY,
-                                            int xOffset)
+    int xOffset)
 {
     // COMMAND MENU
     // Create the root of this new Command Menu
@@ -760,7 +479,7 @@ int TeamFortressViewport::CreateCommandMenu(const char* menuFile, int direction,
                     // Get the next token
                     pfile = gEngfuncs.COM_ParseFile(pfile, token);
                 }
-                    // See if it's a map
+                // See if it's a map
                 else if (!strcmp(cCustom, "MAP"))
                 {
                     // Get the mapname
@@ -789,18 +508,18 @@ int TeamFortressViewport::CreateCommandMenu(const char* menuFile, int direction,
                 {
                     // See if it's a Class
 #ifdef _TFC
-				for (int i = 1; i <= PC_ENGINEER; i++)
-				{
-					if ( !strcmp(token, sTFClasses[i]) )
-					{
-						// Save it off
-						iPlayerClass = i;
+                    for (int i = 1; i <= PC_ENGINEER; i++)
+                    {
+                        if (!strcmp(token, sTFClasses[i]))
+                        {
+                            // Save it off
+                            iPlayerClass = i;
 
-						// Get the button text
-						pfile = gEngfuncs.COM_ParseFile(pfile, token);
-						break;
-					}
-				}
+                            // Get the button text
+                            pfile = gEngfuncs.COM_ParseFile(pfile, token);
+                            break;
+                        }
+                    }
 #endif
                 }
 
@@ -942,7 +661,7 @@ int TeamFortressViewport::CreateCommandMenu(const char* menuFile, int direction,
 // Output : CCommandMenu
 //-----------------------------------------------------------------------------
 CCommandMenu* TeamFortressViewport::CreateDisguiseSubmenu(CommandButton* pButton, CCommandMenu* pParentMenu, const char* commandText, int iYOffset,
-                                                          int iXOffset)
+    int iXOffset)
 {
     // create the submenu, under which the class choices will be listed
     CCommandMenu* pMenu = CreateSubMenu(pButton, pParentMenu, iYOffset, iXOffset);
@@ -951,16 +670,16 @@ CCommandMenu* TeamFortressViewport::CreateDisguiseSubmenu(CommandButton* pButton
 
     // create the class choice buttons
 #ifdef _TFC
-	for ( int i = PC_SCOUT; i <= PC_ENGINEER; i++ )
-	{
-		CommandButton *pDisguiseButton = new CommandButton( CHudTextMessage::BufferedLocaliseTextString( sLocalisedClasses[i] ), 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y );
-		
-		char sz[256]; 
-		sprintf(sz, "%s %d", commandText, i );
-		pDisguiseButton->addActionSignal(new CMenuHandler_StringCommand(sz));
-		
-		pMenu->AddButton( pDisguiseButton );
-	}
+    for (int i = PC_SCOUT; i <= PC_ENGINEER; i++)
+    {
+        CommandButton* pDisguiseButton = new CommandButton(CHudTextMessage::BufferedLocaliseTextString(sLocalisedClasses[i]), 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+
+        char sz[256];
+        sprintf(sz, "%s %d", commandText, i);
+        pDisguiseButton->addActionSignal(new CMenuHandler_StringCommand(sz));
+
+        pMenu->AddButton(pDisguiseButton);
+    }
 #endif
 
     return pMenu;
@@ -1006,12 +725,12 @@ CommandButton* TeamFortressViewport::CreateCustomButton(char* pButtonText, char*
 
         // Spectate button
         m_pTeamButtons[5] = new SpectateButton(CHudTextMessage::BufferedLocaliseTextString("#Menu_Spectate"), 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y,
-                                               false);
+            false);
         m_pTeamButtons[5]->addActionSignal(new CMenuHandler_StringCommand("spectate"));
         pMenu->AddButton(m_pTeamButtons[5]);
     }
 
-        // ChangeClass
+    // ChangeClass
     else if (!strcmp(pButtonName, "!CHANGECLASS"))
     {
         // Create the Change class menu
@@ -1023,251 +742,251 @@ CommandButton* TeamFortressViewport::CreateCustomButton(char* pButtonText, char*
         m_iNumMenus++;
 
 #ifdef _TFC
-		for (int i = PC_SCOUT; i <= PC_RANDOM; i++ )
-		{
-			char sz[256]; 
+        for (int i = PC_SCOUT; i <= PC_RANDOM; i++)
+        {
+            char sz[256];
 
-			// ChangeClass buttons
-			CHudTextMessage::LocaliseTextString( sLocalisedClasses[i], sz, 256 );
-			ClassButton *pClassButton = new ClassButton( i, sz, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y, false);
+            // ChangeClass buttons
+            CHudTextMessage::LocaliseTextString(sLocalisedClasses[i], sz, 256);
+            ClassButton* pClassButton = new ClassButton(i, sz, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y, false);
 
-			sprintf(sz, "%s", sTFClassSelection[i]);
-			pClassButton->addActionSignal(new CMenuHandler_StringCommandClassSelect(sz));
-			pMenu->AddButton( pClassButton );
-		}
+            sprintf(sz, "%s", sTFClassSelection[i]);
+            pClassButton->addActionSignal(new CMenuHandler_StringCommandClassSelect(sz));
+            pMenu->AddButton(pClassButton);
+        }
 #endif
     }
 #ifdef _TFC
-	// Map Briefing
-	else if ( !strcmp( pButtonName, "!MAPBRIEFING" ) )
-	{
-		pButton = new CommandButton(pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_MAPBRIEFING));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Class Descriptions
-	else if ( !strcmp( pButtonName, "!CLASSDESC" ) )
-	{
-		pButton = new ClassButton(0, pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y, false);
-		pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_CLASSHELP));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!SERVERINFO" ) )
-	{
-		pButton = new ClassButton(0, pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y, false);
-		pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_INTRO));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Spy abilities
-	else if ( !strcmp( pButtonName, "!SPY" ) )
-	{
-		pButton = new DisguiseButton( 0, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y );
-	}
-	// Feign
-	else if ( !strcmp( pButtonName, "!FEIGN" ) )
-	{
-		pButton = new FeignButton(FALSE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand( "feign" ));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Feign Silently
-	else if ( !strcmp( pButtonName, "!FEIGNSILENT" ) )
-	{
-		pButton = new FeignButton(FALSE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand( "sfeign" ));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Stop Feigning
-	else if ( !strcmp( pButtonName, "!FEIGNSTOP" ) )
-	{
-		pButton = new FeignButton(TRUE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand( "feign" ));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Disguise
-	else if ( !strcmp( pButtonName, "!DISGUISEENEMY" ) )
-	{
-		// Create the disguise enemy button, which active only if there are 2 teams
-		pButton = new DisguiseButton(DISGUISE_TEAM2, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		CreateDisguiseSubmenu( pButton, m_pCurrentCommandMenu, "disguise_enemy", iYOffset);
-	}
-	else if ( !strcmp( pButtonName, "!DISGUISEFRIENDLY" ) )
-	{
-		// Create the disguise friendly button, which active only if there are 1 or 2 teams
-		pButton = new DisguiseButton(DISGUISE_TEAM1 | DISGUISE_TEAM2, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		CreateDisguiseSubmenu( pButton, m_pCurrentCommandMenu, "disguise_friendly", iYOffset );
-	}
-	else if ( !strcmp( pButtonName, "!DISGUISE" ) )
-	{
-		// Create the Disguise button
-		pButton = new DisguiseButton( DISGUISE_TEAM3 | DISGUISE_TEAM4, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		CCommandMenu *pDisguiseMenu = CreateSubMenu( pButton, m_pCurrentCommandMenu, iYOffset );
-		m_pCommandMenus[m_iNumMenus] = pDisguiseMenu;
-		m_iNumMenus++;
+    // Map Briefing
+    else if (!strcmp(pButtonName, "!MAPBRIEFING"))
+    {
+        pButton = new CommandButton(pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_MAPBRIEFING));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Class Descriptions
+    else if (!strcmp(pButtonName, "!CLASSDESC"))
+    {
+        pButton = new ClassButton(0, pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y, false);
+        pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_CLASSHELP));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!SERVERINFO"))
+    {
+        pButton = new ClassButton(0, pButtonText, 0, BUTTON_SIZE_Y * m_pCurrentCommandMenu->GetNumButtons(), CMENU_SIZE_X, BUTTON_SIZE_Y, false);
+        pButton->addActionSignal(new CMenuHandler_TextWindow(MENU_INTRO));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Spy abilities
+    else if (!strcmp(pButtonName, "!SPY"))
+    {
+        pButton = new DisguiseButton(0, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+    }
+    // Feign
+    else if (!strcmp(pButtonName, "!FEIGN"))
+    {
+        pButton = new FeignButton(FALSE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("feign"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Feign Silently
+    else if (!strcmp(pButtonName, "!FEIGNSILENT"))
+    {
+        pButton = new FeignButton(FALSE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("sfeign"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Stop Feigning
+    else if (!strcmp(pButtonName, "!FEIGNSTOP"))
+    {
+        pButton = new FeignButton(TRUE, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("feign"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Disguise
+    else if (!strcmp(pButtonName, "!DISGUISEENEMY"))
+    {
+        // Create the disguise enemy button, which active only if there are 2 teams
+        pButton = new DisguiseButton(DISGUISE_TEAM2, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        CreateDisguiseSubmenu(pButton, m_pCurrentCommandMenu, "disguise_enemy", iYOffset);
+    }
+    else if (!strcmp(pButtonName, "!DISGUISEFRIENDLY"))
+    {
+        // Create the disguise friendly button, which active only if there are 1 or 2 teams
+        pButton = new DisguiseButton(DISGUISE_TEAM1 | DISGUISE_TEAM2, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        CreateDisguiseSubmenu(pButton, m_pCurrentCommandMenu, "disguise_friendly", iYOffset);
+    }
+    else if (!strcmp(pButtonName, "!DISGUISE"))
+    {
+        // Create the Disguise button
+        pButton = new DisguiseButton(DISGUISE_TEAM3 | DISGUISE_TEAM4, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        CCommandMenu* pDisguiseMenu = CreateSubMenu(pButton, m_pCurrentCommandMenu, iYOffset);
+        m_pCommandMenus[m_iNumMenus] = pDisguiseMenu;
+        m_iNumMenus++;
 
-		// Disguise Enemy submenu buttons
-		for ( int i = 1; i <= 4; i++ )
-		{
-			// only show the 4th disguise button if we have 4 teams
-			m_pDisguiseButtons[i] = new DisguiseButton( ((i < 4) ? DISGUISE_TEAM3 : 0) | DISGUISE_TEAM4, "Disguise", 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        // Disguise Enemy submenu buttons
+        for (int i = 1; i <= 4; i++)
+        {
+            // only show the 4th disguise button if we have 4 teams
+            m_pDisguiseButtons[i] = new DisguiseButton(((i < 4) ? DISGUISE_TEAM3 : 0) | DISGUISE_TEAM4, "Disguise", 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
 
-			pDisguiseMenu->AddButton( m_pDisguiseButtons[i] );
-			m_pDisguiseButtons[i]->setParentMenu( pDisguiseMenu );
+            pDisguiseMenu->AddButton(m_pDisguiseButtons[i]);
+            m_pDisguiseButtons[i]->setParentMenu(pDisguiseMenu);
 
-			char sz[256]; 
-			sprintf( sz, "disguise %d", i );
-			CreateDisguiseSubmenu( m_pDisguiseButtons[i], pDisguiseMenu, sz, iYOffset, CMENU_SIZE_X - 1 );
-		}
-	}
-	// Start setting a Detpack
-	else if ( !strcmp( pButtonName, "!DETPACKSTART" ) )
-	{
-		// Detpack Submenu
-		pButton = new DetpackButton(2, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+            char sz[256];
+            sprintf(sz, "disguise %d", i);
+            CreateDisguiseSubmenu(m_pDisguiseButtons[i], pDisguiseMenu, sz, iYOffset, CMENU_SIZE_X - 1);
+        }
+    }
+    // Start setting a Detpack
+    else if (!strcmp(pButtonName, "!DETPACKSTART"))
+    {
+        // Detpack Submenu
+        pButton = new DetpackButton(2, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
 
-		// Create the submenu
-		pMenu = CreateSubMenu(pButton, m_pCurrentCommandMenu, iYOffset );
-		m_pCommandMenus[m_iNumMenus] = pMenu;
-		m_iNumMenus++;
+        // Create the submenu
+        pMenu = CreateSubMenu(pButton, m_pCurrentCommandMenu, iYOffset);
+        m_pCommandMenus[m_iNumMenus] = pMenu;
+        m_iNumMenus++;
 
-		// Set detpack buttons
-		CommandButton *pDetButton;
-		pDetButton = new CommandButton(m_sDetpackStrings[0], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 5"));
-		pMenu->AddButton( pDetButton );
-		pDetButton = new CommandButton(m_sDetpackStrings[1], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 20"));
-		pMenu->AddButton( pDetButton );
-		pDetButton = new CommandButton(m_sDetpackStrings[2], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 50"));
-		pMenu->AddButton( pDetButton );
-	}
-	// Stop setting a Detpack
-	else if ( !strcmp( pButtonName, "!DETPACKSTOP" ) )
-	{
-		pButton = new DetpackButton(1, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand( "detstop" ));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Engineer building
-	else if ( !strcmp( pButtonName, "!BUILD" ) )
-	{
-		// only appears if the player is an engineer, and either they have built something or have enough metal to build
-		pButton = new BuildButton( BUILDSTATE_BASE, 0, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-	}
-	else if ( !strcmp( pButtonName, "!BUILDSENTRY" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_CANBUILD, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("build 2"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!BUILDDISPENSER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_CANBUILD, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("build 1"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!ROTATESENTRY180" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("rotatesentry180"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!ROTATESENTRY" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("rotatesentry"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DISMANTLEDISPENSER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 1"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DISMANTLESENTRY" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 2"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DETONATEDISPENSER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("detdispenser"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DETONATESENTRY" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("detsentry"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!BUILDENTRYTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_CANBUILD, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("build 4"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DISMANTLEENTRYTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 4"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DETONATEENTRYTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("detentryteleporter"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!BUILDEXITTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_CANBUILD, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("build 5"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	else if ( !strcmp( pButtonName, "!DISMANTLEEXITTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 5"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}	
-	else if ( !strcmp( pButtonName, "!DETONATEEXITTELEPORTER" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_HASBUILDING, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("detexitteleporter"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
-	// Stop building
-	else if ( !strcmp( pButtonName, "!BUILDSTOP" ) )
-	{
-		pButton = new BuildButton( BUILDSTATE_BUILDING, 0, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
-		pButton->addActionSignal(new CMenuHandler_StringCommand("build"));
-		// Create an input signal that'll popup the current menu
-		pButton->addInputSignal( new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu) );
-	}
+        // Set detpack buttons
+        CommandButton* pDetButton;
+        pDetButton = new CommandButton(m_sDetpackStrings[0], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 5"));
+        pMenu->AddButton(pDetButton);
+        pDetButton = new CommandButton(m_sDetpackStrings[1], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 20"));
+        pMenu->AddButton(pDetButton);
+        pDetButton = new CommandButton(m_sDetpackStrings[2], 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pDetButton->addActionSignal(new CMenuHandler_StringCommand("detstart 50"));
+        pMenu->AddButton(pDetButton);
+    }
+    // Stop setting a Detpack
+    else if (!strcmp(pButtonName, "!DETPACKSTOP"))
+    {
+        pButton = new DetpackButton(1, pButtonText, 0, BUTTON_SIZE_Y, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("detstop"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Engineer building
+    else if (!strcmp(pButtonName, "!BUILD"))
+    {
+        // only appears if the player is an engineer, and either they have built something or have enough metal to build
+        pButton = new BuildButton(BUILDSTATE_BASE, 0, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+    }
+    else if (!strcmp(pButtonName, "!BUILDSENTRY"))
+    {
+        pButton = new BuildButton(BUILDSTATE_CANBUILD, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("build 2"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!BUILDDISPENSER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_CANBUILD, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("build 1"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!ROTATESENTRY180"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("rotatesentry180"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!ROTATESENTRY"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("rotatesentry"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DISMANTLEDISPENSER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 1"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DISMANTLESENTRY"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 2"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DETONATEDISPENSER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::DISPENSER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("detdispenser"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DETONATESENTRY"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::SENTRYGUN, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("detsentry"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!BUILDENTRYTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_CANBUILD, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("build 4"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DISMANTLEENTRYTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 4"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DETONATEENTRYTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::ENTRY_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("detentryteleporter"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!BUILDEXITTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_CANBUILD, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("build 5"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DISMANTLEEXITTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("dismantle 5"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    else if (!strcmp(pButtonName, "!DETONATEEXITTELEPORTER"))
+    {
+        pButton = new BuildButton(BUILDSTATE_HASBUILDING, BuildButton::EXIT_TELEPORTER, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("detexitteleporter"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
+    // Stop building
+    else if (!strcmp(pButtonName, "!BUILDSTOP"))
+    {
+        pButton = new BuildButton(BUILDSTATE_BUILDING, 0, pButtonText, 0, BUTTON_SIZE_Y * 2, CMENU_SIZE_X, BUTTON_SIZE_Y);
+        pButton->addActionSignal(new CMenuHandler_StringCommand("build"));
+        // Create an input signal that'll popup the current menu
+        pButton->addInputSignal(new CMenuHandler_PopupSubMenuInput(pButton, m_pCurrentCommandMenu));
+    }
 #endif
 
     return pButton;
@@ -1423,16 +1142,16 @@ void TeamFortressViewport::InputPlayerSpecial(void)
         return;
 
 #ifdef _TFC
-	if ( g_iPlayerClass == PC_ENGINEER || g_iPlayerClass == PC_SPY )
-	{
-		ShowCommandMenu( gViewPort->m_StandardMenu );
+    if (g_iPlayerClass == PC_ENGINEER || g_iPlayerClass == PC_SPY)
+    {
+        ShowCommandMenu(gViewPort->m_StandardMenu);
 
-		if ( m_pCurrentCommandMenu )
-		{
-			m_pCurrentCommandMenu->KeyInput( '7' );
-		}
-	}
-	else
+        if (m_pCurrentCommandMenu)
+        {
+            m_pCurrentCommandMenu->KeyInput('7');
+        }
+    }
+    else
 #endif
     {
         // if it's any other class, just send the command down to the server
@@ -1486,7 +1205,7 @@ void TeamFortressViewport::UpdatePlayerMenu(int menuIndex)
         //	continue; // skip over players who are not in a team
 
         SpectButton* pButton = new SpectButton(1, g_PlayerInfoList[pEnt->index].name,
-                                               XRES(( 15 + OPTIONS_BUTTON_X + 15 ) + 31),PANEL_HEIGHT + (i - 1) * CMENU_SIZE_X, flLabelSize, BUTTON_SIZE_Y / 2);
+            XRES((15 + OPTIONS_BUTTON_X + 15) + 31), PANEL_HEIGHT + (i - 1) * CMENU_SIZE_X, flLabelSize, BUTTON_SIZE_Y / 2);
 
         pButton->setBoundKey((char)255);
         pButton->setContentAlignment(vgui::Label::a_center);
@@ -1667,9 +1386,9 @@ void TeamFortressViewport::UpdateSpectatorPanel()
              timer	= 0;
 
         _snprintf ( szText, 63, "%d:%02d\n", (timer / 60), (timer % 60) );
-        
+
         szText[63] = 0;
-                
+
         m_pSpectatorPanel->m_CurrentTime->setText( szText ); */
 
         // update spectator panel
@@ -1792,48 +1511,48 @@ CMenuPanel* TeamFortressViewport::CreateTextWindow(int iTextToShow)
         cTitle[MAX_TITLE_LENGTH - 1] = 0;
     }
 #ifdef _TFC
-	else if ( iTextToShow == SHOW_CLASSDESC )
-	{
-		switch ( g_iPlayerClass )
-		{
-		case PC_SCOUT:		cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_scout" ); 
-							CHudTextMessage::LocaliseTextString( "#Title_scout", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_SNIPER:		cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_sniper" );
-							CHudTextMessage::LocaliseTextString( "#Title_sniper", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_SOLDIER:	cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_soldier" );
-							CHudTextMessage::LocaliseTextString( "#Title_soldier", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_DEMOMAN:	cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_demoman" );
-							CHudTextMessage::LocaliseTextString( "#Title_demoman", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_MEDIC:		cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_medic" );
-							CHudTextMessage::LocaliseTextString( "#Title_medic", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_HVYWEAP:	cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_hwguy" );
-							CHudTextMessage::LocaliseTextString( "#Title_hwguy", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_PYRO:		cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_pyro" );
-							CHudTextMessage::LocaliseTextString( "#Title_pyro", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_SPY:		cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_spy" );
-							CHudTextMessage::LocaliseTextString( "#Title_spy", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_ENGINEER:	cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_engineer" );
-							CHudTextMessage::LocaliseTextString( "#Title_engineer", cTitle, MAX_TITLE_LENGTH ); break;
-		case PC_CIVILIAN:	cText = CHudTextMessage::BufferedLocaliseTextString( "#Help_civilian" );
-							CHudTextMessage::LocaliseTextString( "#Title_civilian", cTitle, MAX_TITLE_LENGTH ); break;
-		default:
-			return NULL;
-		}
+    else if (iTextToShow == SHOW_CLASSDESC)
+    {
+        switch (g_iPlayerClass)
+        {
+        case PC_SCOUT:		cText = CHudTextMessage::BufferedLocaliseTextString("#Help_scout");
+            CHudTextMessage::LocaliseTextString("#Title_scout", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_SNIPER:		cText = CHudTextMessage::BufferedLocaliseTextString("#Help_sniper");
+            CHudTextMessage::LocaliseTextString("#Title_sniper", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_SOLDIER:	cText = CHudTextMessage::BufferedLocaliseTextString("#Help_soldier");
+            CHudTextMessage::LocaliseTextString("#Title_soldier", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_DEMOMAN:	cText = CHudTextMessage::BufferedLocaliseTextString("#Help_demoman");
+            CHudTextMessage::LocaliseTextString("#Title_demoman", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_MEDIC:		cText = CHudTextMessage::BufferedLocaliseTextString("#Help_medic");
+            CHudTextMessage::LocaliseTextString("#Title_medic", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_HVYWEAP:	cText = CHudTextMessage::BufferedLocaliseTextString("#Help_hwguy");
+            CHudTextMessage::LocaliseTextString("#Title_hwguy", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_PYRO:		cText = CHudTextMessage::BufferedLocaliseTextString("#Help_pyro");
+            CHudTextMessage::LocaliseTextString("#Title_pyro", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_SPY:		cText = CHudTextMessage::BufferedLocaliseTextString("#Help_spy");
+            CHudTextMessage::LocaliseTextString("#Title_spy", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_ENGINEER:	cText = CHudTextMessage::BufferedLocaliseTextString("#Help_engineer");
+            CHudTextMessage::LocaliseTextString("#Title_engineer", cTitle, MAX_TITLE_LENGTH); break;
+        case PC_CIVILIAN:	cText = CHudTextMessage::BufferedLocaliseTextString("#Help_civilian");
+            CHudTextMessage::LocaliseTextString("#Title_civilian", cTitle, MAX_TITLE_LENGTH); break;
+        default:
+            return NULL;
+        }
 
-		if ( g_iPlayerClass == PC_CIVILIAN )
-		{
-			sprintf(sz, "classes/long_civilian.txt");
-		}
-		else
-		{
-			sprintf(sz, "classes/long_%s.txt", sTFClassSelection[ g_iPlayerClass ]);
-		}
-		char *pfile = (char*)gEngfuncs.COM_LoadFile( sz, 5, NULL );
-		if (pfile)
-		{
-			cText = pfile;
-		}
-	}
+        if (g_iPlayerClass == PC_CIVILIAN)
+        {
+            sprintf(sz, "classes/long_civilian.txt");
+        }
+        else
+        {
+            sprintf(sz, "classes/long_%s.txt", sTFClassSelection[g_iPlayerClass]);
+        }
+        char* pfile = (char*)gEngfuncs.COM_LoadFile(sz, 5, NULL);
+        if (pfile)
+        {
+            cText = pfile;
+        }
+    }
 #endif
     else if (iTextToShow == SHOW_SPECHELP)
     {
@@ -2157,43 +1876,6 @@ void TeamFortressViewport::paintBackground()
     int extents[4];
     getAbsExtents(extents[0], extents[1], extents[2], extents[3]);
     VGui_ViewportPaintBackground(extents);
-}
-
-//================================================================
-// Input Handler for Drag N Drop panels
-void CDragNDropHandler::cursorMoved(int x, int y, Panel* panel)
-{
-    if (m_bDragging)
-    {
-        App::getInstance()->getCursorPos(x, y);
-        m_pPanel->setPos(m_iaDragOrgPos[0] + (x - m_iaDragStart[0]), m_iaDragOrgPos[1] + (y - m_iaDragStart[1]));
-
-        if (m_pPanel->getParent() != null)
-        {
-            m_pPanel->getParent()->repaint();
-        }
-    }
-}
-
-void CDragNDropHandler::mousePressed(MouseCode code, Panel* panel)
-{
-    int x, y;
-    App::getInstance()->getCursorPos(x, y);
-    m_bDragging = true;
-    m_iaDragStart[0] = x;
-    m_iaDragStart[1] = y;
-    m_pPanel->getPos(m_iaDragOrgPos[0], m_iaDragOrgPos[1]);
-    App::getInstance()->setMouseCapture(panel);
-
-    m_pPanel->setDragged(m_bDragging);
-    m_pPanel->requestFocus();
-}
-
-void CDragNDropHandler::mouseReleased(MouseCode code, Panel* panel)
-{
-    m_bDragging = false;
-    m_pPanel->setDragged(m_bDragging);
-    App::getInstance()->setMouseCapture(null);
 }
 
 //================================================================
@@ -2550,36 +2232,31 @@ int TeamFortressViewport::MsgFunc_AllowSpec(const char* pszName, int iSize, void
     return 1;
 }
 
-#if defined( _TFC )
-const Vector& GetTeamColor( int team_no );
-extern globalvars_t *gpGlobals;
-#endif
-
 // used to reset the player's screen immediately
 int TeamFortressViewport::MsgFunc_ResetFade(const char* pszName, int iSize, void* pbuf)
 {
 #if defined( _TFC )
-	if ( !gpGlobals )
-		return 0;
+    if (!gpGlobals)
+        return 0;
 
-	screenfade_t sf;
-	gEngfuncs.pfnGetScreenFade( &sf );
+    screenfade_t sf;
+    gEngfuncs.pfnGetScreenFade(&sf);
 
-	sf.fader = 0;
-	sf.fadeg = 0;
-	sf.fadeb = 0;
-	sf.fadealpha = 0;
+    sf.fader = 0;
+    sf.fadeg = 0;
+    sf.fadeb = 0;
+    sf.fadealpha = 0;
 
-	sf.fadeEnd = 0.1;
-	sf.fadeReset = 0.0;
-	sf.fadeSpeed = 0.0;
+    sf.fadeEnd = 0.1;
+    sf.fadeReset = 0.0;
+    sf.fadeSpeed = 0.0;
 
-	sf.fadeFlags = FFADE_IN;
+    sf.fadeFlags = FFADE_IN;
 
-	sf.fadeReset += gpGlobals->time;
-	sf.fadeEnd += sf.fadeReset;
+    sf.fadeReset += gpGlobals->time;
+    sf.fadeEnd += sf.fadeReset;
 
-	gEngfuncs.pfnSetScreenFade( &sf );
+    gEngfuncs.pfnSetScreenFade(&sf);
 #endif
 
     return 1;
@@ -2589,60 +2266,60 @@ int TeamFortressViewport::MsgFunc_ResetFade(const char* pszName, int iSize, void
 int TeamFortressViewport::MsgFunc_SpecFade(const char* pszName, int iSize, void* pbuf)
 {
 #if defined( _TFC )
-	BEGIN_READ( pbuf, iSize );
+    BEGIN_READ(pbuf, iSize);
 
-	int iIndex = READ_BYTE();
+    int iIndex = READ_BYTE();
 
-	// we're in first-person spectator mode (...not first-person in the PIP)
-	if ( g_iUser1 == OBS_IN_EYE )
-	{
-		// this is the person we're watching
-		if ( g_iUser2 == iIndex )
-		{
-			int iFade = READ_BYTE();
-			int iTeam = READ_BYTE();
-			float flTime = ( (float)READ_SHORT() / 100.0 );
-			int iAlpha = READ_BYTE();
+    // we're in first-person spectator mode (...not first-person in the PIP)
+    if (g_iUser1 == OBS_IN_EYE)
+    {
+        // this is the person we're watching
+        if (g_iUser2 == iIndex)
+        {
+            int iFade = READ_BYTE();
+            int iTeam = READ_BYTE();
+            float flTime = ((float)READ_SHORT() / 100.0);
+            int iAlpha = READ_BYTE();
 
-			Vector team = GetTeamColor( iTeam );
+            Vector team = GetTeamColor(iTeam);
 
-			screenfade_t sf;
-			gEngfuncs.pfnGetScreenFade( &sf );
+            screenfade_t sf;
+            gEngfuncs.pfnGetScreenFade(&sf);
 
-			sf.fader = team[0];
-			sf.fadeg = team[1];
-			sf.fadeb = team[2];
-			sf.fadealpha = iAlpha;
+            sf.fader = team[0];
+            sf.fadeg = team[1];
+            sf.fadeb = team[2];
+            sf.fadealpha = iAlpha;
 
-			sf.fadeEnd = flTime;
-			sf.fadeReset = 0.0;
-			sf.fadeSpeed = 0.0;
+            sf.fadeEnd = flTime;
+            sf.fadeReset = 0.0;
+            sf.fadeSpeed = 0.0;
 
-			if ( iFade == BUILD_TELEPORTER_FADE_OUT )
-			{
-				sf.fadeFlags = FFADE_OUT;
-				sf.fadeReset = flTime;
+            if (iFade == BUILD_TELEPORTER_FADE_OUT)
+            {
+                sf.fadeFlags = FFADE_OUT;
+                sf.fadeReset = flTime;
 
-				if ( sf.fadeEnd )
-					sf.fadeSpeed = -(float)sf.fadealpha / sf.fadeEnd;
+                if (sf.fadeEnd)
+                    sf.fadeSpeed = -(float)sf.fadealpha / sf.fadeEnd;
 
-				sf.fadeTotalEnd = sf.fadeEnd += gpGlobals->time;
-				sf.fadeReset += sf.fadeEnd;
-			}
-			else
-			{
-				sf.fadeFlags = FFADE_IN;
+                sf.fadeTotalEnd = sf.fadeEnd += gpGlobals->time;
+                sf.fadeReset += sf.fadeEnd;
+            }
+            else
+            {
+                sf.fadeFlags = FFADE_IN;
 
-				if ( sf.fadeEnd )
-					sf.fadeSpeed = (float)sf.fadealpha / sf.fadeEnd;
+                if (sf.fadeEnd)
+                    sf.fadeSpeed = (float)sf.fadealpha / sf.fadeEnd;
 
-				sf.fadeReset += gpGlobals->time;
-				sf.fadeEnd += sf.fadeReset;
-			}
+                sf.fadeReset += gpGlobals->time;
+                sf.fadeEnd += sf.fadeReset;
+            }
 
-			gEngfuncs.pfnSetScreenFade( &sf );
-		}
-	}
+            gEngfuncs.pfnSetScreenFade(&sf);
+        }
+    }
 #endif
 
     return 1;

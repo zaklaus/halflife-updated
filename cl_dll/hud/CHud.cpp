@@ -21,7 +21,7 @@
 #include "effects/CMP3.h"
 #include "api/demo.h"
 #include "demo_api.h"
-#include "vgui/vgui_TeamFortressViewport.h"
+#include "vgui/TeamFortressViewport.h"
 #include "voice/CVoiceStatus.h"
 #include "voice/CHLVoiceStatusHelper.h"
 
