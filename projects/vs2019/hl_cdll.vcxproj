@@ -304,6 +304,7 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\vgui\CTFScrollPanel.h" />
     <ClInclude Include="..\..\cl_dll\vgui\CTFSlider.h" />
     <ClInclude Include="..\..\cl_dll\vgui\CTransparentPanel.h" />
+    <ClInclude Include="..\..\cl_dll\vgui\CViewPortInputHandler.h" />
     <ClInclude Include="..\..\cl_dll\vgui\DropDownButton.h" />
     <ClInclude Include="..\..\cl_dll\vgui\MapButton.h" />
     <ClInclude Include="..\..\cl_dll\vgui\ScorePanel.h" />

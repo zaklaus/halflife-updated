@@ -77,7 +77,6 @@ enum
     ARROW_RIGHT,
 };
 
-char* GetVGUITGAName(const char* pszName);
 vgui::BitmapTGA* LoadTGAForRes(const char* pImageName);
 void ScaleColors(int& r, int& g, int& b, int a);
 

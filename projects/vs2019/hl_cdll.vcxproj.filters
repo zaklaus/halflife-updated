@@ -833,6 +833,9 @@
     <ClInclude Include="..\..\cl_dll\vgui\CMessageWindowPanel.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\cl_dll\vgui\CViewPortInputHandler.h">
+      <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\game_controls.lib" />

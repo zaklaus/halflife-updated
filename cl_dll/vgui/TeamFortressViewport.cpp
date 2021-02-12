@@ -18,7 +18,6 @@
 #include <VGUI_Label.h>
 #include <VGUI_Panel.h>
 #include <VGUI_Button.h>
-#include <VGUI_InputSignal.h>
 #include <VGUI_LineBorder.h>
 #include <VGUI_Scheme.h>
 #include <VGUI_App.h>
@@ -41,6 +40,7 @@
 #include "CMenuHandler_StringCommandWatch.h"
 #include "CMenuHandler_ToggleCvar.h"
 #include "CHandler_CommandButtonHighlight.h"
+#include "CViewPortInputHandler.h"
 #include "voice/CVoiceStatus.h"
 
 #include "cl_util.h"
@@ -71,7 +71,6 @@ int g_iUser3 = 0;
 #define SBOARD_INDENT_Y_400		20
 
 
-
 void IN_ResetMouse(void);
 extern CMenuPanel* CMessageWindowPanel_Create(const char* szMOTD, const char* szTitle, int iShadeFullscreen, int iRemoveMe, int x, int y, int wide, int tall);
 extern float* GetClientColor(int clientIndex);
@@ -88,75 +87,6 @@ int iTeamColors[5][3] =
     {225, 205, 45}, // Yellow
     {145, 215, 140}, // Green
 };
-
-
-// Used for Class specific buttons
-const char* sTFClasses[] =
-{
-    "",
-    "SCOUT",
-    "SNIPER",
-    "SOLDIER",
-    "DEMOMAN",
-    "MEDIC",
-    "HWGUY",
-    "PYRO",
-    "SPY",
-    "ENGINEER",
-    "CIVILIAN",
-};
-
-const char* sLocalisedClasses[] =
-{
-    "#Civilian",
-    "#Scout",
-    "#Sniper",
-    "#Soldier",
-    "#Demoman",
-    "#Medic",
-    "#HWGuy",
-    "#Pyro",
-    "#Spy",
-    "#Engineer",
-    "#Random",
-    "#Civilian",
-};
-
-const char* sTFClassSelection[] =
-{
-    "civilian",
-    "scout",
-    "sniper",
-    "soldier",
-    "demoman",
-    "medic",
-    "hwguy",
-    "pyro",
-    "spy",
-    "engineer",
-    "randompc",
-    "civilian",
-};
-
-// Get the name of TGA file, based on GameDir
-char* GetVGUITGAName(const char* pszName)
-{
-    int i;
-    char sz[256];
-    static char gd[256];
-    const char* gamedir;
-
-    if (ScreenWidth < 640)
-        i = 320;
-    else
-        i = 640;
-    sprintf(sz, pszName, i);
-
-    gamedir = gEngfuncs.pfnGetGameDirectory();
-    sprintf(gd, "%s/gfx/vgui/%s.tga", gamedir, sz);
-
-    return gd;
-}
 
 //================================================================
 // CreateSubMenu
@@ -213,42 +143,6 @@ void* TeamFortressViewport::operator new(size_t stAllocateBlock)
     memset(mem, 0, stAllocateBlock);
     return mem;
 }
-
-//-----------------------------------------------------------------------------
-// Purpose: InputSignal handler for the main viewport
-//-----------------------------------------------------------------------------
-class CViewPortInputHandler : public InputSignal
-{
-public:
-    bool bPressed;
-
-    CViewPortInputHandler()
-    {
-    }
-
-    void cursorMoved(int x, int y, Panel* panel) override { return; }
-    void cursorEntered(Panel* panel) override { return; }
-    void cursorExited(Panel* panel) override { return; }
-
-    void mousePressed(MouseCode code, Panel* panel) override
-    {
-        if (code != MOUSE_LEFT)
-        {
-            // send a message to close the command menu
-            // this needs to be a message, since a direct call screws the timing
-            gEngfuncs.pfnClientCmd("ForceCloseCommandMenu\n");
-        }
-    }
-
-    void mouseReleased(MouseCode code, Panel* panel) override { return; }
-    void mouseDoublePressed(MouseCode code, Panel* panel) override { return; }
-    void mouseWheeled(int delta, Panel* panel) override { return; }
-    void keyPressed(KeyCode code, Panel* panel) override { return; }
-    void keyTyped(KeyCode code, Panel* panel) override { return; }
-    void keyReleased(KeyCode code, Panel* panel) override { return; }
-    void keyFocusTicked(Panel* panel) override { return; }
-};
-
 
 //================================================================
 TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : Panel(x, y, wide, tall), m_SchemeManager(wide, tall)
