@@ -656,7 +656,7 @@ void DLLEXPORT HUD_TempEntUpdate(
                         // Reflect velocity
                         if (damp != 0)
                         {
-                            proj = DotProduct(pTemp->entity.baseline.origin, traceNormal);
+                            proj = Vector::DotProduct(pTemp->entity.baseline.origin, traceNormal);
                             VectorMA(pTemp->entity.baseline.origin, -proj * 2, traceNormal, pTemp->entity.baseline.origin);
                             // Reflect rotation (fake)
 

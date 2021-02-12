@@ -14,9 +14,9 @@
 ****/
 
 #include "Platform.h"
+#include "../../shared/Vector.h"
 typedef int qboolean;
 typedef unsigned char byte;
-#include "mathlib.h"
 #include "const.h"
 #include "progdefs.h"
 #include "edict.h"
@@ -123,7 +123,8 @@ void GetEyePosition(void* pmodel, float* vecEyePosition)
         return;
     }
 
-    VectorCopy(pstudiohdr->eyeposition, vecEyePosition);
+    Vector ep = pstudiohdr->eyeposition;
+    ep.CopyToArray(vecEyePosition);
 }
 
 int LookupSequence(void* pmodel, const char* label)

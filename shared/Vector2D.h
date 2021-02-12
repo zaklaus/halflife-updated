@@ -68,4 +68,7 @@ public:
     vec_t x, y;
 };
 
-inline Vector2D operator*(const float fl, const Vector2D& v) { return v * fl; }
+inline Vector2D operator*(const float fl, const Vector2D& v)
+{
+    return v * fl;
+}

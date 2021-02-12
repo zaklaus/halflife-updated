@@ -221,3 +221,5 @@ typedef struct playermove_s
 } playermove_t;
 
 #endif
+
+typedef vec_t vec3_pm_t[3];

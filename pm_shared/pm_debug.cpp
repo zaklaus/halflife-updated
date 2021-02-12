@@ -13,7 +13,7 @@
 *
 ****/
 
-#include "mathlib.h"
+#include "../shared/compat_mathlib.h"
 #include "const.h"
 #include "usercmd.h"
 #include "pm_defs.h"
@@ -22,6 +22,9 @@
 #include "pm_debug.h"
 
 #include <string.h>
+
+#undef vec3_t
+typedef vec3_pm_t vec3_t;
 
 #pragma warning(disable : 4244)
 #pragma warning(disable : 4305)
@@ -175,7 +178,7 @@ void PM_DrawPhysEntBBox(int num, int pcolor, float life)
         // If the bbox should be rotated, do that
         if (pe->angles[0] || pe->angles[1] || pe->angles[2])
         {
-            vec3_t    forward, right, up;
+            Vector    forward, right, up;
 
             AngleVectorsTranspose(pe->angles, forward, right, up);
             for (j = 0; j < 8; j++)
@@ -276,7 +279,7 @@ Tries to shoot a ray out by about 128 units.
 */
 void PM_ViewEntity( void )
 {
-    vec3_t forward, right, up;
+    Vector forward, right, up;
     float raydist = 256.0f;
     vec3_t origin;
     vec3_t end;

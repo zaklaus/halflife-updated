@@ -18,7 +18,6 @@
 #include "triangleapi.h"
 #include "effects/aurora/ParticleSystemManager.h"
 #include "com_model.h"
-#include "studio_util.h"
 
 #include "Exports.h"
 #include "particleman.h"

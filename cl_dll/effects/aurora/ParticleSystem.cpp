@@ -25,7 +25,6 @@
 
 #include "RandomRange.h"
 #include "..\common\com_model.h"
-#include "studio_util.h" // for M_PI and matrix functions
 #include "..\common\pmtrace.h" // for contents and traceline
 #include "..\pm_shared\pm_defs.h"
 
@@ -612,7 +611,7 @@ bool ParticleSystem::UpdateParticle(particle* part, float frametime)
             if (tr->fraction < 1)
             {
                 part->origin = tr->endpos;
-                float bounceforce = DotProduct(tr->plane.normal, part->velocity);
+                float bounceforce = Vector::DotProduct(tr->plane.normal, part->velocity);
                 float newspeed = (1 - part->pType->m_BounceFriction.GetInstance());
                 part->velocity = part->velocity * newspeed;
                 VectorMA(part->velocity, -bounceforce * (newspeed + part->pType->m_Bounce.GetInstance()), tr->plane.normal, part->velocity);

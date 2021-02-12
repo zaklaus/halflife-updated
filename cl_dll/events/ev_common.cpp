@@ -104,7 +104,7 @@ void EV_GetGunPosition(event_args_t* args, float* pos, float* origin)
 
     idx = args->entindex;
 
-    VectorClear(view_ofs);
+    view_ofs.Clear();
     view_ofs[2] = DEFAULT_VIEWHEIGHT;
 
     if (EV_IsPlayer(idx))
@@ -134,7 +134,7 @@ Bullet shell casings
 void EV_EjectBrass(float* origin, float* velocity, float rotation, int model, int soundtype)
 {
     vec3_t endpos;
-    VectorClear(endpos);
+    endpos.Clear();
     endpos[1] = rotation;
     gEngfuncs.pEfxAPI->R_TempModel(origin, velocity, endpos, 2.5, model, soundtype);
 }
@@ -157,7 +157,7 @@ void EV_GetDefaultShellInfo(event_args_t* args, float* origin, float* velocity, 
 
     idx = args->entindex;
 
-    VectorClear(view_ofs);
+    view_ofs.Clear();
     view_ofs[2] = DEFAULT_VIEWHEIGHT;
 
     if (EV_IsPlayer(idx))

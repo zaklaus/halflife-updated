@@ -34,40 +34,6 @@ int	g_runfuncs = 0;
 //  reset it to NULL as appropriate
 struct local_state_s *g_finalstate = NULL;
 
-/*
-====================
-COM_Log
-
-Log debug messages to file ( appends )
-====================
-*/
-void COM_Log( const char *pszFile, const char *fmt, ...)
-{
-	va_list		argptr;
-	char		string[1024];
-	FILE *fp;
-	const char *pfilename;
-	
-	if ( !pszFile )
-	{
-		pfilename = "c:\\hllog.txt";
-	}
-	else
-	{
-		pfilename = pszFile;
-	}
-
-	va_start (argptr,fmt);
-	vsprintf (string, fmt,argptr);
-	va_end (argptr);
-
-	fp = fopen( pfilename, "a+t");
-	if (fp)
-	{
-		fprintf(fp, "%s", string);
-		fclose(fp);
-	}
-}
 
 // remember the current animation for the view model, in case we get out of sync with
 //  server.

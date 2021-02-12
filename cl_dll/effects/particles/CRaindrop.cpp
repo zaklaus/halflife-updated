@@ -18,7 +18,6 @@
 #include "event_api.h"
 #include "pm_defs.h"
 #include "com_model.h"
-#include "studio_util.h"
 
 #include "../CWeather.h"
 #include "CRaindrop.h"
@@ -35,7 +34,7 @@ void CRaindrop::Think(float time)
 	AngleVectors(vecViewAngles, vecForward, vecRight, vecUp);
 
 	m_vAngles.y = vecViewAngles.y;
-	m_vAngles.z = atan(DotProduct(m_vVelocity, vecRight) / m_vVelocity.z) * (180.0 / M_PI);
+	m_vAngles.z = atan(Vector::DotProduct(m_vVelocity, vecRight) / m_vVelocity.z) * (180.0 / M_PI);
 
 	if (m_flBrightness < 155.0f)
 		m_flBrightness += 6.5f;

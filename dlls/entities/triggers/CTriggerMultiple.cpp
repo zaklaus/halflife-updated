@@ -43,7 +43,7 @@ void CTriggerMultiple::MultiTouch(CBaseEntity* pOther)
     if (pev->movedir != g_vecZero)
     {
         UTIL_MakeVectors(pevToucher->angles);
-        if (DotProduct(gpGlobals->v_forward, pev->movedir) < 0)
+        if (Vector::DotProduct(gpGlobals->v_forward, pev->movedir) < 0)
             return;         // not facing the right way
     }
 #endif

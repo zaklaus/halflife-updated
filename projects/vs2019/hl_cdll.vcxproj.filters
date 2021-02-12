@@ -103,6 +103,9 @@
     <Filter Include="Header Files\cl_dll\events">
       <UniqueIdentifier>{565c4ff7-2864-4045-b697-4f91cb44688f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\shared">
+      <UniqueIdentifier>{d43a6b72-cc66-44e9-8e36-7bfe24881eb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cl_dll\com_weapons.cpp">
@@ -117,16 +120,10 @@
     <ClCompile Include="..\..\cl_dll\util.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\studio_util.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\public\interface.cpp">
       <Filter>Source Files\public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pm_shared\pm_debug.cpp">
-      <Filter>Source Files\pm_shared</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pm_shared\pm_math.cpp">
       <Filter>Source Files\pm_shared</Filter>
     </ClCompile>
     <ClCompile Include="..\..\pm_shared\pm_shared.cpp">
@@ -835,6 +832,21 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CViewPortInputHandler.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\bitvec.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\voice_common.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\Vector4D.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\mathdefs.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\compat_mathlib.h">
+      <Filter>Header Files\shared</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

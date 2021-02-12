@@ -61,13 +61,6 @@ static void FixupAngles(Vector &v);
 #define noiseMovement noise
 #define noiseStopMoving noise1
 
-
-
-// from mathlib.h
-extern int nanmask;
-
-#define    IS_NAN(x) (((*(int *)&(x))&nanmask)==nanmask)
-
 static float Fix(float angle)
 {
     if (IS_NAN(angle))

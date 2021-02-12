@@ -260,8 +260,8 @@ void CHudHealth::CalcDamageDirection(vec3_t vecFrom)
     vecFrom = vecFrom.Normalize();
     AngleVectors(vecAngles, forward, right, up);
 
-    front = DotProduct(vecFrom, right);
-    side = DotProduct(vecFrom, forward);
+    front = Vector::DotProduct(vecFrom, right);
+    side = Vector::DotProduct(vecFrom, forward);
 
     if (flDistToTarget <= 50)
     {

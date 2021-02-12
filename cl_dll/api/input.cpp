@@ -32,9 +32,6 @@ extern int g_iAlive;
 extern int g_weaponselect;
 extern cl_enginefunc_t gEngfuncs;
 
-// Defined in pm_math.c
-float anglemod(float a);
-
 void IN_Init(void);
 void IN_Move(float frametime, usercmd_t* cmd);
 void IN_Shutdown(void);

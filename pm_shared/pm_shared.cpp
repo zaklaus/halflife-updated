@@ -16,7 +16,7 @@
 #include "Platform.h"
 
 #include <assert.h>
-#include "mathlib.h"
+#include "../shared/compat_mathlib.h"
 #include "const.h"
 #include "usercmd.h"
 #include "pm_defs.h"
@@ -28,6 +28,9 @@
 #include <string.h> // strcpy
 #include <stdlib.h> // atoi
 #include <ctype.h>  // isspace
+
+#undef vec3_t
+typedef vec_t vec3_t[3];
 
 #ifdef CLIENT_DLL
     // Spectator Mode
@@ -1866,7 +1869,7 @@ void PM_SpectatorMove (void)
         speed = Length (pmove->velocity);
         if (speed < 1)
         {
-            VectorCopy (shared_vec3_origin, pmove->velocity)
+            VectorCopy(shared_vec3_origin, pmove->velocity);
         }
         else
         {
@@ -2168,7 +2171,7 @@ void PM_LadderMove( physent_t *pLadder )
     if ( trace.fraction != 1.0 )
     {
         float forward = 0, right = 0;
-        vec3_t vpn, v_right;
+        Vector vpn, v_right;
         float flSpeed = MAX_CLIMB_SPEED;
 
         // they shouldn't be able to move faster than their maxspeed
@@ -2177,7 +2180,8 @@ void PM_LadderMove( physent_t *pLadder )
             flSpeed = pmove->maxspeed;
         }
 
-        AngleVectors( pmove->angles, vpn, v_right, NULL );
+        Vector up_discarded;
+        AngleVectors( pmove->angles, vpn, v_right, up_discarded);
 
         if ( pmove->flags & FL_DUCKING )
         {
@@ -2464,7 +2468,7 @@ void PM_Physics_Toss()
             VectorScale (pmove->velocity, (1.0 - trace.fraction) * pmove->frametime * 0.9, move);
             trace = PM_PushEntity (move);
         }
-        VectorSubtract( pmove->velocity, base, pmove->velocity )
+        VectorSubtract(pmove->velocity, base, pmove->velocity);
     }
     
 // check for in water
@@ -2861,7 +2865,7 @@ float PM_CalcRoll (vec3_t angles, vec3_t velocity, float rollangle, float rollsp
     float   sign;
     float   side;
     float   value;
-    vec3_t  forward, right, up;
+    Vector  forward, right, up;
     
     AngleVectors (angles, forward, right, up);
     

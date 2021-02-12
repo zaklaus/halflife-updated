@@ -35,16 +35,12 @@ void PM_ParticleLine(float* start, float* end, int pcolor, float life, float ver
 int PM_GetVisEntInfo(int ent);
 int PM_GetPhysEntInfo(int ent);
 void InterpolateAngles(float* start, float* end, float* output, float frac);
-void NormalizeAngles(float* angles);
-float Distance(const float* v1, const float* v2);
-float AngleBetweenVectors(const float* v1, const float* v2);
 
 extern float vJumpOrigin[3];
 extern float vJumpAngles[3];
 
 
 void V_DropPunchAngle(float frametime, float* ev_punchangle);
-void VectorAngles(const float* forward, float* angles);
 
 #include "r_studioint.h"
 #include "com_model.h"
@@ -101,64 +97,6 @@ cvar_t v_iroll_level = {"v_iroll_level", "0.1", 0, 0.1};
 cvar_t v_ipitch_level = {"v_ipitch_level", "0.3", 0, 0.3};
 
 float v_idlescale; // used by TFC for concussion grenade effect
-
-//=============================================================================
-/*
-void V_NormalizeAngles( vec3_t angles )
-{
-	int i;
-	// Normalize angles
-	for ( i = 0; i < 3; i++ )
-	{
-		if ( angles[i] > 180.0 )
-		{
-			angles[i] -= 360.0;
-		}
-		else if ( angles[i] < -180.0 )
-		{
-			angles[i] += 360.0;
-		}
-	}
-}
-
-/*
-===================
-V_InterpolateAngles
-
-Interpolate Euler angles.
-FIXME:  Use Quaternions to avoid discontinuities
-Frac is 0.0 to 1.0 ( i.e., should probably be clamped, but doesn't have to be )
-===================
-
-void V_InterpolateAngles( float *start, float *end, float *output, float frac )
-{
-	int i;
-	float ang1, ang2;
-	float d;
-	
-	V_NormalizeAngles( start );
-	V_NormalizeAngles( end );
-
-	for ( i = 0 ; i < 3 ; i++ )
-	{
-		ang1 = start[i];
-		ang2 = end[i];
-
-		d = ang2 - ang1;
-		if ( d > 180 )
-		{
-			d -= 360;
-		}
-		else if ( d < -180 )
-		{	
-			d += 360;
-		}
-
-		output[i] = ang1 + d * frac;
-	}
-
-	V_NormalizeAngles( output );
-} */
 
 // Quakeworld bob code, this fixes jitters in the mutliplayer since the clock (pparams->time) isn't quite linear
 float V_CalcBob(struct ref_params_s* pparams)
@@ -219,7 +157,7 @@ float V_CalcRoll(vec3_t angles, vec3_t velocity, float rollangle, float rollspee
 
     AngleVectors(angles, forward, right, up);
 
-    side = DotProduct(velocity, right);
+    side = Vector::DotProduct(velocity, right);
     sign = side < 0 ? -1 : 1;
     side = fabs(side);
 
@@ -1665,7 +1603,7 @@ void V_CalcSpectatorRefdef(struct ref_params_s* pparams)
 
     // write back new values into pparams
     VectorCopy(v_cl_angles, pparams->cl_viewangles);
-    VectorCopy(v_angles, pparams->viewangles)
+    VectorCopy(v_angles, pparams->viewangles);
     VectorCopy(v_origin, pparams->vieworg);
 }
 

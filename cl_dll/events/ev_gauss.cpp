@@ -204,7 +204,7 @@ void EV_FireGauss(event_args_t* args)
 
             pentIgnore = NULL;
 
-            n = -DotProduct(tr.plane.normal, forward);
+            n = -Vector::DotProduct(tr.plane.normal, forward);
 
             if (n < 0.5) // 60 degrees	
             {

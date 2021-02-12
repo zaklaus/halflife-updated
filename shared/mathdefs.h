@@ -14,7 +14,16 @@
 ****/
 #pragma once
 
-typedef unsigned int func_t;
-typedef unsigned int string_t;
-typedef float vec_t;
-typedef vec_t vec4_t[4];
+#define M_PI 3.14159265358979323846	// matches value in gcc v2 math.h
+
+constexpr int NANMASK = 255 << 23;
+#define	IS_NAN(x) (((*(int *)&x)&NANMASK)==NANMASK)
+
+// up / down
+#define PITCH 0
+
+// left / right
+#define YAW   1
+
+// fall over
+#define ROLL  2
