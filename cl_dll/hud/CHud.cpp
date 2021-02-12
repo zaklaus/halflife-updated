@@ -151,15 +151,6 @@ void __CmdFunc_OpenCommandMenu(void)
     }
 }
 
-// TFC "special" command
-void __CmdFunc_InputPlayerSpecial(void)
-{
-    if (gViewPort)
-    {
-        gViewPort->InputPlayerSpecial();
-    }
-}
-
 void __CmdFunc_CloseCommandMenu(void)
 {
     if (gViewPort)
@@ -334,7 +325,6 @@ void CHud::Init(void)
     HOOK_COMMAND("+commandmenu", OpenCommandMenu);
     HOOK_COMMAND("-commandmenu", CloseCommandMenu);
     HOOK_COMMAND("ForceCloseCommandMenu", ForceCloseCommandMenu);
-    HOOK_COMMAND("special", InputPlayerSpecial);
 
     HOOK_MESSAGE(ValClass);
     HOOK_MESSAGE(TeamNames);
@@ -695,14 +685,8 @@ float g_fFogFadeFraction;
 
 #define MAX_CLIENTS 32
 
-#if !defined( _TFC )
 extern BEAM* pBeam;
 extern BEAM* pBeam2;
-#endif
-
-#if defined( _TFC )
-void ClearEventList(void);
-#endif
 
 extern float g_clampMinYaw, g_clampMaxYaw, g_clampMinPitch, g_clampMaxPitch;
 extern float g_clampTurnSpeed;
@@ -771,20 +755,11 @@ void CHud::MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
         pList = pList->pNext;
     }
 
-#if defined( _TFC )
-	ClearEventList();
-
-	// catch up on any building events that are going on
-	gEngfuncs.pfnServerCmd("sendevents");
-#endif
-
     if (g_pParticleMan)
         g_pParticleMan->ResetParticles();
 
-#if !defined( _TFC )
     //Probably not a good place to put this.
     pBeam = pBeam2 = NULL;
-#endif
 }
 
 //LRC

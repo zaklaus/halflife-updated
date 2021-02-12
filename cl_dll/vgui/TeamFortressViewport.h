@@ -16,8 +16,6 @@
 
 #include <VGUI_Panel.h>
 
-#include "BuildButton.h"
-#include "CClassMenuPanel.h"
 #include "CCommandMenu.h"
 #include "CMenuPanel.h"
 #include "CSchemeManager.h"
@@ -45,7 +43,6 @@ public:
     void UpdateSpectatorPanel(void);
 
     int KeyInput(int down, int keynum, const char* pszCurrentBinding);
-    void InputPlayerSpecial(void);
     void GetAllPlayersInfo(void);
     void DeathMsg(int killer, int victim);
 
@@ -115,7 +112,6 @@ public:
     int m_SpectatorOptionsMenu;
     int m_SpectatorCameraMenu;
     int m_PlayerMenu; // a list of current player
-    CClassMenuPanel* m_pClassMenu;
     ScorePanel* m_pScoreBoard;
     SpectatorPanel* m_pSpectatorPanel;
     char m_szServerName[MAX_SERVERNAME_LENGTH];
@@ -141,8 +137,6 @@ private:
     // VGUI Menus
     void CreateTeamMenu(void);
     CMenuPanel* ShowTeamMenu(void);
-    void CreateClassMenu(void);
-    CMenuPanel* ShowClassMenu(void);
     void CreateSpectatorMenu(void);
 
     // Scheme handler
@@ -155,8 +149,6 @@ private:
     //  Command Menu Team buttons
     CommandButton* m_pTeamButtons[6];
     CommandButton* m_pDisguiseButtons[5];
-    BuildButton* m_pBuildButtons[3];
-    BuildButton* m_pBuildActiveButtons[3];
 
     int m_iAllowSpectators;
 

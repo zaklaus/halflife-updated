@@ -372,28 +372,13 @@
     <ClCompile Include="..\..\cl_dll\events\ev_hook.cpp">
       <Filter>Source Files\cl_dll\events</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\CClassMenuPanel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\CCommandMenu.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\CDragNDropHandler.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\CHandler_MenuButtonOver.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\CHealthPanel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\CImageLabel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\ClassButton.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandClassSelect.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\CMenuPanel.cpp">
@@ -418,9 +403,6 @@
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\CTransparentPanel.cpp">
-      <Filter>Source Files\cl_dll\vgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\vgui\DragNDropPanel.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\cl_dll\vgui\SpectToggleButton.cpp">
@@ -734,16 +716,7 @@
     <ClInclude Include="..\..\cl_dll\events\ev_common.h">
       <Filter>Header Files\cl_dll\events</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\BuildButton.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\CClassMenuPanel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CCommandMenu.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\CDragNDropHandler.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CHandler_ButtonHighlight.h">
@@ -755,16 +728,10 @@
     <ClInclude Include="..\..\cl_dll\vgui\CHandler_MenuButtonOver.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\CHealthPanel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CImageButton.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CImageLabel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\ClassButton.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_LabelInput.h">
@@ -777,9 +744,6 @@
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommand.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandClassSelect.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\CMenuHandler_StringCommandWatch.h">
@@ -818,19 +782,7 @@
     <ClInclude Include="..\..\cl_dll\vgui\CTransparentPanel.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\DetpackButton.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\DisguiseButton.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\DragNDropPanel.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\DropDownButton.h">
-      <Filter>Header Files\cl_dll\vgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\vgui\FeignButton.h">
       <Filter>Header Files\cl_dll\vgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\vgui\MapButton.h">

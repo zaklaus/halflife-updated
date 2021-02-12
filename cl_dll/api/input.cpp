@@ -455,16 +455,9 @@ void IN_SpeedUp(void) { KeyUp(&in_speed); }
 void IN_StrafeDown(void) { KeyDown(&in_strafe); }
 void IN_StrafeUp(void) { KeyUp(&in_strafe); }
 
-// needs capture by hud/vgui also
-extern void __CmdFunc_InputPlayerSpecial(void);
-
 void IN_Attack2Down(void)
 {
     KeyDown(&in_attack2);
-
-#ifdef _TFC
-	__CmdFunc_InputPlayerSpecial();
-#endif
 
     gHUD.m_Spectator.HandleButtonsDown(IN_ATTACK2);
 }
@@ -1073,22 +1066,13 @@ void ShutdownInput(void)
     KB_Shutdown();
 }
 
-#include "interface.h"
 void CL_UnloadParticleMan(void);
-
-#if defined( _TFC )
-void ClearEventList( void );
-#endif
 
 void DLLEXPORT HUD_Shutdown(void)
 {
     //	RecClShutdown();
 
     ShutdownInput();
-
-#if defined( _TFC )
-	ClearEventList();
-#endif
 
     CL_UnloadParticleMan();
 }

@@ -100,10 +100,6 @@ void DLLEXPORT HUD_DrawNormalTriangles(void)
     gHUD.m_Spectator.DrawOverview();
 }
 
-#if defined( _TFC )
-void RunEventList( void );
-#endif
-
 /*
 =================
 HUD_DrawTransparentTriangles
@@ -116,10 +112,6 @@ extern ParticleSystemManager* g_pParticleSystems; // LRC
 void DLLEXPORT HUD_DrawTransparentTriangles(void)
 {
     //	RecClDrawTransparentTriangles();
-
-#if defined( _TFC )
-	RunEventList();
-#endif
 
     if (g_pParticleMan)
     {
