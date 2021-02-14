@@ -5,10 +5,10 @@
 // $NoKeywords: $
 //=============================================================================
 
-#include "hud.h"
+#include "hud/hud.h"
+#include "hud/CHud.h"
 #include "cl_util.h"
 #include "camera.h"
-#include "hud/CHud.h"
 
 extern "C" {
 void DLLEXPORT CAM_Think(void);

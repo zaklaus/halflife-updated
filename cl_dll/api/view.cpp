@@ -1,6 +1,6 @@
 // view/refresh setup functions
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "hud/CHud.h"
 #include "cl_util.h"
 #include "cvardef.h"
@@ -10,21 +10,13 @@
 #include "entity_state.h"
 #include "cl_entity.h"
 #include "ref_params.h"
-#include "in_defs.h" // PITCH YAW ROLL
 #include "pm_movevars.h"
 #include "pm_shared.h"
 #include "pm_defs.h"
 #include "event_api.h"
 #include "pmtrace.h"
-#include "screenfade.h"
-#include "shake.h"
 #include "hltv.h"
 #include "Exports.h"
-
-
-#ifndef M_PI
-#define M_PI		3.14159265358979323846	// matches value in gcc v2 math.h
-#endif
 
 int CL_IsThirdPerson(void);
 void CL_CameraOffset(float* ofs);

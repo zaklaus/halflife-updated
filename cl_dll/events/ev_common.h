@@ -12,7 +12,6 @@
 #include "cl_util.h"
 #include "event_api.h"
 #include "r_studioint.h"
-#include "in_defs.h"
 
 // defaults for clientinfo messages
 #define	DEFAULT_VIEWHEIGHT	28

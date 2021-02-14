@@ -3,7 +3,7 @@
 #include <memory.h>
 #include "voice/CVoiceStatus.h"
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "hud/CHud.h"
 #include "cl_util.h"
 #include "const.h"

@@ -13,11 +13,9 @@
 *
 ****/
 
-#include "hud.h"
 #include "cl_util.h"
 #include "const.h"
 #include "entity_state.h"
-#include "event_api.h"
 #include "cl_entity.h"
 #include "triangleapi.h"
 

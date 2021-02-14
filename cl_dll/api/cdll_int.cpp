@@ -18,7 +18,7 @@
 // this implementation handles the linking of the engine to the DLL
 //
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "cl_util.h"
 #include "netadr.h"
 #undef INTERFACE_H

@@ -1,6 +1,6 @@
 //mp3 support added by Killar
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "cl_util.h"
 #include "CMP3.h"
 

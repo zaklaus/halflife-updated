@@ -17,8 +17,6 @@
 #include <VGUI_InputSignal.h>
 #include <VGUI_MouseCode.h>
 
-#include "hud.h"
-
 //-----------------------------------------------------------------------------
 // Purpose: InputSignal handler for the main viewport
 //-----------------------------------------------------------------------------

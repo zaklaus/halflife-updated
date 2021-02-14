@@ -166,7 +166,7 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\hud\CHudTrain.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\HistoryResource.cpp" />
     <ClCompile Include="..\..\cl_dll\hud\WeaponsResource.cpp" />
-    <ClCompile Include="..\..\cl_dll\interpolation.cpp" />
+    <ClCompile Include="..\..\cl_dll\CInterpolation.cpp" />
     <ClCompile Include="..\..\cl_dll\util.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\CCommandMenu.cpp" />
     <ClCompile Include="..\..\cl_dll\vgui\CHandler_MenuButtonOver.cpp" />
@@ -240,7 +240,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\fmod.h" />
     <ClInclude Include="..\..\cl_dll\fmod_errors.h" />
     <ClInclude Include="..\..\cl_dll\glInclude.h" />
-    <ClInclude Include="..\..\cl_dll\hud.h" />
     <ClInclude Include="..\..\cl_dll\hud\CHud.h" />
     <ClInclude Include="..\..\cl_dll\hud\WeaponsResource.h" />
     <ClInclude Include="..\..\cl_dll\hud\HistoryResource.h" />
@@ -262,8 +261,7 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\hud\CHudTextMessage.h" />
     <ClInclude Include="..\..\cl_dll\hud\CHudTrain.h" />
     <ClInclude Include="..\..\cl_dll\hud\hud.h" />
-    <ClInclude Include="..\..\cl_dll\interpolation.h" />
-    <ClInclude Include="..\..\cl_dll\in_defs.h" />
+    <ClInclude Include="..\..\cl_dll\CInterpolation.h" />
     <ClInclude Include="..\..\cl_dll\kbutton.h" />
     <ClInclude Include="..\..\cl_dll\ui\point.h" />
     <ClInclude Include="..\..\cl_dll\ui\rgba.h" />
@@ -324,8 +322,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\voice\CVoiceBanMgr.h" />
     <ClInclude Include="..\..\common\parsemsg.h" />
     <ClInclude Include="..\..\common\Platform.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerItem.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrossbow.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrowbar.h" />
@@ -351,6 +347,7 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\pm_shared\pm_movevars.h" />
     <ClInclude Include="..\..\pm_shared\pm_shared.h" />
     <ClInclude Include="..\..\shared\bitvec.h" />
+    <ClInclude Include="..\..\shared\common_defs.h" />
     <ClInclude Include="..\..\shared\mathdefs.h" />
     <ClInclude Include="..\..\shared\compat_mathlib.h" />
     <ClInclude Include="..\..\shared\types.h" />

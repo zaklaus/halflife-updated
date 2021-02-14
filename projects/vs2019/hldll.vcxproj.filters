@@ -129,9 +129,6 @@
     <Filter Include="Header Files\shared">
       <UniqueIdentifier>{deedbd06-d078-46d4-b327-2b105c425b0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\shared">
-      <UniqueIdentifier>{6e9226b6-aad8-4e19-9dd1-77217d5d3d7c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dlls\client.cpp">
@@ -1216,9 +1213,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\dlls\cdll_dll.h">
-      <Filter>Header Files\dlls</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\client.h">
       <Filter>Header Files\dlls</Filter>
     </ClInclude>
@@ -2354,6 +2348,9 @@
       <Filter>Header Files\shared</Filter>
     </ClInclude>
     <ClInclude Include="..\..\shared\Vector4D.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\common_defs.h">
       <Filter>Header Files\shared</Filter>
     </ClInclude>
   </ItemGroup>

@@ -12,7 +12,7 @@
 *   without written permission from Valve LLC.
 *
 ****/
-#include "hud.h"
+#include "hud/hud.h"
 #include "cl_util.h"
 #include "event_api.h"
 #include "triangleapi.h"
@@ -146,7 +146,6 @@ void CWeather::Update()
 }
 
 // todo: move all the util stuff to shared code
-#define M_PI 3.14159265358979323846	// matches value in gcc v2 math.h
 float UTIL_Approach(float target, float value, float speed)
 {
     float delta = target - value;

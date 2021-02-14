@@ -16,7 +16,7 @@
 // $NoKeywords: $
 //=============================================================================
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "CSchemeManager.h"
 #include "cvardef.h"
 #include <string.h>

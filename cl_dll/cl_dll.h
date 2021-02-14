@@ -12,31 +12,25 @@
 *   without written permission from Valve LLC.
 *
 ****/
-//
-//  cl_dll.h
-//
+#pragma once
 
-// 4-23-98  JOHN
-
-//
-//  This DLL is linked by the client when they first initialize.
-// This DLL is responsible for the following tasks:
-//		- Loading the HUD graphics upon initialization
-//		- Drawing the HUD graphics every frame
-//		- Handling the custum HUD-update packets
-//
+/*
+ * This header should be included in all client files.
+ */
 
 #include "Platform.h"
 
-typedef unsigned char byte;
-typedef unsigned short word;
+// Shared headers between the client DLL and the game DLLs
+#include "../shared/types.h"
+#include "../shared/Vector.h"
+#include "../shared/common_defs.h"
 
-typedef int (*pfnUserMsgHook)(const char* pszName, int iSize, void* pbuf);
-
+// Compatibility mathlib since the client project doesn't (yet?) make proper use of the vector class
 #include "../shared/compat_mathlib.h"
+
+// Client DLL interface
 #include "../engine/cdll_int.h"
-#include "../dlls/cdll_dll.h"
+#include "cvardef.h"
 
+// Global engine functions
 extern cl_enginefunc_t gEngfuncs;
-
-#define CONPRINT (gEngfuncs.Con_Printf) //LRC - I can't live without printf!

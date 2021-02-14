@@ -343,20 +343,20 @@ int CHudAmmo::MsgFunc_HideWeapon(const char* pszName, int iSize, void* pbuf)
         WEAPON* pWeapon = gWR.GetWeapon(4);
         if (pWeapon)
             SetCrosshair(pWeapon->hCrosshair, pWeapon->rcCrosshair, 255, 255, 255);
-        //		CONPRINT("Selecting custom crosshair");
+        //		gEngfuncs.Con_Printf("Selecting custom crosshair");
     }
     else if ((m_pWeapon == NULL) || (gHUD.m_iHideHUDDisplay & (HIDEHUD_WEAPONS | HIDEHUD_ALL)))
     {
         static wrect_t nullrc;
         gpActiveSel = NULL;
         SetCrosshair(0, nullrc, 0, 0, 0);
-        //		CONPRINT("Blanking crosshair\n");
+        //		gEngfuncs.Con_Printf("Blanking crosshair\n");
     }
     else
     {
         //if ( m_pWeapon )
         SetCrosshair(m_pWeapon->hCrosshair, m_pWeapon->rcCrosshair, 255, 255, 255);
-        //		CONPRINT("Selecting weapon crosshair\n");
+        //		gEngfuncs.Con_Printf("Selecting weapon crosshair\n");
     }
 
     return 1;
@@ -664,10 +664,10 @@ int CHudAmmo::Draw(float flTime)
 
     if (!m_pWeapon)
     {
-        //		CONPRINT("AmmoDraw: NO pWeapon\n");
+        //		gEngfuncs.Con_Printf("AmmoDraw: NO pWeapon\n");
         return 0;
     }
-    //	CONPRINT("AmmoDraw: pWeapon ok\n");
+    //	gEngfuncs.Con_Printf("AmmoDraw: pWeapon ok\n");
 
     WEAPON* pw = m_pWeapon; // shorthand
 

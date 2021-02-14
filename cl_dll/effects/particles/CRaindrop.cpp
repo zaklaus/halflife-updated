@@ -13,7 +13,7 @@
 *
 ****/
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "cl_util.h"
 #include "event_api.h"
 #include "pm_defs.h"

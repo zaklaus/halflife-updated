@@ -5,7 +5,7 @@
 // Quake is a trademark of Id Software, Inc., (c) 1996 Id Software, Inc. All
 // rights reserved.
 
-#include "hud.h"
+#include "hud/hud.h"
 #include "cl_util.h"
 #include "camera.h"
 
@@ -15,9 +15,6 @@ extern "C" {
 
 #include "cvardef.h"
 #include "usercmd.h"
-#include "const.h"
-#include "camera.h"
-#include "in_defs.h"
 #include "view.h"
 #include <string.h>
 #include <ctype.h>

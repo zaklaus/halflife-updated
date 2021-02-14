@@ -8,7 +8,7 @@
 #include <VGUI_BorderLayout.h>
 
 #include "vgui_int.h"
-#include "hud.h"
+#include "hud/hud.h"
 #include "vgui_common.h"
 #include "TeamFortressViewport.h"
 

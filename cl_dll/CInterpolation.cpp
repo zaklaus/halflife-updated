@@ -13,9 +13,8 @@
 **
 ******************************************************************************/
 
-#include "hud.h"
-#include "cl_util.h"
-#include "interpolation.h"
+#include "CInterpolation.h"
+#include "../shared/compat_mathlib.h"
 
 // = determinant of matrix a,b,c
 #define Determinant(a,b,c)		( (a)[2] * ( (b)[0]*(c)[1] - (b)[1]*(c)[0] ) + \

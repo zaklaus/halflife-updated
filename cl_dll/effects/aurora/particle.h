@@ -14,7 +14,7 @@
 ****/
 #pragma once
 
-#include "hud.h"
+#include "hud/hud.h"
 
 class ParticleType;
 

@@ -103,15 +103,9 @@
     <Filter Include="Header Files\cl_dll\events">
       <UniqueIdentifier>{565c4ff7-2864-4045-b697-4f91cb44688f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\shared">
-      <UniqueIdentifier>{d43a6b72-cc66-44e9-8e36-7bfe24881eb0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\cl_dll\com_weapons.cpp">
-      <Filter>Source Files\cl_dll</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\cl_dll\interpolation.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
     <ClCompile Include="..\..\common\parsemsg.cpp">
@@ -426,6 +420,9 @@
     <ClCompile Include="..\..\cl_dll\vgui\vgui_common.cpp">
       <Filter>Source Files\cl_dll\vgui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\cl_dll\CInterpolation.cpp">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cl_dll\kbutton.h">
@@ -438,15 +435,6 @@
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\com_weapons.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\hud.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\in_defs.h">
-      <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\cl_dll\interpolation.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
     <ClInclude Include="..\..\common\parsemsg.h">
@@ -481,12 +469,6 @@
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\glInclude.h">
       <Filter>Header Files\cl_dll</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerAmmo.h">
-      <Filter>Header Files\dlls/entities/weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerItem.h">
-      <Filter>Header Files\dlls/entities/weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
@@ -847,6 +829,12 @@
     </ClInclude>
     <ClInclude Include="..\..\shared\compat_mathlib.h">
       <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\common_defs.h">
+      <Filter>Header Files\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\CInterpolation.h">
+      <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

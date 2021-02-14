@@ -13,9 +13,6 @@
 *
 ****/
 #pragma once
-#ifndef EXTDLL_H
-#define EXTDLL_H
-
 
 //
 // Global header file for extension DLLs
@@ -23,8 +20,10 @@
 
 #include "Platform.h"
 
+// Shared headers between the client DLL and the game DLLs
 #include "../shared/types.h"
 #include "../shared/Vector.h"
+#include "../shared/common_defs.h"
 
 // Shared engine/DLL constants
 #include "const.h"
@@ -33,8 +32,3 @@
 
 // Shared header describing protocol between engine and DLLs
 #include "eiface.h"
-
-// Shared header between the client DLL and the game DLLs
-#include "cdll_dll.h"
-
-#endif //EXTDLL_H

@@ -95,7 +95,7 @@ int __MsgFunc_Weather(const char* pszName, int iSize, void* pbuf)
 int __MsgFunc_ResetHUD(const char* pszName, int iSize, void* pbuf)
 {
 #ifdef ENGINE_DEBUG
-	CONPRINT("## ResetHUD\n");
+    gEngfuncs.Con_Printf("## ResetHUD\n");
 #endif
     return gHUD.MsgFunc_ResetHUD(pszName, iSize, pbuf);
 }
@@ -103,7 +103,7 @@ int __MsgFunc_ResetHUD(const char* pszName, int iSize, void* pbuf)
 int __MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
 {
 #ifdef ENGINE_DEBUG
-	CONPRINT("## InitHUD\n");
+    gEngfuncs.Con_Printf("## InitHUD\n");
 #endif
     gHUD.MsgFunc_InitHUD(pszName, iSize, pbuf);
     return 1;
@@ -295,7 +295,7 @@ int __MsgFunc_AllowSpec(const char* pszName, int iSize, void* pbuf)
 void CHud::Init(void)
 {
 #ifdef ENGINE_DEBUG
-	CONPRINT("## CHud::Init\n");
+    gEngfuncs.Con_Printf("## CHud::Init\n");
 #endif
     HOOK_MESSAGE(Logo);
     HOOK_MESSAGE(ResetHUD);
@@ -406,7 +406,7 @@ void CHud::Init(void)
 CHud::~CHud()
 {
 #ifdef ENGINE_DEBUG
-	CONPRINT("## CHud::destructor\n");
+    gEngfuncs.Con_Printf("## CHud::destructor\n");
 #endif
     delete[] m_rghSprites;
     delete[] m_rgrcRects;
@@ -441,7 +441,7 @@ int CHud::GetSpriteIndex(const char* SpriteName)
 void CHud::VidInit(void)
 {
 #ifdef ENGINE_DEBUG
-	CONPRINT("## CHud::VidInit (hi from me)\n");
+    gEngfuncs.Con_Printf("## CHud::VidInit (hi from me)\n");
 #endif
     m_scrinfo.iSize = sizeof(m_scrinfo);
     GetScreenInfo(&m_scrinfo);
@@ -729,7 +729,7 @@ void CHud::MsgFunc_ViewMode(const char* pszName, int iSize, void* pbuf)
 
 void CHud::MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
 {
-    //	CONPRINT("MSG:InitHUD");
+    //	gEngfuncs.Con_Printf("MSG:InitHUD");
     //LRC - clear the fog
     g_fog.startDist = -1;
     g_fog.endDist = -1;
@@ -765,7 +765,7 @@ void CHud::MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
 //LRC
 void CHud::MsgFunc_SetFog(const char* pszName, int iSize, void* pbuf)
 {
-    //	CONPRINT("MSG:SetFog");
+    //	gEngfuncs.Con_Printf("MSG:SetFog");
     BEGIN_READ(pbuf, iSize);
 
     for (int i = 0; i < 3; i++)
@@ -812,7 +812,7 @@ void CHud::MsgFunc_SetFog(const char* pszName, int iSize, void* pbuf)
 //LRC
 void CHud::MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf)
 {
-    //	CONPRINT("MSG:KeyedDLight");
+    //	gEngfuncs.Con_Printf("MSG:KeyedDLight");
     BEGIN_READ(pbuf, iSize);
 
     // as-yet unused:
@@ -847,7 +847,7 @@ void CHud::MsgFunc_KeyedDLight(const char* pszName, int iSize, void* pbuf)
 //LRC
 void CHud::MsgFunc_SetSky(const char* pszName, int iSize, void* pbuf)
 {
-    //	CONPRINT("MSG:SetSky");
+    //	gEngfuncs.Con_Printf("MSG:SetSky");
     BEGIN_READ(pbuf, iSize);
 
     m_iSkyMode = READ_BYTE();
@@ -1047,7 +1047,7 @@ int CHud::Redraw(float flTime, int intermission)
         {
             g_fFogFadeFraction += fFraction;
 
-            //		CONPRINT("FogFading: %f - %f, frac %f, time %f, final %d\n", g_fStartDist, g_fEndDist, fFraction, flTime, g_iFinalEndDist);
+            //		gEngfuncs.Con_Printf("FogFading: %f - %f, frac %f, time %f, final %d\n", g_fStartDist, g_fEndDist, fFraction, flTime, g_iFinalEndDist);
 
             if (g_fFogFadeFraction >= 1.0f)
             {

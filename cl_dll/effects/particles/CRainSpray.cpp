@@ -12,7 +12,7 @@
 *   without written permission from Valve LLC.
 *
 ****/
-#include "hud.h"
+#include "hud/hud.h"
 #include "CRainSpray.h"
 
 void CRainSpray::Think(float time)

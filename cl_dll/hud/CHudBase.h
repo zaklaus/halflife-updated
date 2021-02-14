@@ -19,7 +19,6 @@
 #endif
 
 #include "parsemsg.h"
-#include "../cl_dll.h"
 #include "../cl_util.h"
 #include "ui/point.h"
 #include "ui/wrect.h"
