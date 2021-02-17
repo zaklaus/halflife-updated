@@ -17,6 +17,8 @@
 
 #include <particleman.h>
 
+
+#include "CGameStateManager.h"
 #include "effects/CWeather.h"
 #include "effects/CMP3.h"
 #include "api/demo.h"
@@ -89,6 +91,12 @@ int __MsgFunc_ClampView(const char* pszName, int iSize, void* pbuf)
 int __MsgFunc_Weather(const char* pszName, int iSize, void* pbuf)
 {
     gHUD.MsgFunc_Weather(pszName, iSize, pbuf);
+    return 1;
+}
+
+int __MsgFunc_ServerState(const char* pszName, int iSize, void* pbuf)
+{
+    gHUD.MsgFunc_ServerState(pszName, iSize, pbuf);
     return 1;
 }
 
@@ -313,6 +321,7 @@ void CHud::Init(void)
     HOOK_MESSAGE(CamData); //G-Cont. for new camera style 	
     HOOK_MESSAGE(ClampView); //LRC 1.8
     HOOK_MESSAGE(Weather);
+    HOOK_MESSAGE(ServerState);
 
     //KILLAR: MP3	
     if (gMP3.Initialize())
@@ -760,6 +769,8 @@ void CHud::MsgFunc_InitHUD(const char* pszName, int iSize, void* pbuf)
 
     //Probably not a good place to put this.
     pBeam = pBeam2 = NULL;
+
+    g_gameStateManager.InitHud();
 }
 
 //LRC
@@ -956,6 +967,14 @@ void CHud::MsgFunc_Weather(const char* pszName, int iSize, void* pBuf)
             g_Weather.SetWind(yaw, speed, yawVariance, speedVariance, changeFrequency, changeSpeed);
         }
     }
+}
+
+void CHud::MsgFunc_ServerState(const char* pszName, int iSize, void* pBuf)
+{
+    BEGIN_READ(pBuf, iSize);
+    const auto state = READ_BYTE();
+
+    g_gameStateManager.UpdateServerState(state);
 }
 
 

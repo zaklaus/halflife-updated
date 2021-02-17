@@ -62,5 +62,6 @@ extern int gmsgStatusText;
 extern int gmsgStatusValue;
 extern int gmsgCamData; // for trigger_viewset
 extern int gmsgWeather;
+extern int gmsgServerState; // used for pause/menu detection
 
 void LinkUserMessages();

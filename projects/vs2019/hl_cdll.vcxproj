@@ -119,6 +119,7 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\cl_dll\api\in_camera.cpp" />
     <ClCompile Include="..\..\cl_dll\api\tri.cpp" />
     <ClCompile Include="..\..\cl_dll\api\view.cpp" />
+    <ClCompile Include="..\..\cl_dll\CGameStateManager.cpp" />
     <ClCompile Include="..\..\cl_dll\com_weapons.cpp" />
     <ClCompile Include="..\..\cl_dll\effects\aurora\ParticleType.cpp" />
     <ClCompile Include="..\..\cl_dll\effects\aurora\RandomRange.cpp" />
@@ -222,6 +223,7 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\cl_dll\api\demo.h" />
     <ClInclude Include="..\..\cl_dll\api\GameStudioModelRenderer.h" />
     <ClInclude Include="..\..\cl_dll\api\view.h" />
+    <ClInclude Include="..\..\cl_dll\CGameStateManager.h" />
     <ClInclude Include="..\..\cl_dll\cl_dll.h" />
     <ClInclude Include="..\..\cl_dll\cl_util.h" />
     <ClInclude Include="..\..\cl_dll\com_weapons.h" />

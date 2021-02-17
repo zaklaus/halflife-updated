@@ -29,6 +29,8 @@
 #include "pm_shared.h"
 
 #include <string.h>
+
+#include "CGameStateManager.h"
 #include "voice/CVoiceStatus.h"
 
 #include "vgui/vgui_int.h"
@@ -261,8 +263,11 @@ Called by engine every frame that client .dll is loaded
 ==========================
 */
 
+double last_time = 0;
 void DLLEXPORT HUD_Frame(double time)
 {
+    g_gameStateManager.HudFrame();
+
     //	RecClHudFrame(time);
 
     GetClientVoiceMgr()->Frame(time);

@@ -15,6 +15,16 @@
 
 #include "CTargetFMODAudio.h"
 
+/*
+ * - Always toggles
+ * - Ignores user's mp3 volume settings
+ * - Doesn't pause when you pause the game
+ * - Doesn't stop when you disconnect or even after you start a new game/server
+ * - Doesn't stop when you change levels
+ * - JUST DOESN'T STOP EVER
+ * - Kinda unstable
+ */
+
 LINK_ENTITY_TO_CLASS(ambient_fmodstream, CTargetFMODAudio);
 LINK_ENTITY_TO_CLASS(trigger_mp3audio, CTargetFMODAudio);
 

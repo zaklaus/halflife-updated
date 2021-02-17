@@ -157,6 +157,7 @@ public:
     int _cdecl MsgFunc_CamData(const char* pszName, int iSize, void* pbuf); //G-Cont
     void _cdecl MsgFunc_ClampView(const char* pszName, int iSize, void* pbuf); //LRC 1.8
     void _cdecl MsgFunc_Weather(const char* pszName, int iSize, void* pBuf);
+    void _cdecl MsgFunc_ServerState(const char* pszName, int iSize, void* pBuf);
 
     // Screen information
     SCREENINFO m_scrinfo;

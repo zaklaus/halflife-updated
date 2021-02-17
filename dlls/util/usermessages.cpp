@@ -65,6 +65,7 @@ int gmsgStatusText = 0;
 int gmsgStatusValue = 0;
 int gmsgCamData; // for trigger_viewset
 int gmsgWeather = 0;
+int gmsgServerState = 0; // used for pause/menu detection
 
 void LinkUserMessages(void)
 {
@@ -123,4 +124,5 @@ void LinkUserMessages(void)
     gmsgCamData = REG_USER_MSG("CamData", -1);
     gmsgPlayMP3 = REG_USER_MSG("PlayMP3", -1); //Killar
     gmsgWeather = REG_USER_MSG("Weather", -1);
+    gmsgServerState = REG_USER_MSG("ServerState", 1);
 }

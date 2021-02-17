@@ -17,6 +17,7 @@
 #include "pmtrace.h"
 #include "hltv.h"
 #include "Exports.h"
+#include "CGameStateManager.h"
 
 int CL_IsThirdPerson(void);
 void CL_CameraOffset(float* ofs);
@@ -1689,6 +1690,8 @@ void DLLEXPORT V_CalcRefdef(struct ref_params_s* pparams)
     {
         V_CalcNormalRefdef(pparams);
     }
+
+    g_gameStateManager.CalcRefDef(pparams->paused);
 
     /*
     // Example of how to overlay the whole screen with red at 50 % alpha

@@ -423,6 +423,9 @@
     <ClCompile Include="..\..\cl_dll\CInterpolation.cpp">
       <Filter>Source Files\cl_dll</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\cl_dll\CGameStateManager.cpp">
+      <Filter>Source Files\cl_dll</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cl_dll\kbutton.h">
@@ -834,6 +837,9 @@
       <Filter>Header Files\shared</Filter>
     </ClInclude>
     <ClInclude Include="..\..\cl_dll\CInterpolation.h">
+      <Filter>Header Files\cl_dll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cl_dll\CGameStateManager.h">
       <Filter>Header Files\cl_dll</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,9 +29,10 @@ int CMP3::Initialize()
         //	(FARPROC&)LNGTH = GetProcAddress(m_hFMod, "_FSOUND_Stream_GetLength@4");	//
         (FARPROC&)SO = GetProcAddress(m_hFMod, "_FSOUND_Stream_Open@16"); //AJH Use new version of fmod
         (FARPROC&)SPLAY = GetProcAddress(m_hFMod, "_FSOUND_Stream_Play@8");
+        (FARPROC&)SETVOLUME = GetProcAddress(m_hFMod, "_FSOUND_SetVolume@8");
         (FARPROC&)CLOSE = GetProcAddress(m_hFMod, "_FSOUND_Close@0");
 
-        if (!(SCL && SOP && SBS && SDRV && INIT && (SOF || SO) && SPLAY && CLOSE))
+        if (!(SCL && SOP && SBS && SDRV && INIT && (SOF || SO) && SPLAY && CLOSE && SETVOLUME))
         {
             FreeLibrary(m_hFMod);
             gEngfuncs.Con_Printf("Fatal Error: FMOD functions couldn't be loaded!\n");
@@ -101,7 +102,9 @@ int CMP3::PlayMP3(const char* pszSong)
     }
     if (m_Stream)
     {
+        const auto volume = static_cast<int>(gEngfuncs.pfnGetCvarFloat("mp3volume") * 255);
         SPLAY(0, m_Stream);
+        SETVOLUME(0, volume);
         m_iIsPlaying = 1;
         return 1;
     }
