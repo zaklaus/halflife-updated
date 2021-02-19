@@ -17,7 +17,6 @@
 #include "util.h"
 #include "shake.h"
 
-int giPrecacheGrunt = 0;
 int gmsgShake = 0;
 int gmsgFade = 0;
 int gmsgFlashlight = 0;

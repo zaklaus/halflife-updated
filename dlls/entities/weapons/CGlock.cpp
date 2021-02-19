@@ -15,6 +15,7 @@
 
 #include "CGlock.h"
 #include "entities/player/CBasePlayer.h"
+#include "util/usermessages.h"
 
 enum glock_e
 {

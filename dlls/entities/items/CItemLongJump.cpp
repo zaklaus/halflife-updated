@@ -15,8 +15,7 @@
 
 #include "CItemLongJump.h"
 #include "entities/player/CBasePlayer.h"
-
-extern int gmsgItemPickup;
+#include "util/usermessages.h"
 
 LINK_ENTITY_TO_CLASS(item_longjump, CItemLongJump);
 

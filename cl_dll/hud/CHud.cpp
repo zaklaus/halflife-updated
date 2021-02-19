@@ -34,6 +34,9 @@ static CHLVoiceStatusHelper g_VoiceStatusHelper;
 
 extern cvar_t* sensitivity;
 cvar_t* cl_lw = NULL;
+cvar_t* cl_rollangle = nullptr;
+cvar_t* cl_rollspeed = nullptr;
+cvar_t* cl_bobtilt = nullptr;
 
 hud_player_info_t g_PlayerInfoList[MAX_PLAYERS + 1]; // player info from the engine
 extra_player_info_t g_PlayerExtraInfo[MAX_PLAYERS + 1]; // additional player info sent directly to the client dll
@@ -366,10 +369,15 @@ void CHud::Init(void)
     m_iHUDColor = 0x00FFA000; //255,160,0 -- LRC
 
     CVAR_CREATE("zoom_sensitivity_ratio", "1.2", 0);
+    CVAR_CREATE("cl_autowepswitch", "1", FCVAR_ARCHIVE | FCVAR_USERINFO);
     default_fov = CVAR_CREATE("default_fov", "90", 0);
     m_pCvarStealMouse = CVAR_CREATE("hud_capturemouse", "1", FCVAR_ARCHIVE);
     m_pCvarDraw = CVAR_CREATE("hud_draw", "1", FCVAR_ARCHIVE);
     cl_lw = gEngfuncs.pfnGetCvarPointer("cl_lw");
+    cl_rollangle = CVAR_CREATE("cl_rollangle", "2.0", FCVAR_ARCHIVE);
+    cl_rollspeed = CVAR_CREATE("cl_rollspeed", "200", FCVAR_ARCHIVE);
+    cl_bobtilt = CVAR_CREATE("cl_bobtilt", "0", FCVAR_ARCHIVE);
+
     m_pSpriteList = NULL;
 
     // Clear any old HUD list
@@ -617,8 +625,11 @@ int CHud::MsgFunc_SetFOV(const char* pszName, int iSize, void* pbuf)
     int def_fov = CVAR_GET_FLOAT("default_fov");
 
     //Weapon prediction already takes care of changing the fog. ( g_lastFOV ).
-    if (cl_lw && cl_lw->value)
+	//But it doesn't restore correctly so this still needs to be used
+    /*
+    if ( cl_lw && cl_lw->value )
         return 1;
+        */
 
     g_lastFOV = newfov;
 

@@ -17,6 +17,7 @@
 #include "entities/npcs/CHornet.h"
 #include "gamerules/CGameRules.h"
 #include "entities/player/CBasePlayer.h"
+#include "util/usermessages.h"
 
 enum hgun_e
 {

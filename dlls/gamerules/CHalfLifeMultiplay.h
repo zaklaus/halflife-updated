@@ -61,6 +61,7 @@ public:
 
     BOOL AllowAutoTargetCrosshair(void) override;
     BOOL ClientCommand(CBasePlayer* pPlayer, const char* pcmd) override;
+    void ClientUserInfoChanged(CBasePlayer* pPlayer, char* infobuffer) override;
 
     // Client kills/scoring
     int IPointsForKill(CBasePlayer* pAttacker, CBasePlayer* pKilled) override;

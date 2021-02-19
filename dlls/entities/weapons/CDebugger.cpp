@@ -15,6 +15,7 @@
 
 #include "CDebugger.h"
 #include "entities/player/CBasePlayer.h"
+#include "util/usermessages.h"
 
 LINK_ENTITY_TO_CLASS(weapon_debug, CDebugger);
 

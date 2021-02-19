@@ -16,8 +16,6 @@
 
 #include "entities/player/CBasePlayerItem.h"
 
-extern int gmsgWeapPickup;
-
 // inventory items that 
 class CBasePlayerWeapon : public CBasePlayerItem
 {

@@ -16,6 +16,7 @@
 #include "CRpg.h"
 #include "gamerules/CGameRules.h"
 #include "entities/player/CBasePlayer.h"
+#include "util/usermessages.h"
 
 #ifndef CLIENT_DLL
 #include "CRpgRocket.h"
@@ -286,8 +287,6 @@ void CRpg::WeaponIdle(void)
 {
     UpdateSpot();
 
-    ResetEmptySound();
-
     if (m_flTimeWeaponIdle > UTIL_WeaponTimeBase())
         return;
 
@@ -314,6 +313,7 @@ void CRpg::WeaponIdle(void)
             m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 3.0;
         }
 
+        ResetEmptySound();
         SendWeaponAnim(iAnim);
     }
     else

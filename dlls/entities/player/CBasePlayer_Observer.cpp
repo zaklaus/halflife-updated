@@ -18,9 +18,7 @@
 #include "entities/player/CBasePlayer.h"
 #include "entities/player/CBasePlayerItem.h"
 #include "pm_shared.h"
-
-extern int gmsgCurWeapon;
-extern int gmsgSetFOV;
+#include "util/usermessages.h"
 
 // Find the next client in the game for this player to spectate
 void CBasePlayer::Observer_FindNextPlayer(bool bReverse)

@@ -342,14 +342,20 @@ void CBasePlayerWeapon::ItemPostFrame( void )
 {
 	if ((m_fInReload) && (m_pPlayer->m_flNextAttack <= 0.0))
 	{
-#if 0 // FIXME, need ammo on client to make this work right
+#if 1
 		// complete the reload. 
-		int j = V_min( iMaxClip() - m_iClip, m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]);	
+		ItemInfo ii;
+
+		memset(&ii, 0, sizeof(ii));
+
+		GetItemInfo(&ii);
+
+		int j = V_min(ii.iMaxClip - m_iClip, m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]);
 
 		// Add them to the clip
 		m_iClip += j;
 		m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] -= j;
-#else	
+#else
 		m_iClip += 10;
 #endif
 		m_fInReload = FALSE;
@@ -837,7 +843,7 @@ void HUD_WeaponsPostThink( local_state_s *from, local_state_s *to, usercmd_t *cm
 	player.pev->deadflag = from->client.deadflag;
 	g_iWaterLevel = player.pev->waterlevel = from->client.waterlevel; //LRC - for DMC fog
 	player.pev->maxspeed    = from->client.maxspeed;
-	player.pev->fov = from->client.fov;
+	player.m_iFOV = from->client.fov;
 	player.pev->weaponanim = from->client.weaponanim;
 	player.pev->viewmodel = from->client.viewmodel;
 	player.m_flNextAttack = from->client.m_flNextAttack;
@@ -912,7 +918,7 @@ void HUD_WeaponsPostThink( local_state_s *from, local_state_s *to, usercmd_t *cm
 
 	// Copy in results of prediction code
 	to->client.viewmodel				= player.pev->viewmodel;
-	to->client.fov						= player.pev->fov;
+	to->client.fov                      = player.m_iFOV;
 	to->client.weaponanim				= player.pev->weaponanim;
 	to->client.m_flNextAttack			= player.m_flNextAttack;
 	to->client.fuser2					= player.m_flNextAmmoBurn;

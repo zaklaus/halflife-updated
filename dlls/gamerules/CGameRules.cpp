@@ -26,14 +26,13 @@
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"
 #include "game.h"
+#include "util/usermessages.h"
 
 extern edict_t* EntSelectSpawnPoint(CBaseEntity* pPlayer);
 
 DLL_GLOBAL CGameRules* g_pGameRules = NULL;
 
 extern DLL_GLOBAL BOOL g_fGameOver;
-extern int gmsgDeathMsg; // client dll messages
-extern int gmsgMOTD;
 
 int g_teamplay = 0;
 

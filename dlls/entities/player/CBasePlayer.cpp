@@ -132,6 +132,7 @@ TYPEDESCRIPTION CBasePlayer::m_playerSaveData[] =
     DEFINE_FIELD(CBasePlayer, m_tbdPrev, FIELD_TIME),
 
     DEFINE_FIELD(CBasePlayer, m_pTank, FIELD_EHANDLE), // NB: this points to a CFuncTank*Controls* now. --LRC
+    DEFINE_FIELD(CBasePlayer, m_hViewEntity, FIELD_EHANDLE),
     DEFINE_FIELD(CBasePlayer, m_iHideHUD, FIELD_INTEGER),
     DEFINE_FIELD(CBasePlayer, m_iFOV, FIELD_INTEGER),
     DEFINE_FIELD(CBasePlayer, viewEntity, FIELD_STRING),
@@ -174,6 +175,7 @@ TYPEDESCRIPTION CBasePlayer::m_playerSaveData[] =
     DEFINE_FIELD(CBasePlayer, m_bHasIntroPlayed, FIELD_BOOLEAN),
 };
 
+int giPrecacheGrunt = 0;
 
 Vector VecVelocityForDamage(float flDamage)
 {
@@ -573,7 +575,7 @@ void CBasePlayer::PackDeadPlayerItems(void)
     int iWeaponRules;
     int iAmmoRules;
     int i;
-    CBasePlayerWeapon* rgpPackWeapons[20]; // 20 hardcoded for now. How to determine exactly how many weapons we have?
+    CBasePlayerWeapon* rgpPackWeapons[MAX_WEAPONS];
     int iPackAmmo[MAX_AMMO_SLOTS + 1];
     int iPW = 0; // index into packweapons array
     int iPA = 0; // index into packammo array
@@ -947,7 +949,7 @@ void CBasePlayer::Killed(entvars_t* pevAttacker, int iGib)
     MESSAGE_END();
 
     // reset FOV
-    pev->fov = m_iFOV = m_iClientFOV = 0;
+    m_iFOV = m_iClientFOV = 0;
 
     viewEntity = 0;
     viewFlags = 0;
@@ -1477,7 +1479,6 @@ void CBasePlayer::StartObserver(Vector vecPosition, Vector vecViewAngle)
 
     // reset FOV
     m_iFOV = m_iClientFOV = 0;
-    pev->fov = m_iFOV;
     MESSAGE_BEGIN(MSG_ONE, gmsgSetFOV, NULL, pev);
     WRITE_BYTE(0);
     MESSAGE_END();
@@ -1909,6 +1910,18 @@ void CBasePlayer::PreThink(void)
         m_iHideHUD &= ~HIDEHUD_FLASHLIGHT;
     else
         m_iHideHUD |= HIDEHUD_FLASHLIGHT;
+
+    if (m_bResetViewEntity)
+    {
+        m_bResetViewEntity = false;
+
+        CBaseEntity* viewEntity = m_hViewEntity;
+
+        if (viewEntity)
+        {
+            SET_VIEW(edict(), viewEntity->edict());
+        }
+    }
 
 
     // JOHN: checks if new client data (for HUD and view control) needs to be sent to the client
@@ -2916,7 +2929,7 @@ void CBasePlayer::Spawn(void)
     g_engfuncs.pfnSetPhysicsKeyValue(edict(), "slj", "0");
     g_engfuncs.pfnSetPhysicsKeyValue(edict(), "hl", "1");
 
-    pev->fov = m_iFOV = 0; // init field of view.
+    m_iFOV = 0;// init field of view.
     m_iClientFOV = -1; // make sure fov reset is sent
 
     m_flNextDecalTime = 0; // let this player decal as soon as he spawns.
@@ -3110,6 +3123,8 @@ int CBasePlayer::Restore(CRestore& restore)
     //            Barring that, we clear it out here instead of using the incorrect restored time value.
     m_flNextAttack = UTIL_WeaponTimeBase();
 #endif
+
+    m_bResetViewEntity = true;
 
     return status;
 }
@@ -3396,8 +3411,6 @@ void CBasePlayer::ForceClientDllUpdate(void)
 ImpulseCommands
 ============
 */
-extern float g_flWeaponCheat;
-
 void CBasePlayer::ImpulseCommands()
 {
     TraceResult tr; // UNDONE: kill me! This is temporary for PreAlpha CDs
@@ -3479,7 +3492,7 @@ void CBasePlayer::ImpulseCommands()
 void CBasePlayer::CheatImpulseCommands(int iImpulse)
 {
 #if !defined( HLDEMO_BUILD )
-    if (g_flWeaponCheat == 0.0)
+    if (!g_psv_cheats->value)
     {
         return;
     }
@@ -4446,6 +4459,10 @@ Vector CBasePlayer::GetAutoaimVector(float flDelta)
             m_lasty = m_vecAutoAim.y;
         }
     }
+    else
+    {
+        ResetAutoaim();
+    }
 
     // ALERT( at_console, "%f %f\n", angles.x, angles.y );
 
@@ -4784,4 +4801,18 @@ BOOL CBasePlayer::SwitchWeapon(CBasePlayerItem* pWeapon)
     pWeapon->Deploy();
 #endif
     return TRUE;
+}
+
+void CBasePlayer::SetPrefsFromUserinfo(char* infobuffer)
+{
+    const char* value = g_engfuncs.pfnInfoKeyValue(infobuffer, "cl_autowepswitch");
+
+    if (*value)
+    {
+        m_iAutoWepSwitch = atoi(value);
+    }
+    else
+    {
+        m_iAutoWepSwitch = 1;
+    }
 }

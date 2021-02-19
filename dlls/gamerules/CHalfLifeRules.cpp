@@ -19,11 +19,9 @@
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"
 #include "util/findentity.h"
+#include "util/usermessages.h"
 
 extern DLL_GLOBAL BOOL g_fGameOver;
-extern int gmsgDeathMsg; // client dll messages
-extern int gmsgScoreInfo;
-extern int gmsgMOTD;
 
 //=========================================================
 //=========================================================

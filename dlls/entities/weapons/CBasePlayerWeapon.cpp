@@ -109,7 +109,7 @@ int CBasePlayerWeapon::ExtractAmmo(CBasePlayerWeapon* pWeapon)
 
     if (pszAmmo2() != NULL)
     {
-        iReturn = pWeapon->AddSecondaryAmmo(0, (char*)pszAmmo2(), iMaxAmmo2());
+        iReturn |= pWeapon->AddSecondaryAmmo(0, (char*)pszAmmo2(), iMaxAmmo2());
     }
 
     return iReturn;
@@ -227,7 +227,7 @@ BOOL CBasePlayerWeapon::CanDeploy(void)
 {
     BOOL bHasAmmo = 0;
 
-    if (!pszAmmo1())
+    if (!pszAmmo1() || iMaxAmmo1() == WEAPON_NOCLIP)
     {
         // this weapon doesn't use ammo, can always deploy.
         return TRUE;
@@ -235,11 +235,17 @@ BOOL CBasePlayerWeapon::CanDeploy(void)
 
     if (pszAmmo1())
     {
-        bHasAmmo |= (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] != 0);
+        bHasAmmo |= (m_pPlayer->m_rgAmmo[PrimaryAmmoIndex()] != 0);
     }
     if (pszAmmo2())
     {
-        bHasAmmo |= (m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType] != 0);
+        //Player has unlimited ammo for this weapon or does not use magazines
+        if (iMaxAmmo2() == WEAPON_NOCLIP)
+        {
+            return TRUE;
+        }
+
+        bHasAmmo |= (m_pPlayer->m_rgAmmo[SecondaryAmmoIndex()] != 0);
     }
     if (m_iClip > 0)
     {
@@ -527,7 +533,7 @@ int CBasePlayerWeapon::PrimaryAmmoIndex(void)
 //=========================================================
 int CBasePlayerWeapon::SecondaryAmmoIndex(void)
 {
-    return -1;
+    return m_iSecondaryAmmoType;
 }
 
 void CBasePlayerWeapon::PrintState(void)

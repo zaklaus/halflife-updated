@@ -36,8 +36,6 @@ public:
     void Reload(void) override;
     void WeaponIdle(void) override;
 
-    int m_fInZoom; // don't save this
-
     BOOL UseDecrement(void) override
     {
 #if defined( CLIENT_WEAPONS )

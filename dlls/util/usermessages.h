@@ -14,7 +14,6 @@
 ****/
 #pragma once
 
-extern int giPrecacheGrunt;
 extern int gmsgShake;
 extern int gmsgFade;
 extern int gmsgFlashlight;

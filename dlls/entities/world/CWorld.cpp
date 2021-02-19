@@ -29,7 +29,6 @@ extern CBaseEntity* g_pLastSpawn;
 extern void W_Precache(void); // weapon precache - weapons.cpp
 void I_Precache(void); // item precache
 
-float g_flWeaponCheat;
 BOOL g_allowGJump;
 BOOL g_startSuit; //LRC
 CWorld* g_pWorld = NULL; //LRC
@@ -40,7 +39,6 @@ void CWorld::Spawn(void)
 {
     g_fGameOver = FALSE;
     Precache();
-    g_flWeaponCheat = CVAR_GET_FLOAT("sv_cheats"); // Is the impulse 101 command allowed?
 }
 
 void CWorld::Precache(void)

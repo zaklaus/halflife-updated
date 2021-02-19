@@ -26,7 +26,6 @@ public:
 
     void PrimaryAttack(void) override;
     void SecondaryAttack(void) override;
-    int SecondaryAmmoIndex(void) override;
     BOOL Deploy(void) override;
     void Holster(int skiplocal = 0) override;
     void Reload(void) override;

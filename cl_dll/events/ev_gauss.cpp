@@ -160,37 +160,37 @@ void EV_FireGauss(event_args_t* args)
             }
             fFirstBeam = 0;
 
-            gEngfuncs.pEfxAPI->R_BeamEntPoint(
+			gEngfuncs.pEfxAPI->R_BeamEntPoint( 
                 idx | 0x1000,
                 tr.endpos,
                 m_iBeam,
                 0.1,
                 m_fPrimaryFire ? 1.0 : 2.5,
                 0.0,
-                m_fPrimaryFire ? 128.0 : flDamage,
+                (m_fPrimaryFire ? 128.0 : flDamage) / 255.0,
                 0,
                 0,
                 0,
-                m_fPrimaryFire ? 255 : 255,
-                m_fPrimaryFire ? 128 : 255,
-                m_fPrimaryFire ? 0 : 255
+                (m_fPrimaryFire ? 255 : 255) / 255.0,
+                (m_fPrimaryFire ? 128 : 255) / 255.0,
+                (m_fPrimaryFire ? 0 : 255) / 255.0
             );
         }
         else
         {
             gEngfuncs.pEfxAPI->R_BeamPoints(vecSrc,
-                                            tr.endpos,
-                                            m_iBeam,
-                                            0.1,
-                                            m_fPrimaryFire ? 1.0 : 2.5,
-                                            0.0,
-                                            m_fPrimaryFire ? 128.0 : flDamage,
-                                            0,
-                                            0,
-                                            0,
-                                            m_fPrimaryFire ? 255 : 255,
-                                            m_fPrimaryFire ? 128 : 255,
-                                            m_fPrimaryFire ? 0 : 255
+                tr.endpos,
+                m_iBeam,
+                0.1,
+                m_fPrimaryFire ? 1.0 : 2.5,
+                0.0,
+                (m_fPrimaryFire ? 128.0 : flDamage) / 255.0,
+                0,
+                0,
+                0,
+                (m_fPrimaryFire ? 255 : 255) / 255.0,
+                (m_fPrimaryFire ? 128 : 255) / 255.0,
+                (m_fPrimaryFire ? 0 : 255) / 255.0
             );
         }
 

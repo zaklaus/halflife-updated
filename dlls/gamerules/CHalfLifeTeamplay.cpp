@@ -17,16 +17,10 @@
 #include "entities/player/CBasePlayer.h"
 #include "game.h"
 #include "voice_gamemgr.h"
+#include "util/usermessages.h"
 
 extern cvar_t timeleft, fragsleft;
 extern CVoiceGameMgr g_VoiceGameMgr;
-
-extern int gmsgGameMode;
-extern int gmsgSayText;
-extern int gmsgTeamInfo;
-extern int gmsgTeamNames;
-extern int gmsgScoreInfo;
-extern int gmsgDeathMsg;
 
 static char team_names[MAX_TEAMS][MAX_TEAMNAME_LENGTH];
 static int team_scores[MAX_TEAMS];

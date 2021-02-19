@@ -17,8 +17,7 @@
 #include "weapons.h"
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"
-
-extern int gmsgItemPickup;
+#include "util/usermessages.h"
 
 LINK_ENTITY_TO_CLASS(item_battery, CItemBattery);
 

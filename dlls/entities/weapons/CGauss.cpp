@@ -19,6 +19,7 @@
 #include "gamerules/CGameRules.h"
 #include "entities/player/CBasePlayer.h"
 #include "util/skill.h"
+#include "util/usermessages.h"
 
 #ifndef CLIENT_DLL
 extern BOOL g_allowGJump; //AJH SP Gaussjump

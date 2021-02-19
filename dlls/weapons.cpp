@@ -19,6 +19,7 @@
 #include "weapons.h"
 #include "util/decals.h"
 #include "gamerules/CGameRules.h"
+#include "util/usermessages.h"
 
 extern int gEvilImpulse101;
 
@@ -33,8 +34,6 @@ DLL_GLOBAL  short        g_sModelIndexWExplosion;       // holds the index for t
 DLL_GLOBAL  short        g_sModelIndexBubbles;          // holds the index for the bubbles model
 DLL_GLOBAL  short        g_sModelIndexBloodDrop;        // holds the sprite index for the initial blood
 DLL_GLOBAL  short        g_sModelIndexBloodSpray;       // holds the sprite index for splattered blood
-
-extern int gmsgCurWeapon;
 
 MULTIDAMAGE gMultiDamage;
     

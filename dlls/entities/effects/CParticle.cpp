@@ -16,6 +16,7 @@
 #include "CParticle.h"
 #include "util/movewith.h"
 #include "entities/player/CBasePlayer.h"
+#include "util/usermessages.h"
 
 LINK_ENTITY_TO_CLASS(env_particle, CParticle);
 

@@ -18,6 +18,7 @@
 #include "customentity.h"
 #include "gamerules/CGameRules.h"
 #include "util/skill.h"
+#include "util/usermessages.h"
 
 enum egon_e
 {
@@ -486,9 +487,14 @@ void CEgon::DestroyEffect(void)
 
 void CEgon::WeaponIdle(void)
 {
+    if (!(m_pPlayer->m_afButtonPressed & IN_ATTACK2) && (m_pPlayer->pev->button & IN_ATTACK))
+    {
+        return;
+    }
+
     ResetEmptySound();
 
-    if (m_flTimeWeaponIdle > gpGlobals->time)
+    if (m_flTimeWeaponIdle > UTIL_WeaponTimeBase())
         return;
 
     if (m_fireState != FIRE_OFF)
