@@ -748,139 +748,132 @@ void CBasePlayer::RemoveAllItems(BOOL removeSuit)
 }
 
 //LRC
-void CBasePlayer::RemoveAmmo(const char* szName, int iAmount)
+void CBasePlayer::RemoveItems(const WeaponStripInfo& strip)
 {
-    //    ALERT(at_console, "RemoveAmmo(\"%s\", %d): \n", szName, iAmount);
+    // Track ammo that's already been removed from the player's stockpile
+    int removedFromStockpile[MAX_AMMO_SLOTS] = { 0 };
 
-    if (iAmount == -3 || iAmount == -1)
+    // Remove the stockpiled ammo from the player
+    for (auto i = 0; i < MAX_AMMO_SLOTS; i++)
     {
-        return;
-    }
-
-    int x = GetAmmoIndex(szName);
-
-    if (iAmount > 0)
-    {
-        m_rgAmmo[x] -= iAmount;
-        if (m_rgAmmo[x] < 0)
+        const auto remove = strip.ammoStrip[i];
+        // This loop only looks at the player's stockpiled ammo, not the ammo in weapons' clips, so AMMO_EMPTY_CLIP_ONLY is not important here
+        if (remove == WeaponStripInfo::AMMO_REMOVE_ALL || remove == WeaponStripInfo::AMMO_KEEP_CLIP_ONLY)
         {
-            m_rgAmmo[x] = 0;
-            //            ALERT(at_console, "Reduce to 0\n");
+            removedFromStockpile[i] += m_rgAmmo[i];
+            m_rgAmmo[i] = 0;
         }
-        //        else
-        //            ALERT(at_console, "Reduce\n");
-    }
-    else
-    {
-        //        ALERT(at_console, "All\n");
-        m_rgAmmo[x] = 0;
-    }
-}
-
-//LRC
-void CBasePlayer::RemoveItems(int iWeaponMask, int i9mm, int i357, int iBuck, int iBolt, int iARGren, int iRock, int iUranium, int iSatchel, int iSnark,
-                              int iTrip, int iGren, int iHornet)
-{
-    int i;
-    CBasePlayerItem* pCurrentItem;
-
-    // hornetgun is outside the spawnflags Worldcraft can set - handle it seperately.
-    if (iHornet) iWeaponMask |= 1 << WEAPON_HORNETGUN;
-    if (iSnark) iWeaponMask |= 1 << WEAPON_SNARK;
-    if (iTrip) iWeaponMask |= 1 << WEAPON_TRIPMINE;
-    if (iGren) iWeaponMask |= 1 << WEAPON_HANDGRENADE;
-    if (iSatchel) iWeaponMask |= 1 << WEAPON_SATCHEL;
-
-    RemoveAmmo("9mm", i9mm);
-    RemoveAmmo("357", i357);
-    RemoveAmmo("buckshot", iBuck);
-    RemoveAmmo("bolts", iBolt);
-    RemoveAmmo("ARgrenades", iARGren);
-    RemoveAmmo("uranium", iUranium);
-    RemoveAmmo("rockets", iRock);
-    RemoveAmmo("Satchel Charge", iSatchel);
-    RemoveAmmo("Snarks", iSnark);
-    RemoveAmmo("Trip Mine", iTrip);
-    RemoveAmmo("Hand Grenade", iGren);
-    RemoveAmmo("Hornets", iHornet);
-
-    for (i = 0; i < MAX_ITEM_TYPES; i++)
-    {
-        if (m_rgpPlayerItems[i] == NULL) continue;
-        pCurrentItem = m_rgpPlayerItems[i];
-        while (pCurrentItem->m_pNext)
+        else if (remove > 0)
         {
-            if (!(1 << pCurrentItem->m_pNext->m_iId & iWeaponMask))
+            removedFromStockpile[i] += V_min(m_rgAmmo[i], remove);
+            m_rgAmmo[i] -= removedFromStockpile[i];
+        }
+    }
+
+    // Remove loaded ammo from each weapon, and prepare to weapons to be removed from the inventory
+    CBasePlayerItem* removeItems[MAX_WEAPONS] = { nullptr };
+    auto removeIndex = 0;
+
+    // Loop through each item slot
+    for (auto& itemSlot : m_rgpPlayerItems)
+    {
+        if (!itemSlot) continue;
+
+        // Loop through the linked list of items in this slot
+        auto* item = itemSlot;
+        while (item)
+        {
+            auto* weapon = dynamic_cast<CBasePlayerWeapon*>(item);
+
+            const auto pai = item->PrimaryAmmoIndex();
+            const auto id = item->m_iId;
+            const auto hasClip = item->iMaxClip() != WEAPON_NOCLIP;
+            bool stripWeapon;
+
+            // If the weapon is exhaustible, we want to remove it if it has no ammo. Otherwise, we do whatever the mapper specified
+            if (pai > 0 && pai < MAX_AMMO_SLOTS && item->iFlags() & ITEM_FLAG_EXHAUSTIBLE) stripWeapon = m_rgAmmo[pai] <= 0;
+            else stripWeapon = strip.weaponStrip[id];
+
+            // If we're stripping this weapon from the player, add it to the strip array
+            if (stripWeapon) removeItems[removeIndex++] = item;
+
+            // Check what ammo this weapon uses and drain the clip if needed
+            // Secondary ammo doesn't have a clip, so only check the primary index here
+            if (weapon && pai >= 0 && pai < MAX_AMMO_SLOTS && hasClip)
             {
-                ((CBasePlayerWeapon*)pCurrentItem->m_pNext)->DrainClip(this, FALSE, i9mm, i357, iBuck, iBolt, iARGren, iRock, iUranium, iSatchel, iSnark, iTrip,
-                                                                       iGren);
-                //remove pCurrentItem->m_pNext from the list
-                //ALERT(at_console, "Removing %s. (id = %d)\n", pCurrentItem->m_pNext->pszName(), pCurrentItem->m_pNext->m_iId);
-                pCurrentItem->m_pNext->Drop();
-                if (m_pLastItem == pCurrentItem->m_pNext) m_pLastItem = NULL;
-                pCurrentItem->m_pNext = pCurrentItem->m_pNext->m_pNext;
+                const auto remove = strip.ammoStrip[pai];
+                // We've already drained the stockpiled ammo, so we only drain the clip if still required
+                if (remove == WeaponStripInfo::AMMO_REMOVE_ALL || remove == WeaponStripInfo::AMMO_EMPTY_CLIP_ONLY)
+                {
+                    removedFromStockpile[pai] += weapon->m_iClip;
+                    weapon->m_iClip = 0;
+                }
+                else if (remove > 0 && remove > removedFromStockpile[pai])
+                {
+                    // If the mapper requests to drain 50 bullets and 45 of them were pulled from the stockpile, only drain 5 from the clip
+                    const auto rem = V_min(weapon->m_iClip, remove - removedFromStockpile[pai]);
+                    removedFromStockpile[pai] += rem;
+                    weapon->m_iClip -= rem;
+                }
+                // If we're stripping this weapon, move any ammo still in the clip into the stockpile
+                if (stripWeapon && weapon->m_iClip > 0) m_rgAmmo[pai] += weapon->m_iClip;
             }
-            else
+
+            // Some weapons need to run some special logic after the ammo changes
+            // In the case of the hornet gun, it needs to reset the recharge time
+            if (!stripWeapon && weapon && pai >= 0 && pai < MAX_AMMO_SLOTS && removedFromStockpile[pai] > 0)
             {
-                //we're keeping this, so we need to empty the clip
-                ((CBasePlayerWeapon*)pCurrentItem->m_pNext)->DrainClip(this, TRUE, i9mm, i357, iBuck, iBolt, iARGren, iRock, iUranium, iSatchel, iSnark, iTrip,
-                                                                       iGren);
-                //now, leave pCurrentItem->m_pNext in the list and go on to the next
-                //ALERT(at_console, "Keeping %s. (id = %d)\n", pCurrentItem->m_pNext->pszName(), pCurrentItem->m_pNext->m_iId);
-                pCurrentItem = pCurrentItem->m_pNext;
+                weapon->OnAmmoOrClipChanged();
             }
-        }
-        // we've gone through items 2+, now we finish off by checking item 1.
-        if (!(1 << m_rgpPlayerItems[i]->m_iId & iWeaponMask))
-        {
-            ((CBasePlayerWeapon*)m_rgpPlayerItems[i])->DrainClip(this, FALSE, i9mm, i357, iBuck, iBolt, iARGren, iRock, iUranium, iSatchel, iSnark, iTrip,
-                                                                 iGren);
-            //ALERT(at_console, "Removing %s. (id = %d)\n", m_rgpPlayerItems[i]->pszName(), m_rgpPlayerItems[i]->m_iId);
-            m_rgpPlayerItems[i]->Drop();
-            if (m_pLastItem == m_rgpPlayerItems[i]) m_pLastItem = NULL;
-            m_rgpPlayerItems[i] = m_rgpPlayerItems[i]->m_pNext;
-        }
-        else
-        {
-            ((CBasePlayerWeapon*)m_rgpPlayerItems[i])->DrainClip(this, TRUE, i9mm, i357, iBuck, iBolt, iARGren, iRock, iUranium, iSatchel, iSnark, iTrip,
-                                                                 iGren);
-            //ALERT(at_console, "Keeping %s. (id = %d)\n", m_rgpPlayerItems[i]->pszName(), m_rgpPlayerItems[i]->m_iId);
+
+            // Onto the next weapon
+            item = item->m_pNext;
         }
     }
 
-    int suit = pev->weapons & 1 << WEAPON_SUIT;
-    pev->weapons &= ~(1 << WEAPON_SUIT);
-    //    ALERT(at_console, "weapons was %d; ", pev->weapons);
-    pev->weapons &= iWeaponMask;
-    //    ALERT(at_console, "now %d\n(Mask is %d)", pev->weapons, iWeaponMask);
-    if (suit && !(iWeaponMask & 1))
-        pev->weapons |= 1 << WEAPON_SUIT;
+    // Now we know which items we're dropping, so let's drop them
+    auto activeItemDropped = false;
 
-    // are we dropping the active item?
-    if (m_pActiveItem && !(1 << m_pActiveItem->m_iId & iWeaponMask))
+    for (auto* remove : removeItems)
     {
-        ResetAutoaim();
-        m_pActiveItem->Holster();
-        pev->viewmodel = 0;
-        pev->weaponmodel = 0;
-        m_pActiveItem = NULL;
+        if (!remove) break; // Everything past here in the array is nullptr
 
-        UpdateClientData();
-        // send Selected Weapon Message to our client
-        MESSAGE_BEGIN(MSG_ONE, gmsgCurWeapon, NULL, pev);
-        WRITE_BYTE(0);
-        WRITE_BYTE(0);
-        WRITE_BYTE(0);
+        const auto id = remove->m_iId;
+        if (m_pActiveItem == remove) activeItemDropped = true;
+
+        // Drop the item and remove it from the player's inventory
+        RemovePlayerItem(remove);
+        remove->Drop();
+        pev->weapons &= ~(1 << id);
+    }
+
+    // Remove the suit if needed
+    if (strip.removeSuit)
+    {
+        pev->weapons &= ~(1 << WEAPON_SUIT);
+    }
+
+    // We're done stripping ammo and weapons
+
+    // Lower the active weapon if it's out of ammo
+    auto* activeWeapon = dynamic_cast<CBasePlayerWeapon*>(m_pActiveItem);
+    if (activeWeapon && !activeWeapon->IsUseable())
+    {
+        activeWeapon->m_flTimeWeaponIdle = UTIL_WeaponTimeBase();
+    }
+
+    UpdateClientData();
+
+    // If we've dropped the active item, tell the client to remove the current weapon
+    if (activeItemDropped)
+    {
+        MESSAGE_BEGIN(MSG_ONE, gmsgCurWeapon, nullptr, pev);
+        {
+            WRITE_BYTE(0);
+            WRITE_BYTE(0);
+            WRITE_BYTE(0);
+        }
         MESSAGE_END();
-    }
-    else
-    {
-        if (m_pActiveItem && !((CBasePlayerWeapon*)m_pActiveItem)->IsUseable())
-        {
-            //lower the gun if it's out of ammo
-            ((CBasePlayerWeapon*)m_pActiveItem)->m_flTimeWeaponIdle = UTIL_WeaponTimeBase();
-        }
-        UpdateClientData();
     }
 }
 

@@ -72,9 +72,7 @@ public:
     virtual BOOL ShouldWeaponIdle(void) { return FALSE; };
     void Holster(int skiplocal = 0) override;
     virtual BOOL UseDecrement(void) { return FALSE; };
-
-    //LRC - used by weaponstrip
-    void DrainClip(CBasePlayer* pPlayer, BOOL keep, int i9mm, int i357, int iBuck, int iBolt, int iARGren, int iRock, int iUranium, int iSatchel, int iSnark, int iTrip, int iGren);
+    virtual void OnAmmoOrClipChanged() {}; // Called when ammo is forcably changed (e.g. by player_weaponstrip)
 
     int PrimaryAmmoIndex() override;
     int SecondaryAmmoIndex() override;

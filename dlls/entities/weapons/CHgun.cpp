@@ -268,6 +268,14 @@ void CHgun::Reload(void)
     }
 }
 
+void CHgun::OnAmmoOrClipChanged()
+{
+    // The client messes up when we have 0 hornets and it's not the active weapon
+    // Instantly recharge one hornet if we have none, and reset the recharge time
+    const auto curAmmo = m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType];
+    if (curAmmo == 0) m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]++;
+    m_flRechargeTime = gpGlobals->time + 0.5f;
+}
 
 void CHgun::WeaponIdle(void)
 {

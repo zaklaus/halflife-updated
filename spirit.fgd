@@ -4963,54 +4963,55 @@ sequence(Choices) : "Animation Sequence (editor)" : 10 =
     //NEW 0.6
     //* In each of these fields, either choose a preset value from the menu, or else specify
     //* a number of bullets to remove (e.g. 8).
-      bullets(choices) : "Take 9mm bullets" : 0 =
+    bullets(choices) : "Take 9mm bullets" : 0 =
     [
         0: "All"
         -2: "All except clips"
         -1: "Empty clips only"
         -3: "None"
     ]
-      magnum(choices) : "Take 357 bullets" : 0 =
+    magnum(choices) : "Take 357 bullets" : 0 =
     [
         0: "All"
         -2: "All except clip"
         -1: "Empty clip only"
         -3: "None"
     ]
-      shotgun(choices) : "Take shotgun ammo" : 0 =
+    shotgun(choices) : "Take shotgun ammo" : 0 =
     [
         0: "All"
         -2: "All except clip"
         -1: "Empty clip only"
         -3: "None"
     ]
-      crossbow(choices) : "Take crossbow bolts" : 0 =
+    crossbow(choices) : "Take crossbow bolts" : 0 =
     [
         0: "All"
         -2: "All except clip"
         -1: "Empty clip only"
         -3: "None"
     ]
-      argrenades(choices) : "Take AR grenades" : 0 =
+    argrenades(choices) : "Take AR grenades" : 0 =
     [
         0: "All"
-        -1: "None"
+        -3: "None"
     ]
-      rockets(choices) : "Take rockets" : 0 =
+    rockets(choices) : "Take rockets" : 0 =
     [
         0: "All"
         -2: "All except clip"
         -1: "Empty clip only"
         -3: "None"
     ]
-      uranium(choices) : "Take uranium ammo" : 0 =
+    uranium(choices) : "Take uranium ammo" : 0 =
     [
         0: "All"
-        -2: "All except clips"
-        -1: "Empty clips only"
+     // These options commented out as no uranium weapons with clips exist. Uncomment if you add such a weapon
+     // -2: "All except clips"
+     // -1: "Empty clips only"
         -3: "None"
     ]
-      satchels(choices) : "Take satchel charges" : 0 =
+    satchels(choices) : "Take satchel charges" : 0 =
     [
         0: "All"
         -3: "None"
@@ -5030,24 +5031,25 @@ sequence(Choices) : "Animation Sequence (editor)" : 10 =
         0: "All"
         -3: "None"
     ]
-    hornetgun(choices) : "Take Hornet Gun" : 0 =
+    hornetgun(choices) : "Take hornets" : 0 =
     [
-        0: "Gun & ammo"
-        -3: "Ammo"
-        -1: "None"
+        0: "All"
+        -3: "None"
     ]
     spawnflags(Flags) =
     [
-        1: "Remove suit" : 0
-        2: "Leave crowbar" : 0 
-        4: "Leave glock" : 0 
-        8: "Leave 357" : 0 
-        32: "Leave mp5" : 0 
-        128: "Leave crossbow" : 0 
-        256: "Leave shotgun" : 0 
-        512: "Leave rpg" : 0 
-        1024: "Leave gauss" : 0 
-        2048: "Leave egon" : 0 
+        1: "Remove suit from player" : 0
+        2: "Player keeps crowbar" : 0
+        4: "Player keeps glock" : 0
+        8: "Player keeps 357" : 0
+        16: "Player keeps mp5" : 0
+     // 32: "Player keeps chaingun" : 0
+        64: "Player keeps crossbow" : 0
+        128: "Player keeps shotgun" : 0
+        256: "Player keeps rpg" : 0
+        512: "Player keeps gauss" : 0
+        1024: "Player keeps egon" : 0
+        2048: "Player keeps hornetgun" : 0
     ]
 ]
 
@@ -5975,10 +5977,6 @@ sequence(Choices) : "Animation Sequence (editor)" : 10 =
 //
 // Weapons
 //
-//NEW 1.4
-@PointClass base(Weapon) = weapon_debug : "Debugger" []
-@PointClass size(-16 -16 0, 16 16 64) color(0 128 0) =  weapon_eagle : "Desert Eagle" []
-
 @PointClass size(-16 -16 0, 16 16 64) color(0 128 0) studio("models/w_weaponbox.mdl")=  weaponbox : "Weapon/Ammo Container" []
 @PointClass base(Weapon, Targetx, RenderFields) studio("models/w_357.mdl")= weapon_357 : "357 Handgun" []
 @PointClass base(Weapon, Targetx, RenderFields) studio("models/w_9mmar.mdl")= weapon_9mmAR : "9mm Assault Rifle" []

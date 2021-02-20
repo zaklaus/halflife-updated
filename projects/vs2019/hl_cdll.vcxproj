@@ -327,7 +327,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\weapons\CBasePlayerWeapon.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrossbow.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrowbar.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CDebugger.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CEgon.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CGauss.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CGlock.h" />

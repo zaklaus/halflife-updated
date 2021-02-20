@@ -407,7 +407,6 @@ EXIT /B 0</Command>
     <ClCompile Include="..\..\dlls\entities\weapons\CMP5.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CCrossbowBolt.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CSatchelCharge.cpp" />
-    <ClCompile Include="..\..\dlls\entities\weapons\CDebugger.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CTripmineGrenade.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CSqueakGrenade.cpp" />
     <ClCompile Include="..\..\dlls\entities\weapons\CPython.cpp" />
@@ -782,7 +781,6 @@ EXIT /B 0</Command>
     <ClInclude Include="..\..\dlls\entities\weapons\CWpnGeneric.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CCrossbowBolt.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h" />
-    <ClInclude Include="..\..\dlls\entities\weapons\CDebugger.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CTripmineGrenade.h" />
     <ClInclude Include="..\..\dlls\entities\weapons\CSqueakGrenade.h" />
     <ClInclude Include="..\..\dlls\extdll.h" />

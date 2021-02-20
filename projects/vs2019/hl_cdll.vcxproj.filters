@@ -482,9 +482,6 @@
     <ClInclude Include="..\..\dlls\entities\weapons\CCrowbar.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CDebugger.h">
-      <Filter>Header Files\dlls/entities/weapons</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CEgon.h">
       <Filter>Header Files\dlls/entities/weapons</Filter>
     </ClInclude>

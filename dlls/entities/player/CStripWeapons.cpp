@@ -100,26 +100,61 @@ void CStripWeapons::KeyValue(KeyValueData* pkvd)
         pkvd->fHandled = TRUE;
     }
     else
+    {
         CBaseEntity::KeyValue(pkvd);
+    }
+}
+
+void SetAmmoStrip(WeaponStripInfo& info, const char* ammoName, const int amount)
+{
+    const auto index = CBasePlayer::GetAmmoIndex(ammoName);
+    if (index < 0 || index > MAX_AMMO_SLOTS) return;
+    info.ammoStrip[index] = amount;
 }
 
 void CStripWeapons::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
-    CBasePlayer* pPlayer = NULL;
+    CBasePlayer* pPlayer = nullptr;
 
     if (pActivator && pActivator->IsPlayer())
     {
-        pPlayer = (CBasePlayer*)pActivator;
+        pPlayer = dynamic_cast<CBasePlayer*>(pActivator);
     }
     else if (!g_pGameRules->IsDeathmatch())
     {
-        pPlayer = (CBasePlayer*)CBaseEntity::Instance(g_engfuncs.pfnPEntityOfEntIndex(1));
+        pPlayer = dynamic_cast<CBasePlayer*>(CBaseEntity::Instance(g_engfuncs.pfnPEntityOfEntIndex(1)));
     }
 
-    if (pPlayer)
+    if (!pPlayer) return;
+
+    // Construct the weapon strip object
+    auto strip = WeaponStripInfo();
+
+    // Check spawnflags to see if the player keeps the weapons (or loses the suit)
+    for (auto i = 0; i < MAX_WEAPONS; i++)
     {
-        pPlayer->RemoveItems(pev->spawnflags, m_i9mm, m_i357, m_iBuck, m_iBolt,
-            m_iARGren, m_iRock, m_iUranium, m_iSatchel, m_iSnark, m_iTrip, m_iGren, m_iHornet);
-        //        pPlayer->RemoveAllItems( FALSE );
+        const auto flag = 1 << i;
+        if (pev->spawnflags & flag)
+        {
+            if (i == 0) strip.removeSuit = true;
+            else strip.weaponStrip[i] = false;
+        }
     }
+
+    // Set keyvalues for each ammo type
+    SetAmmoStrip(strip, "9mm", m_i9mm);
+    SetAmmoStrip(strip, "357", m_i357);
+    SetAmmoStrip(strip, "buckshot", m_iBuck);
+    SetAmmoStrip(strip, "bolts", m_iBolt);
+    SetAmmoStrip(strip, "ARgrenades", m_iARGren);
+    SetAmmoStrip(strip, "uranium", m_iUranium);
+    SetAmmoStrip(strip, "rockets", m_iRock);
+    SetAmmoStrip(strip, "Satchel Charge", m_iSatchel);
+    SetAmmoStrip(strip, "Snarks", m_iSnark);
+    SetAmmoStrip(strip, "Trip Mine", m_iTrip);
+    SetAmmoStrip(strip, "Hand Grenade", m_iGren);
+    SetAmmoStrip(strip, "Hornets", m_iHornet);
+
+    // Remove the weapons/ammo from the player
+    pPlayer->RemoveItems(strip);
 }

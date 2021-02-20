@@ -46,6 +46,8 @@ public:
 #endif
     }
 
+    void OnAmmoOrClipChanged() override;
+
 private:
     unsigned short m_usHornetFire;
 };

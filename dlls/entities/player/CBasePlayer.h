@@ -62,6 +62,26 @@ class CItemCamera; //AJH
 
 #define TEAM_NAME_LENGTH      16
 
+class WeaponStripInfo
+{
+public:
+    WeaponStripInfo() : ammoStrip{}, weaponStrip{}
+    {
+        removeSuit = false;                            // Default: don't remove suit
+        for (auto& i : ammoStrip) i = AMMO_REMOVE_ALL; // Default: remove all ammo
+        for (auto& i : weaponStrip) i = true;          // Default: remove all weapons
+    }
+
+    bool removeSuit;
+    int ammoStrip[MAX_AMMO_SLOTS];
+    bool weaponStrip[MAX_WEAPONS];
+
+    static const int AMMO_REMOVE_ALL = 0;
+    static const int AMMO_EMPTY_CLIP_ONLY = -1;
+    static const int AMMO_KEEP_CLIP_ONLY = -2;
+    static const int AMMO_REMOVE_NOTHING = -3;
+};
+
 typedef enum
 {
     PLAYER_IDLE,
@@ -242,9 +262,7 @@ public:
     void RenewItems(void);
     void PackDeadPlayerItems(void);
     void RemoveAllItems(BOOL removeSuit);
-    void RemoveItems(int iWeaponMask, int i9mm, int i357, int iBuck, int iBolt, int iARGren, int iRock, int iEgon, int iSatchel, int iSnark, int iTrip,
-                     int iGren, int iHornet);
-    void RemoveAmmo(const char* szName, int iAmount);
+    void RemoveItems(const WeaponStripInfo& strip);
     BOOL SwitchWeapon(CBasePlayerItem* pWeapon);
 
     // JOHN:  sends custom messages if player HUD data has changed  (eg health, ammo)

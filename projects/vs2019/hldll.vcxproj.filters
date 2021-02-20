@@ -620,9 +620,6 @@
     <ClCompile Include="..\..\dlls\entities\weapons\CSatchelCharge.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dlls\entities\weapons\CDebugger.cpp">
-      <Filter>Source Files\dlls\entities\weapons</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dlls\entities\weapons\CTripmineGrenade.cpp">
       <Filter>Source Files\dlls\entities\weapons</Filter>
     </ClCompile>
@@ -1742,9 +1739,6 @@
       <Filter>Header Files\dlls\entities\weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CSatchelCharge.h">
-      <Filter>Header Files\dlls\entities\weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\dlls\entities\weapons\CDebugger.h">
       <Filter>Header Files\dlls\entities\weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\..\dlls\entities\weapons\CTripmineGrenade.h">
