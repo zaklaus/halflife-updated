@@ -1266,8 +1266,46 @@ void CBaseMonster::StartTask(Task_t* pTask)
         }
     case TASK_PLAY_SCRIPT:
         {
-            pev->movetype = MOVETYPE_FLY;
-            ClearBits(pev->flags, FL_ONGROUND);
+            if (m_pCine->IsAction())
+            {
+                switch (m_pCine->m_fAction)
+                {
+                case 0:
+                    m_IdealActivity = ACT_RANGE_ATTACK1;
+                    break;
+                case 1:
+                    m_IdealActivity = ACT_RANGE_ATTACK2;
+                    break;
+                case 2:
+                    m_IdealActivity = ACT_MELEE_ATTACK1;
+                    break;
+                case 3:
+                    m_IdealActivity = ACT_MELEE_ATTACK2;
+                    break;
+                case 4:
+                    m_IdealActivity = ACT_SPECIAL_ATTACK1;
+                    break;
+                case 5:
+                    m_IdealActivity = ACT_SPECIAL_ATTACK2;
+                    break;
+                case 6:
+                    m_IdealActivity = ACT_RELOAD;
+                    break;
+                case 7:
+                    m_IdealActivity = ACT_HOP;
+                    break;
+                }
+                pev->framerate = 1.0; // shouldn't be needed, but just in case
+                pev->movetype = MOVETYPE_FLY;
+                ClearBits(pev->flags, FL_ONGROUND);
+            }
+            else
+            {
+                m_pCine->StartSequence(static_cast<CBaseMonster*>(this), m_pCine->m_iszPlay, TRUE);
+                if (m_fSequenceFinished)
+                    ClearSchedule();
+                pev->framerate = 1.0;
+            }
             m_scriptState = SCRIPT_PLAYING;
             break;
         }
@@ -1277,11 +1315,33 @@ void CBaseMonster::StartTask(Task_t* pTask)
             TaskComplete();
             break;
         }
+    //LRC
+    case TASK_END_SCRIPT:
+        {
+            m_pCine->SequenceDone(this);
+            TaskComplete();
+            break;
+        }
     case TASK_PLANT_ON_SCRIPT:
         {
-            if (m_hTargetEnt != NULL)
+            if (m_pCine != nullptr)
             {
-                pev->origin = m_hTargetEnt->pev->origin; // Plant on target
+                // Plant on script
+                // LRC - if it's a teleport script, do the turn too
+                if (m_pCine->m_fMoveTo == 4 || m_pCine->m_fMoveTo == 6)
+                {
+                    if (m_pCine->m_fTurnType == 0) //LRC
+                        pev->angles.y = m_hTargetEnt->pev->angles.y;
+                    else if (m_pCine->m_fTurnType == 1)
+                        pev->angles.y = UTIL_VecToYaw(m_hTargetEnt->pev->origin - pev->origin);
+                    pev->ideal_yaw = pev->angles.y;
+                    pev->avelocity = Vector(0, 0, 0);
+                    pev->velocity = Vector(0, 0, 0);
+                    pev->effects |= EF_NOINTERP;
+                }
+
+                if (m_pCine->m_fMoveTo != 6)
+                    pev->origin = m_pGoalEnt->pev->origin;
             }
 
             TaskComplete();
@@ -1289,9 +1349,22 @@ void CBaseMonster::StartTask(Task_t* pTask)
         }
     case TASK_FACE_SCRIPT:
         {
-            if (m_hTargetEnt != NULL)
+            if (m_pCine != nullptr && m_pCine->m_fMoveTo != 0) // movetype "no move" makes us ignore turntype
             {
-                pev->ideal_yaw = UTIL_AngleMod(m_hTargetEnt->pev->angles.y);
+                switch (m_pCine->m_fTurnType)
+                {
+                case 0:
+                    pev->ideal_yaw = UTIL_AngleMod(m_pCine->pev->angles.y);
+                    break;
+                case 1:
+                    // yes, this is inconsistent- turn to face uses the "target" and turn to angle uses the "cine".
+                    if (m_hTargetEnt)
+                        MakeIdealYaw(m_hTargetEnt->pev->origin);
+                    else
+                        MakeIdealYaw(m_pCine->pev->origin);
+                    break;
+                    // default: don't turn
+                }
             }
 
             TaskComplete();
