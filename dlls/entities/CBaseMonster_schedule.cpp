@@ -518,6 +518,15 @@ void CBaseMonster::RunTask(Task_t* pTask)
         break;
     case TASK_WAIT_FOR_SCRIPT:
         {
+            if (m_pCine->IsAction())
+            {
+                TaskComplete();
+                break;
+            }
+            if (m_fSequenceFinished)
+            {
+                m_IdealActivity = ACT_IDLE;
+            }
             if (m_pCine->m_iDelay <= 0 && gpGlobals->time >= m_pCine->m_startTime)
             {
                 TaskComplete();
@@ -525,7 +534,6 @@ void CBaseMonster::RunTask(Task_t* pTask)
                 if (m_fSequenceFinished)
                     ClearSchedule();
                 pev->framerate = 1.0;
-                //ALERT( at_aiconsole, "Script %s has begun for %s\n", STRING( m_pCine->m_iszPlay ), STRING(pev->classname) );
             }
             break;
         }
@@ -533,7 +541,16 @@ void CBaseMonster::RunTask(Task_t* pTask)
         {
             if (m_fSequenceFinished)
             {
-                m_pCine->SequenceDone(this);
+                if (m_pCine->m_iRepeatsLeft > 0)
+                {
+                    m_pCine->m_iRepeatsLeft--;
+                    pev->frame = m_pCine->m_fRepeatFrame;
+                    ResetSequenceInfo();
+                }
+                else
+                {
+                    TaskComplete();
+                }
             }
             break;
         }
@@ -894,7 +911,7 @@ void CBaseMonster::StartTask(Task_t* pTask)
         {
             Activity newActivity;
 
-            if ((m_hTargetEnt->pev->origin - pev->origin).Length() < 1)
+            if (!m_pGoalEnt || (m_pGoalEnt->pev->origin - pev->origin).Length() < 1)
                 TaskComplete();
             else
             {
@@ -907,10 +924,22 @@ void CBaseMonster::StartTask(Task_t* pTask)
                     TaskComplete();
                 else
                 {
-                    if (m_hTargetEnt == NULL || !MoveToTarget(newActivity, 2))
+                    if (m_pGoalEnt != nullptr)
+                    {
+                        Vector vecDest;
+                        vecDest = m_pGoalEnt->pev->origin;
+
+                        if (!MoveToLocation(newActivity, 2, vecDest))
+                        {
+                            TaskFail();
+                            ALERT(at_aiconsole, "%s Failed to reach script!!!\n", STRING(pev->classname));
+                            RouteClear();
+                        }
+                    }
+                    else
                     {
                         TaskFail();
-                        ALERT(at_aiconsole, "%s Failed to reach target!!!\n", STRING(pev->classname));
+                        ALERT(at_aiconsole, "%s: MoveTarget is missing!?!\n", STRING(pev->classname));
                         RouteClear();
                     }
                 }
@@ -1054,6 +1083,20 @@ void CBaseMonster::StartTask(Task_t* pTask)
             else
             {
                 // no way to get there =(
+                ALERT(at_aiconsole, "GetPathToSpot failed!!\n");
+                TaskFail();
+            }
+            break;
+        }
+    case TASK_GET_PATH_TO_SCRIPT:
+        {
+            RouteClear();
+            if (m_pCine != nullptr && MoveToLocation(m_movementActivity, 1, m_pCine->pev->origin))
+            {
+                TaskComplete();
+            }
+            else
+            {
                 ALERT(at_aiconsole, "GetPathToSpot failed!!\n");
                 TaskFail();
             }
@@ -1251,17 +1294,23 @@ void CBaseMonster::StartTask(Task_t* pTask)
         }
     case TASK_WAIT_FOR_SCRIPT:
         {
-            if (m_pCine->m_iszIdle)
+            if (m_pCine->IsAction())
             {
-                m_pCine->StartSequence((CBaseMonster*)this, m_pCine->m_iszIdle, FALSE);
-                if (FStrEq(STRING(m_pCine->m_iszIdle), STRING(m_pCine->m_iszPlay)))
-                {
-                    pev->framerate = 0;
-                }
+                TaskComplete();
+                break;
             }
-            else
+            if (m_fSequenceFinished)
+            {
                 m_IdealActivity = ACT_IDLE;
-
+            }
+            if (m_pCine->m_iDelay <= 0 && gpGlobals->time >= m_pCine->m_startTime)
+            {
+                TaskComplete();
+                m_pCine->StartSequence((CBaseMonster*)this, m_pCine->m_iszPlay, TRUE);
+                if (m_fSequenceFinished)
+                    ClearSchedule();
+                pev->framerate = 1.0;
+            }
             break;
         }
     case TASK_PLAY_SCRIPT:
