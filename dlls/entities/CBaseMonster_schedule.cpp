@@ -517,26 +517,24 @@ void CBaseMonster::RunTask(Task_t* pTask)
         }
         break;
     case TASK_WAIT_FOR_SCRIPT:
-        {
-            if (m_pCine->IsAction())
-            {
-                TaskComplete();
-                break;
-            }
-            if (m_fSequenceFinished)
-            {
-                m_IdealActivity = ACT_IDLE;
-            }
-            if (m_pCine->m_iDelay <= 0 && gpGlobals->time >= m_pCine->m_startTime)
-            {
-                TaskComplete();
-                m_pCine->StartSequence((CBaseMonster*)this, m_pCine->m_iszPlay, TRUE);
-                if (m_fSequenceFinished)
-                    ClearSchedule();
-                pev->framerate = 1.0;
-            }
-            break;
-        }
+		{
+			if (m_pCine->m_iDelay <= 0 && gpGlobals->time >= m_pCine->m_startTime)
+			{
+				TaskComplete(); //LRC - start playing immediately
+			}
+			else if (!m_pCine->IsAction() && m_pCine->m_iszIdle)
+			{
+				m_pCine->StartSequence(static_cast<CBaseMonster*>(this), m_pCine->m_iszIdle, FALSE);
+				if (FStrEq(STRING(m_pCine->m_iszIdle), STRING(m_pCine->m_iszPlay)))
+				{
+					pev->framerate = 0;
+				}
+			}
+			else
+				m_IdealActivity = ACT_IDLE;
+
+			break;
+		}
     case TASK_PLAY_SCRIPT:
         {
             if (m_fSequenceFinished)
